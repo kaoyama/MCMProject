@@ -19,6 +19,9 @@
             html { 
                 height: 100%;
             }
+            footer {
+                margin-left: 33%; 
+            }
             #content {
                 height: 100%;
                 padding: 0px;
@@ -26,7 +29,7 @@
             }
             #map_canvas {
                 background: #46a546;
-                border: 1px solid; 
+             /* border: 1px solid; */ 
                 padding-top: 60px;
                 float: right;
                 width: 70%;  
@@ -40,6 +43,18 @@
                 float: left; 
                 margin: 0px; 
                 padding: 10px;
+            }
+            #merchantLink
+            {
+                background: #ffffff;
+                padding: 5px;
+                margin: 0px;
+            }
+            #merchantLink:hover
+            {
+                background: #dff0d8;
+                padding: 5px;
+                margin: 0px;
             }
         </style>
 
@@ -147,14 +162,16 @@
                                 infowindow.open(map, this);
                             });
                             
-                            placesList.innerHTML += '<li>' + place.name + '</li>';
-                            placesList.innerHTML += '<br>***' + place.name + ': ' + place.url;
+                            // parse address
+                            var addr = place.formatted_address.split(",");
+                            
+                            placesList.innerHTML += '<div id="merchantLink"><a href=' + 
+                                place.url + '><b>' + place.name + '</b></a><br>' + 
+                                addr[0] + '<br>' + 
+                                place.formatted_phone_number + '</div>'; 
                         }
                         
                     });
-                    
-                    //placesList.innerHTML += '<li>' + place.name + '</li>';
-                    // placesList.innerHTML += '***' + place.url;
 
                     bounds.extend(place.geometry.location);
                 }
@@ -197,7 +214,7 @@
             <div id="leftSidebar">
                 <!-- List of merchants --> 
                 <h3>List of Nearby Merchants</h3>
-                <ol id="places"></ol>
+                <div id="places"></div>
                 <button id="more">More results</button>
             </div>
 
@@ -212,24 +229,22 @@
             <p>MoneyClip Mobile 2012</p>
         </footer>
 
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery-min.js"></script>
-    <script src="/assets/js/bootstrap-transition-min.js"></script>
-    <script src="/assets/js/bootstrap-alert-min.js"></script>
-    <script src="/assets/js/bootstrap-modal-min.js"></script>
-    <script src="/assets/js/bootstrap-dropdown-min.js"></script>
-    <script src="/assets/js/bootstrap-scrollspy-min.js"></script>
-    <script src="/assets/js/bootstrap-tab-min.js"></script>
-    <script src="/assets/js/bootstrap-tooltip-min.js"></script>
-    <script src="/assets/js/bootstrap-popover-min.js"></script>
-    <script src="/assets/js/bootstrap-button-min.js"></script>
-    <script src="/assets/js/bootstrap-collapse-min.js"></script>
-    <script src="/assets/js/bootstrap-carousel-min.js"></script>
-    <script src="/assets/js/bootstrap-typeahead-min.js"></script>
-</body>
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/assets/js/jquery-min.js"></script>
+        <script src="/assets/js/bootstrap-transition-min.js"></script>
+        <script src="/assets/js/bootstrap-alert-min.js"></script>
+        <script src="/assets/js/bootstrap-modal-min.js"></script>
+        <script src="/assets/js/bootstrap-dropdown-min.js"></script>
+        <script src="/assets/js/bootstrap-scrollspy-min.js"></script>
+        <script src="/assets/js/bootstrap-tab-min.js"></script>
+        <script src="/assets/js/bootstrap-tooltip-min.js"></script>
+        <script src="/assets/js/bootstrap-popover-min.js"></script>
+        <script src="/assets/js/bootstrap-button-min.js"></script>
+        <script src="/assets/js/bootstrap-collapse-min.js"></script>
+        <script src="/assets/js/bootstrap-carousel-min.js"></script>
+        <script src="/assets/js/bootstrap-typeahead-min.js"></script>
+    </body>
 </html>
 
