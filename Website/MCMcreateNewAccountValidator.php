@@ -1,41 +1,42 @@
 <?php
 session_start();
     //Database conncetion variables    
-    $host = "acadgpl.ucc.nau.edu";
+    $host = "localhost";
     $user = "kd268";                
     $password = "capstone";    
-    $dbase = "kd268";               
+    $dbase = "test";               
 
     //account variables
     $fields = array("userName" => "User Name: ",
                         "pwd" => "Password: ",
                         "pwdConfirmation" => "Confirm Password: ",
-                        "customerName" => "Name: ",
+                        "firstName" => "First Name: ",
+                        "lastName" => "Last Name: ",
                         "email" => "E-Mail: ",
                         "bDayYear" => "Year: ",
                         "bDayMonth" => "Month: ",
                         "bDay" => "Day: ",
-                        "studentStatus" => "Student?",
+                        "student" => "Student?",
                         "gender" => "Gender? ");
-    $months = array("01" => "Jan",
-                    "02" => "Feb",
-                    "03" => "Mar",
-                    "04" => "Apr",
-                    "05" => "May",
-                    "06" => "Jun",
-                    "07" => "Jul",
-                    "08" => "Aug",
-                    "09" => "Sep",
-                    "10" => "Oct",
-                    "11" => "Nov",
-                    "12" => "Dec");
+    $months = array("Jan" => "01",
+                    "Feb" => "02",
+                    "Mar" => "03",
+                    "Apr" => "04",
+                    "May" => "05",
+                    "06" => "06",
+                    "Jun" => "07",
+                    "Jul" => "08",
+                    "Sep" => "09",
+                    "Oct" => "10",
+                    "Nov" => "11",
+                    "Dec" => "12");
     
     $studentStatus = FALSE;
-    $logInName = 'kimi';
-    $logInPwd = 'kimi';
+    $logInName = 'boo';
+    $logInPwd = 'boo';
 
    // Make connection
-   $cxn = mysql_connect($host,$user,$password) or die ("No connection possible");
+   $cxn = mysql_connect($host) or die ("No connection possible");
 
    // Test Connection
    $dbr = mysql_select_db($dbase,$cxn)or die(mysql_error());
@@ -63,8 +64,10 @@ session_start();
                     $logInPwd = $_POST[$field];
                 elseif ($field === "pwdConfirmation")
                     $pwdConfirmation = $_POST[$field];
-                elseif ($field === "CustomerName")
-                    $name = $_POST[$field];
+                elseif ($field === "firstName")
+                    $fname = $_POST[$field];
+                elseif ($field === "lastName")
+                    $lname = $_POST[$field];
                 elseif ($field === "email") {
                     if (!ereg("^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+.(com|edu|org|gov)$",$value)){//"^.+@.+\.(com | edu | gov | org)$",$value))) {
                         $validInput = FALSE;
@@ -78,13 +81,14 @@ session_start();
                     $year = $_POST[$field];
                 }
                 elseif ($field === "bDayMonth") {
-                    $month = $_POST[$field];
+                    $month = $months[$_POST[$field]];
                 }
                 elseif ($field === "bDay") {
                     //check for number
                     $day = $_POST[$field];
                 }
-                elseif ($field === "student") {
+                elseif ($field === "studentState") {
+                    echo "gothere";
                     $studentStatus = TRUE;
                 }
                 elseif ($field === "gender") {
@@ -92,7 +96,9 @@ session_start();
                 }
             }
         }
-        $birthday = $year.'-'.$month.'-'.$day;
+        $birthday = $year."-".$month."-".$day;
+        $name = $fname." ".$lname;
+        
         if ($logInPwd != $pwdConfirmation) {
             $validInput = FALSE;
         }
@@ -106,19 +112,22 @@ session_start();
 
             $result = mysql_query($sqlQuery,$cxn);
 
-            // no users with that login info
+            // no users with that username
             if(mysql_num_rows($result) < 1)
             {
                 //Insert new user
                 $sqlQuery = "INSERT INTO customers 
                              (userName, pwd, customerName, birthday, gender, student) 
                              VALUES ('$logInName', '$logInPwd', '$name',
-                                     '$birthday', '$customerGender', '$studentStatus')";
+                                     '$birthday', '$customerGender',";
+                if($studentStatus)
+                    $sqlQuery = $sqlQuery." TRUE)";
+                else
+                    $sqlQuery = $sqlQuery." FALSE)";
 echo "$sqlQuery";
                 $result = mysql_query($sqlQuery,$cxn);
-
-
-                header('Location: homePage.php');
+                
+               // header('Location: MCMhomePage.php');
 
             }
             //duplicate user name

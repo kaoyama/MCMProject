@@ -2,21 +2,11 @@
 <!-- Validation goes before menues. -->
 <?php
 
-    /* Program: mysql_connect.php
-     * Desc:    Connects to MySQL Server and 
-     *          outputs tables if any, to show
-     *          that it is working.
-     * 
-     * Author: Patrick Kelley 2012
-
-    echo "<html>
-    <head><title>Test MySQL</title></head>
-    <body>";  */
     //Database conncetion variables    
-    $host = "acadgpl.ucc.nau.edu";
+    $host = "localhost";
     $user = "kd268";                
     $password = "capstone";    
-    $dbase = "kd268";               
+    $dbase = "test";               
 
     //Log in variables
     $fields = array("userName" => "Your User Name:",
@@ -38,7 +28,7 @@
    // This code should connect.  If you get 'No connection possible', check your
    // userid and password.  Be sure you are using the password for your database,
    // which you specified when you requested the database.
-   $cxn = mysql_connect($host,$user,$password) or die ("No connection possible");
+   $cxn = mysql_connect($host) or die ("No connection possible");
 
    // This code should select your database.  I've given it two chances to report
    // the error.  If it fails, check the database name or call ITS for help.
@@ -91,7 +81,7 @@
                                <h2>Log In</h2>
                                <h3>Please enter your User Name and Password. 
                                     <br/> The grader will be able to see your Login information.</h3>
-                               <form action='loginValidator.php' method='POST'>";
+                               <form action='MCMloginValidator.php' method='POST'>";
                        
             /* Loop that displays the form fields */
             foreach ($fields as $field => $label) {

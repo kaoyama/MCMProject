@@ -92,11 +92,11 @@
                             echo "<input type='password' name='$field' id='$field' />\n";
                         } elseif ($field === "gender") {
                             echo "<input type='radio' name='gender' id='$field'
-                              value='female' />Female\n";
+                              value='f' />Female\n";
                             echo "<input type='radio' name='gender' id='$field'
-                              value='male' />Male\n";
+                              value='m' />Male\n";
                         } elseif ($field === "student") {
-                            echo "<input type = 'checkbox' name = 'subscribe'/>";
+                            echo "<input type = 'checkbox' name = 'studentState'/>";
                         } elseif ($field === "bDayYear") {
                             echo "<input type='text' name='$field' id='$field'
                                   size='4' maxlength='4' />\n";
