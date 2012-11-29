@@ -96,7 +96,7 @@
                             echo "<input type='radio' name='gender' id='$field'
                               value='m' />Male\n";
                         } elseif ($field === "student") {
-                            echo "<input type = 'checkbox' name = 'studentState'/>";
+                            echo "<input type = 'checkbox' name = 'subscribe'/>";
                         } elseif ($field === "bDayYear") {
                             echo "<input type='text' name='$field' id='$field'
                                   size='4' maxlength='4' />\n";

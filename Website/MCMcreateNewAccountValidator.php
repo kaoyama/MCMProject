@@ -31,7 +31,7 @@ session_start();
                     "Nov" => "11",
                     "Dec" => "12");
     
-    $studentStatus = FALSE;
+    $studentStatus = "no";
     $logInName = 'boo';
     $logInPwd = 'boo';
 
@@ -87,9 +87,8 @@ session_start();
                     //check for number
                     $day = $_POST[$field];
                 }
-                elseif ($field === "studentState") {
-                    echo "gothere";
-                    $studentStatus = TRUE;
+                elseif ($field === "subscribe") {
+                    $studentStatus = "yes";
                 }
                 elseif ($field === "gender") {
                     $customerGender = $_POST[$field];
@@ -120,14 +119,14 @@ session_start();
                              (userName, pwd, customerName, birthday, gender, student) 
                              VALUES ('$logInName', '$logInPwd', '$name',
                                      '$birthday', '$customerGender',";
-                if($studentStatus)
+                if($studentStatus === "yes")
                     $sqlQuery = $sqlQuery." TRUE)";
                 else
                     $sqlQuery = $sqlQuery." FALSE)";
-echo "$sqlQuery";
+                
                 $result = mysql_query($sqlQuery,$cxn);
                 
-               // header('Location: MCMhomePage.php');
+                header('Location: MCMhomePage.php');
 
             }
             //duplicate user name
