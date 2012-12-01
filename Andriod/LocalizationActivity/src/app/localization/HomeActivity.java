@@ -26,7 +26,7 @@ public class HomeActivity extends Activity {
  
             public void onClick(View arg0) {
                 //Starting a new Intent
-                Intent mapScreen = new Intent(getApplicationContext(), HelloGoogleMaps.class);
+                Intent mapScreen = new Intent(getApplicationContext(), MerchantMap.class);
  
                 startActivity(mapScreen);
  
