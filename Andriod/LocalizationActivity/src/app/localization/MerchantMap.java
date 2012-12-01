@@ -3,21 +3,16 @@ package app.localization;
 
 import java.util.List;
 
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.widget.TextView;
+
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 
 public class MerchantMap extends MapActivity {
     /** Called when the activity is first created. */
