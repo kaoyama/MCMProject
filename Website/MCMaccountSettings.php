@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script type="text/javascript" src="settingsOptions.js"></script>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,30 @@
             padding: 0px;
             padding-left: 20px;
             margin: 10px;
+        }
+        #leftSidebar
+        {
+            background: #FFFFFF;
+            width: 20%; 
+            float: left; 
+            margin: 0px; 
+            padding: 10px;
+        }
+        #adSection
+        {
+            background: #FFFFFF;
+            width: 20%; 
+            float: left; 
+            margin: 0px; 
+            padding: 10px;
+        }
+        #couponSection
+        {
+            background: #FFFFFF;
+            width: 20%; 
+            float: left; 
+            margin: 0px; 
+            padding: 10px;
         }
     </style>
 
@@ -52,8 +77,21 @@
         <div id="container">
 
             <h2>Edit Account Settings</h2>
+            
+            <label for="locatlization">Localization?</label>
+            <input type = 'checkbox' name = 'localization'/>
+            
+            <label for="ads">Ads?</label>
+            <input type='radio' name='ads' id='noAds' value='none' onclick="return noAdsDisplay()"/>No Ads <br />
+            <input type='radio' name='ads' id='someAds' value='some' onclick="return selectAds()"/>Select Ads <br />
+            <input type='radio' name='ads' id='allAds' value='all' checked="checked" onclick="return allAds()" />All Ads
+            
+            <label for="coupons">Coupons?</label>
+            <input type='radio' name='coupons' id='noCoupons' value='none' onclick="return noCouponsDisplay()"/>No Coupons <br />
+            <input type='radio' name='coupons' id='someCoupons' value='some' onclick="return selectCoupons()"/>Select Coupons <br />
+            <input type='radio' name='coupons' id='allCoupons' value='all' checked="checked" onclick="return allCoupons()" />All Coupons
 
-
+            <div id="stuff"></div>
             <hr>
             <footer>
                 <p>MoneyClip Mobile 2012</p>
@@ -61,3 +99,4 @@
         </div>
     </body>
 </html>
+
