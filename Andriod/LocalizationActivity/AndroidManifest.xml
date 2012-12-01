@@ -24,7 +24,8 @@
         </activity>
         <activity android:name="app.localization.HomeActivity" >
         </activity>
-        <activity android:name=".HelloGoogleMaps" >
+        <activity android:name=".HelloGoogleMaps" 
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
     </application>
 
