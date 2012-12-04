@@ -36,6 +36,18 @@ public class HomeActivity extends Activity {
             }
         });
         
+        Button merchantButton = (Button) findViewById(R.id.merchantButton);
+        
+        //Listening to button event
+        merchantButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View arg0) {
+        		// Starting a new intent
+        		Intent merchantScreen = new Intent(getApplicationContext(), Merchant.class);
+        		
+        		startActivity(merchantScreen); 
+        	}
+        });
+        
         final Button gpsButton = (Button) findViewById(R.id.gpsButton);
         
         //Listening to button event

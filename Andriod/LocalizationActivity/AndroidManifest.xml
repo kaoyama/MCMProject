@@ -25,6 +25,8 @@
         </activity>
         <activity android:name="app.localization.HomeActivity" >
         </activity>
+        <activity android:name="app.localization.Merchant" >
+        </activity>
         <activity android:name="app.localization.MerchantMap" 
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
