@@ -2,12 +2,15 @@ package app.localization;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.Color;
+import android.location.*;
+
 
 public class HomeActivity extends Activity {
     /** Called when the activity is first created. */
@@ -30,6 +33,54 @@ public class HomeActivity extends Activity {
  
                 startActivity(mapScreen);
  
+            }
+        });
+        
+        final Button gpsButton = (Button) findViewById(R.id.gpsButton);
+        
+        //Listening to button event
+        gpsButton.setOnClickListener(new View.OnClickListener(){
+ 
+            public void onClick(View arg0) {
+            	LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            
+            	LocationListener myLocationListener=new LocationListener() {
+                    public void onLocationChanged(Location loc) {
+                        //sets and displays the lat/long when a location is provided
+                        String latlong = "Lat: " + loc.getLatitude() + " Long: " + loc.getLongitude();   
+                        gpsButton.setText(latlong);
+                    }
+                     
+                    public void onProviderDisabled(String provider) {
+                    // required for interface, not used
+                    }
+                     
+                    public void onProviderEnabled(String provider) {
+                    // required for interface, not used
+                    }
+                     
+                    public void onStatusChanged(String provider, int status,
+                    Bundle extras) {
+                    // required for interface, not used
+                    }
+                };
+					
+					String mlocProvider;
+					Criteria hdCrit = new Criteria();
+					
+					hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
+					
+					mlocProvider = locationManager.getBestProvider(hdCrit, true);
+					
+					locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
+					Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
+					locationManager.removeUpdates(myLocationListener);
+ 
+					double currentLat = currentLocation.getLatitude();
+					double currentLon = currentLocation.getLongitude();
+					
+					gpsButton.setText(currentLat + ", " + currentLon);
+					
             }
         });
         
