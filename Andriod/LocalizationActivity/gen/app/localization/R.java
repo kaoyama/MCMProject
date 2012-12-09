@@ -15,6 +15,7 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int databaseText=0x7f05000a;
         public static final int gpsButton=0x7f050003;
         public static final int loginButton=0x7f050008;
         public static final int logoutButton=0x7f050005;

@@ -27,6 +27,8 @@ public class MerchantMap extends MapActivity {
 	double longitude; 
 	static long MILLION = 1000000; 
 	MapView mapView;
+	MerchantMapItemOverlay itemizedOverlay;
+	List<Overlay> mapOverlays;
 
 	/**
 	 * Returns if it is currently displaying the route information.
@@ -84,6 +86,9 @@ public class MerchantMap extends MapActivity {
 				// Set default zoom
 				MapController mapController = mapView.getController();
 				mapController.setCenter(point); 
+				
+				itemizedOverlay.addOverlay(overlayitem); 
+				mapOverlays.add(itemizedOverlay);     
 			}
 
 			public void onProviderDisabled(String provider) {
@@ -107,7 +112,7 @@ public class MerchantMap extends MapActivity {
 
 		mlocProvider = locationManager.getBestProvider(hdCrit, true);
 
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
+		//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
 		Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
 
 		latitude = currentLocation.getLatitude();

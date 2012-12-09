@@ -4,5 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="List of Merchants" />
+    
+    <EditText
+        android:id="@+id/databaseText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Default String" />
 
 </LinearLayout>
