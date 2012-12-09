@@ -89,7 +89,6 @@ $host = "localhost";
    //$merchants
    //if there are none, no one has ads
    if (mysql_num_rows($adMerchants) < 1){
-       //you are not subscribed to any merchants for ads
        $noAdMerchant = "You are not subscribed to get any ads from any merchants.";
    }
    else {
@@ -100,20 +99,15 @@ $host = "localhost";
        {
            if ($adRow[$i] != "" && $adRow[$i] != null)
            {
-           $adMerchantList = $adMerchantList.$adRow[$i]."#";
+               $adMerchantList = $adMerchantList.$adRow[$i]."#";
            }
        }
-              // echo "<h2>$adMerchantList</h2>";
-       
    }
-   $stringthing = "hi";
-   $adMerchantList = $adMerchantList.$stringthing;
    $getCouponMerchants = "SELECT * FROM subscribedForCoupons WHERE userName = '$user'";
    $couponMerchants = mysql_query($getCouponMerchants, $cxn);
    $couponMerchantList = "";
    if (mysql_num_rows($couponMerchants) < 1)
    {
-       //you are not subscribed to any merchants for coupons
        $noCouponMerchant = "You are not subscribed to get any coupons from any merchants.";
    }
    else
@@ -126,27 +120,36 @@ $host = "localhost";
            if ($couponRow[$i] != "" && $couponRow[$i] != null)
            {
                $couponMerchantList = $couponMerchantList.$couponRow[$i]."#";
-               $blah = sizeof($couponRow[$i]);
-              // echo "row: $i   size  $blah";
            }
            
        }
-      // echo "<h2>$couponMerchantList</h2>";
+      
    }
   
-//put them in an array
+if (isset($_GET['run'])){
+    //use post stuff
+    //build sql query
+    if ($_GET['run'] === "saveCouponData")
+    $saveQuery = "INSERT INTO subscribedForCoupon";
+    foreach ($_POST as $field => $value) {
+        
+    }
+}
  ?>  
     <body>
 
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <a class="btn btn-navbar" data-toggle="collapse" 
+                       data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/index.html"><img src="./assets/img/MoneyclipMobile_Logo_36x197.png" height="36" width="197"></img></a>
+                    <a class="brand" href="/index.html">
+                        <img src="./assets/img/MoneyclipMobile_Logo_36x197.png" 
+                             height="36" width="197"></img></a>
                     <div class="nav-collapse">
                         <ul class="nav">
                             <li><a href="/index.html">Home</a></li>
@@ -166,22 +169,30 @@ $host = "localhost";
             <div id="leftSidebar">
                 <h3>Account Options</h3>
             <label for="locatlization">Localization?</label>
-            <input type = 'checkbox' name = 'localization'/>
+            <input type = 'checkbox' name = 'localization' id='localization'
+                   onclick="return buttonState()" checked="checked"/>
             
             <label for="ads">Ads?</label>
-            <input type='radio' name='ads' id='noAds' value='none' onclick="return noAdsDisplay()"/>No Ads <br />
+            <input type='radio' name='ads' id='noAds' value='none' 
+                   onclick="return noAdsDisplay()"/>No Ads <br />
             <input type='radio' name='ads' id='someAds' value='some' onclick=
                 <?php 
-                echo "'return selectAds(\"$adMerchantList\")'/>Select Ads <br />"
+                echo "'return selectAds(\"$adMerchantList\")'/>Select Ads 
+                    <br />"
                 ?>
-            <input type='radio' name='ads' id='allAds' value='all' checked="checked" onclick="return allAds()" />All Ads
+            <input type='radio' name='ads' id='allAds' value='all' 
+            checked="checked" onclick="return allAds()" />All Ads
             <label for="coupons">Coupons?</label>
-            <input type='radio' name='coupons' id='noCoupons' value='none' onclick="return noCouponsDisplay()"/>No Coupons <br />
-            <input type='radio' name='coupons' id='someCoupons' value='some' onclick=
+            <input type='radio' name='coupons' id='noCoupons' value='none' 
+                   onclick="return noCouponsDisplay()"/>No Coupons <br />
+            <input type='radio' name='coupons' id='someCoupons' value='some' 
+                   onclick=
             <?php
-            echo "'return selectCoupons(\"$couponMerchantList\")'/>Select Coupons <br />"
+            echo "'return selectCoupons(\"$couponMerchantList\")'/>Select 
+                Coupons <br />"
             ?>
-            <input type='radio' name='coupons' id='allCoupons' value='all' checked="checked" onclick="return allCoupons()" />All Coupons
+            <input type='radio' name='coupons' id='allCoupons' value='all' 
+            checked="checked" onclick="return allCoupons()" />All Coupons
             </div>
             <div id="adSection"><h3>Advertisement Options</h3></div>
             <div id="couponSection"><h3>Coupon Options</h3></div>
