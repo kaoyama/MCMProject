@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, LocalizationActivity!</string>
-    <string name="app_name">Localization</string>
+    <string name="app_name">MerchantLocalization</string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
     <string name="LogIn">Log In</string>

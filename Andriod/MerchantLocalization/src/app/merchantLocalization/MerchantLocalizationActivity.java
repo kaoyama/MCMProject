@@ -1,4 +1,4 @@
-package app.localization;
+package app.merchantLocalization;
 
 
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LocalizationActivity extends Activity {
+public class MerchantLocalizationActivity extends Activity {
     /** Called when the activity is first created. */
 	EditText inputUserName;
     EditText inputPassword;

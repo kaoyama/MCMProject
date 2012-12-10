@@ -1,4 +1,4 @@
-package app.localization;
+package app.merchantLocalization;
 
 
 import android.app.Activity;
@@ -29,9 +29,23 @@ public class HomeActivity extends Activity {
 
 			public void onClick(View arg0) {
 				//Starting a new Intent
-				Intent homeScreen = new Intent(getApplicationContext(), LocalizationActivity.class);
+				Intent homeScreen = new Intent(getApplicationContext(), MerchantLocalizationActivity.class);
 
 				startActivity(homeScreen);
+
+			}
+		});
+		
+		Button accountSettingsButton = (Button) findViewById(R.id.accountSettingsButton);
+
+		//Listening to button event
+		accountSettingsButton.setOnClickListener(new View.OnClickListener(){
+
+			public void onClick(View arg0) {
+				//Starting a new Intent
+				Intent accountSettingsScreen = new Intent(getApplicationContext(), AccountSettingsActivity.class);
+
+				startActivity(accountSettingsScreen);
 
 			}
 		});
