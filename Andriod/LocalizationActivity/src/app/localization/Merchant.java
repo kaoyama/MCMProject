@@ -93,7 +93,7 @@ public class Merchant extends Activity {
 			// ipconfig 
 			// Look at 10.1.64.169
 			//HttpGet httpGet = new HttpGet("http://10.1.64.169/PHPQuery.php");
-			HttpGet httpGet = new HttpGet("http://dana.ucc.nau.edu/~cs854/PHPQuery.php");
+			HttpGet httpGet = new HttpGet("http://dana.ucc.nau.edu/~cs854/PHPGetNearbyCustomers.php");
 			String text = null;
 			try {
 
