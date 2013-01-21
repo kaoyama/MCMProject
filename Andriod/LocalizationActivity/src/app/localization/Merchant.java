@@ -38,13 +38,6 @@ import android.widget.Toast;
  * Need service-oriented architecture and needs three elements: 
  * external database, web-service, mobile web-service client. 
  * @author Chihiro
- * 
- * 
- * Notes:
- * For connection to work, Apache server must be handled to start PHP. 
- * Also, make sure NAU Wi-Fi is connected on the device. 
- * 
- * IP address changes for each Wi-Fi access! 
  *
  */
 

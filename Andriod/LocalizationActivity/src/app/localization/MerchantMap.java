@@ -32,6 +32,10 @@ public class MerchantMap extends MapActivity {
 
 	/**
 	 * Returns if it is currently displaying the route information.
+	 * 
+	 * Google Maps API key is placed in: 
+	 * res/layout/map.xml
+	 * 
 	 */
 	@Override
 	protected boolean isRouteDisplayed() {

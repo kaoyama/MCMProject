@@ -67,11 +67,15 @@ public class HomeActivity extends Activity {
 
 		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
 
-		//Listening to button event
+		// Listening to button event
 		gpsButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View arg0) {
-				LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+				
+				// The location manager uses position retrieved from multiple underlying 
+				// technologies
+				LocationManager locationManager = 
+						(LocationManager) getSystemService(Context.LOCATION_SERVICE);			
 
 				LocationListener myLocationListener=new LocationListener() {
 					public void onLocationChanged(Location loc) {
@@ -101,7 +105,9 @@ public class HomeActivity extends Activity {
 
 				mlocProvider = locationManager.getBestProvider(hdCrit, true);
 
-				locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
+				// Change to WiFi
+				//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
+				locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener);
 				Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
 				locationManager.removeUpdates(myLocationListener);
 
@@ -125,7 +131,7 @@ public class HomeActivity extends Activity {
 			        //
 			        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
 			        //             "json={\"UserName\":1,\"FullName\":2}";
-			        String url = "http://dana.ucc.nau.edu/~cs854/PHPPut.php";
+			        String url = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
 
 			        HttpPost request = new HttpPost(url);
 			        request.setEntity(new ByteArrayEntity(json.toString().getBytes(
