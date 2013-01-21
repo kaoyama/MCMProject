@@ -27,6 +27,8 @@
 		D02CEAB016ADEF0B00DAB116 /* Map1.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CEAAF16ADEF0B00DAB116 /* Map1.m */; };
 		D02CEAB316ADEFA800DAB116 /* Map2.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CEAB216ADEFA800DAB116 /* Map2.m */; };
 		D02CEAB616ADF71D00DAB116 /* CreateAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CEAB516ADF71D00DAB116 /* CreateAccount.m */; };
+		D02CEAC716ADFC3B00DAB116 /* MoneyClipHD.png in Resources */ = {isa = PBXBuildFile; fileRef = D02CEAC616ADFC3B00DAB116 /* MoneyClipHD.png */; };
+		D02CEACA16ADFC3D00DAB116 /* MoneyClipSD.png in Resources */ = {isa = PBXBuildFile; fileRef = D02CEAC916ADFC3D00DAB116 /* MoneyClipSD.png */; };
 		D0AF6ACA16A7FADD00B51881 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF6AC916A7FADD00B51881 /* MainMenu.m */; };
 		D0AF6ACD16A7FB2000B51881 /* LocalizationSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF6ACC16A7FB2000B51881 /* LocalizationSetting.m */; };
 		D0AF6ACF16A804B600B51881 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF6ACE16A804B600B51881 /* MapKit.framework */; };
@@ -76,6 +78,8 @@
 		D02CEAB216ADEFA800DAB116 /* Map2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map2.m; sourceTree = "<group>"; };
 		D02CEAB416ADF71D00DAB116 /* CreateAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateAccount.h; path = ../CreateAccount.h; sourceTree = "<group>"; };
 		D02CEAB516ADF71D00DAB116 /* CreateAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateAccount.m; path = ../CreateAccount.m; sourceTree = "<group>"; };
+		D02CEAC616ADFC3B00DAB116 /* MoneyClipHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoneyClipHD.png; sourceTree = "<group>"; };
+		D02CEAC916ADFC3D00DAB116 /* MoneyClipSD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoneyClipSD.png; sourceTree = "<group>"; };
 		D0AF6AC816A7FADD00B51881 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		D0AF6AC916A7FADD00B51881 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		D0AF6ACB16A7FB2000B51881 /* LocalizationSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSetting.h; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		D027538816583A51006E2367 = {
 			isa = PBXGroup;
 			children = (
+				D02CEAC916ADFC3D00DAB116 /* MoneyClipSD.png */,
+				D02CEAC616ADFC3B00DAB116 /* MoneyClipHD.png */,
 				D0AF6AD016A804C200B51881 /* CoreLocation.framework */,
 				D0AF6ACE16A804B600B51881 /* MapKit.framework */,
 				D02753D216583B9A006E2367 /* Default.png */,
@@ -280,6 +286,8 @@
 				D02753AB16583A51006E2367 /* MainStoryboard_iPhone.storyboard in Resources */,
 				D02753AE16583A51006E2367 /* MainStoryboard_iPad.storyboard in Resources */,
 				D02753D316583B9A006E2367 /* Default.png in Resources */,
+				D02CEAC716ADFC3B00DAB116 /* MoneyClipHD.png in Resources */,
+				D02CEACA16ADFC3D00DAB116 /* MoneyClipSD.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

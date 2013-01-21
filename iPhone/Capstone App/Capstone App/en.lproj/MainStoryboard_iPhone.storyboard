@@ -352,7 +352,6 @@
                                     <segment title="On"/>
                                     <segment title="Off"/>
                                 </segments>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ads" minimumFontSize="17" id="8k8-hG-COp">
                                 <rect key="frame" x="32" y="45" width="97" height="31"/>
@@ -370,12 +369,8 @@
         </scene>
     </scenes>
     <classes>
-        <class className="CreateAccount" superclassName="UIView">
+        <class className="CreateAccount" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccount.h"/>
-            <relationships>
-                <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="submitLabel" candidateClass="UILabel"/>
-            </relationships>
         </class>
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
