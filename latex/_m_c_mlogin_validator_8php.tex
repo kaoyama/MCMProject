@@ -1,0 +1,104 @@
+\hypertarget{_m_c_mlogin_validator_8php}{\section{Website/\-M\-C\-Mlogin\-Validator.php File Reference}
+\label{_m_c_mlogin_validator_8php}\index{Website/\-M\-C\-Mlogin\-Validator.\-php@{Website/\-M\-C\-Mlogin\-Validator.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a711797613cb863ca0756df789c396bf2}{\$host} = \char`\"{}localhost\char`\"{}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_abd981912075cb8356ca370b4fefdfed7}{\$dbase} = \char`\"{}test\char`\"{}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_ab2303c817e3b402b77b7f99627b9c319}{\$fields}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}{\$log\-In\-Name} = 'kimi'
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}{\$log\-In\-Pwd} = 'kimi'
+\item 
+\hyperlink{_m_c_mlogin_8php_a58d12ec81e33be9b80508ee874adb2c1}{foreach}(\$\-\_\-\-P\-O\-S\-T as \$field=$>$ \$value) \hyperlink{_m_c_mlogin_validator_8php_a67bdfa000f51c8afb4135092c68cf1d7}{\$cxn} = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}{\$dbr} = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a08f961a26ebf8ad5411239bba701a67c}{\$sql\-Query} = 'S\-H\-O\-W T\-A\-B\-L\-E\-S'
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result} = mysql\-\_\-query(\$sql\-Query,\$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if}(\$result==F\-A\-L\-S\-E) \hyperlink{_m_c_mlogin_validator_8php_acd73321adf3d3d588369f5341463f6d3}{else}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_ad8419ca4a1822c7709da25d22be71556}{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'user'\mbox{]} = \$log\-In\-Name
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_ac14cd5920e81ae9195ee7dedc259298e}{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'email'\mbox{]} = \$row\mbox{[}4\mbox{]}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_aaf39d42d9138df306afd18be93739985}{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'first\-Name'\mbox{]} = \$row\mbox{[}2\mbox{]}
+\item 
+\hyperlink{_m_c_mlogin_validator_8php_a961298e85809ffdb09f5465640708434}{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'last\-Name'\mbox{]} = \$row\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_m_c_mlogin_validator_8php_ad8419ca4a1822c7709da25d22be71556}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}}
+\index{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]} = \$log\-In\-Name}}\label{_m_c_mlogin_validator_8php_ad8419ca4a1822c7709da25d22be71556}
+\hypertarget{_m_c_mlogin_validator_8php_ac14cd5920e81ae9195ee7dedc259298e}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}}
+\index{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'email'\mbox{]} = \$row\mbox{[}4\mbox{]}}}\label{_m_c_mlogin_validator_8php_ac14cd5920e81ae9195ee7dedc259298e}
+\hypertarget{_m_c_mlogin_validator_8php_aaf39d42d9138df306afd18be93739985}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}}
+\index{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'first\-Name'\mbox{]} = \$row\mbox{[}2\mbox{]}}}\label{_m_c_mlogin_validator_8php_aaf39d42d9138df306afd18be93739985}
+\hypertarget{_m_c_mlogin_validator_8php_a961298e85809ffdb09f5465640708434}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}}
+\index{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N@{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$\-\_\-\-S\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'last\-Name'\mbox{]} = \$row\mbox{[}3\mbox{]}}}\label{_m_c_mlogin_validator_8php_a961298e85809ffdb09f5465640708434}
+\hypertarget{_m_c_mlogin_validator_8php_a67bdfa000f51c8afb4135092c68cf1d7}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$cxn@{\$cxn}}
+\index{\$cxn@{\$cxn}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$cxn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach} (\$\-\_\-\-P\-O\-S\-T as \$field=$>$ \$value) \$cxn = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})}}\label{_m_c_mlogin_validator_8php_a67bdfa000f51c8afb4135092c68cf1d7}
+\hypertarget{_m_c_mlogin_validator_8php_abd981912075cb8356ca370b4fefdfed7}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$dbase@{\$dbase}}
+\index{\$dbase@{\$dbase}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$dbase}]{\setlength{\rightskip}{0pt plus 5cm}\$dbase = \char`\"{}test\char`\"{}}}\label{_m_c_mlogin_validator_8php_abd981912075cb8356ca370b4fefdfed7}
+\hypertarget{_m_c_mlogin_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$dbr@{\$dbr}}
+\index{\$dbr@{\$dbr}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$dbr}]{\setlength{\rightskip}{0pt plus 5cm}\$dbr = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())}}\label{_m_c_mlogin_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}
+\hypertarget{_m_c_mlogin_validator_8php_ab2303c817e3b402b77b7f99627b9c319}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$fields@{\$fields}}
+\index{\$fields@{\$fields}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$fields}]{\setlength{\rightskip}{0pt plus 5cm}\$fields}}\label{_m_c_mlogin_validator_8php_ab2303c817e3b402b77b7f99627b9c319}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= array(\textcolor{stringliteral}{"userName"} => \textcolor{stringliteral}{"Your User Name:"},
+                    \textcolor{stringliteral}{"pwd"} => \textcolor{stringliteral}{"Your Password:"})
+\end{DoxyCode}
+\hypertarget{_m_c_mlogin_validator_8php_a711797613cb863ca0756df789c396bf2}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$host@{\$host}}
+\index{\$host@{\$host}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$host}]{\setlength{\rightskip}{0pt plus 5cm}\$host = \char`\"{}localhost\char`\"{}}}\label{_m_c_mlogin_validator_8php_a711797613cb863ca0756df789c396bf2}
+Variable for database host.
+
+\begin{DoxyAuthor}{Author}
+Kimberly Oyama 
+\end{DoxyAuthor}
+\hypertarget{_m_c_mlogin_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$log\-In\-Name@{\$log\-In\-Name}}
+\index{\$log\-In\-Name@{\$log\-In\-Name}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$log\-In\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\$log\-In\-Name = 'kimi'}}\label{_m_c_mlogin_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}
+\hypertarget{_m_c_mlogin_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$log\-In\-Pwd@{\$log\-In\-Pwd}}
+\index{\$log\-In\-Pwd@{\$log\-In\-Pwd}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$log\-In\-Pwd}]{\setlength{\rightskip}{0pt plus 5cm}\$log\-In\-Pwd = 'kimi'}}\label{_m_c_mlogin_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}
+\hypertarget{_m_c_mlogin_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$password@{\$password}}
+\index{\$password@{\$password}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$password}]{\setlength{\rightskip}{0pt plus 5cm}\$password = \char`\"{}capstone\char`\"{}}}\label{_m_c_mlogin_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}
+\hypertarget{_m_c_mlogin_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$result@{\$result}}
+\index{\$result@{\$result}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$result}]{\setlength{\rightskip}{0pt plus 5cm}\$result = mysql\-\_\-query(\$sql\-Query,\$cxn)}}\label{_m_c_mlogin_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}
+\hypertarget{_m_c_mlogin_validator_8php_a08f961a26ebf8ad5411239bba701a67c}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$sql\-Query@{\$sql\-Query}}
+\index{\$sql\-Query@{\$sql\-Query}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$sql\-Query}]{\setlength{\rightskip}{0pt plus 5cm}\$sql\-Query = 'S\-H\-O\-W T\-A\-B\-L\-E\-S'}}\label{_m_c_mlogin_validator_8php_a08f961a26ebf8ad5411239bba701a67c}
+\hypertarget{_m_c_mlogin_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!\$user@{\$user}}
+\index{\$user@{\$user}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}\$user = \char`\"{}kd268\char`\"{}}}\label{_m_c_mlogin_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}
+\hypertarget{_m_c_mlogin_validator_8php_acd73321adf3d3d588369f5341463f6d3}{\index{M\-C\-Mlogin\-Validator.\-php@{M\-C\-Mlogin\-Validator.\-php}!else@{else}}
+\index{else@{else}!MCMloginValidator.php@{M\-C\-Mlogin\-Validator.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-num\-\_\-rows(\$result)$<$ 1) else}}\label{_m_c_mlogin_validator_8php_acd73321adf3d3d588369f5341463f6d3}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+        echo \textcolor{stringliteral}{"username: $logInName <br/> pwd: $logInPwd"}
+\end{DoxyCode}

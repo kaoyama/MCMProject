@@ -81,12 +81,49 @@ $host = "localhost";
 
    if ($dbr == FALSE) 
        echo "<h6>DB Error: ".mysql_error($cxn)."</h6>";
+   
+//get all merchants that have ads
+   $getAllAdMerchants = "SELECT merchant FROM advertisements";
+   $allAdMerchants = mysql_query($getAllAdMerchants, $cxn);
+   $allAdsMerchantList = '';
+   //if there are none, no one has ads
+   if (mysql_num_rows($allAdMerchants) < 1){
+       $noAdMerchant = "No merchants have ads.";
+   }
+   else {
+       //loop through to get array of  merchants
+       while($allAdRow = mysql_fetch_row($allAdMerchants))
+       {
+           $adMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$allAdRow[0]';", $cxn);
+           $currentAdMerchantName = mysql_fetch_row($adMerchantName);
+           $allAdsMerchantList = $allAdsMerchantList.$currentAdMerchantName[0]."#";
+       }
+   }
+   
+   //get all merchants that have coupons
+   $getAllCouponMerchants = "SELECT merchant FROM coupons;";
+   $allCouponMerchants = mysql_query($getAllCouponMerchants, $cxn);
+   $allCouponMerchantList = '';
+   //if there are none, no one has ads
+   if (mysql_num_rows($allCouponMerchants) < 1){
+       $noCouponMerchant = "No merchants have coupons.";
+   }
+   else {
+       //loop through to get array of  merchants
+       while($allCouponRow = mysql_fetch_row($allCouponMerchants))
+       {
+           $couponMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$allCouponRow[0]';", $cxn);
+           $currentCouponMerchantName = mysql_fetch_row($couponMerchantName);
+           $allCouponMerchantList = $allCouponMerchantList.$currentCouponMerchantName[0]."#";
+       }
+   }
+   
    //get merchants that this user is subscribed to
    $getAdMerchants = "SELECT * FROM subscribedForAds WHERE userName = '$user'";
    $adMerchants = mysql_query($getAdMerchants, $cxn);
    $adMerchantList = "";
    $noAdMerchant="";
-   //$merchants
+   
    //if there are none, no one has ads
    if (mysql_num_rows($adMerchants) < 1){
        $noAdMerchant = "You are not subscribed to get any ads from any merchants.";
@@ -99,7 +136,9 @@ $host = "localhost";
        {
            if ($adRow[$i] != "" && $adRow[$i] != null)
            {
-               $adMerchantList = $adMerchantList.$adRow[$i]."#";
+               $getAdMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$adRow[$i]';", $cxn);
+               $currentAdMerchantName = mysql_fetch_row($getAdMerchantName);
+               $adMerchantList = $adMerchantList.$currentAdMerchantName[0]."#";
            }
        }
    }
@@ -119,7 +158,9 @@ $host = "localhost";
        {
            if ($couponRow[$i] != "" && $couponRow[$i] != null)
            {
-               $couponMerchantList = $couponMerchantList.$couponRow[$i]."#";
+               $getCouponMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$couponRow[$i]';", $cxn);
+               $currentCouponMerchantName = mysql_fetch_row($getCouponMerchantName);
+               $couponMerchantList = $couponMerchantList.$currentCouponMerchantName[0]."#";
            }
            
        }
@@ -129,10 +170,11 @@ $host = "localhost";
 if (isset($_GET['run'])){
     //use post stuff
     //build sql query
+    echo "Got here?";
     if ($_GET['run'] === "saveCouponData")
     $saveQuery = "INSERT INTO subscribedForCoupon";
     foreach ($_POST as $field => $value) {
-        
+        echo "$field";
     }
 }
  ?>  
@@ -181,7 +223,11 @@ if (isset($_GET['run'])){
                     <br />"
                 ?>
             <input type='radio' name='ads' id='allAds' value='all' 
-            checked="checked" onclick="return allAds()" />All Ads
+            checked="checked" onclick=  
+                <?php
+            echo "'return allAds(\"$allAdsMerchantList\")'/>All 
+                Ads <br />"
+            ?>
             <label for="coupons">Coupons?</label>
             <input type='radio' name='coupons' id='noCoupons' value='none' 
                    onclick="return noCouponsDisplay()"/>No Coupons <br />
@@ -192,11 +238,20 @@ if (isset($_GET['run'])){
                 Coupons <br />"
             ?>
             <input type='radio' name='coupons' id='allCoupons' value='all' 
-            checked="checked" onclick="return allCoupons()" />All Coupons
+            checked="checked" onclick=
+                <?php
+            echo "'return allCoupons(\"$allCouponMerchantList\")'/>All 
+                Coupons <br />"
+            ?>
             </div>
             <div id="adSection"><h3>Advertisement Options</h3></div>
             <div id="couponSection"><h3>Coupon Options</h3></div>
             <hr>
+            
+            <br/>
+            
+            <input type='button' value='Save' onclick='return saveFunction()'/>
+                    
             <div id="footer">
                 <footer><p>MoneyClip Mobile 2012</p></footer>
             </div>
@@ -204,3 +259,17 @@ if (isset($_GET['run'])){
     </body>
 </html>
 
+<?php
+//the save button will store information in session variables or array.
+//then it will trigger a refrest
+//when the page is refreshed or left a php function will be called to store 
+//the info from the variables in the database.
+echo "
+    <script>
+    function saveFunction()
+    {
+        <html>
+    <h3> stuff</h3></html>
+    }
+</script>";
+?>

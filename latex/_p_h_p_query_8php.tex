@@ -1,0 +1,54 @@
+\hypertarget{_p_h_p_query_8php}{\section{Website/\-P\-H\-P\-Query.php File Reference}
+\label{_p_h_p_query_8php}\index{Website/\-P\-H\-P\-Query.\-php@{Website/\-P\-H\-P\-Query.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_h_p_query_8php_a034ead57b6864a4413371711e8d65372}{\$databasehost} = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}
+\item 
+\hyperlink{_p_h_p_query_8php_aace53f8afce81b52040cef0cd850138a}{\$databasename} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_query_8php_a251bf75f510d7c8b556c65d7c30e911f}{\$databaseusername} =\char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_query_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\$databasepassword} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_p_h_p_query_8php_a0debe10448ec56a57b5509648408a549}{\$con} = mysql\-\_\-connect(\$databasehost,\$databaseusername,\$databasepassword) or die(mysql\-\_\-error())
+\item 
+\hyperlink{_p_h_p_query_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query} = \char`\"{}S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M merchants\char`\"{}
+\item 
+\hyperlink{_p_h_p_query_8php_afa9126f9664959c02795be300a135f93}{\$sth} = mysql\-\_\-query(\$query)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if}(mysql\-\_\-errno()) \hyperlink{_p_h_p_query_8php_acd5fe7f2086f786c96623b819503b734}{else}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_p_h_p_query_8php_a0debe10448ec56a57b5509648408a549}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$con@{\$con}}
+\index{\$con@{\$con}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$con}]{\setlength{\rightskip}{0pt plus 5cm}\$con = mysql\-\_\-connect(\$databasehost,\$databaseusername,\$databasepassword) or die(mysql\-\_\-error())}}\label{_p_h_p_query_8php_a0debe10448ec56a57b5509648408a549}
+\hypertarget{_p_h_p_query_8php_a034ead57b6864a4413371711e8d65372}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$databasehost@{\$databasehost}}
+\index{\$databasehost@{\$databasehost}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$databasehost}]{\setlength{\rightskip}{0pt plus 5cm}\$databasehost = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}}}\label{_p_h_p_query_8php_a034ead57b6864a4413371711e8d65372}
+\hypertarget{_p_h_p_query_8php_aace53f8afce81b52040cef0cd850138a}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$databasename@{\$databasename}}
+\index{\$databasename@{\$databasename}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$databasename}]{\setlength{\rightskip}{0pt plus 5cm}\$databasename = \char`\"{}kd268\char`\"{}}}\label{_p_h_p_query_8php_aace53f8afce81b52040cef0cd850138a}
+\hypertarget{_p_h_p_query_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$databasepassword@{\$databasepassword}}
+\index{\$databasepassword@{\$databasepassword}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$databasepassword}]{\setlength{\rightskip}{0pt plus 5cm}\$databasepassword = \char`\"{}capstone\char`\"{}}}\label{_p_h_p_query_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}
+\hypertarget{_p_h_p_query_8php_a251bf75f510d7c8b556c65d7c30e911f}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$databaseusername@{\$databaseusername}}
+\index{\$databaseusername@{\$databaseusername}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$databaseusername}]{\setlength{\rightskip}{0pt plus 5cm}\$databaseusername =\char`\"{}kd268\char`\"{}}}\label{_p_h_p_query_8php_a251bf75f510d7c8b556c65d7c30e911f}
+\hypertarget{_p_h_p_query_8php_af59a5f7cd609e592c41dc3643efd3c98}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$query@{\$query}}
+\index{\$query@{\$query}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$query}]{\setlength{\rightskip}{0pt plus 5cm}\$query = \char`\"{}S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M merchants\char`\"{}}}\label{_p_h_p_query_8php_af59a5f7cd609e592c41dc3643efd3c98}
+\hypertarget{_p_h_p_query_8php_afa9126f9664959c02795be300a135f93}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!\$sth@{\$sth}}
+\index{\$sth@{\$sth}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{\$sth}]{\setlength{\rightskip}{0pt plus 5cm}\$sth = mysql\-\_\-query(\$query)}}\label{_p_h_p_query_8php_afa9126f9664959c02795be300a135f93}
+\hypertarget{_p_h_p_query_8php_acd5fe7f2086f786c96623b819503b734}{\index{P\-H\-P\-Query.\-php@{P\-H\-P\-Query.\-php}!else@{else}}
+\index{else@{else}!PHPQuery.php@{P\-H\-P\-Query.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-errno()) else}}\label{_p_h_p_query_8php_acd5fe7f2086f786c96623b819503b734}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    $rows = array()
+\end{DoxyCode}

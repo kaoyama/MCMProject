@@ -1,7 +1,11 @@
 
 <!-- Validation goes before menues. -->
 <?php
-
+/**
+ * Variable for database host.
+ * 
+ * @author Kimberly Oyama
+ */
     //Database conncetion variables    
     $host = "localhost";
     $user = "kd268";                

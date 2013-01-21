@@ -1,0 +1,85 @@
+\hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay}{\section{Merchant\-Map\-Item\-Overlay Class Reference}
+\label{classapp_1_1localization_1_1_merchant_map_item_overlay}\index{Merchant\-Map\-Item\-Overlay@{Merchant\-Map\-Item\-Overlay}}
+}
+Inheritance diagram for Merchant\-Map\-Item\-Overlay\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classapp_1_1localization_1_1_merchant_map_item_overlay}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classapp_1_1localization_1_1_merchant_map_item_overlay_ada6191ca0384ce6901b89219a91b948a}{Merchant\-Map\-Item\-Overlay} (Drawable default\-Marker, Context context)
+\item 
+void \hyperlink{classapp_1_1localization_1_1_merchant_map_item_overlay_a965b6785d735fc872f51144676deb992}{add\-Overlay} (Overlay\-Item overlay)
+\item 
+int \hyperlink{classapp_1_1localization_1_1_merchant_map_item_overlay_af4b57d21919c42d55af03391f91a1c08}{size} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Overlay\-Item \hyperlink{classapp_1_1localization_1_1_merchant_map_item_overlay_a997a8009414b6615377dbfcf7a481484}{create\-Item} (int i)
+\item 
+boolean \hyperlink{classapp_1_1localization_1_1_merchant_map_item_overlay_a623b412bd9c0c2f961d18d3aaf6e8c1c}{on\-Tap} (int index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manage individual overlay items placed on the map. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay_ada6191ca0384ce6901b89219a91b948a}{\index{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}!Merchant\-Map\-Item\-Overlay@{Merchant\-Map\-Item\-Overlay}}
+\index{Merchant\-Map\-Item\-Overlay@{Merchant\-Map\-Item\-Overlay}!app::localization::MerchantMapItemOverlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}}
+\subsubsection[{Merchant\-Map\-Item\-Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Merchant\-Map\-Item\-Overlay} (
+\begin{DoxyParamCaption}
+\item[{Drawable}]{default\-Marker, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classapp_1_1localization_1_1_merchant_map_item_overlay_ada6191ca0384ce6901b89219a91b948a}
+Constructor for itemized overlay. Define the bounds of the default marker object. Commonly, the center-\/point at the bottom of the image is placed at the point attached to the map coordinates. 
+\begin{DoxyParams}{Parameters}
+{\em default\-Marker} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay_a965b6785d735fc872f51144676deb992}{\index{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}!add\-Overlay@{add\-Overlay}}
+\index{add\-Overlay@{add\-Overlay}!app::localization::MerchantMapItemOverlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}}
+\subsubsection[{add\-Overlay}]{\setlength{\rightskip}{0pt plus 5cm}void add\-Overlay (
+\begin{DoxyParamCaption}
+\item[{Overlay\-Item}]{overlay}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classapp_1_1localization_1_1_merchant_map_item_overlay_a965b6785d735fc872f51144676deb992}
+Add overlay items to the Array\-List. The populate() method reads each of the Overlay\-Item objects and prepares them to be drawn on the map. 
+\begin{DoxyParams}{Parameters}
+{\em overlay} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay_a997a8009414b6615377dbfcf7a481484}{\index{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}!create\-Item@{create\-Item}}
+\index{create\-Item@{create\-Item}!app::localization::MerchantMapItemOverlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}}
+\subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}Overlay\-Item create\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classapp_1_1localization_1_1_merchant_map_item_overlay_a997a8009414b6615377dbfcf7a481484}
+Create each Overlay\-Item. \hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay_a623b412bd9c0c2f961d18d3aaf6e8c1c}{\index{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}!on\-Tap@{on\-Tap}}
+\index{on\-Tap@{on\-Tap}!app::localization::MerchantMapItemOverlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}}
+\subsubsection[{on\-Tap}]{\setlength{\rightskip}{0pt plus 5cm}boolean on\-Tap (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classapp_1_1localization_1_1_merchant_map_item_overlay_a623b412bd9c0c2f961d18d3aaf6e8c1c}
+Callback method for user tap on the marker. \hypertarget{classapp_1_1localization_1_1_merchant_map_item_overlay_af4b57d21919c42d55af03391f91a1c08}{\index{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}!size@{size}}
+\index{size@{size}!app::localization::MerchantMapItemOverlay@{app\-::localization\-::\-Merchant\-Map\-Item\-Overlay}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classapp_1_1localization_1_1_merchant_map_item_overlay_af4b57d21919c42d55af03391f91a1c08}
+Get current number of items in Array\-List. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Andriod/\-Localization\-Activity/src/app/localization/\hyperlink{_merchant_map_item_overlay_8java}{Merchant\-Map\-Item\-Overlay.\-java}\end{DoxyCompactItemize}

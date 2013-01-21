@@ -1,0 +1,123 @@
+\hypertarget{_m_c_mcreate_new_account_validator_8php}{\section{Website/\-M\-C\-Mcreate\-New\-Account\-Validator.php File Reference}
+\label{_m_c_mcreate_new_account_validator_8php}\index{Website/\-M\-C\-Mcreate\-New\-Account\-Validator.\-php@{Website/\-M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a711797613cb863ca0756df789c396bf2}{\$host} = \char`\"{}localhost\char`\"{}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_abd981912075cb8356ca370b4fefdfed7}{\$dbase} = \char`\"{}test\char`\"{}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_ab2303c817e3b402b77b7f99627b9c319}{\$fields}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a88a8980708982166840708b055e335b8}{\$months}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a2a584da3ccd0ef43368c316e3bb177df}{\$student\-Status} = \char`\"{}no\char`\"{}
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}{\$log\-In\-Name} = 'boo'
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}{\$log\-In\-Pwd} = 'boo'
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_afe14c5bdb9487c058ec831382f1fbacd}{\$cxn} = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}{\$dbr} = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a08f961a26ebf8ad5411239bba701a67c}{\$sql\-Query} = 'S\-H\-O\-W T\-A\-B\-L\-E\-S'
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result} = mysql\-\_\-query(\$sql\-Query,\$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if}(\$result==F\-A\-L\-S\-E) \hyperlink{_m_c_mcreate_new_account_validator_8php_a6b5f81c8ab2d615e3528311678d7870f}{else}
+\item 
+\hyperlink{_m_c_mlogin_8php_a58d12ec81e33be9b80508ee874adb2c1}{foreach}(\$\-\_\-\-P\-O\-S\-T as \$field=$>$ \$value) \hyperlink{_m_c_mcreate_new_account_validator_8php_ab8d98de5aa650b9f437292caa496b146}{\$birthday} = \$year.\char`\"{}-\/\char`\"{}.\$month.\char`\"{}-\/\char`\"{}.\$day
+\item 
+\hyperlink{_m_c_mcreate_new_account_validator_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}{\$name} = \$fname.\char`\"{} \char`\"{}.\$lname
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_ab8d98de5aa650b9f437292caa496b146}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$birthday@{\$birthday}}
+\index{\$birthday@{\$birthday}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$birthday}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach} (\$\-\_\-\-P\-O\-S\-T as \$field=$>$ \$value) \$birthday = \$year.\char`\"{}-\/\char`\"{}.\$month.\char`\"{}-\/\char`\"{}.\$day}}\label{_m_c_mcreate_new_account_validator_8php_ab8d98de5aa650b9f437292caa496b146}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_afe14c5bdb9487c058ec831382f1fbacd}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$cxn@{\$cxn}}
+\index{\$cxn@{\$cxn}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$cxn}]{\setlength{\rightskip}{0pt plus 5cm}\$cxn = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})}}\label{_m_c_mcreate_new_account_validator_8php_afe14c5bdb9487c058ec831382f1fbacd}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_abd981912075cb8356ca370b4fefdfed7}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$dbase@{\$dbase}}
+\index{\$dbase@{\$dbase}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$dbase}]{\setlength{\rightskip}{0pt plus 5cm}\$dbase = \char`\"{}test\char`\"{}}}\label{_m_c_mcreate_new_account_validator_8php_abd981912075cb8356ca370b4fefdfed7}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$dbr@{\$dbr}}
+\index{\$dbr@{\$dbr}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$dbr}]{\setlength{\rightskip}{0pt plus 5cm}\$dbr = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())}}\label{_m_c_mcreate_new_account_validator_8php_a88fea670240e5fa6ae306a286acaa0fd}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_ab2303c817e3b402b77b7f99627b9c319}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$fields@{\$fields}}
+\index{\$fields@{\$fields}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$fields}]{\setlength{\rightskip}{0pt plus 5cm}\$fields}}\label{_m_c_mcreate_new_account_validator_8php_ab2303c817e3b402b77b7f99627b9c319}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= array(\textcolor{stringliteral}{"userName"} => \textcolor{stringliteral}{"User Name: "},
+                        \textcolor{stringliteral}{"pwd"} => \textcolor{stringliteral}{"Password: "},
+                        \textcolor{stringliteral}{"pwdConfirmation"} => \textcolor{stringliteral}{"Confirm Password: "},
+                        \textcolor{stringliteral}{"firstName"} => \textcolor{stringliteral}{"First Name: "},
+                        \textcolor{stringliteral}{"lastName"} => \textcolor{stringliteral}{"Last Name: "},
+                        \textcolor{stringliteral}{"email"} => \textcolor{stringliteral}{"E-Mail: "},
+                        \textcolor{stringliteral}{"bDayYear"} => \textcolor{stringliteral}{"Year: "},
+                        \textcolor{stringliteral}{"bDayMonth"} => \textcolor{stringliteral}{"Month: "},
+                        \textcolor{stringliteral}{"bDay"} => \textcolor{stringliteral}{"Day: "},
+                        \textcolor{stringliteral}{"student"} => \textcolor{stringliteral}{"Student?"},
+                        \textcolor{stringliteral}{"gender"} => \textcolor{stringliteral}{"Gender? "})
+\end{DoxyCode}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a711797613cb863ca0756df789c396bf2}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$host@{\$host}}
+\index{\$host@{\$host}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$host}]{\setlength{\rightskip}{0pt plus 5cm}\$host = \char`\"{}localhost\char`\"{}}}\label{_m_c_mcreate_new_account_validator_8php_a711797613cb863ca0756df789c396bf2}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$log\-In\-Name@{\$log\-In\-Name}}
+\index{\$log\-In\-Name@{\$log\-In\-Name}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$log\-In\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\$log\-In\-Name = 'boo'}}\label{_m_c_mcreate_new_account_validator_8php_a30b110afa9d5bd2d01ba8f74a46d2b3f}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$log\-In\-Pwd@{\$log\-In\-Pwd}}
+\index{\$log\-In\-Pwd@{\$log\-In\-Pwd}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$log\-In\-Pwd}]{\setlength{\rightskip}{0pt plus 5cm}\$log\-In\-Pwd = 'boo'}}\label{_m_c_mcreate_new_account_validator_8php_a1c091e7fa854daecefe6889e0cb8975e}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a88a8980708982166840708b055e335b8}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$months@{\$months}}
+\index{\$months@{\$months}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$months}]{\setlength{\rightskip}{0pt plus 5cm}\$months}}\label{_m_c_mcreate_new_account_validator_8php_a88a8980708982166840708b055e335b8}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= array(\textcolor{stringliteral}{"Jan"} => \textcolor{stringliteral}{"01"},
+                    \textcolor{stringliteral}{"Feb"} => \textcolor{stringliteral}{"02"},
+                    \textcolor{stringliteral}{"Mar"} => \textcolor{stringliteral}{"03"},
+                    \textcolor{stringliteral}{"Apr"} => \textcolor{stringliteral}{"04"},
+                    \textcolor{stringliteral}{"May"} => \textcolor{stringliteral}{"05"},
+                    \textcolor{stringliteral}{"06"} => \textcolor{stringliteral}{"06"},
+                    \textcolor{stringliteral}{"Jun"} => \textcolor{stringliteral}{"07"},
+                    \textcolor{stringliteral}{"Jul"} => \textcolor{stringliteral}{"08"},
+                    \textcolor{stringliteral}{"Sep"} => \textcolor{stringliteral}{"09"},
+                    \textcolor{stringliteral}{"Oct"} => \textcolor{stringliteral}{"10"},
+                    \textcolor{stringliteral}{"Nov"} => \textcolor{stringliteral}{"11"},
+                    \textcolor{stringliteral}{"Dec"} => \textcolor{stringliteral}{"12"})
+\end{DoxyCode}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$name@{\$name}}
+\index{\$name@{\$name}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\$name = \$fname.\char`\"{} \char`\"{}.\$lname}}\label{_m_c_mcreate_new_account_validator_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$password@{\$password}}
+\index{\$password@{\$password}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$password}]{\setlength{\rightskip}{0pt plus 5cm}\$password = \char`\"{}capstone\char`\"{}}}\label{_m_c_mcreate_new_account_validator_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$result@{\$result}}
+\index{\$result@{\$result}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$result}]{\setlength{\rightskip}{0pt plus 5cm}\$result = mysql\-\_\-query(\$sql\-Query,\$cxn)}}\label{_m_c_mcreate_new_account_validator_8php_a112ef069ddc0454086e3d1e6d8d55d07}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a08f961a26ebf8ad5411239bba701a67c}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$sql\-Query@{\$sql\-Query}}
+\index{\$sql\-Query@{\$sql\-Query}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$sql\-Query}]{\setlength{\rightskip}{0pt plus 5cm}\$sql\-Query = 'S\-H\-O\-W T\-A\-B\-L\-E\-S'}}\label{_m_c_mcreate_new_account_validator_8php_a08f961a26ebf8ad5411239bba701a67c}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a2a584da3ccd0ef43368c316e3bb177df}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$student\-Status@{\$student\-Status}}
+\index{\$student\-Status@{\$student\-Status}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$student\-Status}]{\setlength{\rightskip}{0pt plus 5cm}\$student\-Status = \char`\"{}no\char`\"{}}}\label{_m_c_mcreate_new_account_validator_8php_a2a584da3ccd0ef43368c316e3bb177df}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!\$user@{\$user}}
+\index{\$user@{\$user}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}\$user = \char`\"{}kd268\char`\"{}}}\label{_m_c_mcreate_new_account_validator_8php_a598ca4e71b15a1313ec95f0df1027ca5}
+\hypertarget{_m_c_mcreate_new_account_validator_8php_a6b5f81c8ab2d615e3528311678d7870f}{\index{M\-C\-Mcreate\-New\-Account\-Validator.\-php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}!else@{else}}
+\index{else@{else}!MCMcreateNewAccountValidator.php@{M\-C\-Mcreate\-New\-Account\-Validator.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (\$result==F\-A\-L\-S\-E) else}}\label{_m_c_mcreate_new_account_validator_8php_a6b5f81c8ab2d615e3528311678d7870f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+        $validInput = TRUE
+\end{DoxyCode}

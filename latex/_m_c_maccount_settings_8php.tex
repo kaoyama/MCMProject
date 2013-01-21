@@ -1,0 +1,138 @@
+\hypertarget{_m_c_maccount_settings_8php}{\section{Website/\-M\-C\-Maccount\-Settings.php File Reference}
+\label{_m_c_maccount_settings_8php}\index{Website/\-M\-C\-Maccount\-Settings.\-php@{Website/\-M\-C\-Maccount\-Settings.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user} = \char`\"{}kimi\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}{\$dbase} = \char`\"{}test\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a711797613cb863ca0756df789c396bf2}{\$host} = \char`\"{}localhost\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}{\$cxn} = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a88fea670240e5fa6ae306a286acaa0fd}{\$dbr} = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a0c83e0e6bd8e9d8deee8baa4f03f6fc2}{\$get\-All\-Ad\-Merchants} = \char`\"{}S\-E\-L\-E\-C\-T merchant F\-R\-O\-M advertisements\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}{\$all\-Ad\-Merchants} = mysql\-\_\-query(\$get\-All\-Ad\-Merchants, \$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{\$all\-Ads\-Merchant\-List} = ''
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if}(mysql\-\_\-num\-\_\-rows(\$all\-Ad\-Merchants)$<$ 1) \hyperlink{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}{else}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}{\$all\-Coupon\-Merchants} = mysql\-\_\-query(\$get\-All\-Coupon\-Merchants, \$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}{\$all\-Coupon\-Merchant\-List} = ''
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a606d9139cc8585dd4ad8bf2f3897dcab}{\$ad\-Merchants} = mysql\-\_\-query(\$get\-Ad\-Merchants, \$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_adda5f8d6a5918a17bc6145750958506f}{\$ad\-Merchant\-List} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a40bc7f7e5d2e32caabe23be33f8ebfbc}{\$no\-Ad\-Merchant} =\char`\"{}\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a83018d9153d17d91fbcf3bc10158d34f}{\$i} =0
+\item 
+for(\$i=1;\$i$<$ sizeof(\$ad\-Row);\$i++) \hyperlink{_m_c_maccount_settings_8php_ad7ff3bd6b64ab03c84762e87bdb49b94}{\$get\-Coupon\-Merchants} = \char`\"{}S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M subscribed\-For\-Coupons W\-H\-E\-R\-E user\-Name = '\$user'\char`\"{}
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a3a32827acfafa83441c5161bcf7eceef}{\$coupon\-Merchants} = mysql\-\_\-query(\$get\-Coupon\-Merchants, \$cxn)
+\item 
+\hyperlink{_m_c_maccount_settings_8php_a773d789a200d6fa9d2b0342a5d6af9fd}{\$coupon\-Merchant\-List} = \char`\"{}\char`\"{}
+\item 
+for(\$i=1;\$i$<$ sizeof(\$coupon\-Row);\$i++) \hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if} (isset(\$\-\_\-\-G\-E\-T\mbox{[}'run'\mbox{]}))
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_m_c_maccount_settings_8php_adda5f8d6a5918a17bc6145750958506f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$ad\-Merchant\-List@{\$ad\-Merchant\-List}}
+\index{\$ad\-Merchant\-List@{\$ad\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$ad\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$ad\-Merchant\-List = \char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_adda5f8d6a5918a17bc6145750958506f}
+\hypertarget{_m_c_maccount_settings_8php_a606d9139cc8585dd4ad8bf2f3897dcab}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$ad\-Merchants@{\$ad\-Merchants}}
+\index{\$ad\-Merchants@{\$ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$ad\-Merchants = mysql\-\_\-query(\$get\-Ad\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a606d9139cc8585dd4ad8bf2f3897dcab}
+\hypertarget{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Ad\-Merchants@{\$all\-Ad\-Merchants}}
+\index{\$all\-Ad\-Merchants@{\$all\-Ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$all\-Ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Ad\-Merchants = mysql\-\_\-query(\$get\-All\-Ad\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}
+\hypertarget{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Ads\-Merchant\-List@{\$all\-Ads\-Merchant\-List}}
+\index{\$all\-Ads\-Merchant\-List@{\$all\-Ads\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$all\-Ads\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Ads\-Merchant\-List = ''}}\label{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}
+\hypertarget{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Coupon\-Merchant\-List@{\$all\-Coupon\-Merchant\-List}}
+\index{\$all\-Coupon\-Merchant\-List@{\$all\-Coupon\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$all\-Coupon\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Coupon\-Merchant\-List = ''}}\label{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}
+\hypertarget{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Coupon\-Merchants@{\$all\-Coupon\-Merchants}}
+\index{\$all\-Coupon\-Merchants@{\$all\-Coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$all\-Coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Coupon\-Merchants = mysql\-\_\-query(\$get\-All\-Coupon\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}
+\hypertarget{_m_c_maccount_settings_8php_a773d789a200d6fa9d2b0342a5d6af9fd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$coupon\-Merchant\-List@{\$coupon\-Merchant\-List}}
+\index{\$coupon\-Merchant\-List@{\$coupon\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$coupon\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$coupon\-Merchant\-List = \char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_a773d789a200d6fa9d2b0342a5d6af9fd}
+\hypertarget{_m_c_maccount_settings_8php_a3a32827acfafa83441c5161bcf7eceef}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$coupon\-Merchants@{\$coupon\-Merchants}}
+\index{\$coupon\-Merchants@{\$coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$coupon\-Merchants = mysql\-\_\-query(\$get\-Coupon\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a3a32827acfafa83441c5161bcf7eceef}
+\hypertarget{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$cxn@{\$cxn}}
+\index{\$cxn@{\$cxn}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$cxn}]{\setlength{\rightskip}{0pt plus 5cm}\$cxn = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})}}\label{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}
+\hypertarget{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$dbase@{\$dbase}}
+\index{\$dbase@{\$dbase}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$dbase}]{\setlength{\rightskip}{0pt plus 5cm}\$dbase = \char`\"{}test\char`\"{}}}\label{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}
+\hypertarget{_m_c_maccount_settings_8php_a88fea670240e5fa6ae306a286acaa0fd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$dbr@{\$dbr}}
+\index{\$dbr@{\$dbr}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$dbr}]{\setlength{\rightskip}{0pt plus 5cm}\$dbr = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())}}\label{_m_c_maccount_settings_8php_a88fea670240e5fa6ae306a286acaa0fd}
+\hypertarget{_m_c_maccount_settings_8php_a0c83e0e6bd8e9d8deee8baa4f03f6fc2}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$get\-All\-Ad\-Merchants@{\$get\-All\-Ad\-Merchants}}
+\index{\$get\-All\-Ad\-Merchants@{\$get\-All\-Ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$get\-All\-Ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$get\-All\-Ad\-Merchants = \char`\"{}S\-E\-L\-E\-C\-T merchant F\-R\-O\-M advertisements\char`\"{}}}\label{_m_c_maccount_settings_8php_a0c83e0e6bd8e9d8deee8baa4f03f6fc2}
+\hypertarget{_m_c_maccount_settings_8php_ad7ff3bd6b64ab03c84762e87bdb49b94}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$get\-Coupon\-Merchants@{\$get\-Coupon\-Merchants}}
+\index{\$get\-Coupon\-Merchants@{\$get\-Coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$get\-Coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}for (\$i=1;\$i$<$ sizeof(\$ad\-Row);\$i++) \$get\-Coupon\-Merchants = \char`\"{}S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M subscribed\-For\-Coupons W\-H\-E\-R\-E user\-Name = '\$user'\char`\"{}}}\label{_m_c_maccount_settings_8php_ad7ff3bd6b64ab03c84762e87bdb49b94}
+\hypertarget{_m_c_maccount_settings_8php_a711797613cb863ca0756df789c396bf2}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$host@{\$host}}
+\index{\$host@{\$host}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$host}]{\setlength{\rightskip}{0pt plus 5cm}\$host = \char`\"{}localhost\char`\"{}}}\label{_m_c_maccount_settings_8php_a711797613cb863ca0756df789c396bf2}
+\hypertarget{_m_c_maccount_settings_8php_a83018d9153d17d91fbcf3bc10158d34f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$i@{\$i}}
+\index{\$i@{\$i}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$i}]{\setlength{\rightskip}{0pt plus 5cm}\$i =0}}\label{_m_c_maccount_settings_8php_a83018d9153d17d91fbcf3bc10158d34f}
+\hypertarget{_m_c_maccount_settings_8php_a40bc7f7e5d2e32caabe23be33f8ebfbc}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$no\-Ad\-Merchant@{\$no\-Ad\-Merchant}}
+\index{\$no\-Ad\-Merchant@{\$no\-Ad\-Merchant}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$no\-Ad\-Merchant}]{\setlength{\rightskip}{0pt plus 5cm}\$no\-Ad\-Merchant =\char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_a40bc7f7e5d2e32caabe23be33f8ebfbc}
+\hypertarget{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$user@{\$user}}
+\index{\$user@{\$user}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}\$user = \char`\"{}kimi\char`\"{}}}\label{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}
+\hypertarget{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!else@{else}}
+\index{else@{else}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-num\-\_\-rows(\$coupon\-Merchants)$<$ 1) else}}\label{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+       
+       \textcolor{keywordflow}{while}($allAdRow = mysql\_fetch\_row(\hyperlink{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}{$allAdMerchants}))
+       \{
+           $adMerchantName = mysql\_query(\textcolor{stringliteral}{"SELECT merchantName FROM merchants WHERE userName =
+       '$allAdRow[0]';"}, \hyperlink{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}{$cxn});
+           $currentAdMerchantName = mysql\_fetch\_row($adMerchantName);
+           \hyperlink{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{$allAdsMerchantList} = \hyperlink{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{$allAdsMerchantList}.
+      $currentAdMerchantName[0].\textcolor{stringliteral}{"#"};
+       \}
+   \}
+   
+   
+   $getAllCouponMerchants = \textcolor{stringliteral}{"SELECT merchant FROM coupons;"}
+\end{DoxyCode}
+\hypertarget{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!if@{if}}
+\index{if@{if}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if}}\label{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+       
+       \textcolor{keywordflow}{while}($allCouponRow = mysql\_fetch\_row(\hyperlink{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}{$allCouponMerchants}))
+       \{
+           $couponMerchantName = mysql\_query(\textcolor{stringliteral}{"SELECT merchantName FROM merchants WHERE userName =
+       '$allCouponRow[0]';"}, \hyperlink{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}{$cxn});
+           $currentCouponMerchantName = mysql\_fetch\_row($couponMerchantName);
+           \hyperlink{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}{$allCouponMerchantList} = \hyperlink{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}{$allCouponMerchantList}.
+      $currentCouponMerchantName[0].\textcolor{stringliteral}{"#"};
+       \}
+   \}
+   
+   
+   $getAdMerchants = \textcolor{stringliteral}{"SELECT * FROM subscribedForAds WHERE userName = '$user'"}
+\end{DoxyCode}

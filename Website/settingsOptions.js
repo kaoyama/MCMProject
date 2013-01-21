@@ -36,10 +36,31 @@ function selectAds(merchantList) {
    document.getElementById("adSection").innerHTML = htmlString;
    
 }
-function allAds() {
-    document.getElementById("adSection").innerHTML = "<h3>Advertisement \n\
-Options</h3><label> You are receiving ads from the following merchants.\n\
-</label>";
+function allAds(merchantList) {
+    
+    var listOfMerchants = new Array();
+    listOfMerchants = merchantList.split("#");
+    var htmlString = "<h3>Advertisements Options:</h3>\n\
+<label for='adSortType'>Sort Ads by:</label>\n\
+<select name=sortType id=sortType>\n\
+<option value='productType'>Product Type</option>\n\
+<option value='alphaNum'>Alphabetical</option>\n\
+<option value='distance'>Distance</option>\n\
+</select>\n\
+<label>You are recieving ads from the following merchants:</label>\n\
+<br/>\n\
+<form name='selectMerchants' method='POST' \n\
+<div id='merchantList'>";
+    
+    for (var i=0;i<listOfMerchants.length;i++)
+    {
+        if (listOfMerchants[i] != "" && listOfMerchants[i] != null)
+        {
+            htmlString += "<h3>" + listOfMerchants[i] + "<h3>";
+        }
+    }
+    htmlString += "</div>";
+    document.getElementById("adSection").innerHTML = htmlString;
 }
 function noCouponsDisplay() {
     document.getElementById("couponSection").innerHTML = "<h3>Coupon \n\
@@ -48,7 +69,7 @@ Options</h3><label> You are not receiving any coupons. </label>";
 function selectCoupons(merchantList) {
     var listOfMerchants = new Array();
     listOfMerchants = merchantList.split("#");
-    var htmlString = "<h3>Advertisement Options</h3>\n\
+    var htmlString = "<h3>Coupon Options:</h3>\n\
 <label for='couponSortType'>Sort Coupons by:</label>\n\
 <select name=sortType id=sortType>\n\
 <option value='productType'>Product Type</option>\n\
@@ -70,15 +91,33 @@ function selectCoupons(merchantList) {
         }
     }
     htmlString += "</div>";
-    //add save button to string
-    htmlString += "<br/><input type='submit' value='Save' onclick='?run=saveCouponData'>\n\
-                    </form>";
     document.getElementById("couponSection").innerHTML = htmlString;
 }
-function allCoupons() {
-    document.getElementById("couponSection").innerHTML = "<h3>Coupon \n\
-Options</h3><label> You are receiving coupons from the following merchants. \n\
-</label>";
+function allCoupons(merchantList) {
+    
+    var listOfMerchants = new Array();
+    listOfMerchants = merchantList.split("#");
+    var htmlString = "<h3>Coupon Options</h3>\n\
+<label for='couponSortType'>Sort Coupons by:</label>\n\
+<select name=sortType id=sortType>\n\
+<option value='productType'>Product Type</option>\n\
+<option value='alphaNum'>Alphabetical</option>\n\
+<option value='distance'>Distance</option>\n\
+</select>\n\
+<label>You are recieving coupons from the following merchants:</label>\n\
+<br/>\n\
+<form name='selectMerchants' method='POST' \n\
+<div id='merchantList'>";
+    
+    for (var i=0;i<listOfMerchants.length;i++)
+    {
+        if (listOfMerchants[i] != "" && listOfMerchants[i] != null)
+        {
+            htmlString += "<h3>" + listOfMerchants[i] + "<h3>";
+        }
+    }
+    htmlString += "</div>";
+    document.getElementById("couponSection").innerHTML = htmlString;
 }
 
 function buttonState() {
