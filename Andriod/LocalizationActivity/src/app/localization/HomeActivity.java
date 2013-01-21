@@ -120,7 +120,7 @@ public class HomeActivity extends Activity {
 				// try to send lat long
 				
 				try {
-					JSONObject json = new JSONObject(); 
+					JSONObject json = new JSONObject();
 					json.put("latitude", (int)(currentLat*MILLION)); 
 					json.put("longitude", (int)(currentLon*MILLION));
 					HttpParams httpParams = new BasicHttpParams();
