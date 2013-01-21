@@ -89,7 +89,7 @@
     {
         case 0:
         {
-            cell.detailTextLabel.text = @"Thoroughfare";
+            cell.detailTextLabel.text = @"Thoroughfare1";
             cell.textLabel.text = placemark.thoroughfare;
         } break;
         case 1:
