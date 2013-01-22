@@ -16,7 +16,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Search" />    
+        android:text="Search" /> 
+        
+    <Button 
+        android:id="@+id/customersButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="List Customers" />
     
     <Button
         android:id="@+id/logoutButton"
@@ -24,12 +31,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
         android:text="Log Out" />
-    
-    <Button 
-        android:id="@+id/customersButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="List Customers" />
 
 </LinearLayout>
