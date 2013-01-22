@@ -49,6 +49,17 @@ public class HomeActivity extends Activity {
 
 			}
 		});
+		
+		Button customersButton = (Button) findViewById(R.id.customersButton); 
+		
+		customersButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent customerScreen = new Intent(getApplicationContext(), Customers.class); 
+				startActivity(customerScreen); 
+			}
+		});
 
 	}
 }
