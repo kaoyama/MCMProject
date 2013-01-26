@@ -110,10 +110,12 @@ public class MerchantMap extends MapActivity {
 
 		hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
 
-		mlocProvider = locationManager.getBestProvider(hdCrit, true);
+//		mlocProvider = locationManager.getBestProvider(hdCrit, true);
+		mlocProvider = locationManager.NETWORK_PROVIDER;
 
 		//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
 		Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
+		
 
 		latitude = currentLocation.getLatitude();
 		longitude = currentLocation.getLongitude();

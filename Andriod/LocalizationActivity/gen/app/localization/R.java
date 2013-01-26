@@ -15,13 +15,13 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int databaseText=0x7f05000a;
         public static final int gpsButton=0x7f050003;
         public static final int loginButton=0x7f050008;
         public static final int logoutButton=0x7f050005;
         public static final int mapButton=0x7f050001;
         public static final int mapview=0x7f050009;
         public static final int merchantButton=0x7f050004;
+        public static final int merchantList=0x7f05000a;
         public static final int password=0x7f050007;
         public static final int searchButton=0x7f050002;
         public static final int settingsButton=0x7f050000;

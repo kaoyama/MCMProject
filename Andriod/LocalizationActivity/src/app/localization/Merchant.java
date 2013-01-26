@@ -3,6 +3,8 @@ package app.localization;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,6 +21,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,7 +32,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,13 +62,25 @@ public class Merchant extends Activity {
 	String dbResult; 
 	
 	static int TIMEOUT_MILLISEC = 3000; 
-
+	
+	List<String> listContents; 
+	ListView myListView; 
+	ArrayAdapter<String> adapter; 
+	Merchant currentThis = this; 
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.merchant);
-
+		
+		listContents = new ArrayList<String>(4);
+		listContents.add("First item"); 
+		
+		myListView = (ListView)findViewById(R.id.merchantList);
+		
+		
 		getData(); 
+		
 	}
 
 	/**
@@ -100,7 +117,7 @@ public class Merchant extends Activity {
 			// ipconfig 
 			// Look at 10.1.64.169
 			//HttpGet httpGet = new HttpGet("http://10.1.64.169/PHPQuery.php");
-			HttpGet httpGet = new HttpGet("http://dana.ucc.nau.edu/~cs854/PHPGetNearbyCustomers.php");
+			HttpGet httpGet = new HttpGet("http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php");
 			String text = null;
 			try {
 
@@ -121,14 +138,34 @@ public class Merchant extends Activity {
 					
 					@Override
 					public void run() {
-						EditText et = (EditText)findViewById(R.id.databaseText);
-						et.setText("Database connection worked!: " + results);
+					//	EditText et = (EditText)findViewById(R.id.databaseText);
+					//	et.setText("Database connection worked!: " + results);
+						
+						try {							
+							JSONArray jsonArray = new JSONArray(results);
+						    listContents = new ArrayList<String>(jsonArray.length());
+
+							for (int i = 0; i < jsonArray.length(); i++) {
+								listContents.add(jsonArray.getJSONObject(i).getString("merchantUserName")); 
+							}
+							
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						adapter = new ArrayAdapter<String>(currentThis, 
+								android.R.layout.simple_list_item_1, listContents); 
+						adapter.setNotifyOnChange(true); 
+						myListView.setAdapter(adapter); 
+						
 					}
 				});
 				
 			} else {
-				EditText et = (EditText)findViewById(R.id.databaseText);
-				et.setText("Database connection failed");
+				//TODO: Error notification of some sort 
+				//EditText et = (EditText)findViewById(R.id.databaseText);
+				//et.setText("Database connection failed");
 			}
 		}
 	}

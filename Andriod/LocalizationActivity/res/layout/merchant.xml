@@ -9,10 +9,15 @@
         android:layout_height="wrap_content"
         android:text="List of Merchants" />
     
-    <EditText
+   <!-- <EditText
         android:id="@+id/databaseText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Default String" />
+        android:text="Default String" /> -->
+    
+    <ListView 
+        android:id="@+id/merchantList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

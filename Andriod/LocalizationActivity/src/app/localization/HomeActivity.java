@@ -101,7 +101,7 @@ public class HomeActivity extends Activity {
 
 				mlocProvider = locationManager.getBestProvider(hdCrit, true);
 
-				locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
+				locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener);
 				Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
 				locationManager.removeUpdates(myLocationListener);
 
