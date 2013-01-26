@@ -22,6 +22,7 @@ import org.apache.http.protocol.HttpContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ import android.widget.Toast;
  *
  */
 
+@SuppressLint("NewApi")
 public class Customers extends Activity {
 	/** Called when the activity is first created. */
 
