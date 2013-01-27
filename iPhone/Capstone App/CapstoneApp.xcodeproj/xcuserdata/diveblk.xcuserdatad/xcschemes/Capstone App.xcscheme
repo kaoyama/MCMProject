@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D027539216583A51006E2367"
-               BuildableName = "Capstone App.app"
+               BuildableName = "CapstoneApp.app"
                BlueprintName = "CapstoneApp"
                ReferencedContainer = "container:CapstoneApp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D02753B916583A51006E2367"
-               BuildableName = "Capstone AppTests.octest"
+               BuildableName = "CapstoneAppTests.octest"
                BlueprintName = "CapstoneAppTests"
                ReferencedContainer = "container:CapstoneApp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D027539216583A51006E2367"
-            BuildableName = "Capstone App.app"
+            BuildableName = "CapstoneApp.app"
             BlueprintName = "CapstoneApp"
             ReferencedContainer = "container:CapstoneApp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D027539216583A51006E2367"
-            BuildableName = "Capstone App.app"
+            BuildableName = "CapstoneApp.app"
             BlueprintName = "CapstoneApp"
             ReferencedContainer = "container:CapstoneApp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D027539216583A51006E2367"
-            BuildableName = "Capstone App.app"
+            BuildableName = "CapstoneApp.app"
             BlueprintName = "CapstoneApp"
             ReferencedContainer = "container:CapstoneApp.xcodeproj">
          </BuildableReference>

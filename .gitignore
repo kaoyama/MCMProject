@@ -165,3 +165,5 @@ pip-log.txt
 iPhone/CurrentAddress/CurrentAddress.xcodeproj/project.xcworkspace/xcuserdata/diveblk.xcuserdatad/UserInterfaceState.xcuserstate
 
 iPhone/CurrentAddress/CurrentAddress.xcodeproj/project.xcworkspace/xcuserdata/diveblk.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate

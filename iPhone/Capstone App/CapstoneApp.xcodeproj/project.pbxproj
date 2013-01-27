@@ -185,6 +185,7 @@
 		D027538816583A51006E2367 = {
 			isa = PBXGroup;
 			children = (
+				D0B4BDDD16B5D10100322751 /* RestKit.xcodeproj */,
 				D0B4BE0116B5D29B00322751 /* SystemConfiguration.framework */,
 				D0B4BDFF16B5D29200322751 /* Security.framework */,
 				D0B4BDFD16B5D28900322751 /* QuartzCore.framework */,
@@ -192,7 +193,6 @@
 				D0B4BDF916B5D27700322751 /* libxml2.dylib */,
 				D0B4BDF716B5D26D00322751 /* CoreData.framework */,
 				D0B4BDF516B5D26200322751 /* CFNetwork.framework */,
-				D0B4BDDD16B5D10100322751 /* RestKit.xcodeproj */,
 				D02CEAC916ADFC3D00DAB116 /* MoneyClipSD.png */,
 				D02CEAC616ADFC3B00DAB116 /* MoneyClipHD.png */,
 				D0AF6AD016A804C200B51881 /* CoreLocation.framework */,
