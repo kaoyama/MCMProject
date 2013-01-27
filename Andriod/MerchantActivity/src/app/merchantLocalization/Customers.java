@@ -3,6 +3,8 @@ package app.merchantLocalization;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,20 +21,29 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 /**
  * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
@@ -58,13 +69,19 @@ public class Customers extends Activity {
 	
 	String dbResult; 
 	
+	LinearLayout customerLayout;
+	
+	Customers currentThis = this; 
+	
 	static int TIMEOUT_MILLISEC = 3000; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.customers);
-
+		
+		customerLayout = (LinearLayout)findViewById(R.id.customerLayout);
+		
 		getData(); 
 	}
 
@@ -123,14 +140,73 @@ public class Customers extends Activity {
 					
 					@Override
 					public void run() {
-						EditText et = (EditText)findViewById(R.id.databaseText);
-						et.setText("Database connection worked!: " + results);
+						// EditText et = (EditText)findViewById(R.id.databaseText);
+						// et.setText("Database connection worked!: " + results);
+						
+						try {							
+							JSONArray jsonArray = new JSONArray(results);
+
+								for (int i = 0; i < jsonArray.length(); i++){
+									Button tempButton = new Button(currentThis);
+									final String customerName = jsonArray.getJSONObject(i).getString("userName");
+									tempButton.setText(customerName);
+									tempButton.setOnClickListener(new View.OnClickListener(){
+
+										public void onClick(View arg0) {
+											try {
+												JSONObject json = new JSONObject();
+												json.put("userName", customerName); 
+												HttpParams httpParams = new BasicHttpParams();
+										        HttpConnectionParams.setConnectionTimeout(httpParams,
+										                TIMEOUT_MILLISEC);
+										        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
+										        HttpClient client = new DefaultHttpClient(httpParams);
+										        //
+										        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
+										        //             "json={\"UserName\":1,\"FullName\":2}";
+										        String url = "http://dana.ucc.nau.edu/~cs854/PHPToggleCustomerNotification.php";
+
+										        HttpPost request = new HttpPost(url);
+										        request.setEntity(new ByteArrayEntity(json.toString().getBytes(
+										                "UTF8")));
+										        request.setHeader("json", json.toString());
+										        HttpResponse response = client.execute(request);
+										        HttpEntity entity = response.getEntity();
+										        // If the response does not enclose an entity, there is no need
+										    } catch (Throwable t) {
+										        //Toast.makeText(this, "Request failed: " + t.toString(),
+										        //        Toast.LENGTH_LONG).show();
+										    }
+											
+											//Starting a new Intent
+											Intent homeScreen = new Intent(getApplicationContext(), MerchantLocalizationActivity.class);
+											startActivity(homeScreen);
+
+										}
+									});
+									LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+									customerLayout.addView(tempButton,lp);
+								}
+							
+							
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+											
+						
+						/*adapter = new ArrayAdapter<String>(currentThis, 
+								android.R.layout.simple_list_item_1, listContents); 
+						adapter.setNotifyOnChange(true); 
+						myListView.setAdapter(adapter); */
+						
 					}
 				});
 				
 			} else {
-				EditText et = (EditText)findViewById(R.id.databaseText);
-				et.setText("Database connection failed");
+				//TODO: Error notification of some sort 
+				//EditText et = (EditText)findViewById(R.id.databaseText);
+				//et.setText("Database connection failed");
 			}
 		}
 	}

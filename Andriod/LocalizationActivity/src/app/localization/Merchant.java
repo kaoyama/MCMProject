@@ -138,8 +138,8 @@ public class Merchant extends Activity {
 					
 					@Override
 					public void run() {
-					//	EditText et = (EditText)findViewById(R.id.databaseText);
-					//	et.setText("Database connection worked!: " + results);
+						//EditText et = (EditText)findViewById(R.id.databaseText);
+						//et.setText("Database connection worked!: " + results);
 						
 						try {							
 							JSONArray jsonArray = new JSONArray(results);
