@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -140,14 +141,20 @@ public class Merchant extends Activity {
 					public void run() {
 					//	EditText et = (EditText)findViewById(R.id.databaseText);
 					//	et.setText("Database connection worked!: " + results);
-						
+												
 						try {							
 							JSONArray jsonArray = new JSONArray(results);
 						    listContents = new ArrayList<String>(jsonArray.length());
 
 							for (int i = 0; i < jsonArray.length(); i++) {
-								listContents.add(jsonArray.getJSONObject(i).getString("merchantUserName")); 
+								listContents.add(jsonArray.getJSONObject(i).getString("merchantUserName")); 								
 							}
+							
+							// Save this information to be used in the Merchant Map page 
+							Intent intent = new Intent(Merchant.this, MerchantMap.class); 
+							Bundle b = new Bundle(); 
+							b.putString("merchantInfo", jsonArray.toString()); 
+							intent.putExtras(b); 
 							
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
@@ -158,7 +165,6 @@ public class Merchant extends Activity {
 								android.R.layout.simple_list_item_1, listContents); 
 						adapter.setNotifyOnChange(true); 
 						myListView.setAdapter(adapter); 
-						
 					}
 				});
 				

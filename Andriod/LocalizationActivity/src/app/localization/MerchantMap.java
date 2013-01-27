@@ -73,15 +73,25 @@ public class MerchantMap extends MapActivity {
 
 	//Listening to button event
 	public void getLocation() {
-
-		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+		
 		LocationListener myLocationListener = new LocationListener() {
 			public void onLocationChanged(Location loc) {
 				//sets and displays the lat/long when a location is provided
 				getLocation(); 
+				
+				latitude = loc.getLatitude();
+				longitude = loc.getLongitude();
+				
+				
+		///		
+				// Retrieve merchant info from Merchant.java
+				Bundle b = getIntent().getExtras();
+				String jsonArray = b.getString("merchantInfo");
+		///		
+				
+				
 				GeoPoint point = new GeoPoint((int)(latitude*MILLION), (int)(longitude*MILLION));
-				OverlayItem overlayitem = new OverlayItem(point, "Hi!", "You are here!");
+				OverlayItem overlayitem = new OverlayItem(point, "Hi!", jsonArray);
 
 				// Set default zoom
 				MapController mapController = mapView.getController();
@@ -89,6 +99,8 @@ public class MerchantMap extends MapActivity {
 				
 				itemizedOverlay.addOverlay(overlayitem); 
 				mapOverlays.add(itemizedOverlay);     
+				
+				 
 			}
 
 			public void onProviderDisabled(String provider) {
@@ -105,7 +117,8 @@ public class MerchantMap extends MapActivity {
 			}
 		};
 
-		String mlocProvider;
+		/*String mlocProvider;
+		
 		Criteria hdCrit = new Criteria();
 
 		hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
@@ -114,9 +127,13 @@ public class MerchantMap extends MapActivity {
 		mlocProvider = locationManager.NETWORK_PROVIDER;
 
 		//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
-		Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
+		//Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
+		Location currentLocation = locationManager.getProvider(NETWORK_PROVIDER);
+		*/
 		
-
+		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		//locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener); 
+		Location currentLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER); 
 		latitude = currentLocation.getLatitude();
 		longitude = currentLocation.getLongitude();
 	}

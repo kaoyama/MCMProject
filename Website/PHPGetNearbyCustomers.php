@@ -12,6 +12,12 @@ $con = mysql_connect($databasehost,$databaseusername,$databasepassword)
         or die(mysql_error());
 mysql_select_db($databasename) or die(mysql_error());
 
+// Set 'charged' variable to false for everyone in the table 
+$query = "UPDATE kd268.customers SET charged = FALSE";
+$res = mysql_query($query); 
+        
+// Get all users
+// TODO: Get all users within a certain radius 
 $query = "SELECT `userName` FROM `kd268`.`customers` WHERE `currentLat` BETWEEN '" . 
         ($lat - 10000) . "' AND '" . ($lat + 10000) ."' AND `currentLon` BETWEEN '" . 
         ($lon - 100000) . "' AND '" . ($lon + 100000) . "'";

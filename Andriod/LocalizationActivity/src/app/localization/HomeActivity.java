@@ -122,9 +122,7 @@ public class HomeActivity extends Activity {
 			                TIMEOUT_MILLISEC);
 			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
 			        HttpClient client = new DefaultHttpClient(httpParams);
-			        //
-			        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
-			        //             "json={\"UserName\":1,\"FullName\":2}";
+			        
 			        String url = "http://dana.ucc.nau.edu/~cs854/PHPPut.php";
 
 			        HttpPost request = new HttpPost(url);
