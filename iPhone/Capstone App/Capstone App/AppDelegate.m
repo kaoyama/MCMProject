@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Blayne Kennedy. All rights reserved.
 //
 
+#import <RestKit/RestKit.h>
 #import "AppDelegate.h"
 
 @implementation AppDelegate
