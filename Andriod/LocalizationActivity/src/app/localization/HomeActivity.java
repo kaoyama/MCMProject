@@ -6,16 +6,24 @@ import java.io.InputStream;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +42,7 @@ public class HomeActivity extends Activity {
 
 
 	TextView username;
+	String notificationMessage; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,6 +63,55 @@ public class HomeActivity extends Activity {
 			}
 		});
 	*/
+		Button notificationButton = (Button) findViewById(R.id.notificationsButton);
+		notificationButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try {
+					HttpParams httpParams = new BasicHttpParams();
+			        HttpConnectionParams.setConnectionTimeout(httpParams,
+			                TIMEOUT_MILLISEC);
+			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
+			        HttpClient client = new DefaultHttpClient(httpParams);
+			        
+			        String url = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
+
+			        HttpPost request = new HttpPost(url);
+			        HttpResponse response = client.execute(request);
+			        HttpEntity entity = response.getEntity();
+			        
+			        // If the response does not enclose an entity, there is no need
+			        if (entity != null) {
+			            String result = app.localization.RestClient.getASCIIContentFromEntity(entity);
+			            JSONArray json = new JSONArray(result); 
+			            String userStatus; 
+			            String timestamp = json.getJSONObject(0).getString("timestamp"); 
+			            
+			            if (json.getJSONObject(0).getString("charged").equals("1")) {
+			            	userStatus = "User has been seen by the merchant at time:\n" + timestamp + "!";
+			            } else {
+			            	userStatus = "User has not been seen by the merchant!\n" + 
+			            			"User was last seen at time:\n" + timestamp; 
+			            }
+			            
+			            notificationMessage = userStatus; 
+			            Builder builder = new AlertDialog.Builder(HomeActivity.this); 
+			    		builder.setMessage(notificationMessage);
+			    		builder.setCancelable(false); 
+			    		builder.setPositiveButton("Ok", new OkOnClickListener()); 
+			    		AlertDialog dialog = builder.create();
+			    		dialog.show();
+			    	
+			    	
+			            //Toast.makeText(HomeActivity.this, userStatus, Toast.LENGTH_LONG).show();
+			        }
+			    } catch (Throwable t) {
+			        Toast.makeText(HomeActivity.this, "Request failed: " + t.toString(),
+			        		Toast.LENGTH_LONG).show();
+			    }
+			}
+		});
 		
 		Button merchantButton = (Button) findViewById(R.id.merchantButton);
 
@@ -164,5 +222,25 @@ public class HomeActivity extends Activity {
 			}
 		});
 
+	}
+	
+	// dialog 
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		
+		Builder builder = new AlertDialog.Builder(this); 
+		builder.setMessage(notificationMessage);
+		builder.setCancelable(false); 
+		builder.setPositiveButton("Ok", new OkOnClickListener()); 
+		AlertDialog dialog = builder.create();
+		dialog.show();
+		return dialog;
+	}
+	
+	private final class OkOnClickListener implements 
+		DialogInterface.OnClickListener {
+		public void onClick(DialogInterface dialog, int which) {
+			dialog.dismiss();
+		}
 	}
 }
