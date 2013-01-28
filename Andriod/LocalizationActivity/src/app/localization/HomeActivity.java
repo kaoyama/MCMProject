@@ -39,6 +39,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		/*
 		Button mapButton = (Button) findViewById(R.id.mapButton);
 
 		//Listening to button event
@@ -52,7 +53,8 @@ public class HomeActivity extends Activity {
 
 			}
 		});
-
+	*/
+		
 		Button merchantButton = (Button) findViewById(R.id.merchantButton);
 
 		//Listening to button event
@@ -64,6 +66,7 @@ public class HomeActivity extends Activity {
 				startActivity(merchantScreen); 
 			}
 		});
+		
 
 		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
 

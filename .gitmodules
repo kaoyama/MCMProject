@@ -1,0 +1,3 @@
+[submodule "iPhone/Capstone App/RestKit"]
+	path = iPhone/Capstone App/RestKit
+	url = git://github.com/RestKit/RestKit.git

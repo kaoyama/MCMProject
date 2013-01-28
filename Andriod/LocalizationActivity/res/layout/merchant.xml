@@ -9,6 +9,14 @@
         android:layout_height="wrap_content"
         android:text="List of Merchants" />
     
+    <Button
+        android:id="@+id/mapButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="Merchant Map" />
+    
+        -->
    <!-- <EditText
         android:id="@+id/databaseText"
         android:layout_width="fill_parent"

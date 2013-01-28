@@ -28,10 +28,10 @@ if(!$res) {
 
 // within 1 km radius...
 $query = "SELECT * FROM kd268.merchantLocations WHERE " . 
-        "(6367*SQRT(($pi2 - $currentLat)*($pi2 - $currentLat) + " .
+        "(6367/100*SQRT(($pi2 - $currentLat)*($pi2 - $currentLat) + " .
         "($pi2 - latitude/$mil)*($pi2 - latitude/$mil) - " . 
         "2*($pi2 - $currentLat)*($pi2 - latitude/$mil) * " . 
-        "COS(longitude/$mil - $currentLon))) < 1";
+        "COS(longitude/$mil - $currentLon))) < 10";
 
 $sth = mysql_query($query); 
 

@@ -34,6 +34,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -68,6 +69,8 @@ public class Merchant extends Activity {
 	ListView myListView; 
 	ArrayAdapter<String> adapter; 
 	Merchant currentThis = this; 
+	Intent intent; 
+	Bundle b; 
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,8 +82,24 @@ public class Merchant extends Activity {
 		
 		myListView = (ListView)findViewById(R.id.merchantList);
 		
-		
+		// Save merchant information to be used in the Merchant Map page 
+		intent = new Intent(Merchant.this, MerchantMap.class); 
+		b = new Bundle(); 
+				
+		// Get list of merchants from database
 		getData(); 
+		
+		// Display map button 
+		Button mapButton = (Button) findViewById(R.id.mapButton);
+
+		//Listening to button event
+		mapButton.setOnClickListener(new View.OnClickListener(){
+
+			public void onClick(View arg0) {
+				startActivity(intent); 
+			}
+		});
+		
 		
 	}
 
@@ -151,10 +170,8 @@ public class Merchant extends Activity {
 							}
 							
 							// Save this information to be used in the Merchant Map page 
-							Intent intent = new Intent(Merchant.this, MerchantMap.class); 
-							Bundle b = new Bundle(); 
 							b.putString("merchantInfo", jsonArray.toString()); 
-							intent.putExtras(b); 
+							intent.putExtras(b); 	
 							
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
