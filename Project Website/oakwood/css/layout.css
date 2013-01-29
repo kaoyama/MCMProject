@@ -1,0 +1,303 @@
+/* Kill margin and padding on all elements - because different browsers have different defaults */
+*{
+	margin:0;
+	padding:0;
+}
+
+html{
+/* Fixes background nastiness when a sidebar is open in Firefox */
+	min-width:770px;
+}
+
+body{
+/* Use backgound image as opposed to colour so that site is still functional if images are off */
+	background:white url(../candy/background.png) 0 0 repeat;
+/* Shove all content to the center of the screen for Internet Explorer 5 */
+	text-align:center;
+}
+
+/*=====[ Set up container divs and add background tiles ]=====*/
+
+#pageheadContainer,
+#contentContainer,
+#footContainer{
+/* 100% so we can create the fullscreen width backgrounds */
+	width:100%;
+}
+
+#pageheadContainer{
+	background:transparent url(../candy/pageheadBackground.png) 0 100% repeat-x;
+}
+
+#contentContainer{
+	background:#F7F7F7 url(../candy/contentBackground2.png) 50% 100% repeat-y;
+/* Float left to prevent floated child divs */
+	float:left;
+}
+
+#footContainer{
+	background:transparent url(../candy/footBackground.png) 0 0 repeat-x;
+	clear:both;
+}
+
+#pagehead,
+#content,
+#foot{
+/* Set widths for "sub" container divs and center on the screen . fluid you say? I think not sir, you are quite mad! */
+	width:770px;
+	margin:0 auto;
+/* Position relative so we can position children absolutley but keep them relative to their parents and not the document root - confused? Me too! */
+	position:relative;
+/* Shove the content back where it should be now we have convinced IE5 that center aligned websites are, infact, groovy (see body{}) */
+	text-align:left;
+}
+
+#pagehead{
+	height:130px;
+}
+
+#foot{
+	height:150px;
+}
+
+/* More backgounds, we need more backgrounds! */
+#pagehead{
+	background:transparent url(../candy/pageheadBackground2.png) 0 100% repeat-x;
+}
+
+#content{
+/* Add drop shadow/fading backgound to top of content area . doesn't work on IE5/MAC . oh the shame! */
+	background:transparent url(../candy/contentBackground.png) 0 0 no-repeat;
+/* Ensure this background tile is never cut short, min-height for Firefox and pals, _height 'hack' for Internet Exploiter */
+	min-height:300px;
+	_height:300px;
+}
+
+#foot{
+	background:transparent url(../candy/footBackground2.png) 100% 0 repeat-x;
+}
+
+/*=====[ Set up two column layout for articles and subcontent ]=====*/
+
+#article{
+	width:450px;
+	float:left;
+	padding:40px 0 20px 0;
+	margin-left:50px;
+}
+
+#subContent{
+/* Fix double margin bug in IE on floats using display:inline */
+	display:inline;
+	width:180px;
+	float:left;
+	padding:40px 0 20px 0;
+	margin-left:30px;
+	color:#8B725A;
+	font-size:.9em;
+}
+
+/*=====[ Navigations ]=====*/
+
+#pagehead h1 a{
+/* Create blank hit area for logo/signature - PNG here would have been nice but hey, this is IE land we live in!  */
+	display:block;
+	text-indent:-9999px;
+	width:230px;
+	height:150px;
+	text-decoration:none;
+/* Float to make hit area work in... yup, you gussed it ayyyeee 5! */
+	float:left;
+}
+
+#pagehead a:hover{
+/* prevent background colour used on site wide anchors */
+	background:transparent;
+}
+
+#pagehead h1{
+/* Position blank hit area over background logo/signature */
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+/* Main navigation list */
+
+#pagehead ul{
+	display: block;
+	position: absolute;
+	top: 105px;
+	left: 324px;
+	width: 418px;
+}
+
+#pagehead li{
+	display:block;
+	float:left;
+	width:80px;
+	margin-left:3px;
+}
+
+#pagehead li a{
+	display:block;
+	height:20px;
+	text-align:center;
+	color:#4B271B;
+	font-size:1.2em;
+	font-weight:bold;
+/* Line height same as height, which puts the text vertically centered, hoorah! */
+	line-height:20px;
+	text-decoration:none;
+	text-transform:lowercase;
+}
+
+
+#pagehead li.odd a{
+	background:#CBA181;
+}
+
+#pagehead li.even a{
+	background:#B67357;
+}
+
+#pagehead a:hover{
+	color:#FFE;
+}
+
+/* Foot navigation and FIR */
+
+#foot ul{
+	position:absolute;
+	top:45px;
+}
+
+#foot li{
+/* hide bullets */
+	list-style-type:none;
+}
+
+#foot #foot1{
+/* width to solve odd problem with Opera 7.5 */
+	width:200px;
+	position:absolute;
+	left:300px;
+}
+
+#foot #foot2{
+/* width to solve odd problem with Opera 7.5 */
+	width:200px;
+	position:absolute;
+	left:570px;
+}
+
+/* This is the anchor top button at bottom of page */
+#foot #pageTop{
+	position:absolute;
+/* This position worked out using a highly technical formula: left a bit, right a bit, no left a bit... bingo! */
+	left:482px;
+	top:-40px;
+}
+
+#foot #pageTop a{
+	display:block;
+	width:26px;
+	height:26px;
+	text-indent:-9999px;
+	text-decoration:none;
+	background:transparent url(../candy/pageTop.png) 0 0 no-repeat;
+/* Float to make hit area work in... yup, you gussed it again Internot Exploder 5 */
+	float:left;
+}
+
+/*=====[ General params and typography ]=====*/
+
+body{
+/* relative font sizing to allowing scaling in Internet Exfoliator - http://www.clagnut.com/blog/348/*/
+	font:normal 62.5%/1.8em Arial, Helvetica, sans-serif;
+}
+
+/* #content ul used to prevent main navigation, within #pagehead, list breaking */
+#content ul{
+	margin:0.8em 0 0.6em 1em;
+	padding-left:1em;
+	list-style-type:square;
+}
+
+ol{
+	margin:0.8em 0 0.6em 2em;
+	padding-left:1em;
+	list-style-type:lower-roman;
+}
+
+blockquote{
+	margin:0.8em 0 0.6em 1em;
+	padding-left:1em;
+	font-style:italic;
+	border-left:4px solid #E2D7CF;
+}
+
+/* Frame images */
+img{
+	padding:2px;
+	border:1px solid #F2F2F2;
+}
+
+/*Set font size for content area */
+#content{
+	font-size:1.25em;
+}
+
+p{
+	margin:0.3em 0 0.6em 0;
+}
+
+a{
+	color:#9D6141;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:hover{
+	background:#9D6141;
+	color:#FFE;
+}
+
+#article{
+	line-height:1.7em;
+	color:#635141;
+}
+
+h1,
+h2,
+h3,
+h4{
+ font-family:Georgia, Times New Roman, Times, serif;
+}
+
+h2{
+	color:#98533B;
+	margin-bottom:.5em;
+	line-height:1.7em;
+	font-size:1.7em;
+}
+
+h3{
+	margin:0.8em 0 0.6em 0;
+	font-size:1.3em;
+}
+
+h4{
+	margin:0.8em 0 0.6em 0;
+	font-size:1.1em;
+}
+
+/* Sub Content */
+
+#subContent h2{
+	font-size:1.3em;
+}
+
+#subContent h3{
+	font-size:1.1em;
+}
