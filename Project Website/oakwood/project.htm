@@ -22,23 +22,44 @@
     <div id="subContent">
       <h2><img name="" src="candy/cupcakePandaWhite2.jpg" width="137" height="166" alt="" /></h2>
       <h2>Quick facts</h2> 
-      <p>Team Frequency Tracker is a capstone based team assigned to the patient tracker project. They are composed of 4 skilled members as well as a team mentor.</p> 
+      <p>Team MCM Localization is the Computer Science Capstone team workin on the MoneyClip Mobile Localization project. They are composed of 4 skilled members as well as a team mentor.</p> 
       <h3>&nbsp;</h3> 
     </div> 
     <div id="article"> 
       <h2>Project</h2> 
       <p> The team consists of Kimberly Oyama, Chihiro Sasaki, Daren Rodhouse, and Blayne Kennedy. Also Dr. John Georgas is the mentor for the team and more infomation on both the team members as well as Dr. Georgas can be found in our <em>Meet the Team section</em> or <a href="about.htm">Here</a>.</p> 
       <h3>About the Project</h3> 
-      <p>The localization features of MoneyClip Mobile will provide customers with targeted advertisement, coupons, and loyalty networks that will be an additional feature to an existing web-based payments infrastructure.  Below, the Problem Statement, Functional and Non-Functional Requirements, Environmental Requirements, Potential Risks, and the Project Plan can be found. </p>
-      <h2>High Level      </h2>
-      <p><img src="candy/Untitled-2-2.png" width="400" height="286" /></p>
-      <p><strong>Figure 1</strong>: System with active RFID tag, assuming this is a programmable tag.  The patient information is pulled from Centrak.  The remaining information on the form is filled out by the user, which is programmed into the tag.  The sample goes inside the container with the RFID attached to it, which is taken to histology, with the information sent to the system of the detailed path and their corresponding times.  Once the sample reaches histology, data is pulled out of the RFID, and the RFID container is then reset to be reprogrammed back in OR for a different sample.</p>
-      <p><strong>Figure 2</strong>: System with passive RFID tag, assuming the RFID is non-programmable.  The RFID tag number and information from Centrak, the OR control, is inputted into the pathology requisition form. The user fills in the missing information, and the compiled form is entered into the database (or one associated with our system), which is associated with the RFID number.  The RFID-tagged sample will be transported to histology, where it is reidentified via the system.</p>
-      <h2>Project Updates</h2>
-      <h3>Week One</h3>
-      <p>First meeting to readjust to the new project on October 30. First meeting with client on November 1. </p>
-      <h3>Week two</h3>
-      <p>Second meeting over requirements Part 1 and project direction on November 4.</p> 
+      <p>The localization features of MoneyClip Mobile will provide customers with targeted advertisement, coupons, and loyalty networks that will be an additional feature to an existing web-based payments infrastructure. </p>
+      <h3>Problem and Solution Statement</h3>
+      <p>MoneyClip Mobile (MCM) is a web-based payments infrastructure providing fee-free transactions to customers and merchants through the use of mobile smartphones.  Mr. Joshua Cross of Hermes Commerce, Inc. is planning to make this mobile payment system more robust by providing targeted advertisements, coupons, and managing customer’s royalty programs. </p>
+<p>
+This capstone project will develop the localization features for the MCM advertisement, coupons, and loyalty network.  The software will be developed for the existing MCM network and database to ease the transition of integrating this feature.  The team will be developing the same copy of the existing network and database on a local server to develop in and test the added feature.  The prototype of the localization features implemented on the database, web service, and iOS/Android applications will be presented to Mr. Cross at the end of this project.
+	  </p>
+	  
+	  <h4>Part 1: Problem Statement</h4>
+	  <p>This project is sponsored by Mr. Joshua Cross, CTO of Hermes Commerce Inc. in Flagstaff, Arizona. Hermes Commerce Inc. produces an application called MoneyClip Mobile (MCM) that allows users to transfer funds to and from other users, merchants or customers, without involving physical money or credit and debit cards. Mr. Cross is responsible for the development of MCM as well as for the business aspects of the product. MCM addresses the need of users to exchange funds regardless of distance.</p>
+
+<p>The general problem facing MCM is competition with popular technologies such as Google Wallet and Square. Mr. Cross’ goal for overcoming this challenge is to combine all the functionalities of the competition into one application and find a niche for that application. In order to accomplish this, MCM application needs to be able to transfer funds between customers and merchants.  In addition, the application needs to determine when a customer is making a purchase from a merchant in order for the merchant to push the charge to the customer’s MCM account. Also, MCM will give customers control over the frequency and types of advertisements or coupons they receive, and it will give merchants options for when to push advertisements or coupons depending on customer trends.</p>  
+
+<p>This project involves implementing a localization function that notifies merchants when MCM customers are in their vicinity, allowing the merchant to push a payment request to the customer’s MCM account if the customer makes a purchase. This functionality allows true moneyless transactions. The third and final chunk of functionality that we will be developing is the data analysis algorithms that will be used for effective direct advertising. We will be implementing trend finding algorithms that will be used for direct advertising. These algorithms will use past user transactions to find patterns and compute probabilities that will be available to merchants to aid their advertising decisions.
+</p>
+
+	  <h4>Part 2: Problem Solution</h4>
+	  <strong><p>System Improvements</p></strong>
+	  <p>One piece of functionality we are adding is the ability to allow customers to select the amounts and sources of advertisements that are pushed to their account via the iPhone application, Android application, or website. They should be able to customize their settings to choose differing levels of participation from the advertisements.  Merchant settings should also be available for change on the website or either mobile application. </p>
+
+	  <p>The next function being added is the analysis of customer traffic to find patterns that merchants can use for direct advertising. The merchants will have the option to push an advertisement depending on the chance that a customer will respond. For instance, if a customer just ate at a restaurant downtown, there is 40% chance that they will get drinks when they are done. This information will be available to merchants so a bar can set their account to push an advertisement whenever a customer makes a purchase at a restaurant downtown. In this situation, there is a very low chance that the customer will eat again, so another restaurant will probably not push an advertisement to this customer. Related to this, advertisements must be pushed to customers with minimal time lag to make sure that they have not left the area before they receive the advertisement. </p>
+
+<p>Of the data stored by MCM, we will use the customer transaction history to determine purchasing patterns. The algorithms we implement will produce statistics for merchants. The pattern recognition algorithms will analyze past customer transactions in order to predict future purchases.  Merchants will be able to look at the probability of a certain customer making a purchase from them and determine whether or not they want to push an advertisement to that customer. The localization functionality requires additional user settings, such as types of advertisements or coupons they are accepting on their account.
+</p>
+	  <strong><p>System Impact</p></strong>
+	  <p>Our additions will make MCM a more comprehensive and robust commerce application. Therefore, our sponsor will have a better product to pitch, potentially making his job easier.  The development team of MCM will be able to utilize localization activity code from the Android and iOS applications and use them to further their development of the applications. 
+
+By using MCM with localization features, there will be fewer steps in the money exchange, and thus transactions will be faster and lines will move faster. Theft may also decrease because there would be less cash to steal, making it not worth the effort and consequences.
+
+With the added localization functionality, MCM becomes a comprehensive commerce application. Many other applications focus on certain aspects of commerce but none so far combine them. MCM will have the potential of removing the need for physical money entirely because you will be able to move money between customers, and between customers and merchants regardless of distance. Merchants will also be able to advertise more effectively, and customers will be able to tailor their account for advertisements and coupons that they are interested in.
+</p>
+	  
     </div> 
   </div> 
 </div> 

@@ -33,7 +33,11 @@ import android.widget.Toast;
 import android.graphics.Color;
 import android.location.*;
 
-
+/**
+ * Description of class here
+ * @author Chihiro
+ *
+ */
 public class HomeActivity extends Activity {
 	protected static final int TIMEOUT_MILLISEC = 3000;
 	static long MILLION = 1000000; 

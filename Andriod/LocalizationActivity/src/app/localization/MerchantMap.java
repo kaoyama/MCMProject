@@ -176,6 +176,10 @@ public class MerchantMap extends MapActivity {
 		
 		private List<OverlayItem> mOverlays = new ArrayList<OverlayItem>(); 
 		
+		/**
+		 * 
+		 * @param defaultMarker Parameter description here 
+		 */
 		public MyItemizedOverlay(Drawable defaultMarker) {
 			super(boundCenterBottom(defaultMarker)); 
 		}
@@ -195,6 +199,13 @@ public class MerchantMap extends MapActivity {
 			populate(); 
 		}
 		
+		/**
+		 * 
+		 * @param lat
+		 * @param lon
+		 * @param title
+		 * @param marker
+		 */
 		public void addOverlayItem(int lat, int lon, String title, Drawable marker) {
 			GeoPoint point = new GeoPoint(lat, lon); 
 			OverlayItem overlayItem = new OverlayItem(point, title, null);

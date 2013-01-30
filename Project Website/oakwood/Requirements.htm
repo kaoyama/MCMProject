@@ -22,7 +22,7 @@
     <div id="subContent">
       <h2><img name="" src="candy/cupcakePandaWhite2.jpg" width="137" height="166" alt="" /></h2>
       <h2>Quick facts</h2> 
-      <p>Team Frequency Tracker is a capstone based team assigned to the patient tracker project. They are composed of 4 skilled members as well as a team mentor.</p> 
+      <p>Team MCM Localization is the Computer Science Capstone team workin on the MoneyClip Mobile Localization project. They are composed of 4 skilled members as well as a team mentor.</p> 
       <h3>&nbsp;</h3>
     </div>
     <div id="article"> 
@@ -83,20 +83,41 @@
       </blockquote>
       <p> </p>
       <h3>Environmental Requirements</h3>
-      <p> </p>
-      <p>The team must use the existing MCM infrastructure, so the transition of adding the localization feature will be seamless.  Thus, a Mac computer will be required for iOS/iPhone programming.  iOS deployment on a physical device requires a subscription to the Apple Developer Network, which costs $99 annually.</p>
-      <p> </p>
-      <h3>Non-Functional Requirements</h3>
-      <p> </p>
-      <p>Due to MCM having an existing infrastructure, the localization feature must be integrated into the existing system seamlessly.  This includes the existing webservice, iOS application, and the database.  The Android application is yet to be developed for MCM, so the basic skeleton of the iOS application will be used. </p>
-      <p> </p>
-      <h3>Potential Risks</h3>
-      <p> </p>
-      <p>1.     The localization feature of the system compromises the security of the existing payments infrastructure of MCM.</p>
-      <p>2.     Users have a privacy protection on their geolocation, so targeted ads based on location becomes unfeasible.</p>
-      <p>3.     Merchants push too many advertisements to their users using the new feature.</p>
+      <p> </p>      
+	  <h4>Existing Infrastructure</h4>
+	  <p>The team must use the existing MCM infrastructure, so the transition of adding the localization feature will be seamless.  Thus, a Mac computer will be required for iOS/iPhone programming.  iOS deployment on a physical device requires a subscription to the Apple Developer Network, which costs $99 annually. </p>
+	  
+	  <h4>Content Filter</h4>
+	  <p>Initially, merchants will be able to create any advertisements that they choose to. However, in the case that advertisement content is found to be inappropriate, the system will need to allow for a content filter to be easily added.</p>
+	  
+	  <h4>Google API Limitations</h4>
+	  <p>Geocoding is the process of converting addresses into geographic coordinates which you can use in Google Maps to place markers or position the map. Geocoding is a time and resource intensive task. Google recommends designing a cache for all systems that use geocoding to store addresses that have been pre-geocoded whenever possible. This is particularly crucial to implement because Google API has a query limit of 2,500 geolocation requests per day. If the limit is exceeded too often, Google will block access to the Geocoding API. Furthermore, our implementation of the system is limited to the inputs and outputs used by the Google API.</p>
+	  
+	  <h4>Java and XML</h4>
+	  <p>Android applications must be developed using the Java programming language along with XML. Our client has asked us to create an android application that showcases our localization capabilities, therefore, Java and XML must be used in the implementation of our project.</p>
+	  
+	  <h4>Android devices</h4>
+	  <p>There are several differing Android devices currently on the market. The most crucial difference to understand while implementing our project is the difference in screen size and screen density between the devices. Due to this, we must implement our Android application so that our interface is displayed relative to each device screen rather than one particular screen size.</p>
+	  
+      <h4>Android OS</h4>
+      <p>There are several different Operating Systems that are being used on Android devices. Our application will have to be implemented so that it can be accessed on as many different OS versions as possible. The application should also be developed using an API high enough to fully and correctly implement the system, but the API should be as low as possible so that more devices can be compatible with the application. </p>
+	  
+	  <h4>xCode</h4>
+      <p>iPhone applications must be developed using xCode. Our client has asked us to create an iPhone application that showcases our localization capabilities. Therefore, xCode must be used in the implementation of our project. </p>
+	  
+	  <h3>Potential Risks</h3>
+	  <ul>
+	  <li>Security of localization integration</li>
+	  <li>Privacy protection makes geolocation impossible</li>
+	  <li>Merchants push too many advertisements and coupons</li>
+	  <li>No cell service</li>
+	  <li>Inaccurate geolocation</li>
+	  <li>MCM server failure</li>	  
+	  <li>More than one merchant in user proximity</li>
+	  </ul>
+	 
       <h2>&nbsp;</h2>
-      <h3>&nbsp;</h3> 
+      <h3>&nbsp;</h3>  
       <h3>&nbsp;</h3> 
     </div> 
   </div> 
