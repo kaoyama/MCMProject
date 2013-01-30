@@ -27,6 +27,9 @@ import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,8 +48,9 @@ import android.widget.Toast;
 
 
 
+
 /**
- * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
+ * Customerlist.  Pulls subscribed or nearby customer names from the database. 
  * Need service-oriented architecture and needs three elements: 
  * external database, web-service, mobile web-service client. 
  * @author Chihiro
@@ -142,7 +146,10 @@ public class Customers extends Activity {
 					public void run() {
 						// EditText et = (EditText)findViewById(R.id.databaseText);
 						// et.setText("Database connection worked!: " + results);
-						
+						/**
+						 * Gets customers names from JSON and creates buttons that charge the users if 
+						 * pressed.
+						 */
 						try {							
 							JSONArray jsonArray = new JSONArray(results);
 
@@ -153,35 +160,56 @@ public class Customers extends Activity {
 									tempButton.setOnClickListener(new View.OnClickListener(){
 
 										public void onClick(View arg0) {
-											try {
-												JSONObject json = new JSONObject();
-												json.put("userName", customerName); 
-												HttpParams httpParams = new BasicHttpParams();
-										        HttpConnectionParams.setConnectionTimeout(httpParams,
-										                TIMEOUT_MILLISEC);
-										        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-										        HttpClient client = new DefaultHttpClient(httpParams);
-										        //
-										        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
-										        //             "json={\"UserName\":1,\"FullName\":2}";
-										        String url = "http://dana.ucc.nau.edu/~cs854/PHPToggleCustomerNotification.php";
+												AlertDialog.Builder builder = new AlertDialog.Builder(currentThis);
+												builder.setMessage("Are you sure youwant to charge " + customerName + "?")
+											       .setTitle("Charge Customer");
+												builder.setPositiveButton("Charge", new DialogInterface.OnClickListener() {
+											           public void onClick(DialogInterface dialog, int id) {
+											               // User clicked OK button
+											        	   try{
+											        	   JSONObject json = new JSONObject();
+															json.put("userName", customerName);
+															HttpParams httpParams = new BasicHttpParams();
+													        HttpConnectionParams.setConnectionTimeout(httpParams,
+													                TIMEOUT_MILLISEC);
+													        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
+													        HttpClient client = new DefaultHttpClient(httpParams);
+													        //
+													        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
+													        //             "json={\"UserName\":1,\"FullName\":2}";
+													        String url = "http://dana.ucc.nau.edu/~cs854/PHPToggleCustomerNotification.php";
 
-										        HttpPost request = new HttpPost(url);
-										        request.setEntity(new ByteArrayEntity(json.toString().getBytes(
-										                "UTF8")));
-										        request.setHeader("json", json.toString());
-										        HttpResponse response = client.execute(request);
-										        HttpEntity entity = response.getEntity();
+													        HttpPost request = new HttpPost(url);
+															request.setEntity(new ByteArrayEntity(json.toString().getBytes(
+																        "UTF8")));														
+													        request.setHeader("json", json.toString());
+													        HttpResponse response;
+															response = client.execute(request);
+													        HttpEntity entity = response.getEntity();
+											        	   
+											           } catch (Throwable t) {
+													        //Toast.makeText(this, "Request failed: " + t.toString(),
+													        //        Toast.LENGTH_LONG).show();
+													    }
+											        	    Builder builder2 = new AlertDialog.Builder(currentThis); 
+												    		builder2.setMessage("You have successfully charged " + customerName + "." );
+												    		builder2.setCancelable(false); 
+												    		builder2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+														           public void onClick(DialogInterface dialog, int id) {
+														               // User clicked OK button
+														           }}); 
+												    		AlertDialog dialog2 = builder2.create();
+												    		dialog2.show();
+											           }
+											       });
+											builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+											           public void onClick(DialogInterface dialog, int id) {
+											               // User cancelled the dialog
+											           }
+											       });
 										        // If the response does not enclose an entity, there is no need
-										    } catch (Throwable t) {
-										        //Toast.makeText(this, "Request failed: " + t.toString(),
-										        //        Toast.LENGTH_LONG).show();
-										    }
-											
-											//Starting a new Intent
-											Intent homeScreen = new Intent(getApplicationContext(), MerchantLocalizationActivity.class);
-											startActivity(homeScreen);
-
+											AlertDialog dialog = builder.create();
+											dialog.show();
 										}
 									});
 									LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
