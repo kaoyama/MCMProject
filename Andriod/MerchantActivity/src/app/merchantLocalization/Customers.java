@@ -161,7 +161,7 @@ public class Customers extends Activity {
 
 										public void onClick(View arg0) {
 												AlertDialog.Builder builder = new AlertDialog.Builder(currentThis);
-												builder.setMessage("Are you sure youwant to charge " + customerName + "?")
+												builder.setMessage("Are you sure you want to charge " + customerName + "?")
 											       .setTitle("Charge Customer");
 												builder.setPositiveButton("Charge", new DialogInterface.OnClickListener() {
 											           public void onClick(DialogInterface dialog, int id) {
