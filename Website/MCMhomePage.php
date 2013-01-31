@@ -55,6 +55,8 @@
 
             <?php
             session_start();
+            if($_SESSION['user'] === "guestOfKimi")
+                header("Location: index.php");
             include 'menuFunction.php';
             displayMenu();
             ?>

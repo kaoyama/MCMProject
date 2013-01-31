@@ -73,7 +73,11 @@
     </style>
 <?php
 session_start();
-$user = "kimi";//$_SESSION['user'];
+
+if($_SESSION['user'] === "guestOfKimi")
+    header("Location: index.php");
+            
+$user = $_SESSION['user'];
 $dbase = "test";
 $host = "localhost";
     $cxn = mysql_connect($host) or die ("No connection possible");

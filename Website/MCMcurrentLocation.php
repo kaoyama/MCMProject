@@ -52,6 +52,11 @@
         <div id="container">
 
             <h2>Modify Current Location</h2>
+            <?php
+            session_start();
+            if($_SESSION['user'] === "guestOfKimi")
+                header("Location: index.php");
+            ?>
             
 
 

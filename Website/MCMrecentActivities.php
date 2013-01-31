@@ -52,7 +52,11 @@
         <div id="container">
 
             <h2>Your Recent Activities</h2>
-            
+            <?php
+            session_start();
+            if($_SESSION['user'] === "guestOfKimi")
+                header("Location: index.php");
+            ?>
 
 
         <hr>

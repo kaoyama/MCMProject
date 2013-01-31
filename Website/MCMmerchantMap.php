@@ -209,7 +209,11 @@
                 </div>
             </div>
         </div>
-
+<?php
+session_start();
+if($_SESSION['user'] === "guestOfKimi")
+    header("Location: index.php");
+?>
         <div id="content">
             <div id="leftSidebar">
                 <!-- List of merchants --> 
