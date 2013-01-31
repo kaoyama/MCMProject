@@ -55,6 +55,8 @@
 
                 <form action="MCMcreateNewAccountValidator.php" method="POST">
                     <?php
+                    session_start();
+                    
                     $fields = array("userName" => "User Name: ",
                         "pwd" => "Password: ",
                         "pwdConfirmation" => "Confirm Password: ",

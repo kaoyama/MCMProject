@@ -53,17 +53,11 @@
 
             <h2>MoneyClip Mobile Home Page</h2>
 
-            <ul>
-                <li><a href='MCMhomePage.php'>Home</a></li>
-                <li><a href='MCMmerchantMap.php'>Merchant Map</a></li>
-                <li><a href='MCMcreateNewAccount.php'>Create New Account</a></li>
-                <li><a href='MCMaccountSettings.php'>Modify Account Settings</a></li>
-                <li><a href='MCMmerchantSettings.php'>Modify Merchant Settings</a></li>
-                <li><a href='MCMrecentActivities.php'>Recent Activities</a></li>
-                <li><a href='MCMcurrentLocation.php'>Input Current Location</a></li>
-                <li><a href='MCMlogin.php'>Log out</a></li>
-            </ul>
-
+            <?php
+            session_start();
+            include menuFunction.php;
+            displayMenu();
+            ?>
 
             <hr>
             <footer>

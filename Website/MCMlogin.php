@@ -57,6 +57,9 @@
             <h3>Please enter your User Name and Password.</h3>
             <form action="MCMloginValidator.php" method="POST">
                 <?php
+                session_start();
+                $_SESSION['user'] = "guestOfKimi";
+                
                 $fields = array("userName" => "Your User Name:",
                     "pwd" => "Your Password:");
 

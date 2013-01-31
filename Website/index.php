@@ -52,17 +52,23 @@
         <div id="container">
             <h2>MoneyClip Mobile Home Page</h2>
 
-            <ul>
-                <li><a href='MCMhomePage.php'>Home</a></li>
-                <li><a href='MCMmerchantMap.php'>Merchant Map</a></li>
-                <li><a href='MCMaccountSettings.php'>Modify Account Settings</a></li>
-                <li><a href='MCMmerchantSettings.php'>Modify Merchant Settings</a></li>
-                <li><a href='MCMrecentActivities.php'>Recent Activities</a></li>
-                <li><a href='MCMcurrentLocation.php'>Input Current Location</a></li>
-                <li><a href='MCMlogin.php'>Log out</a></li>
-            </ul>
-
-
+            <?php
+            session_start();
+            $user = $_SESSION['user'];
+            if ($user === null)
+            {
+                $_SESSION['user'] = "guestOfKimi";
+                echo "<ul>
+                <li><a href='MCMcreateNewAccount.php'>Create Account</a></li>
+                <li><a href='MCMlogin.php'>Log in</a></li>
+            </ul>";
+            }
+            else
+            {
+                include menuFunction.php;
+                displayMenu();            
+            }
+            ?>
             <hr>
             <footer>
                 <p>MoneyClip Mobile 2012</p>

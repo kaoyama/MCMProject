@@ -127,11 +127,14 @@
             $row = mysql_fetch_row($result);
             session_start();
             $_SESSION['user'] = $logInName;
-            // keep track of user info for email, greeting, and 
-            // account modification page
-            $_SESSION['email'] = $row[4];
-            $_SESSION['firstName'] = $row[2];
-            $_SESSION['lastName'] = $row[3];
+            // keep track of user info 
+            $_SESSION['name'] = $row[2];
+            $_SESSION['gender'] = $row[3];
+            $_SESSION['studentStatus'] = $row[4];
+            $_SESSION['currentLat'] = $row[5];
+            $_SESSION['currentLon'] = $row[6];
+            $_SESSION['bday'] = $row[7];
+            $_SESSION['email'] = $row[10];
             
             //Redirect to the homepage
             header("Location: MCMhomePage.php");
