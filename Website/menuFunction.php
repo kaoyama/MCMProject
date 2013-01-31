@@ -9,7 +9,7 @@ echo "<ul>
             <li><a href='MCMmerchantSettings.php'>Modify Merchant Settings</a></li>
             <li><a href='MCMrecentActivities.php'>Recent Activities</a></li>
             <li><a href='MCMcurrentLocation.php'>Input Current Location</a></li>
-            <li><a href='index.php'>Log out</a></li>
+            <li><a href='MCMlogOUt.php'>Log out</a></li>
         </ul>";
 }
 ?>

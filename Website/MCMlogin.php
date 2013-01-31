@@ -58,7 +58,6 @@
             <form action="MCMloginValidator.php" method="POST">
                 <?php
                 session_start();
-                $_SESSION['user'] = "guestOfKimi";
                 
                 $fields = array("userName" => "Your User Name:",
                     "pwd" => "Your Password:");

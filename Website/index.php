@@ -54,18 +54,17 @@
 
             <?php
             session_start();
-            $user = $_SESSION['user'];
-            if ($user === null)
+            //$user = $_SESSION['user'];
+            if ($_SESSION['user'] === "guestOfKimi")
             {
-                $_SESSION['user'] = "guestOfKimi";
                 echo "<ul>
-                <li><a href='MCMcreateNewAccount.php'>Create Account</a></li>
-                <li><a href='MCMlogin.php'>Log in</a></li>
-            </ul>";
+                        <li><a href='MCMcreateNewAccount.php'>Create Account</a></li>
+                        <li><a href='MCMlogin.php'>Log in</a></li>
+                      </ul>";
             }
             else
             {
-                include menuFunction.php;
+                include 'menuFunction.php';
                 displayMenu();            
             }
             ?>

@@ -55,7 +55,7 @@
 
             <?php
             session_start();
-            include menuFunction.php;
+            include 'menuFunction.php';
             displayMenu();
             ?>
 
