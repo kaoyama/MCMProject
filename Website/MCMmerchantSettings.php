@@ -54,7 +54,8 @@
             <h2>Edit Merchant Settings</h2>
 <?php
             session_start();
-            if($_SESSION['user'] === "guestOfKimi")
+            if($_SESSION['user'] === "guestOfKimi" ||
+                    !$_SESSION['user'])
                 header("Location: index.php");
             ?>
 

@@ -55,7 +55,8 @@
             <?php
             session_start();
             //$user = $_SESSION['user'];
-            if ($_SESSION['user'] === "guestOfKimi")
+            //echo "$user";
+            if (!$_SESSION['user'])
             {
                 echo "<ul>
                         <li><a href='MCMcreateNewAccount.php'>Create Account</a></li>

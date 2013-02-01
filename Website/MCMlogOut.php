@@ -1,5 +1,5 @@
 <?php
 session_start();
-$_SESSION['user'] = "guestOfKimi";
+session_unset();
 header("Location: index.php");
 ?>
