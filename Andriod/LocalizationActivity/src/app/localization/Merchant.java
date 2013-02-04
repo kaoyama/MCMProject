@@ -2,43 +2,22 @@ package app.localization;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
@@ -126,29 +105,15 @@ public class Merchant extends Activity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			HttpClient httpClient = new DefaultHttpClient();
-			HttpContext localContext = new BasicHttpContext();
-
-			// can't use localhost, since localhost refers to the device itself 
-			// (in this case the android device being tested). 
-			// Use 10.0.2.2 for emulator 
-			// Use own IP for device: 192.168.0.9
-			// cd C:\Windows\System32
-			// ipconfig 
-			// Look at 10.1.64.169
-			//HttpGet httpGet = new HttpGet("http://10.1.64.169/PHPQuery.php");
-			HttpGet httpGet = new HttpGet("http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php");
-			String text = null;
-			try {
-
-				HttpResponse response = httpClient.execute(httpGet, localContext);
-				HttpEntity entity = response.getEntity();
-				text = getASCIIContentFromEntity(entity);
-
-			} catch (Exception e) {
-				return e.getLocalizedMessage();
-			}
-			return text;
+			
+			JSONArray json = RestClient.connectToDatabase(
+					"http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php", 
+					null, Merchant.this);
+			
+			if(json != null) {
+				return json.toString();
+			} 
+			return null; 
 		}	
 
 		protected void onPostExecute(final String results) {
@@ -174,8 +139,8 @@ public class Merchant extends Activity {
 							intent.putExtras(b); 	
 							
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							CustomDialog cd = new CustomDialog(Merchant.this); 
+							cd.showNotificationDialog(e.getMessage()); 
 						}
 						
 						adapter = new ArrayAdapter<String>(currentThis, 
