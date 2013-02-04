@@ -1,37 +1,20 @@
 package app.localization;
 
 
-import java.io.InputStream;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.graphics.Color;
-import android.location.*;
 
 /**
  * Description of class here
@@ -72,48 +55,31 @@ public class HomeActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				try {
-					HttpParams httpParams = new BasicHttpParams();
-			        HttpConnectionParams.setConnectionTimeout(httpParams,
-			                TIMEOUT_MILLISEC);
-			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-			        HttpClient client = new DefaultHttpClient(httpParams);
-			        
-			        String url = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
-
-			        HttpPost request = new HttpPost(url);
-			        HttpResponse response = client.execute(request);
-			        HttpEntity entity = response.getEntity();
-			        
-			        // If the response does not enclose an entity, there is no need
-			        if (entity != null) {
-			            String result = app.localization.RestClient.getASCIIContentFromEntity(entity);
-			            JSONArray json = new JSONArray(result); 
-			            String userStatus; 
+			
+		        JSONArray json = RestClient.connectToDatabase(
+		        		"http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php", 
+		        		null, HomeActivity.this);
+		        
+		        if (json != null) {
+		        	try {
 			            String timestamp = json.getJSONObject(0).getString("timestamp"); 
 			            
 			            if (json.getJSONObject(0).getString("charged").equals("1")) {
-			            	userStatus = "User has been seen by the merchant at time:\n" + timestamp + "!";
+			            	notificationMessage = "User has been seen by the merchant at time:\n" + timestamp + "!";
 			            } else {
-			            	userStatus = "User has not been seen by the merchant!\n" + 
+			            	notificationMessage = "User has not been seen by the merchant!\n" + 
 			            			"User was last seen at time:\n" + timestamp; 
-			            }
-			            
-			            notificationMessage = userStatus; 
-			            Builder builder = new AlertDialog.Builder(HomeActivity.this); 
-			    		builder.setMessage(notificationMessage);
-			    		builder.setCancelable(false); 
-			    		builder.setPositiveButton("Ok", new OkOnClickListener()); 
-			    		AlertDialog dialog = builder.create();
-			    		dialog.show();
-			    	
-			    	
-			            //Toast.makeText(HomeActivity.this, userStatus, Toast.LENGTH_LONG).show();
-			        }
-			    } catch (Throwable t) {
-			        Toast.makeText(HomeActivity.this, "Request failed: " + t.toString(),
-			        		Toast.LENGTH_LONG).show();
-			    }
+			            }			            
+		        	} catch (Exception e) {
+		        		notificationMessage = "Exception parsing JSON array.";
+		        	}
+		        } else {
+		        	notificationMessage = "JSON array was null.";
+		        }
+		        
+		        // Show dialog of results
+		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
+		        cd.showNotificationDialog(notificationMessage);		        
 			}
 		});
 		
@@ -175,40 +141,17 @@ public class HomeActivity extends Activity {
 
 				gpsButton.setText(currentLat + ", " + currentLon);
 				
-				// ***************************************************************
-				// try to send lat long
-				
+				// Send latitude and longitude to database 
+				JSONObject json = new JSONObject();
 				try {
-					JSONObject json = new JSONObject();
 					json.put("latitude", (int)(currentLat*MILLION)); 
 					json.put("longitude", (int)(currentLon*MILLION));
-					HttpParams httpParams = new BasicHttpParams();
-			        HttpConnectionParams.setConnectionTimeout(httpParams,
-			                TIMEOUT_MILLISEC);
-			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-			        HttpClient client = new DefaultHttpClient(httpParams);
-			        
-			        String url = "http://dana.ucc.nau.edu/~cs854/PHPPut.php";
-
-			        HttpPost request = new HttpPost(url);
-			        request.setEntity(new ByteArrayEntity(json.toString().getBytes(
-			                "UTF8")));
-			        request.setHeader("json", json.toString());
-			        HttpResponse response = client.execute(request);
-			        HttpEntity entity = response.getEntity();
-			        // If the response does not enclose an entity, there is no need
-			        if (entity != null) {
-			            InputStream instream = entity.getContent();
-
-			           //String result = RestClient.convertStreamToString(instream);
-			           // Log.i("Read from server", result);
-			           // Toast.makeText(this,  result, Toast.LENGTH_LONG).show();
-			        }
-			    } catch (Throwable t) {
-			        //Toast.makeText(this, "Request failed: " + t.toString(),
-			        //        Toast.LENGTH_LONG).show();
-			    }
-				// ***************************************************************
+					RestClient.connectToDatabase("http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php", 
+							json, HomeActivity.this); 
+				} catch (Exception e) {
+					CustomDialog dialog = new CustomDialog(HomeActivity.this);
+					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
+				}
 			}
 		});
 
@@ -226,25 +169,5 @@ public class HomeActivity extends Activity {
 			}
 		});
 
-	}
-	
-	// dialog 
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		
-		Builder builder = new AlertDialog.Builder(this); 
-		builder.setMessage(notificationMessage);
-		builder.setCancelable(false); 
-		builder.setPositiveButton("Ok", new OkOnClickListener()); 
-		AlertDialog dialog = builder.create();
-		dialog.show();
-		return dialog;
-	}
-	
-	private final class OkOnClickListener implements 
-		DialogInterface.OnClickListener {
-		public void onClick(DialogInterface dialog, int which) {
-			dialog.dismiss();
-		}
 	}
 }

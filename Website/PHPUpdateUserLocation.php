@@ -24,7 +24,7 @@ mysql_close($con);
 
 $posts = array(1);
 header('Content-type: application/json');
-echo json_encode(array('posts' => $posts));
+echo '[' . json_encode(array('posts' => $posts)) . ']';
 
 ?>
         
