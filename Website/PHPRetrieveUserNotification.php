@@ -29,6 +29,6 @@ else
     while($r = mysql_fetch_assoc($res)) {
         $rows[] = $r;
     }
-    print json_encode($rows);
+    echo json_encode($rows);
 }
 ?>

@@ -1,58 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-  
-          http://www.apache.org/licenses/LICENSE-2.0
-  
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<!-- Declare the contents of this Android application.  The namespace
-     attribute brings in the Android platform namespace, and the package
-     supplies a unique name for the application.  When writing your
-     own application, the package name must be changed from "com.example.*"
-     to come from a domain that you own or have control over. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.google.apis">
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    package="com.androidhive.pushnotifications"
+    android:versionCode="1"
+    android:versionName="1.0" >
+ 
+    <!-- GCM requires Android SDK version 2.2 (API level <img src="http://www.androidhive.info/wp-includes/images/smilies/icon_cool.gif" alt="8)" class="wp-smiley"> or above. -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+ 
+    <!-- GCM connects to Internet Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <application android:label="@string/activity_sample_code"
-            android:icon="@drawable/app_sample_code" >
-
-        <uses-library android:name="com.google.android.maps" />
-
-       <activity android:name="com.example.android.apis.MapsDemo" android:label="MapsDemo">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-                <action android:name="android.intent.action.MAIN"></action>
-            </intent-filter>
-       </activity>
-
-        <!-- ************************************* -->
-        <!--      VIEW/WIDGET PACKAGE SAMPLES      -->
-        <!-- ************************************* -->
-
-        <activity android:name="com.example.android.apis.view.MapViewDemo" android:label="MapView">
+ 
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+ 
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+ 
+    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <permission
+        android:name="com.androidhive.pushnotifications.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+ 
+    <uses-permission android:name="com.androidhive.pushnotifications.permission.C2D_MESSAGE" />
+ 
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ 
+    <!-- Network State Permissions to detect Internet status -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
+    <!-- Permission to vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <!-- Main activity. -->
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <!-- Register Activity -->
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+ 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.android.apis.view.MapViewCompassDemo" android:label="MapView and Compass">
+ 
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name" >
+        </activity>
+ 
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+ 
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+ 
+                <category android:name="com.androidhive.pushnotifications" />
             </intent-filter>
-        </activity>
-   </application>
+        </receiver>
+ 
+        <service android:name=".GCMIntentService" />
+    </application>
+ 
 </manifest>
