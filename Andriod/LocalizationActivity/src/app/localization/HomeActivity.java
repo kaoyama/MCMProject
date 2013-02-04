@@ -25,9 +25,6 @@ public class HomeActivity extends Activity {
 	protected static final int TIMEOUT_MILLISEC = 3000;
 	static long MILLION = 1000000; 
 	
-	/** Called when the activity is first created. */
-
-
 	TextView username;
 	String notificationMessage; 
 
@@ -84,13 +81,10 @@ public class HomeActivity extends Activity {
 		});
 		
 		Button merchantButton = (Button) findViewById(R.id.merchantButton);
-
-		//Listening to button event
 		merchantButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				// Starting a new intent
-				Intent merchantScreen = new Intent(getApplicationContext(), Merchant.class);
-
+				Intent merchantScreen = new Intent(getApplicationContext(), Merchants.class);
 				startActivity(merchantScreen); 
 			}
 		});
@@ -152,6 +146,17 @@ public class HomeActivity extends Activity {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);
 					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
 				}
+			}
+		});
+		
+		Button couponsButton = (Button) findViewById(R.id.couponsButton); 
+		couponsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// Starting a new intent
+				Intent couponsScreen = new Intent(getApplicationContext(), Coupons.class);
+				startActivity(couponsScreen); 
 			}
 		});
 

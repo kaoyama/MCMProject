@@ -7,17 +7,10 @@
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/listOfMerchantsLabel" />
-    
-    <Button
-        android:id="@+id/mapButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="@string/merchantMapButtonLabel" />
+        android:text="@string/couponsListLabel" />
     
     <ListView 
-        android:id="@+id/merchantList"
+        android:id="@+id/couponsList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 

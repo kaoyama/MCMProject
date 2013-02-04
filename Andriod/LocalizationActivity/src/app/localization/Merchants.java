@@ -1,11 +1,8 @@
 package app.localization;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -24,17 +21,9 @@ import android.widget.TextView;
  * Need service-oriented architecture and needs three elements: 
  * external database, web-service, mobile web-service client. 
  * @author Chihiro
- * 
- * 
- * Notes:
- * For connection to work, Apache server must be handled to start PHP. 
- * Also, make sure NAU Wi-Fi is connected on the device. 
- * 
- * IP address changes for each Wi-Fi access! 
- *
  */
 
-public class Merchant extends Activity {
+public class Merchants extends Activity {
 	/** Called when the activity is first created. */
 
 	TextView username;
@@ -47,7 +36,7 @@ public class Merchant extends Activity {
 	List<String> listContents; 
 	ListView myListView; 
 	ArrayAdapter<String> adapter; 
-	Merchant currentThis = this; 
+	Merchants currentThis = this; 
 	Intent intent; 
 	Bundle b; 
 	
@@ -56,13 +45,12 @@ public class Merchant extends Activity {
 		
 		setContentView(R.layout.merchant);
 		
-		listContents = new ArrayList<String>(4);
-		listContents.add("First item"); 
+		listContents = new ArrayList<String>();
 		
 		myListView = (ListView)findViewById(R.id.merchantList);
 		
 		// Save merchant information to be used in the Merchant Map page 
-		intent = new Intent(Merchant.this, MerchantMap.class); 
+		intent = new Intent(Merchants.this, MerchantMap.class); 
 		b = new Bundle(); 
 				
 		// Get list of merchants from database
@@ -78,8 +66,6 @@ public class Merchant extends Activity {
 				startActivity(intent); 
 			}
 		});
-		
-		
 	}
 
 	/**
@@ -91,24 +77,12 @@ public class Merchant extends Activity {
 
 	private class LongRunningGetIO extends AsyncTask <Void, Void, String> {
 
-		protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
-			InputStream in = entity.getContent();
-			StringBuffer out = new StringBuffer();
-			int n = 1;
-			while (n>0) {
-				byte[] b = new byte[4096];
-				n =  in.read(b);
-				if (n>0) out.append(new String(b, 0, n));
-			}
-			return out.toString();
-		}
-
 		@Override
 		protected String doInBackground(Void... params) {
 			
 			JSONArray json = RestClient.connectToDatabase(
 					"http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php", 
-					null, Merchant.this);
+					null, Merchants.this);
 			
 			if(json != null) {
 				return json.toString();
@@ -123,8 +97,6 @@ public class Merchant extends Activity {
 					
 					@Override
 					public void run() {
-					//	EditText et = (EditText)findViewById(R.id.databaseText);
-					//	et.setText("Database connection worked!: " + results);
 												
 						try {							
 							JSONArray jsonArray = new JSONArray(results);
@@ -139,7 +111,7 @@ public class Merchant extends Activity {
 							intent.putExtras(b); 	
 							
 						} catch (JSONException e) {
-							CustomDialog cd = new CustomDialog(Merchant.this); 
+							CustomDialog cd = new CustomDialog(Merchants.this); 
 							cd.showNotificationDialog(e.getMessage()); 
 						}
 						
@@ -151,9 +123,8 @@ public class Merchant extends Activity {
 				});
 				
 			} else {
-				//TODO: Error notification of some sort 
-				//EditText et = (EditText)findViewById(R.id.databaseText);
-				//et.setText("Database connection failed");
+				CustomDialog cd = new CustomDialog(Merchants.this); 
+				cd.showNotificationDialog("Merchant list is empty.");
 			}
 		}
 	}

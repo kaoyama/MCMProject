@@ -9,14 +9,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Localization Settings" />
+        android:text="@string/localizationSettingsButtonLabel" />
 
      <Button
         android:id="@+id/notificationsButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="New Notifications" />
+        android:text="@string/newNotificationsButtonLabel" />
      
     <!-- 
     <Button
@@ -32,27 +32,34 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Search" />
+        android:text="@string/searchButtonLabel" />
 
     <Button
         android:id="@+id/gpsButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Get Location" />
+        android:text="@string/locationButtonLabel" />
     
     <Button 
         android:id="@+id/merchantButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Merchants" />
+        android:text="@string/merchantButtonLabel" />
+    
+    <Button 
+        android:id="@+id/couponsButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="@string/couponsButtonLabel" />
     
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Log Out" />
+        android:text="@string/logoutButtonLabel" />
 
 </LinearLayout>

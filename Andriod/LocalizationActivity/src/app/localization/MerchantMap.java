@@ -56,11 +56,6 @@ public class MerchantMap extends MapActivity {
 		MapView mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
 
-		// Instantiate map overlay object
-		List<Overlay> mapOverlays = mapView.getOverlays(); 
-		Drawable drawable = this.getResources().getDrawable(R.drawable.androidmarker);
-		//MerchantMapItemOverlay itemizedOverlay = new MerchantMapItemOverlay(drawable, this); 
-
 		// Create a GeoPoint to define specific map coordinates
 		// Note: GeoPoint coordinate specified in microdegrees (degrees * 1e6)
 		//GeoPoint point = new GeoPoint(35199728,-111648606);
@@ -115,7 +110,6 @@ public class MerchantMap extends MapActivity {
 		
 		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		
-	
 		LocationListener myLocationListener = new LocationListener() {
 			public void onLocationChanged(Location loc) {
 				//sets and displays the lat/long when a location is provided

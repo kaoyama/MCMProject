@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="hello">Hello World, LocalizationActivity!</string>
+<resources>    
+    
     <string name="app_name">Localization</string>
-    <string name="Username">Username</string>
-    <string name="Password">Password</string>
-    <string name="LogIn">Log In</string>
-    <string name="LocalizationSettings">Localization Settins</string>
-    <string name="LocalizationSett">Localization Settings</string>
-    <string name="MerchantMap">Merchant Map</string>
-    <string name="Search">Search</string>
-    <string name="Logout">Log Out</string>
+    
+    <!-- home.xml -->
+    <string name="localizationSettingsButtonLabel">Localization Settings</string>
+    <string name="newNotificationsButtonLabel">New Notifications</string>
+    <string name="searchButtonLabel">Search</string>
+    <string name="locationButtonLabel">Get Location</string>
+    <string name="merchantButtonLabel">Merchants</string>
+    <string name="couponsButtonLabel">Coupons</string>
+    <string name="logoutButtonLabel">Log Out</string>
+
+    <!-- main.xml -->
+    <string name="usernameLabel">Username: </string>
+    <string name="passwordLabel">Password: </string>
+    <string name="loginLabel">Login</string>
+    
+    <!-- coupons.xml -->
+    <string name="couponsListLabel">List of Coupons</string>
+    
+    <!-- merchant.xml -->
+    <string name="listOfMerchantsLabel">List of Merchants</string>
+    <string name="merchantMapButtonLabel">Merchant Map</string>
 
 </resources>

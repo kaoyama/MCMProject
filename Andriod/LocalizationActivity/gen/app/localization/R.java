@@ -17,35 +17,50 @@ public final class R {
         public static final int kangaroo2=0x7f020003;
     }
     public static final class id {
-        public static final int gpsButton=0x7f050003;
-        public static final int loginButton=0x7f050008;
-        public static final int logoutButton=0x7f050005;
-        public static final int mapButton=0x7f05000a;
-        public static final int mapview=0x7f050009;
-        public static final int merchantButton=0x7f050004;
-        public static final int merchantList=0x7f05000b;
-        public static final int notificationsButton=0x7f050001;
-        public static final int password=0x7f050007;
-        public static final int searchButton=0x7f050002;
-        public static final int settingsButton=0x7f050000;
-        public static final int username=0x7f050006;
+        public static final int couponsButton=0x7f050006;
+        public static final int couponsList=0x7f050000;
+        public static final int gpsButton=0x7f050004;
+        public static final int loginButton=0x7f05000a;
+        public static final int logoutButton=0x7f050007;
+        public static final int mapButton=0x7f05000c;
+        public static final int mapview=0x7f05000b;
+        public static final int merchantButton=0x7f050005;
+        public static final int merchantList=0x7f05000d;
+        public static final int notificationsButton=0x7f050002;
+        public static final int password=0x7f050009;
+        public static final int searchButton=0x7f050003;
+        public static final int settingsButton=0x7f050001;
+        public static final int username=0x7f050008;
     }
     public static final class layout {
-        public static final int home=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int map=0x7f030002;
-        public static final int merchant=0x7f030003;
+        public static final int coupons=0x7f030000;
+        public static final int home=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int map=0x7f030003;
+        public static final int merchant=0x7f030004;
     }
     public static final class string {
-        public static final int LocalizationSett=0x7f040006;
-        public static final int LocalizationSettings=0x7f040005;
-        public static final int LogIn=0x7f040004;
-        public static final int Logout=0x7f040009;
-        public static final int MerchantMap=0x7f040007;
-        public static final int Password=0x7f040003;
-        public static final int Search=0x7f040008;
-        public static final int Username=0x7f040002;
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f040000;
+        public static final int couponsButtonLabel=0x7f040006;
+        /**  coupons.xml 
+         */
+        public static final int couponsListLabel=0x7f04000b;
+        /**  merchant.xml 
+         */
+        public static final int listOfMerchantsLabel=0x7f04000c;
+        /**  home.xml 
+         */
+        public static final int localizationSettingsButtonLabel=0x7f040001;
+        public static final int locationButtonLabel=0x7f040004;
+        public static final int loginLabel=0x7f04000a;
+        public static final int logoutButtonLabel=0x7f040007;
+        public static final int merchantButtonLabel=0x7f040005;
+        public static final int merchantMapButtonLabel=0x7f04000d;
+        public static final int newNotificationsButtonLabel=0x7f040002;
+        public static final int passwordLabel=0x7f040009;
+        public static final int searchButtonLabel=0x7f040003;
+        /**  main.xml 
+         */
+        public static final int usernameLabel=0x7f040008;
     }
 }
