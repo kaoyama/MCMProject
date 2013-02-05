@@ -52,8 +52,12 @@ public class HomeActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-			
-		        JSONArray json = RestClient.connectToDatabase(
+				
+				// Starting a new intent
+				Intent notificationScreen = new Intent(getApplicationContext(), Notifications.class);
+				startActivity(notificationScreen);
+				
+		        /*JSONArray json = RestClient.connectToDatabase(
 		        		"http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php", 
 		        		null, HomeActivity.this);
 		        
@@ -76,7 +80,7 @@ public class HomeActivity extends Activity {
 		        
 		        // Show dialog of results
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
-		        cd.showNotificationDialog(notificationMessage);		        
+		        cd.showNotificationDialog(notificationMessage);	*/	        
 			}
 		});
 		
