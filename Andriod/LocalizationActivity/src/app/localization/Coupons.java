@@ -19,6 +19,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import app.utilities.CustomDialog;
+import app.utilities.RestClient;
 
 public class Coupons extends Activity {
 	

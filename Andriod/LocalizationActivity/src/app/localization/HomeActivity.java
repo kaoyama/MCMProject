@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import app.utilities.CustomDialog;
+import app.utilities.RestClient;
 
 /**
  * Description of class here
@@ -53,8 +55,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 			
-		        JSONArray json = RestClient.connectToDatabase(
-		        		"http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php", 
+		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
 		        		null, HomeActivity.this);
 		        
 		        if (json != null) {
@@ -140,7 +141,7 @@ public class HomeActivity extends Activity {
 				try {
 					json.put("latitude", (int)(currentLat*MILLION)); 
 					json.put("longitude", (int)(currentLon*MILLION));
-					RestClient.connectToDatabase("http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php", 
+					RestClient.connectToDatabase(CommonUtilities.UPDATEUSERLOCATION_URL,
 							json, HomeActivity.this); 
 				} catch (Exception e) {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);

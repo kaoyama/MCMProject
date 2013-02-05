@@ -1,4 +1,4 @@
-package app.localization;
+package app.utilities;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +75,7 @@ public class RestClient {
 	        
 	        // If the response does not enclose an entity, there is no need
 	        if (entity != null) {
-	            String result = app.localization.RestClient.getASCIIContentFromEntity(entity);
+	            String result = app.utilities.RestClient.getASCIIContentFromEntity(entity);
 	            if (result != null) {
 	            	JSONArray jsonResult = new JSONArray(result); 
 	            	return jsonResult; 

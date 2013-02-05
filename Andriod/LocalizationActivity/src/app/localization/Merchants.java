@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import app.utilities.CustomDialog;
+import app.utilities.RestClient;
 
 /**
  * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
@@ -81,8 +83,7 @@ public class Merchants extends Activity {
 		protected String doInBackground(Void... params) {
 			
 			JSONArray json = RestClient.connectToDatabase(
-					"http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php", 
-					null, Merchants.this);
+					CommonUtilities.NEARBYMERCHANTS_URL, null, Merchants.this);
 			
 			if(json != null) {
 				return json.toString();
