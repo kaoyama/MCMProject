@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 
@@ -77,7 +78,7 @@ public class HomeActivity extends Activity {
 		        
 		        // Show dialog of results
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
-		        cd.showNotificationDialog(notificationMessage);		        
+		        cd.showNotificationDialog(notificationMessage);	      
 			}
 		});
 		

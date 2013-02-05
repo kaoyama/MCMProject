@@ -29,6 +29,7 @@ public final class R {
         public static final int mapview=0x7f05000b;
         public static final int merchantButton=0x7f050005;
         public static final int merchantList=0x7f05000d;
+        public static final int notificationList=0x7f05000e;
         public static final int notificationsButton=0x7f050002;
         public static final int password=0x7f050009;
         public static final int searchButton=0x7f050003;
@@ -41,6 +42,7 @@ public final class R {
         public static final int main=0x7f030002;
         public static final int map=0x7f030003;
         public static final int merchant=0x7f030004;
+        public static final int notifications=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

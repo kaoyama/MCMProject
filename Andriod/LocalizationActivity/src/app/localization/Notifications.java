@@ -1,7 +1,6 @@
 package app.localization;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.json.JSONArray;
@@ -16,9 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import app.utilities.CommonUtilities;
-import app.utilities.CustomDialog;
-import app.utilities.RestClient;
 
 /**
  * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
@@ -27,7 +23,7 @@ import app.utilities.RestClient;
  * @author Chihiro
  */
 
-public class Merchants extends Activity {
+public class Notifications extends Activity {
 	/** Called when the activity is first created. */
 
 	TextView username;
@@ -40,36 +36,17 @@ public class Merchants extends Activity {
 	List<String> listContents; 
 	ListView myListView; 
 	ArrayAdapter<String> adapter; 
-	Merchants currentThis = this; 
+	Notifications currentThis = this; 
 	Intent intent; 
 	Bundle b; 
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.merchant);
+		setContentView(R.layout.notifications);
 		
-		listContents = new ArrayList<String>();
-		
-		myListView = (ListView)findViewById(R.id.merchantList);
-		
-		// Save merchant information to be used in the Merchant Map page 
-		intent = new Intent(Merchants.this, MerchantMap.class); 
-		b = new Bundle(); 
-				
-		// Get list of merchants from database
+		// Get list of notifications from database
 		getData(); 
-		
-		// Display map button 
-		Button mapButton = (Button) findViewById(R.id.mapButton);
-
-		//Listening to button event
-		mapButton.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View arg0) {
-				startActivity(intent); 
-			}
-		});
 	}
 
 	/**
@@ -85,7 +62,8 @@ public class Merchants extends Activity {
 		protected String doInBackground(Void... params) {
 			
 			JSONArray json = RestClient.connectToDatabase(
-					CommonUtilities.NEARBYMERCHANTS_URL, null, Merchants.this);
+					"http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php", 
+					null, Notifications.this);
 			
 			if(json != null) {
 				return json.toString();
@@ -114,7 +92,7 @@ public class Merchants extends Activity {
 							intent.putExtras(b); 	
 							
 						} catch (JSONException e) {
-							CustomDialog cd = new CustomDialog(Merchants.this); 
+							CustomDialog cd = new CustomDialog(Notifications.this); 
 							cd.showNotificationDialog(e.getMessage()); 
 						}
 						
@@ -126,7 +104,7 @@ public class Merchants extends Activity {
 				});
 				
 			} else {
-				CustomDialog cd = new CustomDialog(Merchants.this); 
+				CustomDialog cd = new CustomDialog(Notifications.this); 
 				cd.showNotificationDialog("Merchant list is empty.");
 			}
 		}
