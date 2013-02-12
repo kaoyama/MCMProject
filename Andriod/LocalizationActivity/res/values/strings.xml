@@ -11,6 +11,7 @@
     <string name="merchantButtonLabel">Merchants</string>
     <string name="couponsButtonLabel">Coupons</string>
     <string name="logoutButtonLabel">Log Out</string>
+    <string name="mcmLogo">MCM Logo</string>
 
     <!-- main.xml -->
     <string name="usernameLabel">Username: </string>
@@ -23,5 +24,9 @@
     <!-- merchant.xml -->
     <string name="listOfMerchantsLabel">List of Merchants</string>
     <string name="merchantMapButtonLabel">Merchant Map</string>
+    <string name="forgotAccount">Forgot Username or Password?</string>
+    <string name="createAccountLabel">Create New Account</string>
+    <string name="makePaymentsButtonLabel">Make Payments</string>
+    <string name="viewHistoryButtonLabel">View History</string>
 
 </resources>

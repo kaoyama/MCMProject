@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import app.utilities.*;
 /**
  * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
  * Need service-oriented architecture and needs three elements: 

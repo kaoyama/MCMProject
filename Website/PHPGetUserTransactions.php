@@ -4,16 +4,19 @@ $databasehost = "acadgpl.ucc.nau.edu";
 $databasename = "kd268";
 $databaseusername ="kd268";
 $databasepassword = "capstone";
-$currentUser = "kimi";
 
 // Connect to the database
 $con = mysql_connect($databasehost,$databaseusername,$databasepassword) 
         or die(mysql_error());
 mysql_select_db($databasename) or die(mysql_error());
+
+$json = file_get_contents('php://input');
+$obj = json_decode($json);
         
 // Get boolean value from customers table 
-$query = "SELECT charged, timestamp FROM kd268.customers WHERE " . 
-        "userName = '$currentUser'";
+$query = "SELECT merchant, productIndex, purchaseTime, " .
+        "customer, cost, paid FROM kd268.customerTransactions " . 
+        " WHERE customer = '". $obj->{'userName'} ."'";
 
 //echo $query;
 $res = mysql_query($query); 

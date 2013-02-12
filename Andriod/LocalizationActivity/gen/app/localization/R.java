@@ -17,24 +17,30 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
         public static final int ic_launcher_old=0x7f020004;
         public static final int kangaroo2=0x7f020005;
-        public static final int success=0x7f020006;
+        public static final int mcmlogowide=0x7f020006;
+        public static final int success=0x7f020007;
     }
     public static final class id {
-        public static final int couponsButton=0x7f050006;
+        public static final int couponsButton=0x7f050003;
         public static final int couponsList=0x7f050000;
-        public static final int gpsButton=0x7f050004;
-        public static final int loginButton=0x7f05000a;
-        public static final int logoutButton=0x7f050007;
-        public static final int mapButton=0x7f05000c;
-        public static final int mapview=0x7f05000b;
-        public static final int merchantButton=0x7f050005;
-        public static final int merchantList=0x7f05000d;
-        public static final int notificationList=0x7f05000e;
-        public static final int notificationsButton=0x7f050002;
-        public static final int password=0x7f050009;
-        public static final int searchButton=0x7f050003;
-        public static final int settingsButton=0x7f050001;
-        public static final int username=0x7f050008;
+        public static final int gpsButton=0x7f050005;
+        public static final int imageView1=0x7f050001;
+        public static final int loginButton=0x7f05000c;
+        public static final int logoutButton=0x7f050002;
+        public static final int mapButton=0x7f050011;
+        public static final int mapview=0x7f050010;
+        public static final int merchantButton=0x7f050004;
+        public static final int merchantList=0x7f050012;
+        public static final int notificationList=0x7f050013;
+        public static final int notificationsButton=0x7f050007;
+        public static final int password=0x7f05000b;
+        public static final int searchButton=0x7f050006;
+        public static final int settingsButton=0x7f050008;
+        public static final int textView1=0x7f05000e;
+        public static final int textView2=0x7f05000f;
+        public static final int textView3=0x7f05000d;
+        public static final int textView4=0x7f050009;
+        public static final int username=0x7f05000a;
     }
     public static final class layout {
         public static final int coupons=0x7f030000;
@@ -49,23 +55,28 @@ public final class R {
         public static final int couponsButtonLabel=0x7f040006;
         /**  coupons.xml 
          */
-        public static final int couponsListLabel=0x7f04000b;
+        public static final int couponsListLabel=0x7f04000c;
+        public static final int createAccountLabel=0x7f040010;
+        public static final int forgotAccount=0x7f04000f;
         /**  merchant.xml 
          */
-        public static final int listOfMerchantsLabel=0x7f04000c;
+        public static final int listOfMerchantsLabel=0x7f04000d;
         /**  home.xml 
          */
         public static final int localizationSettingsButtonLabel=0x7f040001;
         public static final int locationButtonLabel=0x7f040004;
-        public static final int loginLabel=0x7f04000a;
+        public static final int loginLabel=0x7f04000b;
         public static final int logoutButtonLabel=0x7f040007;
+        public static final int makePaymentsButtonLabel=0x7f040011;
+        public static final int mcmLogo=0x7f040008;
         public static final int merchantButtonLabel=0x7f040005;
-        public static final int merchantMapButtonLabel=0x7f04000d;
+        public static final int merchantMapButtonLabel=0x7f04000e;
         public static final int newNotificationsButtonLabel=0x7f040002;
-        public static final int passwordLabel=0x7f040009;
+        public static final int passwordLabel=0x7f04000a;
         public static final int searchButtonLabel=0x7f040003;
         /**  main.xml 
          */
-        public static final int usernameLabel=0x7f040008;
+        public static final int usernameLabel=0x7f040009;
+        public static final int viewHistoryButtonLabel=0x7f040012;
     }
 }

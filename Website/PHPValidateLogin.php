@@ -6,6 +6,7 @@ $databaseusername ="kd268";
 $databasepassword = "capstone";
 
 $json = file_get_contents('php://input');
+
 $obj = json_decode($json);
 
 // connect to database 
