@@ -62,7 +62,7 @@ public class Notifications extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			
-			JSONArray json = RestClient.connectToDatabase(
+			JSONArray json = app.utilities.RestClient.connectToDatabase(
 					"http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php", 
 					null);
 			
@@ -93,7 +93,7 @@ public class Notifications extends Activity {
 							intent.putExtras(b); 	
 							
 						} catch (JSONException e) {
-							CustomDialog cd = new CustomDialog(Notifications.this); 
+							app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
 							cd.showNotificationDialog(e.getMessage()); 
 						}
 						
@@ -105,8 +105,8 @@ public class Notifications extends Activity {
 				});
 				
 			} else {
-				CustomDialog cd = new CustomDialog(Notifications.this); 
-				cd.showNotificationDialog("Merchant list is empty.");
+				app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
+				cd.showNotificationDialog("Notification list is empty.");
 			}
 		}
 	}

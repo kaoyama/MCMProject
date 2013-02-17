@@ -1,15 +1,8 @@
 package app.localization;
 
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import java.io.FileInputStream;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -70,7 +63,10 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 			
-		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null); 
+		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null);
+		        
+		       /* JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
+		        		null, HomeActivity.this);
 		        
 		        if (json != null) {
 		        	try {
@@ -87,9 +83,24 @@ public class HomeActivity extends Activity {
 		        	}
 		        } else {
 		        	notificationMessage = "JSON array was null.";
-		        }
+		        }*/
 		        
+				try {
+					FileInputStream fis = openFileInput("username_file");
+					StringBuffer sb =new StringBuffer("");
+					int ch;
+					while((ch = fis.read())!= -1){
+						sb.append((char)ch);
+					}
+					fis.close();
+					notificationMessage = sb.toString();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 		        // Show dialog of results
+				
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
 		        cd.showNotificationDialog(notificationMessage);	      
 			}
@@ -179,6 +190,8 @@ public class HomeActivity extends Activity {
 			        HttpEntity entity = response.getEntity();
 			       
 			       */
+					RestClient.connectToDatabase(CommonUtilities.UPDATEUSERLOCATION_URL,
+							json); 
 				} catch (Exception e) {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);
 					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
