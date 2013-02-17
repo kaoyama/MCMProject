@@ -52,8 +52,49 @@ public class Coupons extends Activity {
 	 * Connect to webservice (database) 
 	 */
 	public void getData() {
-		new LongRunningGetIO().execute(); 
+		//new LongRunningGetIO().execute(); 
+		getCoupons(); 
 	}
+	
+	public void getCoupons() {
+		final JSONArray json = RestClient.connectToDatabase(
+				"http://dana.ucc.nau.edu/~cs854/PHPGetCoupons.php", 
+				null);
+		
+		if (json != null) {
+			
+			runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+											
+					try {							
+					    listContents = new ArrayList<String>(json.length());
+
+						for (int i = 0; i < json.length(); i++) {
+							//TODO: Change merchants --> Coupons
+							listContents.add(json.getJSONObject(i).getString("merchantUserName")); 								
+						}
+						
+					} catch (JSONException e) {
+						CustomDialog cd = new CustomDialog(Coupons.this); 
+						cd.showNotificationDialog(e.getMessage()); 
+					}
+					
+					adapter = new ArrayAdapter<String>(Coupons.this, 
+							android.R.layout.simple_list_item_1, listContents); 
+					adapter.setNotifyOnChange(true); 
+					myListView.setAdapter(adapter); 
+				}
+			});
+			
+		} else {
+			CustomDialog cd = new CustomDialog(Coupons.this); 
+			cd.showNotificationDialog("Coupons list is empty.");
+		}
+	}
+	
+	/*
 
 	private class LongRunningGetIO extends AsyncTask <Void, Void, String> {
 
@@ -105,5 +146,5 @@ public class Coupons extends Activity {
 				cd.showNotificationDialog("Coupons list is empty.");
 			}
 		}
-	}
+	}*/
 }

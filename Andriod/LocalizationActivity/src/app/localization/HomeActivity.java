@@ -39,6 +39,9 @@ public class HomeActivity extends Activity {
 	
 	TextView username;
 	String notificationMessage; 
+	
+	public static String name;
+	public static String email; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,14 +62,15 @@ public class HomeActivity extends Activity {
 			}
 		});
 	*/
+		
+
 		Button notificationButton = (Button) findViewById(R.id.notificationsButton);
 		notificationButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 			
-		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
-		        		null, HomeActivity.this);
+		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null); 
 		        
 		        if (json != null) {
 		        	try {
@@ -152,6 +156,10 @@ public class HomeActivity extends Activity {
 					json.put("latitude", (int)(currentLat*MILLION)); 
 					json.put("longitude", (int)(currentLon*MILLION));
 					
+					RestClient.connectToDatabase(
+							CommonUtilities.UPDATEUSERLOCATION_URL, json);
+					
+					/*
 					HttpParams httpParams = new BasicHttpParams();
 			        HttpConnectionParams.setConnectionTimeout(httpParams,
 			                TIMEOUT_MILLISEC);
@@ -170,10 +178,12 @@ public class HomeActivity extends Activity {
 					response = client.execute(request);
 			        HttpEntity entity = response.getEntity();
 			       
+			       */
 				} catch (Exception e) {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);
 					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
 				}
+				
 			}
 		});
 		

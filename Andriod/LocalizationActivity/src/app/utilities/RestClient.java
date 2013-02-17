@@ -2,6 +2,7 @@ package app.utilities;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -16,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 public class RestClient {
@@ -57,7 +60,7 @@ public class RestClient {
 	 * from the PHP query, return null.  On failed connection to the database, 
 	 * returns null and displays a toast to the app with the exception. 
 	 */
-	public static JSONArray connectToDatabase(String url, JSONObject json, Activity activity) {
+	public static JSONArray connection(String url, JSONObject json, Activity activity) {
 		try {        
 	        // Establish an HTTP connection 
 			HttpParams httpParams = new BasicHttpParams();
@@ -86,9 +89,88 @@ public class RestClient {
 	        
 	    } catch (Throwable t) {
 	    	// Display toast to notify exception occurrence
-	        Toast.makeText(activity, "Request failed: " + t.toString(),
-	        		Toast.LENGTH_LONG).show();
+	    	if (activity != null) {
+		        Toast.makeText(activity, "Request failed: " + t.toString(),
+		        		Toast.LENGTH_LONG).show();
+	    	}
 	        return null; 
 	    }
 	}
+	
+	/**
+	 * Connect to the database through an AsyncTask. 
+	 * @param url URL of the webservice to conenct
+	 * @param json JSON Object that stores variables to be sent to the webservice 
+	 * @return Returned JSON string, which can be converted to a JSONArray
+	 */
+	public static JSONArray connectToDatabase(String url, JSONObject json) {
+		RestClient rc = new RestClient(); 
+		LongRunningGetIO asyncTask = rc.new LongRunningGetIO();
+		
+		if (json == null) {
+			asyncTask.execute(url, null); 
+		} else {
+			asyncTask.execute(url, json.toString());
+		}
+		
+		try {
+			return asyncTask.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} 
+	}
+
+	/**
+	 * LongRunningGetIO is the method used for asynchronous tasks to be done 
+	 * in the background.  This procedure is recommended for tasks that may 
+	 * potentially affect the UI thread.  
+	 * <p>
+	 * The generic types that the AsynTask takes in are: Params, Progress, 
+	 * and Result.  Params is the type of parameters sent to the task, which is 
+	 * of type String. Progress is type of the progress units published, which 
+	 * is set to void.  Result is the type of result fo teh background computation, 
+	 * which is of type String. 
+	 * 
+	 * @author Chihiro
+	 *
+	 */
+	private class LongRunningGetIO extends AsyncTask<String, Void, JSONArray> {
+
+		/**
+		 * The tasks that may potentially freeze the UI thread is put here. 
+		 * The connection to the database should not interrupt the user UI. 
+		 * @param param[0] JSON string
+		 * @param param[1] URL of the database to connect
+		 * @return Returned JSON String, which may be null if the webservice
+		 * does not return anything. 
+		 */
+		@Override
+		protected JSONArray doInBackground(String... params) {
+			
+			try {
+				// first parameter is the JSON string, if any (may be null)
+				JSONObject json = null; 
+				if (params[1] != null) {
+					json = new JSONObject(params[1]); 
+				}
+				
+				// second parameter is the URL 
+				JSONArray jsonRes = RestClient.connection(
+						params[0], json, null);
+
+				return jsonRes;
+
+			} catch (Exception e) {
+				// TODO: JSON exception 
+				Log.v("Error while doInBackground", e.getMessage());
+			}
+			return null;
+		}
+	}	
 }

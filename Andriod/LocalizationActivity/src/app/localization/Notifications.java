@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import app.utilities.*;
 /**
- * Merchant list.  Pulls subscribed or nearby merchant information from the database. 
+ * Notifications list.  Pulls subscribed or nearby merchant information from the database. 
  * Need service-oriented architecture and needs three elements: 
  * external database, web-service, mobile web-service client. 
  * @author Chihiro
@@ -64,7 +64,7 @@ public class Notifications extends Activity {
 			
 			JSONArray json = RestClient.connectToDatabase(
 					"http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php", 
-					null, Notifications.this);
+					null);
 			
 			if(json != null) {
 				return json.toString();

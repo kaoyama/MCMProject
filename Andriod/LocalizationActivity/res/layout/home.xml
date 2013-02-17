@@ -13,76 +13,71 @@
         android:text="Merchant Map" />
         -->
 
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/notificationsButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:text="@string/localizationSettingsButtonLabel" />
+
+    <Button
+        android:id="@+id/gpsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/merchantButton"
+        android:layout_below="@+id/searchButton"
+        android:text="@string/locationButtonLabel" />
+
+    <Button
+        android:id="@+id/notificationsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_below="@+id/settingsButton"
+        android:text="@string/makePaymentsButtonLabel" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gpsButton"
+        android:layout_below="@+id/notificationsButton"
+        android:text="@string/viewHistoryButtonLabel" />
+
+    <Button
+        android:id="@+id/merchantButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/couponsButton"
+        android:layout_below="@+id/gpsButton"
+        android:text="@string/merchantButtonLabel" />
+
+    <Button
+        android:id="@+id/couponsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/logoutButton"
+        android:layout_below="@+id/merchantButton"
+        android:text="@string/couponsButtonLabel" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/couponsButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/logoutButtonLabel" />
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginBottom="19dp"
         android:contentDescription="@string/mcmLogo"
         android:src="@drawable/mcmlogowide" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp"
-        android:text="@string/logoutButtonLabel" />
-
-    <Button
-        android:id="@+id/couponsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/logoutButton"
-        android:layout_alignLeft="@+id/logoutButton"
-        android:layout_marginBottom="20dp"
-        android:text="@string/couponsButtonLabel" />
-
-    <Button
-        android:id="@+id/merchantButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/couponsButton"
-        android:layout_alignLeft="@+id/couponsButton"
-        android:layout_marginBottom="21dp"
-        android:text="@string/merchantButtonLabel" />
-
-    <Button
-        android:id="@+id/gpsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/merchantButton"
-        android:layout_alignLeft="@+id/merchantButton"
-        android:layout_marginBottom="20dp"
-        android:text="@string/locationButtonLabel" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/gpsButton"
-        android:layout_alignLeft="@+id/gpsButton"
-        android:layout_marginBottom="21dp"
-        android:text="@string/viewHistoryButtonLabel" />
-
-    <Button
-        android:id="@+id/notificationsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/searchButton"
-        android:layout_alignLeft="@+id/searchButton"
-        android:layout_marginBottom="20dp"
-        android:text="@string/makePaymentsButtonLabel" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/notificationsButton"
-        android:layout_alignLeft="@+id/notificationsButton"
-        android:layout_marginBottom="20dp"
-        android:text="@string/localizationSettingsButtonLabel" />
 
 </RelativeLayout>
