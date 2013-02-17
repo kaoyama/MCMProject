@@ -51,63 +51,45 @@ public class Notifications extends Activity {
 	}
 
 	/**
-	 * Connect to webservice (database) 
+	 * Connect to web service (database) 
 	 */
 	public void getData() {
-		new LongRunningGetIO().execute(); 
-	}
-
-	private class LongRunningGetIO extends AsyncTask <Void, Void, String> {
-
-		@Override
-		protected String doInBackground(Void... params) {
+		
+		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.NOTIFICATION_URL, null);
+		
+		if (jsonArray != null) {
 			
-			JSONArray json = app.utilities.RestClient.connectToDatabase(
-					"http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php", 
-					null);
-			
-			if(json != null) {
-				return json.toString();
-			} 
-			return null; 
-		}	
-
-		protected void onPostExecute(final String results) {
-			if (results!=null) {
+			runOnUiThread(new Runnable() {
 				
-				runOnUiThread(new Runnable() {
-					
-					@Override
-					public void run() {
-												
-						try {							
-							JSONArray jsonArray = new JSONArray(results);
-						    listContents = new ArrayList<String>(jsonArray.length());
+				@Override
+				public void run() {
+											
+					try {							
+					    listContents = new ArrayList<String>(jsonArray.length());
 
-							for (int i = 0; i < jsonArray.length(); i++) {
-								listContents.add(jsonArray.getJSONObject(i).getString("merchantUserName")); 								
-							}
-							
-							// Save this information to be used in the Merchant Map page 
-							b.putString("merchantInfo", jsonArray.toString()); 
-							intent.putExtras(b); 	
-							
-						} catch (JSONException e) {
-							app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
-							cd.showNotificationDialog(e.getMessage()); 
+						for (int i = 0; i < jsonArray.length(); i++) {
+							listContents.add(jsonArray.getJSONObject(i).getString("merchantUserName")); 								
 						}
 						
-						adapter = new ArrayAdapter<String>(currentThis, 
-								android.R.layout.simple_list_item_1, listContents); 
-						adapter.setNotifyOnChange(true); 
-						myListView.setAdapter(adapter); 
+						// Save this information to be used in the Merchant Map page 
+						b.putString("merchantInfo", jsonArray.toString()); 
+						intent.putExtras(b); 	
+						
+					} catch (JSONException e) {
+						app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
+						cd.showNotificationDialog(e.getMessage()); 
 					}
-				});
-				
-			} else {
-				app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
-				cd.showNotificationDialog("Notification list is empty.");
-			}
+					
+					adapter = new ArrayAdapter<String>(currentThis, 
+							android.R.layout.simple_list_item_1, listContents); 
+					adapter.setNotifyOnChange(true); 
+					myListView.setAdapter(adapter); 
+				}
+			});
+			
+		} else {
+			app.utilities.CustomDialog cd = new app.utilities.CustomDialog(Notifications.this); 
+			cd.showNotificationDialog("Notification list is empty.");
 		}
 	}
 }

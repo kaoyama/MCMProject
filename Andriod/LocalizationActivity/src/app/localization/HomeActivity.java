@@ -40,6 +40,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		Button registerButton = (Button) findViewById(R.id.registrationButton);
 		/*
 		Button mapButton = (Button) findViewById(R.id.mapButton);
 

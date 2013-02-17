@@ -3,38 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="@string/localizationSettingsButtonLabel" />
-
-     <Button
-        android:id="@+id/notificationsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Notifications" />
-     
-    <!-- 
-    <Button
-        android:id="@+id/mapButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Merchant Map" />
-        -->
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/notificationsButton"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/localizationSettingsButtonLabel" />
+        
 
     <Button
         android:id="@+id/gpsButton"
@@ -43,14 +12,6 @@
         android:layout_alignLeft="@+id/merchantButton"
         android:layout_below="@+id/searchButton"
         android:text="@string/locationButtonLabel" />
-
-    <Button
-        android:id="@+id/notificationsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchButton"
-        android:layout_below="@+id/settingsButton"
-        android:text="@string/makePaymentsButtonLabel" />
 
     <Button
         android:id="@+id/searchButton"
@@ -93,5 +54,23 @@
         android:layout_marginBottom="19dp"
         android:contentDescription="@string/mcmLogo"
         android:src="@drawable/mcmlogowide" />
+
+    <Button
+        android:id="@+id/notificationsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="21dp"
+        android:text="@string/makePaymentsButtonLabel" />
+
+    <Button
+        android:id="@+id/registrationButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/logoutButton"
+        android:layout_alignRight="@+id/logoutButton"
+        android:layout_below="@+id/logoutButton"
+        android:text="Registration" />
 
 </RelativeLayout>
