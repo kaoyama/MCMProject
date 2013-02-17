@@ -1,16 +1,8 @@
 package app.localization;
 
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.json.JSONArray;
+import java.io.FileInputStream;
+
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -65,7 +57,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 			
-		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
+		       /* JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
 		        		null, HomeActivity.this);
 		        
 		        if (json != null) {
@@ -83,9 +75,24 @@ public class HomeActivity extends Activity {
 		        	}
 		        } else {
 		        	notificationMessage = "JSON array was null.";
-		        }
+		        }*/
 		        
+				try {
+					FileInputStream fis = openFileInput("username_file");
+					StringBuffer sb =new StringBuffer("");
+					int ch;
+					while((ch = fis.read())!= -1){
+						sb.append((char)ch);
+					}
+					fis.close();
+					notificationMessage = sb.toString();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 		        // Show dialog of results
+				
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
 		        cd.showNotificationDialog(notificationMessage);	      
 			}
@@ -151,25 +158,8 @@ public class HomeActivity extends Activity {
 				try {
 					json.put("latitude", (int)(currentLat*MILLION)); 
 					json.put("longitude", (int)(currentLon*MILLION));
-					
-					HttpParams httpParams = new BasicHttpParams();
-			        HttpConnectionParams.setConnectionTimeout(httpParams,
-			                TIMEOUT_MILLISEC);
-			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-			        HttpClient client = new DefaultHttpClient(httpParams);
-			        //
-			        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
-			        //             "json={\"UserName\":1,\"FullName\":2}";
-			       // String url = CommonUtilities.UPDATEUSERLOCATION_URL;
-			        String url = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
-			        HttpPost request = new HttpPost(url);
-					request.setEntity(new ByteArrayEntity(json.toString().getBytes(
-						        "UTF8")));														
-			        request.setHeader("json", json.toString());
-			        HttpResponse response;
-					response = client.execute(request);
-			        HttpEntity entity = response.getEntity();
-			       
+					RestClient.connectToDatabase(CommonUtilities.UPDATEUSERLOCATION_URL,
+							json, HomeActivity.this); 
 				} catch (Exception e) {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);
 					dialog.showNotificationDialog("Error updating user latitude and longitude in database");

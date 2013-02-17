@@ -1,6 +1,8 @@
 package app.localization;
 
 
+import java.io.FileOutputStream;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -78,6 +80,13 @@ public class LocalizationActivity extends Activity {
 				            String validated = json2.getJSONObject(0).getString("result"); 
 				            if (validated.equals("1")) {
 				            	//Starting a new Intent
+				            	String fileName = "username_file";
+				            	String fileData = userName;
+
+				            	FileOutputStream fos = openFileOutput(fileName, currentThis.MODE_PRIVATE);
+				            	fos.write(fileData.getBytes());
+				            	fos.close();
+				            	
 				                Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);			 
 				                startActivity(homeScreen);
 				            } else {
