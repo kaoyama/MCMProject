@@ -40,24 +40,6 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
-		Button registerButton = (Button) findViewById(R.id.registrationButton);
-		/*
-		Button mapButton = (Button) findViewById(R.id.mapButton);
-
-		//Listening to button event
-		mapButton.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View arg0) {
-				//Starting a new Intent
-				Intent mapScreen = new Intent(getApplicationContext(), MerchantMap.class);
-
-				startActivity(mapScreen);
-
-			}
-		});
-	*/
-		
-
 		Button notificationButton = (Button) findViewById(R.id.notificationsButton);
 		notificationButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -65,27 +47,7 @@ public class HomeActivity extends Activity {
 			public void onClick(View v) {
 			
 		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null);
-		        
-		       /* JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, 
-		        		null, HomeActivity.this);
-		        
-		        if (json != null) {
-		        	try {
-			            String timestamp = json.getJSONObject(0).getString("timestamp"); 
-			            
-			            if (json.getJSONObject(0).getString("charged").equals("1")) {
-			            	notificationMessage = "User has been seen by the merchant at time:\n" + timestamp + "!";
-			            } else {
-			            	notificationMessage = "User has not been seen by the merchant!\n" + 
-			            			"User was last seen at time:\n" + timestamp; 
-			            }			            
-		        	} catch (Exception e) {
-		        		notificationMessage = "Exception parsing JSON array.";
-		        	}
-		        } else {
-		        	notificationMessage = "JSON array was null.";
-		        }*/
-		        
+		  		        
 				try {
 					FileInputStream fis = openFileInput("username_file");
 					StringBuffer sb =new StringBuffer("");
@@ -101,7 +63,6 @@ public class HomeActivity extends Activity {
 				}
 				
 		        // Show dialog of results
-				
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
 		        cd.showNotificationDialog(notificationMessage);	      
 			}
@@ -171,28 +132,6 @@ public class HomeActivity extends Activity {
 					RestClient.connectToDatabase(
 							CommonUtilities.UPDATEUSERLOCATION_URL, json);
 					
-					/*
-					HttpParams httpParams = new BasicHttpParams();
-			        HttpConnectionParams.setConnectionTimeout(httpParams,
-			                TIMEOUT_MILLISEC);
-			        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-			        HttpClient client = new DefaultHttpClient(httpParams);
-			        //
-			        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
-			        //             "json={\"UserName\":1,\"FullName\":2}";
-			       // String url = CommonUtilities.UPDATEUSERLOCATION_URL;
-			        String url = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
-			        HttpPost request = new HttpPost(url);
-					request.setEntity(new ByteArrayEntity(json.toString().getBytes(
-						        "UTF8")));														
-			        request.setHeader("json", json.toString());
-			        HttpResponse response;
-					response = client.execute(request);
-			        HttpEntity entity = response.getEntity();
-			       
-			       */
-					RestClient.connectToDatabase(CommonUtilities.UPDATEUSERLOCATION_URL,
-							json); 
 				} catch (Exception e) {
 					CustomDialog dialog = new CustomDialog(HomeActivity.this);
 					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
@@ -220,11 +159,18 @@ public class HomeActivity extends Activity {
 			public void onClick(View arg0) {
 				//Starting a new Intent
 				Intent homeScreen = new Intent(getApplicationContext(), LocalizationActivity.class);
-
 				startActivity(homeScreen);
-
 			}
 		});
+		
+		Button registerButton = (Button) findViewById(R.id.registrationButton);
+		registerButton.setOnClickListener(new View.OnClickListener(){
 
+			public void onClick(View arg0) {
+				//Starting a new Intent
+				Intent registerScreen = new Intent(getApplicationContext(), RegisterActivity.class);
+				startActivity(registerScreen);
+			}
+		});		
 	}
 }

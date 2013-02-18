@@ -46,7 +46,6 @@ public class Merchants extends Activity {
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.merchant);
 		
 		listContents = new ArrayList<String>();

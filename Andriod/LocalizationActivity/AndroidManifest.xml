@@ -61,6 +61,10 @@
         <activity android:name="app.localization.MerchantMap" 
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+        <activity android:name="app.localization.RegisterActivity" >
+        </activity>
+        <activity android:name="app.localization.Coupons" >
+        </activity>
         
         <!-- GCM Receiver -->
         <receiver 

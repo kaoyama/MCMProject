@@ -12,7 +12,7 @@ import app.utilities.AlertDialogManager;
 import app.utilities.ConnectionDetector;
 
 public class RegisterActivity extends Activity {
-	// alert dialog manager
+	// Alert dialog manager
 	AlertDialogManager alert = new AlertDialogManager();
 	
 	// Internet detector
@@ -30,6 +30,10 @@ public class RegisterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
 		
+		//doStuff(); 
+	}
+	
+	public void doStuff() {
 		cd = new ConnectionDetector(getApplicationContext());
 
 		// Check if Internet present
