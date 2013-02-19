@@ -223,11 +223,6 @@ public class Customers extends Activity {
 						}
 											
 						
-						/*adapter = new ArrayAdapter<String>(currentThis, 
-								android.R.layout.simple_list_item_1, listContents); 
-						adapter.setNotifyOnChange(true); 
-						myListView.setAdapter(adapter); */
-						
 					}
 				});
 				
