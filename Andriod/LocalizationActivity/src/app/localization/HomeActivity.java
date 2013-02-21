@@ -56,9 +56,16 @@ public class HomeActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-			
-		        JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null);
-		  		        
+				
+				// Starting a new intent
+				Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
+				startActivity(paymentScreen); 
+				
+				
+				
+			    //Commented out code gets username from android DB
+				/*JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null);
+		        
 				try {
 					FileInputStream fis = openFileInput("username_file");
 					StringBuffer sb =new StringBuffer("");
@@ -75,7 +82,7 @@ public class HomeActivity extends Activity {
 				
 		        // Show dialog of results
 		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
-		        cd.showNotificationDialog(notificationMessage);	      
+		        cd.showNotificationDialog(notificationMessage);*/	      
 			}
 		});
 		
