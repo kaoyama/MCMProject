@@ -136,6 +136,7 @@ public class RegisterActivity extends Activity {
 		// Check if regid already presents
 		if (regId.equals("")) {
 			// Registration is not present, register now with GCM	
+			Log.i(TAG, "Calling register from AsyncTask in RegisterActivity");
 			GCMRegistrar.register(this, SENDER_ID);
 		} else {
 			
@@ -153,6 +154,7 @@ public class RegisterActivity extends Activity {
 					protected Void doInBackground(Void... params) {
 						// Register on our server
 						// On server creates a new user
+						Log.i(TAG, "Calling register from AsyncTask in RegisterActivity");
 						ServerUtilities.register(context, name, email, regId);
 						return null;
 					}

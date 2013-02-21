@@ -8,7 +8,7 @@ public final class CommonUtilities {
 	// give your server registration url here
     public static final String SERVER_URL = "http://dana.ucc.nau.edu/~cs854/cloudMessaging/register.php"; 
     
-    public static final String REGISTRATION_URL = "http://dana.ucc.nau.edu/~cs854/cloudMessaging/register.php"; 
+    public static final String REGISTRATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRegisterNewUser.php"; 
     public static final String USERNOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
     public static final String UPDATEUSERLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
     public static final String NEARBYMERCHANTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php";
