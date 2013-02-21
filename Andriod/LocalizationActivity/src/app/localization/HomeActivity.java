@@ -1,22 +1,31 @@
 package app.localization;
 
 
+import static app.utilities.CommonUtilities.EXTRA_MESSAGE;
+
 import java.io.FileInputStream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import app.utilities.WakeLocker;
+import com.google.android.gcm.GCMRegistrar;
+
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
@@ -30,11 +39,13 @@ public class HomeActivity extends Activity {
 	protected static final int TIMEOUT_MILLISEC = 3000;
 	static long MILLION = 1000000; 
 	
+	// Asyntask
+	AsyncTask<Void, Void, Void> mRegisterTask;
+	
 	TextView username;
 	String notificationMessage; 
 	
-	public static String name;
-	public static String email; 
+	
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -172,5 +183,50 @@ public class HomeActivity extends Activity {
 				startActivity(registerScreen);
 			}
 		});		
+	}
+	
+	/**
+	 * From GCM
+	 * Receiving push messages
+	 * */
+	private final BroadcastReceiver mHandleMessageReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String newMessage = intent.getExtras().getString(EXTRA_MESSAGE);
+			// Waking up mobile if it is sleeping
+			WakeLocker.acquire(getApplicationContext());
+			
+			/**
+			 * Take appropriate action on this message
+			 * depending upon your app requirement
+			 * For now i am just displaying it on the screen
+			 * */
+			
+			// Showing received message
+			// TODO: DO WHAT WILL BE DONE WITH RECEIVED MESSAGE
+		//	lblMessage.append(newMessage + "\n");			
+			
+			Toast.makeText(getApplicationContext(), "New Message: " + newMessage, Toast.LENGTH_LONG).show();
+			
+			// Releasing wake lock
+			WakeLocker.release();
+		}
+	};
+	
+	/**
+	 * From GCM
+	 */
+	@Override
+	protected void onDestroy() {
+		if (mRegisterTask != null) {
+			mRegisterTask.cancel(true);
+		}
+		try {
+			unregisterReceiver(mHandleMessageReceiver);
+			GCMRegistrar.onDestroy(this);
+		} catch (Exception e) {
+			Log.e("UnRegister Receiver Error", "> " + e.getMessage());
+		}
+		super.onDestroy();
 	}
 }

@@ -14,10 +14,11 @@ $json = file_get_contents('php://input');
 $obj = json_decode($json);
         
 // Get boolean value from customers table 
+
 $query = "SELECT merchant, productIndex, purchaseTime, " .
         "customer, cost, paid FROM kd268.customerTransactions " . 
-        " WHERE customer = '". $obj->{'userName'} ."'";
-
+        " WHERE customer = '" . $obj->{'userName'} . "'";
+ 
 //echo $query;
 $res = mysql_query($query); 
 

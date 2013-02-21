@@ -21,12 +21,12 @@ public final class CommonUtilities {
     /**
      * Tag used on log messages.
      */
-    static final String TAG = "AndroidHive GCM";
+    public static final String TAG = "MCM Localization";
 
-    static final String DISPLAY_MESSAGE_ACTION =
-            "com.androidhive.pushnotifications.DISPLAY_MESSAGE";
+    public static final String DISPLAY_MESSAGE_ACTION =
+            "app.localization.DISPLAY_MESSAGE";
 
-    static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_MESSAGE = "message";
 
     /**
      * Notifies UI to display a message.
@@ -37,7 +37,7 @@ public final class CommonUtilities {
      * @param context application's context.
      * @param message message to be displayed.
      */
-    static void displayMessage(Context context, String message) {
+    public static void displayMessage(Context context, String message) {
         Intent intent = new Intent(DISPLAY_MESSAGE_ACTION);
         intent.putExtra(EXTRA_MESSAGE, message);
         context.sendBroadcast(intent);

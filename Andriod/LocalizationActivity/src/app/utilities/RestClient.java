@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
+import app.localization.RegisterActivity;
 
 public class RestClient {
 	
@@ -61,6 +62,7 @@ public class RestClient {
 	 * returns null and displays a toast to the app with the exception. 
 	 */
 	public static JSONArray connection(String url, JSONObject json, Activity activity) {
+		
 		try {        
 	        // Establish an HTTP connection 
 			HttpParams httpParams = new BasicHttpParams();
