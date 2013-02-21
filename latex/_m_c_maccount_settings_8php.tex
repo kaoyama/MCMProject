@@ -4,7 +4,8 @@
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user} = \char`\"{}kimi\char`\"{}
+\hyperlink{_m_c_mhome_page_8php_a8dec719c1645067d1065f7f064d4b967}{if}(\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}===\char`\"{}guest\-Of\-Kimi\char`\"{}$|$$|$!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}) \\*
+header(\char`\"{}Location \hyperlink{_m_c_maccount_settings_8php_ad8982953e969b35c48447e32be546dca}{\$user} = \$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}
 \item 
 \hyperlink{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}{\$dbase} = \char`\"{}test\char`\"{}
 \item 
@@ -20,7 +21,7 @@
 \item 
 \hyperlink{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{\$all\-Ads\-Merchant\-List} = ''
 \item 
-\hyperlink{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{if}(mysql\-\_\-num\-\_\-rows(\$all\-Ad\-Merchants)$<$ 1) \hyperlink{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}{else}
+\hyperlink{_m_c_mhome_page_8php_a8dec719c1645067d1065f7f064d4b967}{if}(mysql\-\_\-num\-\_\-rows(\$all\-Ad\-Merchants)$<$ 1) \hyperlink{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}{else}
 \item 
 \hyperlink{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}{\$all\-Coupon\-Merchants} = mysql\-\_\-query(\$get\-All\-Coupon\-Merchants, \$cxn)
 \item 
@@ -48,54 +49,122 @@ for(\$i=1;\$i$<$ sizeof(\$coupon\-Row);\$i++) \hyperlink{_m_c_maccount_settings_
 \hypertarget{_m_c_maccount_settings_8php_adda5f8d6a5918a17bc6145750958506f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$ad\-Merchant\-List@{\$ad\-Merchant\-List}}
 \index{\$ad\-Merchant\-List@{\$ad\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$ad\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$ad\-Merchant\-List = \char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_adda5f8d6a5918a17bc6145750958506f}
+
+
+Definition at line 129 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a606d9139cc8585dd4ad8bf2f3897dcab}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$ad\-Merchants@{\$ad\-Merchants}}
 \index{\$ad\-Merchants@{\$ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$ad\-Merchants = mysql\-\_\-query(\$get\-Ad\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a606d9139cc8585dd4ad8bf2f3897dcab}
+
+
+Definition at line 128 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Ad\-Merchants@{\$all\-Ad\-Merchants}}
 \index{\$all\-Ad\-Merchants@{\$all\-Ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$all\-Ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Ad\-Merchants = mysql\-\_\-query(\$get\-All\-Ad\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a8a13c248d6e767ec3a93debb562f3a3f}
+
+
+Definition at line 92 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Ads\-Merchant\-List@{\$all\-Ads\-Merchant\-List}}
 \index{\$all\-Ads\-Merchant\-List@{\$all\-Ads\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$all\-Ads\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Ads\-Merchant\-List = ''}}\label{_m_c_maccount_settings_8php_a17349accdafb921446876ffa9476c666}
+
+
+Definition at line 93 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Coupon\-Merchant\-List@{\$all\-Coupon\-Merchant\-List}}
 \index{\$all\-Coupon\-Merchant\-List@{\$all\-Coupon\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$all\-Coupon\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Coupon\-Merchant\-List = ''}}\label{_m_c_maccount_settings_8php_aaa22e8608f806a04f7f5bd340ca807d6}
+
+
+Definition at line 111 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$all\-Coupon\-Merchants@{\$all\-Coupon\-Merchants}}
 \index{\$all\-Coupon\-Merchants@{\$all\-Coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$all\-Coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$all\-Coupon\-Merchants = mysql\-\_\-query(\$get\-All\-Coupon\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_ac2b2cf021ba3f45382a7c009f4a85359}
+
+
+Definition at line 110 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a773d789a200d6fa9d2b0342a5d6af9fd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$coupon\-Merchant\-List@{\$coupon\-Merchant\-List}}
 \index{\$coupon\-Merchant\-List@{\$coupon\-Merchant\-List}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$coupon\-Merchant\-List}]{\setlength{\rightskip}{0pt plus 5cm}\$coupon\-Merchant\-List = \char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_a773d789a200d6fa9d2b0342a5d6af9fd}
+
+
+Definition at line 152 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a3a32827acfafa83441c5161bcf7eceef}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$coupon\-Merchants@{\$coupon\-Merchants}}
 \index{\$coupon\-Merchants@{\$coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$coupon\-Merchants = mysql\-\_\-query(\$get\-Coupon\-Merchants, \$cxn)}}\label{_m_c_maccount_settings_8php_a3a32827acfafa83441c5161bcf7eceef}
+
+
+Definition at line 151 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$cxn@{\$cxn}}
 \index{\$cxn@{\$cxn}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$cxn}]{\setlength{\rightskip}{0pt plus 5cm}\$cxn = mysql\-\_\-connect(\$host) or die (\char`\"{}No connection possible\char`\"{})}}\label{_m_c_maccount_settings_8php_afe14c5bdb9487c058ec831382f1fbacd}
+
+
+Definition at line 84 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$dbase@{\$dbase}}
 \index{\$dbase@{\$dbase}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$dbase}]{\setlength{\rightskip}{0pt plus 5cm}\$dbase = \char`\"{}test\char`\"{}}}\label{_m_c_maccount_settings_8php_abd981912075cb8356ca370b4fefdfed7}
+
+
+Definition at line 82 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a88fea670240e5fa6ae306a286acaa0fd}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$dbr@{\$dbr}}
 \index{\$dbr@{\$dbr}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$dbr}]{\setlength{\rightskip}{0pt plus 5cm}\$dbr = mysql\-\_\-select\-\_\-db(\$dbase,\$cxn)or die(mysql\-\_\-error())}}\label{_m_c_maccount_settings_8php_a88fea670240e5fa6ae306a286acaa0fd}
+
+
+Definition at line 85 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a0c83e0e6bd8e9d8deee8baa4f03f6fc2}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$get\-All\-Ad\-Merchants@{\$get\-All\-Ad\-Merchants}}
 \index{\$get\-All\-Ad\-Merchants@{\$get\-All\-Ad\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$get\-All\-Ad\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}\$get\-All\-Ad\-Merchants = \char`\"{}S\-E\-L\-E\-C\-T merchant F\-R\-O\-M advertisements\char`\"{}}}\label{_m_c_maccount_settings_8php_a0c83e0e6bd8e9d8deee8baa4f03f6fc2}
+
+
+Definition at line 91 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_ad7ff3bd6b64ab03c84762e87bdb49b94}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$get\-Coupon\-Merchants@{\$get\-Coupon\-Merchants}}
 \index{\$get\-Coupon\-Merchants@{\$get\-Coupon\-Merchants}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$get\-Coupon\-Merchants}]{\setlength{\rightskip}{0pt plus 5cm}for (\$i=1;\$i$<$ sizeof(\$ad\-Row);\$i++) \$get\-Coupon\-Merchants = \char`\"{}S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M subscribed\-For\-Coupons W\-H\-E\-R\-E user\-Name = '\$user'\char`\"{}}}\label{_m_c_maccount_settings_8php_ad7ff3bd6b64ab03c84762e87bdb49b94}
+
+
+Definition at line 150 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a711797613cb863ca0756df789c396bf2}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$host@{\$host}}
 \index{\$host@{\$host}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$host}]{\setlength{\rightskip}{0pt plus 5cm}\$host = \char`\"{}localhost\char`\"{}}}\label{_m_c_maccount_settings_8php_a711797613cb863ca0756df789c396bf2}
+
+
+Definition at line 83 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a83018d9153d17d91fbcf3bc10158d34f}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$i@{\$i}}
 \index{\$i@{\$i}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$i}]{\setlength{\rightskip}{0pt plus 5cm}\$i =0}}\label{_m_c_maccount_settings_8php_a83018d9153d17d91fbcf3bc10158d34f}
+
+
+Definition at line 139 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a40bc7f7e5d2e32caabe23be33f8ebfbc}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$no\-Ad\-Merchant@{\$no\-Ad\-Merchant}}
 \index{\$no\-Ad\-Merchant@{\$no\-Ad\-Merchant}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{\$no\-Ad\-Merchant}]{\setlength{\rightskip}{0pt plus 5cm}\$no\-Ad\-Merchant =\char`\"{}\char`\"{}}}\label{_m_c_maccount_settings_8php_a40bc7f7e5d2e32caabe23be33f8ebfbc}
-\hypertarget{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$user@{\$user}}
+
+
+Definition at line 130 of file M\-C\-Maccount\-Settings.\-php.
+
+\hypertarget{_m_c_maccount_settings_8php_ad8982953e969b35c48447e32be546dca}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!\$user@{\$user}}
 \index{\$user@{\$user}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
-\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}\$user = \char`\"{}kimi\char`\"{}}}\label{_m_c_maccount_settings_8php_a598ca4e71b15a1313ec95f0df1027ca5}
+\subsubsection[{\$user}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}===\char`\"{}guest\-Of\-Kimi\char`\"{}$|$$|$!\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}) header(\char`\"{}Location \$user = \$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'user'\mbox{]}}}\label{_m_c_maccount_settings_8php_ad8982953e969b35c48447e32be546dca}
+
+
+Definition at line 81 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!else@{else}}
 \index{else@{else}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-num\-\_\-rows(\$coupon\-Merchants)$<$ 1) else}}\label{_m_c_maccount_settings_8php_a94047f62b6235a950eb5b1c60eecf257}
@@ -116,6 +185,10 @@ for(\$i=1;\$i$<$ sizeof(\$coupon\-Row);\$i++) \hyperlink{_m_c_maccount_settings_
    
    $getAllCouponMerchants = \textcolor{stringliteral}{"SELECT merchant FROM coupons;"}
 \end{DoxyCode}
+
+
+Definition at line 98 of file M\-C\-Maccount\-Settings.\-php.
+
 \hypertarget{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}{\index{M\-C\-Maccount\-Settings.\-php@{M\-C\-Maccount\-Settings.\-php}!if@{if}}
 \index{if@{if}!MCMaccountSettings.php@{M\-C\-Maccount\-Settings.\-php}}
 \subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if}}\label{_m_c_maccount_settings_8php_a648419c218c2f0aeb239028519ab83d8}
@@ -136,3 +209,7 @@ for(\$i=1;\$i$<$ sizeof(\$coupon\-Row);\$i++) \hyperlink{_m_c_maccount_settings_
    
    $getAdMerchants = \textcolor{stringliteral}{"SELECT * FROM subscribedForAds WHERE userName = '$user'"}
 \end{DoxyCode}
+
+
+Definition at line 175 of file M\-C\-Maccount\-Settings.\-php.
+

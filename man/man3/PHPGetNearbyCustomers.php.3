@@ -1,0 +1,104 @@
+.TH "Website/PHPGetNearbyCustomers.php" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Website/PHPGetNearbyCustomers.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$databasehost\fP = 'acadgpl\&.ucc\&.nau\&.edu'"
+.br
+.ti -1c
+.RI "\fB$databasename\fP = 'kd268'"
+.br
+.ti -1c
+.RI "\fB$databaseusername\fP ='kd268'"
+.br
+.ti -1c
+.RI "\fB$databasepassword\fP = 'capstone'"
+.br
+.ti -1c
+.RI "\fB$lat\fP = 35170000"
+.br
+.ti -1c
+.RI "\fB$lon\fP = -111600000"
+.br
+.ti -1c
+.RI "\fB$con\fP"
+.br
+.ti -1c
+.RI "\fB$query\fP = 'UPDATE kd268\&.customers SET charged = FALSE'"
+.br
+.ti -1c
+.RI "\fB$res\fP = mysql_query($query)"
+.br
+.ti -1c
+.RI "\fB$sth\fP = mysql_query($query)"
+.br
+.ti -1c
+.RI "\fBif\fP(mysql_errno()) \fBelse\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$con"
+\fBInitial value:\fP
+.PP
+.nf
+= mysql_connect($databasehost,$databaseusername,$databasepassword) 
+        or die(mysql_error())
+.fi
+.PP
+Definition at line 11 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$databasehost = 'acadgpl\&.ucc\&.nau\&.edu'"
+
+.PP
+Definition at line 3 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$databasename = 'kd268'"
+
+.PP
+Definition at line 4 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$databasepassword = 'capstone'"
+
+.PP
+Definition at line 6 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$databaseusername ='kd268'"
+
+.PP
+Definition at line 5 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$lat = 35170000"
+
+.PP
+Definition at line 7 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$lon = -111600000"
+
+.PP
+Definition at line 8 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$query = 'UPDATE kd268\&.customers SET charged = FALSE'"
+
+.PP
+Definition at line 16 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$res = mysql_query($query)"
+
+.PP
+Definition at line 17 of file PHPGetNearbyCustomers\&.php\&.
+.SS "$sth = mysql_query($query)"
+
+.PP
+Definition at line 25 of file PHPGetNearbyCustomers\&.php\&.
+.SS "\fBif\fP (mysql_errno()) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    $rows = array()
+.fi
+.PP
+Definition at line 33 of file PHPGetNearbyCustomers\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

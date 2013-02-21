@@ -1,0 +1,91 @@
+.TH "RestClient" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RestClient \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static String \fBgetASCIIContentFromEntity\fP (HttpEntity entity)"
+.br
+.ti -1c
+.RI "static JSONArray \fBconnection\fP (String url, JSONObject json, Activity activity)"
+.br
+.ti -1c
+.RI "static JSONArray \fBconnectToDatabase\fP (String url, JSONObject json)"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBTIMEOUT_MILLISEC\fP = 3000"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 24 of file RestClient\&.java\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static JSONArray connection (Stringurl, JSONObjectjson, Activityactivity)\fC [inline]\fP, \fC [static]\fP"
+Connects to a specific URL, sending a JSON string and retrieving a JSON string in return\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIurl\fP URL address containing the PHP script\&. 
+.br
+\fIjson\fP JSON object to send to the PHP specified in the URL\&. If no input is required for database connection, can be null\&. 
+.br
+\fIactivity\fP Activity object to display toast in case of failure\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+JSON array returned from PHP call to the database\&. If nothing is returned from the PHP query, return null\&. On failed connection to the database, returns null and displays a toast to the app with the exception\&. 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file RestClient\&.java\&.
+.SS "static JSONArray connectToDatabase (Stringurl, JSONObjectjson)\fC [inline]\fP, \fC [static]\fP"
+Connect to the database through an AsyncTask\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIurl\fP URL of the webservice to conenct 
+.br
+\fIjson\fP JSON Object that stores variables to be sent to the webservice 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Returned JSON string, which can be converted to a JSONArray 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file RestClient\&.java\&.
+.SS "static String getASCIIContentFromEntity (HttpEntityentity)\fC [inline]\fP, \fC [static]\fP"
+Gets ASCII content from the HTTP response entity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentity\fP HttpEntity object retrieved from HTTP response\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string version of HTTP entity\&. 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file RestClient\&.java\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

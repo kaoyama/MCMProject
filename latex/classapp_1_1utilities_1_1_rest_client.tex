@@ -1,0 +1,99 @@
+\hypertarget{classapp_1_1utilities_1_1_rest_client}{\section{Rest\-Client Class Reference}
+\label{classapp_1_1utilities_1_1_rest_client}\index{Rest\-Client@{Rest\-Client}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \hyperlink{classapp_1_1utilities_1_1_rest_client_a2d392fc914b10e3984e550344526dc0a}{get\-A\-S\-C\-I\-I\-Content\-From\-Entity} (Http\-Entity entity)
+\item 
+static J\-S\-O\-N\-Array \hyperlink{classapp_1_1utilities_1_1_rest_client_a88ca8592848d489a217b068f57313c1a}{connection} (String url, J\-S\-O\-N\-Object json, Activity activity)
+\item 
+static J\-S\-O\-N\-Array \hyperlink{classapp_1_1utilities_1_1_rest_client_a5f224773442c45c5cd119d6f6551b0e1}{connect\-To\-Database} (String url, J\-S\-O\-N\-Object json)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classapp_1_1utilities_1_1_rest_client_af5858805af6e7dae14f55e3f4d0e0f9e}{static final int {\bfseries T\-I\-M\-E\-O\-U\-T\-\_\-\-M\-I\-L\-L\-I\-S\-E\-C} = 3000}\label{classapp_1_1utilities_1_1_rest_client_af5858805af6e7dae14f55e3f4d0e0f9e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file Rest\-Client.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classapp_1_1utilities_1_1_rest_client_a88ca8592848d489a217b068f57313c1a}{\index{app\-::utilities\-::\-Rest\-Client@{app\-::utilities\-::\-Rest\-Client}!connection@{connection}}
+\index{connection@{connection}!app::utilities::RestClient@{app\-::utilities\-::\-Rest\-Client}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}static J\-S\-O\-N\-Array connection (
+\begin{DoxyParamCaption}
+\item[{String}]{url, }
+\item[{J\-S\-O\-N\-Object}]{json, }
+\item[{Activity}]{activity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classapp_1_1utilities_1_1_rest_client_a88ca8592848d489a217b068f57313c1a}
+Connects to a specific U\-R\-L, sending a J\-S\-O\-N string and retrieving a J\-S\-O\-N string in return. 
+\begin{DoxyParams}{Parameters}
+{\em url} & U\-R\-L address containing the P\-H\-P script. \\
+\hline
+{\em json} & J\-S\-O\-N object to send to the P\-H\-P specified in the U\-R\-L. If no input is required for database connection, can be null. \\
+\hline
+{\em activity} & Activity object to display toast in case of failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+J\-S\-O\-N array returned from P\-H\-P call to the database. If nothing is returned from the P\-H\-P query, return null. On failed connection to the database, returns null and displays a toast to the app with the exception. 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file Rest\-Client.\-java.
+
+\hypertarget{classapp_1_1utilities_1_1_rest_client_a5f224773442c45c5cd119d6f6551b0e1}{\index{app\-::utilities\-::\-Rest\-Client@{app\-::utilities\-::\-Rest\-Client}!connect\-To\-Database@{connect\-To\-Database}}
+\index{connect\-To\-Database@{connect\-To\-Database}!app::utilities::RestClient@{app\-::utilities\-::\-Rest\-Client}}
+\subsubsection[{connect\-To\-Database}]{\setlength{\rightskip}{0pt plus 5cm}static J\-S\-O\-N\-Array connect\-To\-Database (
+\begin{DoxyParamCaption}
+\item[{String}]{url, }
+\item[{J\-S\-O\-N\-Object}]{json}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classapp_1_1utilities_1_1_rest_client_a5f224773442c45c5cd119d6f6551b0e1}
+Connect to the database through an Async\-Task. 
+\begin{DoxyParams}{Parameters}
+{\em url} & U\-R\-L of the webservice to conenct \\
+\hline
+{\em json} & J\-S\-O\-N Object that stores variables to be sent to the webservice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returned J\-S\-O\-N string, which can be converted to a J\-S\-O\-N\-Array 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file Rest\-Client.\-java.
+
+\hypertarget{classapp_1_1utilities_1_1_rest_client_a2d392fc914b10e3984e550344526dc0a}{\index{app\-::utilities\-::\-Rest\-Client@{app\-::utilities\-::\-Rest\-Client}!get\-A\-S\-C\-I\-I\-Content\-From\-Entity@{get\-A\-S\-C\-I\-I\-Content\-From\-Entity}}
+\index{get\-A\-S\-C\-I\-I\-Content\-From\-Entity@{get\-A\-S\-C\-I\-I\-Content\-From\-Entity}!app::utilities::RestClient@{app\-::utilities\-::\-Rest\-Client}}
+\subsubsection[{get\-A\-S\-C\-I\-I\-Content\-From\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}static String get\-A\-S\-C\-I\-I\-Content\-From\-Entity (
+\begin{DoxyParamCaption}
+\item[{Http\-Entity}]{entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classapp_1_1utilities_1_1_rest_client_a2d392fc914b10e3984e550344526dc0a}
+Gets A\-S\-C\-I\-I content from the H\-T\-T\-P response entity. 
+\begin{DoxyParams}{Parameters}
+{\em entity} & Http\-Entity object retrieved from H\-T\-T\-P response. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string version of H\-T\-T\-P entity. 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file Rest\-Client.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Andriod/\-Localization\-Activity/src/app/utilities/Rest\-Client.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,102 @@
+\hypertarget{_p_h_p_validate_login_8php}{\section{Website/\-P\-H\-P\-Validate\-Login.php File Reference}
+\label{_p_h_p_validate_login_8php}\index{Website/\-P\-H\-P\-Validate\-Login.\-php@{Website/\-P\-H\-P\-Validate\-Login.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a034ead57b6864a4413371711e8d65372}{\$databasehost} = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_aace53f8afce81b52040cef0cd850138a}{\$databasename} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a251bf75f510d7c8b556c65d7c30e911f}{\$databaseusername} =\char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\$databasepassword} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_acedd13b51401130848ce18f4d5c52605}{\$json} = file\-\_\-get\-\_\-contents('php\-://input')
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a9008ed94ba185855b1723e367744b87e}{\$obj} = json\-\_\-decode(\$json)
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a0debe10448ec56a57b5509648408a549}{\$con}
+\item 
+\hyperlink{_m_c_mhome_page_8php_a8dec719c1645067d1065f7f064d4b967}{if}(\$obj-\/$>$\{'customer'\}== '1') \hyperlink{_p_h_p_validate_login_8php_ab6024c486eebf5823d5a9fddf2cbde2d}{else}
+\item 
+\hyperlink{_p_h_p_validate_login_8php_a49a8a4009b02e49717caa88b128affc5}{\$res} = mysql\-\_\-query(\$query)
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_p_h_p_validate_login_8php_a0debe10448ec56a57b5509648408a549}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$con@{\$con}}
+\index{\$con@{\$con}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$con}]{\setlength{\rightskip}{0pt plus 5cm}\$con}}\label{_p_h_p_validate_login_8php_a0debe10448ec56a57b5509648408a549}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= mysql\_connect(\hyperlink{_p_h_p_get_coupons_8php_a034ead57b6864a4413371711e8d65372}{$databasehost},\hyperlink{_p_h_p_get_coupons_8php_a251bf75f510d7c8b556c65d7c30e911f}{$databaseusername},
+      \hyperlink{_p_h_p_get_coupons_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{$databasepassword}) 
+        or die(mysql\_error())
+\end{DoxyCode}
+
+
+Definition at line 13 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_a034ead57b6864a4413371711e8d65372}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$databasehost@{\$databasehost}}
+\index{\$databasehost@{\$databasehost}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$databasehost}]{\setlength{\rightskip}{0pt plus 5cm}\$databasehost = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}}}\label{_p_h_p_validate_login_8php_a034ead57b6864a4413371711e8d65372}
+
+
+Definition at line 3 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_aace53f8afce81b52040cef0cd850138a}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$databasename@{\$databasename}}
+\index{\$databasename@{\$databasename}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$databasename}]{\setlength{\rightskip}{0pt plus 5cm}\$databasename = \char`\"{}kd268\char`\"{}}}\label{_p_h_p_validate_login_8php_aace53f8afce81b52040cef0cd850138a}
+
+
+Definition at line 4 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$databasepassword@{\$databasepassword}}
+\index{\$databasepassword@{\$databasepassword}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$databasepassword}]{\setlength{\rightskip}{0pt plus 5cm}\$databasepassword = \char`\"{}capstone\char`\"{}}}\label{_p_h_p_validate_login_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}
+
+
+Definition at line 6 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_a251bf75f510d7c8b556c65d7c30e911f}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$databaseusername@{\$databaseusername}}
+\index{\$databaseusername@{\$databaseusername}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$databaseusername}]{\setlength{\rightskip}{0pt plus 5cm}\$databaseusername =\char`\"{}kd268\char`\"{}}}\label{_p_h_p_validate_login_8php_a251bf75f510d7c8b556c65d7c30e911f}
+
+
+Definition at line 5 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_acedd13b51401130848ce18f4d5c52605}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$json@{\$json}}
+\index{\$json@{\$json}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$json}]{\setlength{\rightskip}{0pt plus 5cm}\$json = file\-\_\-get\-\_\-contents('php\-://input')}}\label{_p_h_p_validate_login_8php_acedd13b51401130848ce18f4d5c52605}
+
+
+Definition at line 8 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_a9008ed94ba185855b1723e367744b87e}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$obj@{\$obj}}
+\index{\$obj@{\$obj}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$obj}]{\setlength{\rightskip}{0pt plus 5cm}\$obj = json\-\_\-decode(\$json)}}\label{_p_h_p_validate_login_8php_a9008ed94ba185855b1723e367744b87e}
+
+
+Definition at line 10 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_a49a8a4009b02e49717caa88b128affc5}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!\$res@{\$res}}
+\index{\$res@{\$res}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{\$res}]{\setlength{\rightskip}{0pt plus 5cm}\$res = mysql\-\_\-query(\$query)}}\label{_p_h_p_validate_login_8php_a49a8a4009b02e49717caa88b128affc5}
+
+
+Definition at line 27 of file P\-H\-P\-Validate\-Login.\-php.
+
+\hypertarget{_p_h_p_validate_login_8php_ab6024c486eebf5823d5a9fddf2cbde2d}{\index{P\-H\-P\-Validate\-Login.\-php@{P\-H\-P\-Validate\-Login.\-php}!else@{else}}
+\index{else@{else}!PHPValidateLogin.php@{P\-H\-P\-Validate\-Login.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-num\-\_\-rows(\$res)$<$ 1) else}}\label{_p_h_p_validate_login_8php_ab6024c486eebf5823d5a9fddf2cbde2d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    \hyperlink{_p_h_p_get_coupons_8php_af59a5f7cd609e592c41dc3643efd3c98}{$query} = \textcolor{stringliteral}{"SELECT * FROM kd268.merchants WHERE userName = '"} . \hyperlink{_p_h_p_get_coupons_8php_a9008ed94ba185855b1723e367744b87e}{$obj}->\{\textcolor{stringliteral}{'userName'}\} .
+            \textcolor{stringliteral}{"' AND pwd = '"}. \hyperlink{_p_h_p_get_coupons_8php_a9008ed94ba185855b1723e367744b87e}{$obj}->\{\textcolor{stringliteral}{'pwd'}\} . \textcolor{stringliteral}{"'"}
+\end{DoxyCode}
+
+
+Definition at line 21 of file P\-H\-P\-Validate\-Login.\-php.
+

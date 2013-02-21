@@ -1,0 +1,13 @@
+digraph "Andriod/Merchant/gen/app" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_126b6ec8052f3490ff6929285e5d6551 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="gen" fontname="Helvetica", fontsize="10", URL="dir_126b6ec8052f3490ff6929285e5d6551.html"]
+  subgraph clusterdir_b7a9b9a645f1bd79c52ebdb2fb082fe4 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_b7a9b9a645f1bd79c52ebdb2fb082fe4.html"];
+    dir_b7a9b9a645f1bd79c52ebdb2fb082fe4 [shape=plaintext label="app"];
+    dir_eaf3a2c2f61c6e2c863b319085bfddad [shape=box label="merchantLocalization" color="black" fillcolor="white" style="filled" URL="dir_eaf3a2c2f61c6e2c863b319085bfddad.html"];
+  }
+  }
+}

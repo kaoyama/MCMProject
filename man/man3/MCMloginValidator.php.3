@@ -1,0 +1,174 @@
+.TH "Website/MCMloginValidator.php" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Website/MCMloginValidator.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$host\fP = 'localhost'"
+.br
+.ti -1c
+.RI "\fB$user\fP = 'kd268'"
+.br
+.ti -1c
+.RI "\fB$password\fP = 'capstone'"
+.br
+.ti -1c
+.RI "\fB$dbase\fP = 'test'"
+.br
+.ti -1c
+.RI "\fB$fields\fP"
+.br
+.ti -1c
+.RI "\fB$logInName\fP = 'kimi'"
+.br
+.ti -1c
+.RI "\fB$logInPwd\fP = 'kimi'"
+.br
+.ti -1c
+.RI "\fBforeach\fP($_POST as $field=> $value) \fB$cxn\fP = mysql_connect($host) or die ('No connection possible')"
+.br
+.ti -1c
+.RI "\fB$dbr\fP = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+.br
+.ti -1c
+.RI "\fB$sqlQuery\fP = 'SHOW TABLES'"
+.br
+.ti -1c
+.RI "\fB$result\fP = mysql_query($sqlQuery,$cxn)"
+.br
+.ti -1c
+.RI "\fBif\fP($result==FALSE) \fBelse\fP"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['user'] = $logInName"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['name'] = $row[2]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['gender'] = $row[3]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['studentStatus'] = $row[4]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['currentLat'] = $row[5]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['currentLon'] = $row[6]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['bday'] = $row[7]"
+.br
+.ti -1c
+.RI "\fB$_SESSION\fP ['email'] = $row[10]"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$_SESSION['user'] = $logInName"
+
+.PP
+Definition at line 129 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['name'] = $row[2]"
+
+.PP
+Definition at line 131 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['gender'] = $row[3]"
+
+.PP
+Definition at line 132 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['studentStatus'] = $row[4]"
+
+.PP
+Definition at line 133 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['currentLat'] = $row[5]"
+
+.PP
+Definition at line 134 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['currentLon'] = $row[6]"
+
+.PP
+Definition at line 135 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['bday'] = $row[7]"
+
+.PP
+Definition at line 136 of file MCMloginValidator\&.php\&.
+.SS "$_SESSION['email'] = $row[10]"
+
+.PP
+Definition at line 137 of file MCMloginValidator\&.php\&.
+.SS "\fBforeach\fP ($_POST as $field=> $value) $cxn = mysql_connect($host) or die ('No connection possible')"
+
+.PP
+Definition at line 35 of file MCMloginValidator\&.php\&.
+.SS "$dbase = 'test'"
+
+.PP
+Definition at line 13 of file MCMloginValidator\&.php\&.
+.SS "$dbr = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+
+.PP
+Definition at line 39 of file MCMloginValidator\&.php\&.
+.SS "$fields"
+\fBInitial value:\fP
+.PP
+.nf
+= array('userName' => 'Your User Name:',
+                    'pwd' => 'Your Password:')
+.fi
+.PP
+Definition at line 16 of file MCMloginValidator\&.php\&.
+.SS "$host = 'localhost'"
+Variable for database host\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Kimberly Oyama 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file MCMloginValidator\&.php\&.
+.SS "$logInName = 'kimi'"
+
+.PP
+Definition at line 18 of file MCMloginValidator\&.php\&.
+.SS "$logInPwd = 'kimi'"
+
+.PP
+Definition at line 19 of file MCMloginValidator\&.php\&.
+.SS "$password = 'capstone'"
+
+.PP
+Definition at line 12 of file MCMloginValidator\&.php\&.
+.SS "$result = mysql_query($sqlQuery,$cxn)"
+
+.PP
+Definition at line 45 of file MCMloginValidator\&.php\&.
+.SS "$sqlQuery = 'SHOW TABLES'"
+
+.PP
+Definition at line 44 of file MCMloginValidator\&.php\&.
+.SS "$user = 'kd268'"
+
+.PP
+Definition at line 11 of file MCMloginValidator\&.php\&.
+.SS "\fBif\fP (mysql_num_rows($result)< 1) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+        echo 'username: $logInName <br/> pwd: $logInPwd'
+.fi
+.PP
+Definition at line 50 of file MCMloginValidator\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

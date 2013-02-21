@@ -1,0 +1,163 @@
+.TH "Website/MCMcreateNewAccountValidator.php" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Website/MCMcreateNewAccountValidator.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$host\fP = 'localhost'"
+.br
+.ti -1c
+.RI "\fB$user\fP = 'kd268'"
+.br
+.ti -1c
+.RI "\fB$password\fP = 'capstone'"
+.br
+.ti -1c
+.RI "\fB$dbase\fP = 'test'"
+.br
+.ti -1c
+.RI "\fB$fields\fP"
+.br
+.ti -1c
+.RI "\fB$months\fP"
+.br
+.ti -1c
+.RI "\fB$studentStatus\fP = 'no'"
+.br
+.ti -1c
+.RI "\fB$logInName\fP = 'boo'"
+.br
+.ti -1c
+.RI "\fB$logInPwd\fP = 'boo'"
+.br
+.ti -1c
+.RI "\fB$cxn\fP = mysql_connect($host) or die ('No connection possible')"
+.br
+.ti -1c
+.RI "\fB$dbr\fP = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+.br
+.ti -1c
+.RI "\fB$sqlQuery\fP = 'SHOW TABLES'"
+.br
+.ti -1c
+.RI "\fB$result\fP = mysql_query($sqlQuery,$cxn)"
+.br
+.ti -1c
+.RI "\fBif\fP($result==FALSE) \fBelse\fP"
+.br
+.ti -1c
+.RI "\fBforeach\fP($_POST as $field=> $value) \fB$birthday\fP = $year\&.'-'\&.$month\&.'-'\&.$day"
+.br
+.ti -1c
+.RI "\fB$name\fP = $fname\&.' '\&.$lname"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP ($_POST as $field=> $value) $birthday = $year\&.'-'\&.$month\&.'-'\&.$day"
+
+.PP
+Definition at line 98 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$cxn = mysql_connect($host) or die ('No connection possible')"
+
+.PP
+Definition at line 39 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$dbase = 'test'"
+
+.PP
+Definition at line 7 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$dbr = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+
+.PP
+Definition at line 42 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$fields"
+\fBInitial value:\fP
+.PP
+.nf
+= array('userName' => 'User Name: ',
+                        'pwd' => 'Password: ',
+                        'pwdConfirmation' => 'Confirm Password: ',
+                        'firstName' => 'First Name: ',
+                        'lastName' => 'Last Name: ',
+                        'email' => 'E-Mail: ',
+                        'bDayYear' => 'Year: ',
+                        'bDayMonth' => 'Month: ',
+                        'bDay' => 'Day: ',
+                        'student' => 'Student?',
+                        'gender' => 'Gender? ')
+.fi
+.PP
+Definition at line 10 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$host = 'localhost'"
+
+.PP
+Definition at line 4 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$logInName = 'boo'"
+
+.PP
+Definition at line 35 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$logInPwd = 'boo'"
+
+.PP
+Definition at line 36 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$months"
+\fBInitial value:\fP
+.PP
+.nf
+= array('Jan' => '01',
+                    'Feb' => '02',
+                    'Mar' => '03',
+                    'Apr' => '04',
+                    'May' => '05',
+                    '06' => '06',
+                    'Jun' => '07',
+                    'Jul' => '08',
+                    'Sep' => '09',
+                    'Oct' => '10',
+                    'Nov' => '11',
+                    'Dec' => '12')
+.fi
+.PP
+Definition at line 21 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$name = $fname\&.' '\&.$lname"
+
+.PP
+Definition at line 99 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$password = 'capstone'"
+
+.PP
+Definition at line 6 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$result = mysql_query($sqlQuery,$cxn)"
+
+.PP
+Definition at line 49 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$sqlQuery = 'SHOW TABLES'"
+
+.PP
+Definition at line 48 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$studentStatus = 'no'"
+
+.PP
+Definition at line 34 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "$user = 'kd268'"
+
+.PP
+Definition at line 5 of file MCMcreateNewAccountValidator\&.php\&.
+.SS "\fBif\fP ($result==FALSE) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+        $validInput = TRUE
+.fi
+.PP
+Definition at line 53 of file MCMcreateNewAccountValidator\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

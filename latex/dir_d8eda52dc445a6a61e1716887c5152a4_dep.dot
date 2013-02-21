@@ -1,0 +1,13 @@
+digraph "Andriod/LocalizationActivity/gen" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_8741d57682459b70bdd19d2f89ee68e3 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="LocalizationActivity" fontname="Helvetica", fontsize="10", URL="dir_8741d57682459b70bdd19d2f89ee68e3.html"]
+  subgraph clusterdir_d8eda52dc445a6a61e1716887c5152a4 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_d8eda52dc445a6a61e1716887c5152a4.html"];
+    dir_d8eda52dc445a6a61e1716887c5152a4 [shape=plaintext label="gen"];
+    dir_08a07d1e4b070dba4598782df38fbc6b [shape=box label="app" color="red" fillcolor="white" style="filled" URL="dir_08a07d1e4b070dba4598782df38fbc6b.html"];
+  }
+  }
+}

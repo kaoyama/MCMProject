@@ -1,0 +1,80 @@
+.TH "CustomDialog" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CustomDialog \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCustomDialog\fP (Activity activity)"
+.br
+.ti -1c
+.RI "void \fBshowNotificationDialog\fP (String notification)"
+.br
+.ti -1c
+.RI "void \fBshowAlertDialog\fP (String title, String message, Boolean status)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file CustomDialog\&.java\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBCustomDialog\fP (Activityactivity)\fC [inline]\fP"
+Initialize dialog by setting its Activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP Activity to show dialog\&. 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file CustomDialog\&.java\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void showAlertDialog (Stringtitle, Stringmessage, Booleanstatus)\fC [inline]\fP"
+Function to display simple Alert Dialog 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontext\fP - application context 
+.br
+\fItitle\fP - alert dialog title 
+.br
+\fImessage\fP - alert message 
+.br
+\fIstatus\fP - success/failure (used to set icon)
+.IP "\(bu" 2
+pass null if you don't want icon Display alert dialog on the Activity\&. 
+.PP
+.br
+\fItitle\fP Title of the alert dialog 
+.br
+\fImessage\fP Alert message 
+.br
+\fIstatus\fP Success/failure used to set icon\&. Null can be passed for no icon\&. 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file CustomDialog\&.java\&.
+.SS "void showNotificationDialog (Stringnotification)\fC [inline]\fP"
+Display notification dialog on the Activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInotification\fP Notification message to show in dialog\&. 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file CustomDialog\&.java\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

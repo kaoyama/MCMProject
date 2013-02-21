@@ -23,9 +23,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCMProject
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">01</span>
    </div>
-   <div id="projectbrief">Capstone project for MCM System</div>
+   <div id="projectbrief">Capstone Project</div>
   </td>
  </tr>
  </tbody>
@@ -92,9 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PHPQuery.php File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="_p_h_p_query_8php_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:aff20833df389a26c0f9384512eec4a68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#aff20833df389a26c0f9384512eec4a68">$userName</a> = 'chihi'</td></tr>
+<tr class="separator:aff20833df389a26c0f9384512eec4a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a034ead57b6864a4413371711e8d65372"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#a034ead57b6864a4413371711e8d65372">$databasehost</a> = &quot;acadgpl.ucc.nau.edu&quot;</td></tr>
 <tr class="separator:a034ead57b6864a4413371711e8d65372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aace53f8afce81b52040cef0cd850138a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#aace53f8afce81b52040cef0cd850138a">$databasename</a> = &quot;kd268&quot;</td></tr>
@@ -103,28 +107,10 @@ Variables</h2></td></tr>
 <tr class="separator:a251bf75f510d7c8b556c65d7c30e911f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a07536b6a5f43f2d8f826bd2ee6c91a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#a1a07536b6a5f43f2d8f826bd2ee6c91a">$databasepassword</a> = &quot;capstone&quot;</td></tr>
 <tr class="separator:a1a07536b6a5f43f2d8f826bd2ee6c91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0debe10448ec56a57b5509648408a549"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#a0debe10448ec56a57b5509648408a549">$con</a> = mysql_connect($databasehost,$databaseusername,$databasepassword) or die(mysql_error())</td></tr>
-<tr class="separator:a0debe10448ec56a57b5509648408a549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af59a5f7cd609e592c41dc3643efd3c98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;SELECT * FROM merchants&quot;</td></tr>
-<tr class="separator:af59a5f7cd609e592c41dc3643efd3c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9126f9664959c02795be300a135f93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#afa9126f9664959c02795be300a135f93">$sth</a> = mysql_query($query)</td></tr>
-<tr class="separator:afa9126f9664959c02795be300a135f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5fe7f2086f786c96623b819503b734"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_m_c_maccount_settings_8php.html#a648419c218c2f0aeb239028519ab83d8">if</a>(mysql_errno())&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#acd5fe7f2086f786c96623b819503b734">else</a></td></tr>
-<tr class="separator:acd5fe7f2086f786c96623b819503b734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acedd13b51401130848ce18f4d5c52605"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_h_p_query_8php.html#acedd13b51401130848ce18f4d5c52605">$json</a> = file_get_contents('php://input')</td></tr>
+<tr class="separator:acedd13b51401130848ce18f4d5c52605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a0debe10448ec56a57b5509648408a549"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$con = mysql_connect($databasehost,$databaseusername,$databasepassword) or die(mysql_error())</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a034ead57b6864a4413371711e8d65372"></a>
 <div class="memitem">
 <div class="memproto">
@@ -134,6 +120,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00005">5</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
 
 </div>
 </div>
@@ -147,6 +135,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00006">6</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1a07536b6a5f43f2d8f826bd2ee6c91a"></a>
@@ -158,6 +148,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00008">8</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
 
 </div>
 </div>
@@ -171,50 +163,42 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00007">7</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="af59a5f7cd609e592c41dc3643efd3c98"></a>
+<a class="anchor" id="acedd13b51401130848ce18f4d5c52605"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$query = &quot;SELECT * FROM merchants&quot;</td>
+          <td class="memname">$json = file_get_contents('php://input')</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00010">10</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="afa9126f9664959c02795be300a135f93"></a>
+<a class="anchor" id="aff20833df389a26c0f9384512eec4a68"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$sth = mysql_query($query)</td>
+          <td class="memname">$userName = 'chihi'</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="acd5fe7f2086f786c96623b819503b734"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_m_c_maccount_settings_8php.html#a648419c218c2f0aeb239028519ab83d8">if</a> (mysql_errno()) else</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    $rows = array()</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="_p_h_p_query_8php_source.html#l00003">3</a> of file <a class="el" href="_p_h_p_query_8php_source.html">PHPQuery.php</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 19 2013 14:30:24 for MCMProject by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 15:00:22 for MCMProject by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>
