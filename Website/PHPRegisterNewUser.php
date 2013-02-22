@@ -20,14 +20,14 @@ $name = $obj->{'name'};
 $email = $obj->{'email'};
 $regId = $obj->{'regId'};
 
-$query = "INSERT INTO gcm_users(name, email, gcm_regid, created_at) " . 
+$query = "INSERT INTO kd268.gcm_users(name, email, gcm_regid, created_at) " . 
         "VALUES('$name', '$email', '$regId', NOW())";
         
 $result = mysql_query($query); 
 
 if ($result) {
-    echo "[". json_encode(array('result' => 0)) . "]";
-} else {
     echo "[". json_encode(array('result' => 1)) . "]";
+} else {
+    echo "[". json_encode(array('result' => 0)) . "]";
 }
 ?>

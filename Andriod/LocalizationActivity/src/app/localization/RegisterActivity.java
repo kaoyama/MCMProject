@@ -4,6 +4,9 @@ import static app.utilities.CommonUtilities.EXTRA_MESSAGE;
 import static app.utilities.CommonUtilities.SENDER_ID;
 import static app.utilities.CommonUtilities.SERVER_URL;
 import static app.utilities.CommonUtilities.TAG;
+
+import java.util.concurrent.ExecutionException;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import app.utilities.AlertDialogManager;
+import app.utilities.CommonUtilities;
 import app.utilities.ConnectionDetector;
 import app.utilities.CustomDialog;
 import app.utilities.ServerUtilities;
@@ -29,7 +33,7 @@ public class RegisterActivity extends Activity {
 	AlertDialogManager alert = new AlertDialogManager();
 	
 	// Asynctask for server connection
-	AsyncTask<Void, Void, Void> mRegisterTask;
+	AsyncTask<Void, Void, Boolean> mRegisterTask;
 	
 	// Internet detector
 	ConnectionDetector cd;
@@ -95,7 +99,7 @@ public class RegisterActivity extends Activity {
 				if(name.trim().length() > 0 && email.trim().length() > 0){
 					
 					register(name, email); 
-					//finish(); 
+    				
 				}else{
 					// user didn't fill data; show alert message
 					alert.showAlertDialog(RegisterActivity.this, "Registration Error!", "Please enter your details", false);
@@ -136,10 +140,9 @@ public class RegisterActivity extends Activity {
 		// Check if regid already presents
 		if (regId.equals("")) {
 			// Registration is not present, register now with GCM	
-			Log.i(TAG, "Calling register from AsyncTask in RegisterActivity");
+			Log.i(TAG, "regId is empty");
 			GCMRegistrar.register(this, SENDER_ID);
 		} else {
-			
 			// Device is already registered on GCM
 			if (GCMRegistrar.isRegisteredOnServer(this)) {
 				// Skips registration.				
@@ -149,18 +152,33 @@ public class RegisterActivity extends Activity {
 				// It's also necessary to cancel the thread onDestroy(),
 				// hence the use of AsyncTask instead of a raw thread.
 				final Context context = this;
-				mRegisterTask = new AsyncTask<Void, Void, Void>() {
+				mRegisterTask = new AsyncTask<Void, Void, Boolean>() {
 					@Override
-					protected Void doInBackground(Void... params) {
+					protected Boolean doInBackground(Void... params) {
 						// Register on our server
 						// On server creates a new user
 						Log.i(TAG, "Calling register from AsyncTask in RegisterActivity");
-						ServerUtilities.register(context, name, email, regId);
-						return null;
+						boolean res = ServerUtilities.register(context, name, email, regId);
+					
+						Log.d(TAG, "Got here"); 
+						if (res) {
+							Log.d(TAG, "successful registration");
+							//CustomDialog cd = new CustomDialog(RegisterActivity.this); 
+							//cd.showNotificationDialog("Successful registration!"); 
+							Intent homeScreen = new Intent(getApplicationContext(), LocalizationActivity.class);
+							startActivity(homeScreen);
+
+							return true; 
+						} else {
+							Log.d(TAG, "unsuccessful registration");
+							//CustomDialog cd = new CustomDialog(RegisterActivity.this); 
+							//cd.showNotificationDialog("Unsuccessful registration. Please try again."); 
+						}
+						return false;
 					}
 
 					@Override
-					protected void onPostExecute(Void result) {
+					protected void onPostExecute(Boolean result) {
 						mRegisterTask = null;
 					}
 

@@ -2,17 +2,7 @@ package app.utilities;
 
 import static app.utilities.CommonUtilities.SERVER_URL;
 import static app.utilities.CommonUtilities.TAG;
-import static app.utilities.CommonUtilities.displayMessage;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import org.json.JSONArray;
@@ -34,7 +24,7 @@ public final class ServerUtilities {
      * Register this account/device pair within the server.
      *
      */
-    public static void register(final Context context, String name, String email, final String regId) {
+    public static boolean register(final Context context, String name, String email, final String regId) {
        
     	Log.i(TAG, "registering device (regId = " + regId + ")"); 
     	JSONArray jsonArray = null;
@@ -44,13 +34,11 @@ public final class ServerUtilities {
 			json.put("name", name);
 			json.put("email", email);
 			json.put("regId", regId);
-
-			jsonArray = RestClient.connectToDatabase(
-					CommonUtilities.SERVER_URL, json);
-
 		} catch (Exception e) {
 			Log.d(TAG, "exception in JSON"); 
 		}
+		
+		Log.i(TAG, "JSON sent is: " + json.toString());
         
         long backoff = BACKOFF_MILLI_SECONDS + random.nextInt(1000);
         // Once GCM returns a registration id, we need to register on our server
@@ -59,19 +47,19 @@ public final class ServerUtilities {
         for (int i = 1; i <= MAX_ATTEMPTS; i++) {
             Log.d(TAG, "Attempt #" + i + " to register");
             try {
-                displayMessage(context, context.getString(
-                        R.string.server_registering, i, MAX_ATTEMPTS));
-                jsonArray = RestClient.connectToDatabase(
-    					CommonUtilities.SERVER_URL, json);
-                
+            	Log.d(TAG, "Try connecting!");
+            	//jsonArray = RestClient.connectToDatabase(
+    			//		CommonUtilities.REGISTRATION_URL, json);
+                jsonArray = RestClient.connection(
+                		CommonUtilities.REGISTRATION_URL, json, null);
+            	
+                Log.i(TAG, "JSON returned is: " + jsonArray.toString());
                 String result = jsonArray.getJSONObject(0).getString("result"); 
                 if (result.equals("1")) {
                 	// success 
                 	Log.i(TAG, "Successful registration.");
                 	GCMRegistrar.setRegisteredOnServer(context, true);
-                    String message = context.getString(R.string.server_registered);
-                    CommonUtilities.displayMessage(context, message);
-                    return;
+                    return true;
                     
                 } else {
                     // Here we are simplifying and retrying on any error; in a real
@@ -88,7 +76,7 @@ public final class ServerUtilities {
 	                    // Activity finished before we complete - exit.
 	                    Log.d(TAG, "Thread interrupted: abort remaining retries!");
 	                    Thread.currentThread().interrupt();
-	                    return;
+	                    return false;
 	                }
 	                // increase backoff exponentially
 	                backoff *= 2;
@@ -96,60 +84,13 @@ public final class ServerUtilities {
             } catch (Exception e) {
             	Log.d(TAG, "Exception while trying to register."); 
             	Thread.currentThread().interrupt();
-            	return; 
+            	return false;
             }
         }
         String message = context.getString(R.string.server_register_error,
                 MAX_ATTEMPTS);
-        CommonUtilities.displayMessage(context, message);
-    	
-    	/*
-    	Log.i(TAG, "registering device (regId = " + regId + ")");
-        String serverUrl = SERVER_URL;
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("regId", regId);
-        params.put("name", name);
-        params.put("email", email);
-        
-        long backoff = BACKOFF_MILLI_SECONDS + random.nextInt(1000);
-        // Once GCM returns a registration id, we need to register on our server
-        // As the server might be down, we will retry it a couple
-        // times.
-        for (int i = 1; i <= MAX_ATTEMPTS; i++) {
-            Log.d(TAG, "Attempt #" + i + " to register");
-            try {
-                displayMessage(context, context.getString(
-                        R.string.server_registering, i, MAX_ATTEMPTS));
-                post(serverUrl, params);
-                GCMRegistrar.setRegisteredOnServer(context, true);
-                String message = context.getString(R.string.server_registered);
-                CommonUtilities.displayMessage(context, message);
-                return;
-            } catch (IOException e) {
-                // Here we are simplifying and retrying on any error; in a real
-                // application, it should retry only on unrecoverable errors
-                // (like HTTP error code 503).
-                Log.e(TAG, "Failed to register on attempt " + i + ":" + e);
-                if (i == MAX_ATTEMPTS) {
-                    break;
-                }
-                try {
-                    Log.d(TAG, "Sleeping for " + backoff + " ms before retry");
-                    Thread.sleep(backoff);
-                } catch (InterruptedException e1) {
-                    // Activity finished before we complete - exit.
-                    Log.d(TAG, "Thread interrupted: abort remaining retries!");
-                    Thread.currentThread().interrupt();
-                    return;
-                }
-                // increase backoff exponentially
-                backoff *= 2;
-            }
-        }
-        String message = context.getString(R.string.server_register_error,
-                MAX_ATTEMPTS);
-        CommonUtilities.displayMessage(context, message);
-        */
+        //CommonUtilities.displayMessage(context, message);
+		return false;
     }
 
     /**
@@ -176,14 +117,14 @@ public final class ServerUtilities {
 	        	// success 
 	        	GCMRegistrar.setRegisteredOnServer(context, true);
 	            String message = context.getString(R.string.server_unregistered);
-	            CommonUtilities.displayMessage(context, message);
+	            //CommonUtilities.displayMessage(context, message);
 	            return;
 	        }
 		} catch (Exception e) {
        
         	String message = context.getString(R.string.server_unregister_error,
                     e.getMessage());
-            CommonUtilities.displayMessage(context, message);
+            //CommonUtilities.displayMessage(context, message);
         }
     }
 
