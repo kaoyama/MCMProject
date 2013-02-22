@@ -41,18 +41,17 @@ import app.utilities.*;
  * @author Chihiro
  */
 
-public class MakePayments extends Activity {
+public class PaymentHistory extends Activity {
 	
-	MakePayments currentThis = this;
-	LinearLayout paymentLayout;
-	String tempUserName = "";
+	PaymentHistory currentThis = this;
+	LinearLayout paymentHistoryLayout;
 	
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.payments);
-		paymentLayout = (LinearLayout)findViewById(R.id.paymentLayout);
+		paymentHistoryLayout = (LinearLayout)findViewById(R.id.paymentLayout);
 		
 		// Get list of notifications from database
 		getData(); 
@@ -60,6 +59,7 @@ public class MakePayments extends Activity {
 
 
 	public void getData() {
+		String userName = "";
 		//Grab Username from Android DB
 		try {
 			FileInputStream fis = openFileInput("username_file");
@@ -69,12 +69,11 @@ public class MakePayments extends Activity {
 				sb.append((char)ch);
 			}
 			fis.close();
-			tempUserName = sb.toString();
+			userName = sb.toString();
 		} catch (Exception e) {
-			CustomDialog cd = new CustomDialog(MakePayments.this); 
+			CustomDialog cd = new CustomDialog(PaymentHistory.this); 
 			cd.showNotificationDialog("Could not get username.");
 		}
-		final String userName = tempUserName;
 		
 		JSONArray jsonArray = null;
 		try {
@@ -85,7 +84,7 @@ public class MakePayments extends Activity {
 					CommonUtilities.PAYMENTS_URL, json);
 			
 		} catch (Exception e) {
-			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
+			CustomDialog cd3 = new CustomDialog(PaymentHistory.this); 
 			cd3.showNotificationDialog("Failed here");
 		}
 		
@@ -105,50 +104,11 @@ public class MakePayments extends Activity {
 				
 				final String paid = jsonArray.getJSONObject(i).getString(
 						"paid");
-				if(paid.equals("0")){
-
-
-					Button tempButton = new Button(currentThis);
-					tempButton.setText(merchant + " requests payment for: " + productIndex);
-					tempButton.setOnClickListener(new View.OnClickListener(){
-
-					public void onClick(View arg0) {
-							AlertDialog.Builder builder = new AlertDialog.Builder(currentThis);
-							builder.setMessage("Would you like to purchase " + productIndex + " for $" + cost + "?")
-										       .setTitle("Make Payment");
-											builder.setPositiveButton("Purchase", new DialogInterface.OnClickListener() {
-										           public void onClick(DialogInterface dialog, int id) {
-										        	   JSONArray jsonArray = null;
-										       		try {
-										       			JSONObject json = new JSONObject();
-										       			json.put("paid", 1);
-										       			json.put("cancelled", 0);
-										       			json.put("userName", userName);
-										       			json.put("productIndex", productIndex);
-
-										       			jsonArray = RestClient.connectToDatabase(
-										       					CommonUtilities.UPDATEPAYMENT_URL, json);
-										       		} catch (Exception e) {
-										       			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
-										       			cd3.showNotificationDialog("Failed here");
-										       		}
-										       		// Starting a new intent
-													Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
-													startActivity(paymentScreen); 
-										           }
-										       });
-										builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-										           public void onClick(DialogInterface dialog, int id) {
-										               // User cancelled the dialog
-										           }
-										       });
-									        // If the response does not enclose an entity, there is no need
-										AlertDialog dialog = builder.create();
-										dialog.show();
-									}
-								});
-								LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-								paymentLayout.addView(tempButton,lp);
+				if(paid.equals("1")){
+					TextView paidCharge = new TextView(currentThis);
+					paidCharge.setText("Purchased: " + productIndex + "\nFrom: " + merchant + "\n" + purchaseTime);
+					LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+					paymentHistoryLayout.addView(paidCharge,lp);
 							
 				}
 			}
@@ -156,7 +116,7 @@ public class MakePayments extends Activity {
 
         
 		catch (Exception e) {
-			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
+			CustomDialog cd3 = new CustomDialog(PaymentHistory.this); 
 			cd3.showNotificationDialog("Invalid: " + e.getMessage());
 		}
 		

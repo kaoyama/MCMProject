@@ -67,6 +67,8 @@
         </activity>
         <activity android:name="app.localization.MakePayments" >
         </activity>
+        <activity android:name="app.localization.PaymentHistory" >
+        </activity>
         
         <!-- GCM Receiver -->
         <receiver 
