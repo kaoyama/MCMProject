@@ -1,0 +1,14 @@
+digraph "Andriod/LocalizationActivity" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_350d3b1b3e1360333aab8fe24ffceff6 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Andriod" fontname="Helvetica", fontsize="10", URL="dir_350d3b1b3e1360333aab8fe24ffceff6.html"]
+  subgraph clusterdir_8741d57682459b70bdd19d2f89ee68e3 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_8741d57682459b70bdd19d2f89ee68e3.html"];
+    dir_8741d57682459b70bdd19d2f89ee68e3 [shape=plaintext label="LocalizationActivity"];
+    dir_d8eda52dc445a6a61e1716887c5152a4 [shape=box label="gen" color="red" fillcolor="white" style="filled" URL="dir_d8eda52dc445a6a61e1716887c5152a4.html"];
+    dir_00edacfed35a1b4a6fc433bc5906e4d6 [shape=box label="src" color="red" fillcolor="white" style="filled" URL="dir_00edacfed35a1b4a6fc433bc5906e4d6.html"];
+  }
+  }
+}

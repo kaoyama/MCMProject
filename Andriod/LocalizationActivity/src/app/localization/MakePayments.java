@@ -45,6 +45,7 @@ public class MakePayments extends Activity {
 	
 	MakePayments currentThis = this;
 	LinearLayout paymentLayout;
+	String tempUserName = "";
 	
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,6 @@ public class MakePayments extends Activity {
 
 
 	public void getData() {
-		String userName = "";
 		//Grab Username from Android DB
 		try {
 			FileInputStream fis = openFileInput("username_file");
@@ -69,11 +69,12 @@ public class MakePayments extends Activity {
 				sb.append((char)ch);
 			}
 			fis.close();
-			userName = sb.toString();
+			tempUserName = sb.toString();
 		} catch (Exception e) {
 			CustomDialog cd = new CustomDialog(MakePayments.this); 
 			cd.showNotificationDialog("Could not get username.");
 		}
+		final String userName = tempUserName;
 		
 		JSONArray jsonArray = null;
 		try {
@@ -104,7 +105,7 @@ public class MakePayments extends Activity {
 				
 				final String paid = jsonArray.getJSONObject(i).getString(
 						"paid");
-				if(paid.equals("1")){
+				if(paid.equals("0")){
 
 
 					Button tempButton = new Button(currentThis);
@@ -113,46 +114,27 @@ public class MakePayments extends Activity {
 
 					public void onClick(View arg0) {
 							AlertDialog.Builder builder = new AlertDialog.Builder(currentThis);
-							builder.setMessage("Would you like to purchase " + productIndex + " for " + cost + "?")
+							builder.setMessage("Would you like to purchase " + productIndex + " for $" + cost + "?")
 										       .setTitle("Make Payment");
 											builder.setPositiveButton("Purchase", new DialogInterface.OnClickListener() {
 										           public void onClick(DialogInterface dialog, int id) {
-										               /*
-										        	   try{
-										        	   JSONObject json = new JSONObject();
-														json.put("userName", customerName);
-														HttpParams httpParams = new BasicHttpParams();
-												        HttpConnectionParams.setConnectionTimeout(httpParams,
-												                TIMEOUT_MILLISEC);
-												        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_MILLISEC);
-												        HttpClient client = new DefaultHttpClient(httpParams);
-												        //
-												        //String url = "http://10.0.2.2:8080/sample1/webservice2.php?" + 
-												        //             "json={\"UserName\":1,\"FullName\":2}";
-												        String url = "http://dana.ucc.nau.edu/~cs854/PHPToggleCustomerNotification.php";
+										        	   JSONArray jsonArray = null;
+										       		try {
+										       			JSONObject json = new JSONObject();
+										       			json.put("paid", 1);
+										       			json.put("cancelled", 0);
+										       			json.put("userName", userName);
+										       			json.put("productIndex", productIndex);
 
-												        HttpPost request = new HttpPost(url);
-														request.setEntity(new ByteArrayEntity(json.toString().getBytes(
-															        "UTF8")));														
-												        request.setHeader("json", json.toString());
-												        HttpResponse response;
-														response = client.execute(request);
-												        HttpEntity entity = response.getEntity();
-										        	   
-										           } catch (Throwable t) {
-												        //Toast.makeText(this, "Request failed: " + t.toString(),
-												        //        Toast.LENGTH_LONG).show();
-												    }
-										        	    Builder builder2 = new AlertDialog.Builder(currentThis); 
-											    		builder2.setMessage("You have successfully charged " + customerName + "." );
-											    		builder2.setCancelable(false); 
-											    		builder2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-													           public void onClick(DialogInterface dialog, int id) {
-													               // User clicked OK button
-													           }}); 
-											    		AlertDialog dialog2 = builder2.create();
-											    		dialog2.show();
-											    		*/
+										       			jsonArray = RestClient.connectToDatabase(
+										       					CommonUtilities.UPDATEPAYMENT_URL, json);
+										       		} catch (Exception e) {
+										       			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
+										       			cd3.showNotificationDialog("Failed here");
+										       		}
+										       		// Starting a new intent
+													Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
+													startActivity(paymentScreen); 
 										           }
 										       });
 										builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -168,13 +150,6 @@ public class MakePayments extends Activity {
 								LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 								paymentLayout.addView(tempButton,lp);
 							
-				}
-					
-				else{
-					TextView paidCharge = new TextView(currentThis);
-					paidCharge.setText("Paid: " + merchant + "\nFor: " + productIndex + "\nAt: " + purchaseTime);
-					LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-					paymentLayout.addView(paidCharge,lp);
 				}
 			}
 		}

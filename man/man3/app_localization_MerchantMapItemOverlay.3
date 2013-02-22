@@ -1,0 +1,80 @@
+.TH "MerchantMapItemOverlay" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MerchantMapItemOverlay \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ItemizedOverlay\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMerchantMapItemOverlay\fP (Drawable defaultMarker, Context context)"
+.br
+.ti -1c
+.RI "void \fBaddOverlay\fP (OverlayItem overlay)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "OverlayItem \fBcreateItem\fP (int i)"
+.br
+.ti -1c
+.RI "boolean \fBonTap\fP (int index)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Manage individual overlay items placed on the map\&. 
+.PP
+Definition at line 15 of file MerchantMapItemOverlay\&.java\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBMerchantMapItemOverlay\fP (DrawabledefaultMarker, Contextcontext)\fC [inline]\fP"
+Constructor for itemized overlay\&. Define the bounds of the default marker object\&. Commonly, the center-point at the bottom of the image is placed at the point attached to the map coordinates\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdefaultMarker\fP 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file MerchantMapItemOverlay\&.java\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void addOverlay (OverlayItemoverlay)\fC [inline]\fP"
+Add overlay items to the ArrayList\&. The populate() method reads each of the OverlayItem objects and prepares them to be drawn on the map\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoverlay\fP 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file MerchantMapItemOverlay\&.java\&.
+.SS "OverlayItem createItem (inti)\fC [inline]\fP, \fC [protected]\fP"
+Create each OverlayItem\&. 
+.PP
+Definition at line 50 of file MerchantMapItemOverlay\&.java\&.
+.SS "boolean onTap (intindex)\fC [inline]\fP, \fC [protected]\fP"
+Callback method for user tap on the marker\&. 
+.PP
+Definition at line 65 of file MerchantMapItemOverlay\&.java\&.
+.SS "int size ()\fC [inline]\fP"
+Get current number of items in ArrayList\&. 
+.PP
+Definition at line 58 of file MerchantMapItemOverlay\&.java\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

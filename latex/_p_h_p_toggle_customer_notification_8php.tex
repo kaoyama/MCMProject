@@ -1,0 +1,96 @@
+\hypertarget{_p_h_p_toggle_customer_notification_8php}{\section{Website/\-P\-H\-P\-Toggle\-Customer\-Notification.php File Reference}
+\label{_p_h_p_toggle_customer_notification_8php}\index{Website/\-P\-H\-P\-Toggle\-Customer\-Notification.\-php@{Website/\-P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_aff20833df389a26c0f9384512eec4a68}{\$user\-Name} = 'chihi'
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a034ead57b6864a4413371711e8d65372}{\$databasehost} = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_aace53f8afce81b52040cef0cd850138a}{\$databasename} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}{\$databaseusername} =\char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\$databasepassword} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_acedd13b51401130848ce18f4d5c52605}{\$json} = file\-\_\-get\-\_\-contents('php\-://input')
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a9008ed94ba185855b1723e367744b87e}{\$obj} = json\-\_\-decode(\$json)
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a0debe10448ec56a57b5509648408a549}{\$con}
+\item 
+\hyperlink{_p_h_p_toggle_customer_notification_8php_a9f4cad5a721e7f7711fba0bf0f7ec273}{\$posts} = array(1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a0debe10448ec56a57b5509648408a549}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$con@{\$con}}
+\index{\$con@{\$con}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$con}]{\setlength{\rightskip}{0pt plus 5cm}\$con}}\label{_p_h_p_toggle_customer_notification_8php_a0debe10448ec56a57b5509648408a549}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= mysql\_connect(\hyperlink{_p_h_p_get_coupons_8php_a034ead57b6864a4413371711e8d65372}{$databasehost},\hyperlink{_p_h_p_get_coupons_8php_a251bf75f510d7c8b556c65d7c30e911f}{$databaseusername},
+      \hyperlink{_p_h_p_get_coupons_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{$databasepassword}) 
+        or die(mysql\_error())
+\end{DoxyCode}
+
+
+Definition at line 14 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a034ead57b6864a4413371711e8d65372}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$databasehost@{\$databasehost}}
+\index{\$databasehost@{\$databasehost}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$databasehost}]{\setlength{\rightskip}{0pt plus 5cm}\$databasehost = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}}}\label{_p_h_p_toggle_customer_notification_8php_a034ead57b6864a4413371711e8d65372}
+
+
+Definition at line 5 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_aace53f8afce81b52040cef0cd850138a}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$databasename@{\$databasename}}
+\index{\$databasename@{\$databasename}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$databasename}]{\setlength{\rightskip}{0pt plus 5cm}\$databasename = \char`\"{}kd268\char`\"{}}}\label{_p_h_p_toggle_customer_notification_8php_aace53f8afce81b52040cef0cd850138a}
+
+
+Definition at line 6 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$databasepassword@{\$databasepassword}}
+\index{\$databasepassword@{\$databasepassword}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$databasepassword}]{\setlength{\rightskip}{0pt plus 5cm}\$databasepassword = \char`\"{}capstone\char`\"{}}}\label{_p_h_p_toggle_customer_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}
+
+
+Definition at line 8 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$databaseusername@{\$databaseusername}}
+\index{\$databaseusername@{\$databaseusername}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$databaseusername}]{\setlength{\rightskip}{0pt plus 5cm}\$databaseusername =\char`\"{}kd268\char`\"{}}}\label{_p_h_p_toggle_customer_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}
+
+
+Definition at line 7 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_acedd13b51401130848ce18f4d5c52605}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$json@{\$json}}
+\index{\$json@{\$json}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$json}]{\setlength{\rightskip}{0pt plus 5cm}\$json = file\-\_\-get\-\_\-contents('php\-://input')}}\label{_p_h_p_toggle_customer_notification_8php_acedd13b51401130848ce18f4d5c52605}
+
+
+Definition at line 10 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a9008ed94ba185855b1723e367744b87e}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$obj@{\$obj}}
+\index{\$obj@{\$obj}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$obj}]{\setlength{\rightskip}{0pt plus 5cm}\$obj = json\-\_\-decode(\$json)}}\label{_p_h_p_toggle_customer_notification_8php_a9008ed94ba185855b1723e367744b87e}
+
+
+Definition at line 11 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_a9f4cad5a721e7f7711fba0bf0f7ec273}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$posts@{\$posts}}
+\index{\$posts@{\$posts}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$posts}]{\setlength{\rightskip}{0pt plus 5cm}\$posts = array(1)}}\label{_p_h_p_toggle_customer_notification_8php_a9f4cad5a721e7f7711fba0bf0f7ec273}
+
+
+Definition at line 25 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+
+\hypertarget{_p_h_p_toggle_customer_notification_8php_aff20833df389a26c0f9384512eec4a68}{\index{P\-H\-P\-Toggle\-Customer\-Notification.\-php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}!\$user\-Name@{\$user\-Name}}
+\index{\$user\-Name@{\$user\-Name}!PHPToggleCustomerNotification.php@{P\-H\-P\-Toggle\-Customer\-Notification.\-php}}
+\subsubsection[{\$user\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\$user\-Name = 'chihi'}}\label{_p_h_p_toggle_customer_notification_8php_aff20833df389a26c0f9384512eec4a68}
+
+
+Definition at line 3 of file P\-H\-P\-Toggle\-Customer\-Notification.\-php.
+

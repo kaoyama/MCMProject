@@ -1,11 +1,21 @@
 var searchData=
 [
+  ['mainactivity',['MainActivity',['../classcom_1_1example_1_1android_1_1apis_1_1_main_activity.html',1,'com::example::android::apis']]],
+  ['mainmenu',['MainMenu',['../interface_main_menu.html',1,'']]],
+  ['manifest',['Manifest',['../classapp_1_1localization_1_1_manifest.html',1,'app::localization']]],
+  ['map1',['Map1',['../interface_map1.html',1,'']]],
+  ['map1_28_29',['Map1()',['../category_map1_07_08.html',1,'']]],
+  ['map2',['Map2',['../interface_map2.html',1,'']]],
+  ['map2_28_29',['Map2()',['../category_map2_07_08.html',1,'']]],
   ['mapsdemo',['MapsDemo',['../classcom_1_1example_1_1android_1_1apis_1_1_maps_demo.html',1,'com::example::android::apis']]],
   ['mapviewcompassdemo',['MapViewCompassDemo',['../classcom_1_1example_1_1android_1_1apis_1_1view_1_1_map_view_compass_demo.html',1,'com::example::android::apis::view']]],
   ['mapviewcontroller',['MapViewController',['../interface_map_view_controller.html',1,'']]],
   ['mapviewdemo',['MapViewDemo',['../classcom_1_1example_1_1android_1_1apis_1_1view_1_1_map_view_demo.html',1,'com::example::android::apis::view']]],
-  ['merchant',['Merchant',['../classapp_1_1localization_1_1_merchant.html',1,'app::localization']]],
+  ['masterviewcontroller',['MasterViewController',['../interface_master_view_controller.html',1,'']]],
+  ['masterviewcontroller_28_29',['MasterViewController()',['../category_master_view_controller_07_08.html',1,'']]],
   ['merchantlocalizationactivity',['MerchantLocalizationActivity',['../classapp_1_1merchant_localization_1_1_merchant_localization_activity.html',1,'app::merchantLocalization']]],
+  ['merchantlocalizationactivity',['MerchantLocalizationActivity',['../classapp_1_1merchant_1_1localiztion_1_1_merchant_localization_activity.html',1,'app::merchant::localiztion']]],
   ['merchantmap',['MerchantMap',['../classapp_1_1localization_1_1_merchant_map.html',1,'app::localization']]],
-  ['merchantmapitemoverlay',['MerchantMapItemOverlay',['../classapp_1_1localization_1_1_merchant_map_item_overlay.html',1,'app::localization']]]
+  ['merchantmapitemoverlay',['MerchantMapItemOverlay',['../classapp_1_1localization_1_1_merchant_map_item_overlay.html',1,'app::localization']]],
+  ['merchants',['Merchants',['../classapp_1_1localization_1_1_merchants.html',1,'app::localization']]]
 ];

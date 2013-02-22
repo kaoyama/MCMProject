@@ -1,0 +1,668 @@
+.TH "dbValidator" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dbValidator \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdbValidator\fP ()"
+.br
+.ti -1c
+.RI "\fBinitDB\fP ($host, $\fBusername\fP, $password, $database, $tablename, $tablename2, $tablename3)"
+.br
+.ti -1c
+.RI "\fBlogin\fP ($\fBusername\fP, $password)"
+.br
+.ti -1c
+.RI "\fBsendMessage\fP ($to, $from, $subject, $message, $messageType)"
+.br
+.ti -1c
+.RI "\fBcheckLoginDB\fP ($\fBusername\fP, $password)"
+.br
+.ti -1c
+.RI "\fBgetLogFiles\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMessages\fP ()"
+.br
+.ti -1c
+.RI "\fBdeleteMessages\fP ($messageid)"
+.br
+.ti -1c
+.RI "\fBmarkAsRead\fP ($messageid)"
+.br
+.ti -1c
+.RI "\fBarchiveLogFiles\fP ()"
+.br
+.ti -1c
+.RI "\fBusername\fP ()"
+.br
+.ti -1c
+.RI "\fBuserFullName\fP ()"
+.br
+.ti -1c
+.RI "\fBuserFirstName\fP ()"
+.br
+.ti -1c
+.RI "\fBuserLastName\fP ()"
+.br
+.ti -1c
+.RI "\fBuserEmail\fP ()"
+.br
+.ti -1c
+.RI "\fBuserPassword\fP ()"
+.br
+.ti -1c
+.RI "\fBisAdmin\fP ()"
+.br
+.ti -1c
+.RI "\fBdbLogin\fP ()"
+.br
+.ti -1c
+.RI "\fBhandleError\fP ($err)"
+.br
+.ti -1c
+.RI "\fBhandleDBError\fP ($err)"
+.br
+.ti -1c
+.RI "\fBgetLoginSessionVar\fP ()"
+.br
+.ti -1c
+.RI "\fBredirectToURL\fP ($url)"
+.br
+.ti -1c
+.RI "\fBcheckLogin\fP ()"
+.br
+.ti -1c
+.RI "\fBregsiterUser\fP ($firstname, $lastname, $\fBusername\fP, $email, $password)"
+.br
+.ti -1c
+.RI "\fBchangeUserInfo\fP ($firstname, $lastname, $\fBusername\fP, $email, $oldPassword, $password)"
+.br
+.ti -1c
+.RI "\fBdeleteAccount\fP ($\fBusername\fP)"
+.br
+.ti -1c
+.RI "\fBisFieldUnique\fP ($fieldval, $field)"
+.br
+.ti -1c
+.RI "\fBinsertIntoDB\fP ($firstname, $lastname, $\fBusername\fP, $email, $password)"
+.br
+.ti -1c
+.RI "\fBsendMessageInDB\fP ($to, $from, $subject, $message, $messageType)"
+.br
+.ti -1c
+.RI "\fBinsertActivityIntoDB\fP ($\fBusername\fP, $activity)"
+.br
+.ti -1c
+.RI "\fBupdateInDB\fP ($firstname, $lastname, $\fBusername\fP, $email, $password)"
+.br
+.ti -1c
+.RI "\fBdeleteUser\fP ($\fBusername\fP)"
+.br
+.ti -1c
+.RI "\fBensureTable\fP ()"
+.br
+.ti -1c
+.RI "\fBcreateTable\fP ()"
+.br
+.ti -1c
+.RI "\fBgetErrorMessage\fP ()"
+.br
+.ti -1c
+.RI "\fBlogOut\fP ($\fBusername\fP)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$sitename\fP"
+.br
+.ti -1c
+.RI "\fB$randKey\fP"
+.br
+.ti -1c
+.RI "\fB$username\fP"
+.br
+.ti -1c
+.RI "\fB$password\fP"
+.br
+.ti -1c
+.RI "\fB$database\fP"
+.br
+.ti -1c
+.RI "\fB$tablename\fP"
+.br
+.ti -1c
+.RI "\fB$tablename2\fP"
+.br
+.ti -1c
+.RI "\fB$tablename3\fP"
+.br
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$dbHost\fP"
+.br
+.ti -1c
+.RI "\fB$sysop\fP"
+.br
+.ti -1c
+.RI "\fB$error_message\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 3 of file dbValidator\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "archiveLogFiles ()"
+Archive the log files\&. This appends information to a CSV file and deletes the archived information from the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file dbValidator\&.php\&.
+.SS "changeUserInfo ($firstname, $lastname, $username, $email, $oldPassword, $password)"
+Change the user information in the database\&. This function also checks to see if the old username matches what is currently in the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$firstname\fP new first name 
+.br
+\fI$lastname\fP new last name 
+.br
+\fI$username\fP username of the user trying to change their information\&. This does not get changed (primary) 
+.br
+\fI$email\fP new email 
+.br
+\fI$oldPassword\fP old password 
+.br
+\fI$password\fP new password 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file dbValidator\&.php\&.
+.SS "checkLogin ()"
+Check if the user is logged in to a session\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 450 of file dbValidator\&.php\&.
+.SS "checkLoginDB ($username, $password)"
+Check login information (username, password) combination in database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.br
+\fI$password\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file dbValidator\&.php\&.
+.SS "createTable ()"
+Creates a new table in the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 711 of file dbValidator\&.php\&.
+.SS "dbLogin ()"
+Log in to the actual database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 399 of file dbValidator\&.php\&.
+.SS "deleteAccount ($username)"
+Deletes the user account\&. This function does not actually take out the user from the database; instead it disables the active flag for the user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 553 of file dbValidator\&.php\&.
+.SS "deleteMessages ($messageid)"
+'Delete' selected messages 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messageid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file dbValidator\&.php\&.
+.SS "deleteUser ($username)"
+Sets the active flag to false in the database for the particular user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 684 of file dbValidator\&.php\&.
+.SS "ensureTable ()"
+Ensure that the table exists\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 699 of file dbValidator\&.php\&.
+.SS "getErrorMessage ()"
+Gets the error messages produced while accessing the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 734 of file dbValidator\&.php\&.
+.SS "getLogFiles ()"
+Get all log files stored in the useractivity database 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean|string 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file dbValidator\&.php\&.
+.SS "getLoginSessionVar ()"
+Get login session variable\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.PP
+Definition at line 431 of file dbValidator\&.php\&.
+.SS "getMessages ()"
+Get messages from the database 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean|string 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file dbValidator\&.php\&.
+.SS "handleDBError ($err)"
+Append database error messages\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$err\fP 
+.RE
+.PP
+
+.PP
+Definition at line 423 of file dbValidator\&.php\&.
+.SS "handleError ($err)"
+Append error messages\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$err\fP 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file dbValidator\&.php\&.
+.SS "initDB ($host, $username, $password, $database, $tablename, $tablename2, $tablename3)"
+Initialize database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$host\fP name of database host 
+.br
+\fI$username\fP username of database 
+.br
+\fI$password\fP password of database 
+.br
+\fI$database\fP name of database 
+.br
+\fI$tablename\fP name of first table, user 
+.br
+\fI$tablename2\fP name of second table, useractivity 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file dbValidator\&.php\&.
+.SS "insertActivityIntoDB ($username, $activity)"
+Insert activity into the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.br
+\fI$activity\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 645 of file dbValidator\&.php\&.
+.SS "insertIntoDB ($firstname, $lastname, $username, $email, $password)"
+Insert into the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$firstname\fP 
+.br
+\fI$lastname\fP 
+.br
+\fI$username\fP 
+.br
+\fI$email\fP 
+.br
+\fI$password\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 594 of file dbValidator\&.php\&.
+.SS "isAdmin ()"
+Returns true if the user is an administrator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 381 of file dbValidator\&.php\&.
+.SS "isFieldUnique ($fieldval, $field)"
+Makes sure that the field given is not a duplicate in the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fieldval\fP 
+.br
+\fI$field\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 573 of file dbValidator\&.php\&.
+.SS "login ($username, $password)"
+Check for valid username and password in database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP username of user logging in 
+.br
+\fI$password\fP password of user logging in 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean returns true if succesful 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file dbValidator\&.php\&.
+.SS "logOut ($username)"
+Log the user out of the website\&. Clear the session variable\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$username\fP 
+.RE
+.PP
+
+.PP
+Definition at line 742 of file dbValidator\&.php\&.
+.SS "markAsRead ($messageid)"
+Change status of selected message as 'read' 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$messageid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 268 of file dbValidator\&.php\&.
+.SS "redirectToURL ($url)"
+Redirect the user to another URL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP 
+.RE
+.PP
+
+.PP
+Definition at line 441 of file dbValidator\&.php\&.
+.SS "regsiterUser ($firstname, $lastname, $username, $email, $password)"
+Register a new user in the database\&. This occurs after user validation has occured in the acutal form\&. This function also checks for duplicate username or email in the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$firstname\fP first name of the user 
+.br
+\fI$lastname\fP last name of the user 
+.br
+\fI$username\fP username of the new user 
+.br
+\fI$email\fP email of the user 
+.br
+\fI$password\fP password of the user 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 473 of file dbValidator\&.php\&.
+.SS "sendMessage ($to, $from, $subject, $message, $messageType)"
+Send message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$to\fP 
+.br
+\fI$from\fP 
+.br
+\fI$subject\fP 
+.br
+\fI$message\fP 
+.br
+\fI$messageType\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file dbValidator\&.php\&.
+.SS "sendMessageInDB ($to, $from, $subject, $message, $messageType)"
+Put message into DB 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$to\fP 
+.br
+\fI$from\fP 
+.br
+\fI$subject\fP 
+.br
+\fI$message\fP 
+.br
+\fI$messageType\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.PP
+Definition at line 622 of file dbValidator\&.php\&.
+.SS "userEmail ()"
+Return email of user\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file dbValidator\&.php\&.
+.SS "userFirstName ()"
+Return first name of user\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file dbValidator\&.php\&.
+.SS "userFullName ()"
+Return full name of user\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 340 of file dbValidator\&.php\&.
+.SS "userLastName ()"
+Return last name of user\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file dbValidator\&.php\&.
+.SS "username ()"
+Return username\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 331 of file dbValidator\&.php\&.
+.SS "userPassword ()"
+Return password of user\&. Ideally, this should be encrypted\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+type 
+.RE
+.PP
+
+.PP
+Definition at line 373 of file dbValidator\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

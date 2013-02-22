@@ -1,0 +1,9 @@
+digraph "Andriod/LocalizationActivity/src/app/localization" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_4a7c474cbcc9cb934b808e919c0c138a {
+    graph [ bgcolor="#ddddee", pencolor="black", label="app" fontname="Helvetica", fontsize="10", URL="dir_4a7c474cbcc9cb934b808e919c0c138a.html"]
+  dir_f92068308a0b924b4786c794f94c06f7 [shape=box, label="localization", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f92068308a0b924b4786c794f94c06f7.html"];
+  }
+}

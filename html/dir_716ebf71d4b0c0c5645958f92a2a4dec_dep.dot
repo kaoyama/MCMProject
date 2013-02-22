@@ -1,0 +1,13 @@
+digraph "Andriod/MapsDemo/src/com/example/android" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_4eb381c1ea6550c986ff104a4b175673 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="example" fontname="Helvetica", fontsize="10", URL="dir_4eb381c1ea6550c986ff104a4b175673.html"]
+  subgraph clusterdir_716ebf71d4b0c0c5645958f92a2a4dec {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_716ebf71d4b0c0c5645958f92a2a4dec.html"];
+    dir_716ebf71d4b0c0c5645958f92a2a4dec [shape=plaintext label="android"];
+    dir_b09e1d4c6c013ca4dfa68d7ff9d4d15a [shape=box label="apis" color="red" fillcolor="white" style="filled" URL="dir_b09e1d4c6c013ca4dfa68d7ff9d4d15a.html"];
+  }
+  }
+}

@@ -1,0 +1,151 @@
+\hypertarget{_p_h_p_get_nearby_merchants_8php}{\section{Website/\-P\-H\-P\-Get\-Nearby\-Merchants.php File Reference}
+\label{_p_h_p_get_nearby_merchants_8php}\index{Website/\-P\-H\-P\-Get\-Nearby\-Merchants.\-php@{Website/\-P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a034ead57b6864a4413371711e8d65372}{\$databasehost} = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_aace53f8afce81b52040cef0cd850138a}{\$databasename} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a251bf75f510d7c8b556c65d7c30e911f}{\$databaseusername} =\char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\$databasepassword} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a478a2fc0252b087f8bc01921fef09b78}{\$current\-User} = \char`\"{}chihi\char`\"{}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a2b363dae502590ee3a970876a7fe4ef8}{\$current\-Lon} = 0
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_ade4a9a789a5dd277c6416ce0956205de}{\$current\-Lat} = 0
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_af469a8b11a566ce9fbd4e856f3cd8282}{\$pi2} = pi()/2.\-0
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a6bb435d1aeba7b0eb488140d4913b17f}{\$mil} = 1000000.\-0
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a0debe10448ec56a57b5509648408a549}{\$con}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_a49a8a4009b02e49717caa88b128affc5}{\$res} = mysql\-\_\-query(\$query)
+\item 
+\hyperlink{_m_c_mhome_page_8php_a8dec719c1645067d1065f7f064d4b967}{if}(!\$res) \hyperlink{_p_h_p_get_nearby_merchants_8php_acd5fe7f2086f786c96623b819503b734}{else}
+\item 
+\hyperlink{_p_h_p_get_nearby_merchants_8php_afa9126f9664959c02795be300a135f93}{\$sth} = mysql\-\_\-query(\$query)
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a0debe10448ec56a57b5509648408a549}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$con@{\$con}}
+\index{\$con@{\$con}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$con}]{\setlength{\rightskip}{0pt plus 5cm}\$con}}\label{_p_h_p_get_nearby_merchants_8php_a0debe10448ec56a57b5509648408a549}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= mysql\_connect(\hyperlink{_p_h_p_get_coupons_8php_a034ead57b6864a4413371711e8d65372}{$databasehost},\hyperlink{_p_h_p_get_coupons_8php_a251bf75f510d7c8b556c65d7c30e911f}{$databaseusername},
+      \hyperlink{_p_h_p_get_coupons_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{$databasepassword}) 
+        or die(mysql\_error())
+\end{DoxyCode}
+
+
+Definition at line 14 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_ade4a9a789a5dd277c6416ce0956205de}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$current\-Lat@{\$current\-Lat}}
+\index{\$current\-Lat@{\$current\-Lat}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$current\-Lat}]{\setlength{\rightskip}{0pt plus 5cm}\$current\-Lat = 0}}\label{_p_h_p_get_nearby_merchants_8php_ade4a9a789a5dd277c6416ce0956205de}
+
+
+Definition at line 9 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a2b363dae502590ee3a970876a7fe4ef8}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$current\-Lon@{\$current\-Lon}}
+\index{\$current\-Lon@{\$current\-Lon}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$current\-Lon}]{\setlength{\rightskip}{0pt plus 5cm}\$current\-Lon = 0}}\label{_p_h_p_get_nearby_merchants_8php_a2b363dae502590ee3a970876a7fe4ef8}
+
+
+Definition at line 8 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a478a2fc0252b087f8bc01921fef09b78}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$current\-User@{\$current\-User}}
+\index{\$current\-User@{\$current\-User}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$current\-User}]{\setlength{\rightskip}{0pt plus 5cm}\$current\-User = \char`\"{}chihi\char`\"{}}}\label{_p_h_p_get_nearby_merchants_8php_a478a2fc0252b087f8bc01921fef09b78}
+
+
+Definition at line 7 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a034ead57b6864a4413371711e8d65372}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$databasehost@{\$databasehost}}
+\index{\$databasehost@{\$databasehost}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$databasehost}]{\setlength{\rightskip}{0pt plus 5cm}\$databasehost = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}}}\label{_p_h_p_get_nearby_merchants_8php_a034ead57b6864a4413371711e8d65372}
+
+
+Definition at line 3 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_aace53f8afce81b52040cef0cd850138a}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$databasename@{\$databasename}}
+\index{\$databasename@{\$databasename}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$databasename}]{\setlength{\rightskip}{0pt plus 5cm}\$databasename = \char`\"{}kd268\char`\"{}}}\label{_p_h_p_get_nearby_merchants_8php_aace53f8afce81b52040cef0cd850138a}
+
+
+Definition at line 4 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$databasepassword@{\$databasepassword}}
+\index{\$databasepassword@{\$databasepassword}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$databasepassword}]{\setlength{\rightskip}{0pt plus 5cm}\$databasepassword = \char`\"{}capstone\char`\"{}}}\label{_p_h_p_get_nearby_merchants_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}
+
+
+Definition at line 6 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a251bf75f510d7c8b556c65d7c30e911f}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$databaseusername@{\$databaseusername}}
+\index{\$databaseusername@{\$databaseusername}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$databaseusername}]{\setlength{\rightskip}{0pt plus 5cm}\$databaseusername =\char`\"{}kd268\char`\"{}}}\label{_p_h_p_get_nearby_merchants_8php_a251bf75f510d7c8b556c65d7c30e911f}
+
+
+Definition at line 5 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a6bb435d1aeba7b0eb488140d4913b17f}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$mil@{\$mil}}
+\index{\$mil@{\$mil}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$mil}]{\setlength{\rightskip}{0pt plus 5cm}\$mil = 1000000.\-0}}\label{_p_h_p_get_nearby_merchants_8php_a6bb435d1aeba7b0eb488140d4913b17f}
+
+
+Definition at line 11 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_af469a8b11a566ce9fbd4e856f3cd8282}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$pi2@{\$pi2}}
+\index{\$pi2@{\$pi2}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$pi2}]{\setlength{\rightskip}{0pt plus 5cm}\$pi2 = pi()/2.\-0}}\label{_p_h_p_get_nearby_merchants_8php_af469a8b11a566ce9fbd4e856f3cd8282}
+
+
+Definition at line 10 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_af59a5f7cd609e592c41dc3643efd3c98}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$query@{\$query}}
+\index{\$query@{\$query}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$query}]{\setlength{\rightskip}{0pt plus 5cm}\$query}}\label{_p_h_p_get_nearby_merchants_8php_af59a5f7cd609e592c41dc3643efd3c98}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"SELECT currentLat, currentLon FROM kd268.customers WHERE "}.
+        \textcolor{stringliteral}{"userName = '$currentUser'"}
+\end{DoxyCode}
+
+
+Definition at line 19 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_a49a8a4009b02e49717caa88b128affc5}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$res@{\$res}}
+\index{\$res@{\$res}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$res}]{\setlength{\rightskip}{0pt plus 5cm}\$res = mysql\-\_\-query(\$query)}}\label{_p_h_p_get_nearby_merchants_8php_a49a8a4009b02e49717caa88b128affc5}
+
+
+Definition at line 21 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_afa9126f9664959c02795be300a135f93}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!\$sth@{\$sth}}
+\index{\$sth@{\$sth}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{\$sth}]{\setlength{\rightskip}{0pt plus 5cm}\$sth = mysql\-\_\-query(\$query)}}\label{_p_h_p_get_nearby_merchants_8php_afa9126f9664959c02795be300a135f93}
+
+
+Definition at line 36 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+
+\hypertarget{_p_h_p_get_nearby_merchants_8php_acd5fe7f2086f786c96623b819503b734}{\index{P\-H\-P\-Get\-Nearby\-Merchants.\-php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}!else@{else}}
+\index{else@{else}!PHPGetNearbyMerchants.php@{P\-H\-P\-Get\-Nearby\-Merchants.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-errno()) else}}\label{_p_h_p_get_nearby_merchants_8php_acd5fe7f2086f786c96623b819503b734}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    \hyperlink{_p_h_p_get_nearby_merchants_8php_a2b363dae502590ee3a970876a7fe4ef8}{$currentLon} = mysql\_result(\hyperlink{_p_h_p_get_nearby_customers_8php_a49a8a4009b02e49717caa88b128affc5}{$res}, 0, \textcolor{stringliteral}{'currentLon'})/\hyperlink{_p_h_p_get_nearby_merchants_8php_a6bb435d1aeba7b0eb488140d4913b17f}{$mil}
+\end{DoxyCode}
+
+
+Definition at line 24 of file P\-H\-P\-Get\-Nearby\-Merchants.\-php.
+

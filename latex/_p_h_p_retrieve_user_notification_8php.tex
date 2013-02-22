@@ -1,0 +1,115 @@
+\hypertarget{_p_h_p_retrieve_user_notification_8php}{\section{Website/\-P\-H\-P\-Retrieve\-User\-Notification.php File Reference}
+\label{_p_h_p_retrieve_user_notification_8php}\index{Website/\-P\-H\-P\-Retrieve\-User\-Notification.\-php@{Website/\-P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a034ead57b6864a4413371711e8d65372}{\$databasehost} = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_aace53f8afce81b52040cef0cd850138a}{\$databasename} = \char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}{\$databaseusername} =\char`\"{}kd268\char`\"{}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\$databasepassword} = \char`\"{}capstone\char`\"{}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a478a2fc0252b087f8bc01921fef09b78}{\$current\-User} = \char`\"{}kimi\char`\"{}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a0debe10448ec56a57b5509648408a549}{\$con}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a49a8a4009b02e49717caa88b128affc5}{\$res} = mysql\-\_\-query(\$query)
+\item 
+\hyperlink{_m_c_mhome_page_8php_a8dec719c1645067d1065f7f064d4b967}{if}(mysql\-\_\-errno()) \hyperlink{_p_h_p_retrieve_user_notification_8php_acd5fe7f2086f786c96623b819503b734}{else}
+\item 
+\hyperlink{_p_h_p_retrieve_user_notification_8php_a13a796604f93a68cd06c9010c6a6d0e5}{while} (\$r=mysql\-\_\-fetch\-\_\-assoc(\$res))
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a0debe10448ec56a57b5509648408a549}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$con@{\$con}}
+\index{\$con@{\$con}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$con}]{\setlength{\rightskip}{0pt plus 5cm}\$con}}\label{_p_h_p_retrieve_user_notification_8php_a0debe10448ec56a57b5509648408a549}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= mysql\_connect(\hyperlink{_p_h_p_get_coupons_8php_a034ead57b6864a4413371711e8d65372}{$databasehost},\hyperlink{_p_h_p_get_coupons_8php_a251bf75f510d7c8b556c65d7c30e911f}{$databaseusername},
+      \hyperlink{_p_h_p_get_coupons_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{$databasepassword}) 
+        or die(mysql\_error())
+\end{DoxyCode}
+
+
+Definition at line 10 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a478a2fc0252b087f8bc01921fef09b78}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$current\-User@{\$current\-User}}
+\index{\$current\-User@{\$current\-User}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$current\-User}]{\setlength{\rightskip}{0pt plus 5cm}\$current\-User = \char`\"{}kimi\char`\"{}}}\label{_p_h_p_retrieve_user_notification_8php_a478a2fc0252b087f8bc01921fef09b78}
+
+
+Definition at line 7 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a034ead57b6864a4413371711e8d65372}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$databasehost@{\$databasehost}}
+\index{\$databasehost@{\$databasehost}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$databasehost}]{\setlength{\rightskip}{0pt plus 5cm}\$databasehost = \char`\"{}acadgpl.\-ucc.\-nau.\-edu\char`\"{}}}\label{_p_h_p_retrieve_user_notification_8php_a034ead57b6864a4413371711e8d65372}
+
+
+Definition at line 3 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_aace53f8afce81b52040cef0cd850138a}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$databasename@{\$databasename}}
+\index{\$databasename@{\$databasename}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$databasename}]{\setlength{\rightskip}{0pt plus 5cm}\$databasename = \char`\"{}kd268\char`\"{}}}\label{_p_h_p_retrieve_user_notification_8php_aace53f8afce81b52040cef0cd850138a}
+
+
+Definition at line 4 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$databasepassword@{\$databasepassword}}
+\index{\$databasepassword@{\$databasepassword}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$databasepassword}]{\setlength{\rightskip}{0pt plus 5cm}\$databasepassword = \char`\"{}capstone\char`\"{}}}\label{_p_h_p_retrieve_user_notification_8php_a1a07536b6a5f43f2d8f826bd2ee6c91a}
+
+
+Definition at line 6 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$databaseusername@{\$databaseusername}}
+\index{\$databaseusername@{\$databaseusername}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$databaseusername}]{\setlength{\rightskip}{0pt plus 5cm}\$databaseusername =\char`\"{}kd268\char`\"{}}}\label{_p_h_p_retrieve_user_notification_8php_a251bf75f510d7c8b556c65d7c30e911f}
+
+
+Definition at line 5 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_af59a5f7cd609e592c41dc3643efd3c98}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$query@{\$query}}
+\index{\$query@{\$query}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$query}]{\setlength{\rightskip}{0pt plus 5cm}\$query}}\label{_p_h_p_retrieve_user_notification_8php_af59a5f7cd609e592c41dc3643efd3c98}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"SELECT charged, timestamp FROM kd268.customers WHERE "} . 
+        \textcolor{stringliteral}{"userName = '$currentUser'"}
+\end{DoxyCode}
+
+
+Definition at line 15 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a49a8a4009b02e49717caa88b128affc5}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!\$res@{\$res}}
+\index{\$res@{\$res}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{\$res}]{\setlength{\rightskip}{0pt plus 5cm}\$res = mysql\-\_\-query(\$query)}}\label{_p_h_p_retrieve_user_notification_8php_a49a8a4009b02e49717caa88b128affc5}
+
+
+Definition at line 19 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_acd5fe7f2086f786c96623b819503b734}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!else@{else}}
+\index{else@{else}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (mysql\-\_\-errno()) else}}\label{_p_h_p_retrieve_user_notification_8php_acd5fe7f2086f786c96623b819503b734}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    $rows = array()
+\end{DoxyCode}
+
+
+Definition at line 27 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+
+\hypertarget{_p_h_p_retrieve_user_notification_8php_a13a796604f93a68cd06c9010c6a6d0e5}{\index{P\-H\-P\-Retrieve\-User\-Notification.\-php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}!while@{while}}
+\index{while@{while}!PHPRetrieveUserNotification.php@{P\-H\-P\-Retrieve\-User\-Notification.\-php}}
+\subsubsection[{while}]{\setlength{\rightskip}{0pt plus 5cm}while(\$r=mysql\-\_\-fetch\-\_\-assoc(\$res))}}\label{_p_h_p_retrieve_user_notification_8php_a13a796604f93a68cd06c9010c6a6d0e5}
+
+
+Definition at line 29 of file P\-H\-P\-Retrieve\-User\-Notification.\-php.
+

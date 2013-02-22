@@ -1,0 +1,65 @@
+.TH "GCMIntentService" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GCMIntentService \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits GCMBaseIntentService\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBonError\fP (Context context, String errorId)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBonRegistered\fP (Context context, String registrationId)"
+.br
+.ti -1c
+.RI "void \fBonUnregistered\fP (Context context, String registrationId)"
+.br
+.ti -1c
+.RI "void \fBonMessage\fP (Context context, Intent intent)"
+.br
+.ti -1c
+.RI "void \fBonDeletedMessages\fP (Context context, int total)"
+.br
+.ti -1c
+.RI "boolean \fBonRecoverableError\fP (Context context, String errorId)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 15 of file GCMIntentService\&.java\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void onDeletedMessages (Contextcontext, inttotal)\fC [inline]\fP, \fC [protected]\fP"
+Method called on receiving a deleted message 
+.PP
+Definition at line 61 of file GCMIntentService\&.java\&.
+.SS "void onError (Contextcontext, StringerrorId)\fC [inline]\fP"
+Method called on Error 
+.PP
+Definition at line 73 of file GCMIntentService\&.java\&.
+.SS "void onMessage (Contextcontext, Intentintent)\fC [inline]\fP, \fC [protected]\fP"
+Method called on Receiving a new message 
+.PP
+Definition at line 48 of file GCMIntentService\&.java\&.
+.SS "void onRegistered (Contextcontext, StringregistrationId)\fC [inline]\fP, \fC [protected]\fP"
+Method called on device registered 
+.PP
+Definition at line 27 of file GCMIntentService\&.java\&.
+.SS "void onUnregistered (Contextcontext, StringregistrationId)\fC [inline]\fP, \fC [protected]\fP"
+Method called on device un registred 
+.PP
+Definition at line 38 of file GCMIntentService\&.java\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

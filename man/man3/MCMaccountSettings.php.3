@@ -1,0 +1,182 @@
+.TH "Website/MCMaccountSettings.php" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Website/MCMaccountSettings.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP($_SESSION['user']==='guestOfKimi'||!$_SESSION['user']) 
+.br
+header('Location \fB$user\fP = $_SESSION['user']"
+.br
+.ti -1c
+.RI "\fB$dbase\fP = 'test'"
+.br
+.ti -1c
+.RI "\fB$host\fP = 'localhost'"
+.br
+.ti -1c
+.RI "\fB$cxn\fP = mysql_connect($host) or die ('No connection possible')"
+.br
+.ti -1c
+.RI "\fB$dbr\fP = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+.br
+.ti -1c
+.RI "\fB$getAllAdMerchants\fP = 'SELECT merchant FROM advertisements'"
+.br
+.ti -1c
+.RI "\fB$allAdMerchants\fP = mysql_query($getAllAdMerchants, $cxn)"
+.br
+.ti -1c
+.RI "\fB$allAdsMerchantList\fP = ''"
+.br
+.ti -1c
+.RI "\fBif\fP(mysql_num_rows($allAdMerchants)< 1) \fBelse\fP"
+.br
+.ti -1c
+.RI "\fB$allCouponMerchants\fP = mysql_query($getAllCouponMerchants, $cxn)"
+.br
+.ti -1c
+.RI "\fB$allCouponMerchantList\fP = ''"
+.br
+.ti -1c
+.RI "\fB$adMerchants\fP = mysql_query($getAdMerchants, $cxn)"
+.br
+.ti -1c
+.RI "\fB$adMerchantList\fP = ''"
+.br
+.ti -1c
+.RI "\fB$noAdMerchant\fP =''"
+.br
+.ti -1c
+.RI "\fB$i\fP =0"
+.br
+.ti -1c
+.RI "for($i=1;$i< sizeof($adRow);$i++) \fB$getCouponMerchants\fP = 'SELECT * FROM subscribedForCoupons WHERE userName = '$user''"
+.br
+.ti -1c
+.RI "\fB$couponMerchants\fP = mysql_query($getCouponMerchants, $cxn)"
+.br
+.ti -1c
+.RI "\fB$couponMerchantList\fP = ''"
+.br
+.ti -1c
+.RI "for($i=1;$i< sizeof($couponRow);$i++) \fBif\fP (isset($_GET['run']))"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$adMerchantList = ''"
+
+.PP
+Definition at line 129 of file MCMaccountSettings\&.php\&.
+.SS "$adMerchants = mysql_query($getAdMerchants, $cxn)"
+
+.PP
+Definition at line 128 of file MCMaccountSettings\&.php\&.
+.SS "$allAdMerchants = mysql_query($getAllAdMerchants, $cxn)"
+
+.PP
+Definition at line 92 of file MCMaccountSettings\&.php\&.
+.SS "$allAdsMerchantList = ''"
+
+.PP
+Definition at line 93 of file MCMaccountSettings\&.php\&.
+.SS "$allCouponMerchantList = ''"
+
+.PP
+Definition at line 111 of file MCMaccountSettings\&.php\&.
+.SS "$allCouponMerchants = mysql_query($getAllCouponMerchants, $cxn)"
+
+.PP
+Definition at line 110 of file MCMaccountSettings\&.php\&.
+.SS "$couponMerchantList = ''"
+
+.PP
+Definition at line 152 of file MCMaccountSettings\&.php\&.
+.SS "$couponMerchants = mysql_query($getCouponMerchants, $cxn)"
+
+.PP
+Definition at line 151 of file MCMaccountSettings\&.php\&.
+.SS "$cxn = mysql_connect($host) or die ('No connection possible')"
+
+.PP
+Definition at line 84 of file MCMaccountSettings\&.php\&.
+.SS "$dbase = 'test'"
+
+.PP
+Definition at line 82 of file MCMaccountSettings\&.php\&.
+.SS "$dbr = mysql_select_db($dbase,$cxn)or die(mysql_error())"
+
+.PP
+Definition at line 85 of file MCMaccountSettings\&.php\&.
+.SS "$getAllAdMerchants = 'SELECT merchant FROM advertisements'"
+
+.PP
+Definition at line 91 of file MCMaccountSettings\&.php\&.
+.SS "for ($i=1;$i< sizeof($adRow);$i++) $getCouponMerchants = 'SELECT * FROM subscribedForCoupons WHERE userName = '$user''"
+
+.PP
+Definition at line 150 of file MCMaccountSettings\&.php\&.
+.SS "$host = 'localhost'"
+
+.PP
+Definition at line 83 of file MCMaccountSettings\&.php\&.
+.SS "$i =0"
+
+.PP
+Definition at line 139 of file MCMaccountSettings\&.php\&.
+.SS "$noAdMerchant =''"
+
+.PP
+Definition at line 130 of file MCMaccountSettings\&.php\&.
+.SS "\fBif\fP ($_SESSION['user']==='guestOfKimi'||!$_SESSION['user']) header('Location $user = $_SESSION['user']"
+
+.PP
+Definition at line 81 of file MCMaccountSettings\&.php\&.
+.SS "\fBif\fP (mysql_num_rows($couponMerchants)< 1) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+       
+       while($allAdRow = mysql_fetch_row($allAdMerchants))
+       {
+           $adMerchantName = mysql_query('SELECT merchantName FROM merchants WHERE userName = '$allAdRow[0]';', $cxn);
+           $currentAdMerchantName = mysql_fetch_row($adMerchantName);
+           $allAdsMerchantList = $allAdsMerchantList\&.$currentAdMerchantName[0]\&.'#';
+       }
+   }
+   
+   
+   $getAllCouponMerchants = 'SELECT merchant FROM coupons;'
+.fi
+.PP
+Definition at line 98 of file MCMaccountSettings\&.php\&.
+.SS "if"
+\fBInitial value:\fP
+.PP
+.nf
+{
+       
+       while($allCouponRow = mysql_fetch_row($allCouponMerchants))
+       {
+           $couponMerchantName = mysql_query('SELECT merchantName FROM merchants WHERE userName = '$allCouponRow[0]';', $cxn);
+           $currentCouponMerchantName = mysql_fetch_row($couponMerchantName);
+           $allCouponMerchantList = $allCouponMerchantList\&.$currentCouponMerchantName[0]\&.'#';
+       }
+   }
+   
+   
+   $getAdMerchants = 'SELECT * FROM subscribedForAds WHERE userName = '$user''
+.fi
+.PP
+Definition at line 175 of file MCMaccountSettings\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

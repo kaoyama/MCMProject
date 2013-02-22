@@ -59,30 +59,7 @@ public class HomeActivity extends Activity {
 				
 				// Starting a new intent
 				Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
-				startActivity(paymentScreen); 
-				
-				
-				
-			    //Commented out code gets username from android DB
-				/*JSONArray json = RestClient.connectToDatabase(CommonUtilities.USERNOTIFICATION_URL, null);
-		        
-				try {
-					FileInputStream fis = openFileInput("username_file");
-					StringBuffer sb =new StringBuffer("");
-					int ch;
-					while((ch = fis.read())!= -1){
-						sb.append((char)ch);
-					}
-					fis.close();
-					notificationMessage = sb.toString();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-		        // Show dialog of results
-		        CustomDialog cd = new CustomDialog(HomeActivity.this); 
-		        cd.showNotificationDialog(notificationMessage);*/	      
+				startActivity(paymentScreen); 	      
 			}
 		});
 		
@@ -92,6 +69,18 @@ public class HomeActivity extends Activity {
 				// Starting a new intent
 				Intent merchantScreen = new Intent(getApplicationContext(), Merchants.class);
 				startActivity(merchantScreen); 
+			}
+		});
+		
+		Button viewHistoryButton = (Button) findViewById(R.id.searchButton);
+		viewHistoryButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				// Starting a new intent
+				Intent paymentHistoryScreen = new Intent(getApplicationContext(), PaymentHistory.class);
+				startActivity(paymentHistoryScreen); 	      
 			}
 		});
 		

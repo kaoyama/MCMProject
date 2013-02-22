@@ -1,0 +1,110 @@
+.TH "Website/PHPGetUserTransactions.php" 3 "Thu Feb 21 2013" "Version 01" "MCMProject" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Website/PHPGetUserTransactions.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$databasehost\fP = 'acadgpl\&.ucc\&.nau\&.edu'"
+.br
+.ti -1c
+.RI "\fB$databasename\fP = 'kd268'"
+.br
+.ti -1c
+.RI "\fB$databaseusername\fP ='kd268'"
+.br
+.ti -1c
+.RI "\fB$databasepassword\fP = 'capstone'"
+.br
+.ti -1c
+.RI "\fB$con\fP"
+.br
+.ti -1c
+.RI "\fB$json\fP = file_get_contents('php://input')"
+.br
+.ti -1c
+.RI "\fB$obj\fP = json_decode($json)"
+.br
+.ti -1c
+.RI "\fB$query\fP"
+.br
+.ti -1c
+.RI "\fB$res\fP = mysql_query($query)"
+.br
+.ti -1c
+.RI "\fBif\fP(mysql_errno()) \fBelse\fP"
+.br
+.ti -1c
+.RI "\fBwhile\fP ($r=mysql_fetch_assoc($res))"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$con"
+\fBInitial value:\fP
+.PP
+.nf
+= mysql_connect($databasehost,$databaseusername,$databasepassword) 
+        or die(mysql_error())
+.fi
+.PP
+Definition at line 9 of file PHPGetUserTransactions\&.php\&.
+.SS "$databasehost = 'acadgpl\&.ucc\&.nau\&.edu'"
+
+.PP
+Definition at line 3 of file PHPGetUserTransactions\&.php\&.
+.SS "$databasename = 'kd268'"
+
+.PP
+Definition at line 4 of file PHPGetUserTransactions\&.php\&.
+.SS "$databasepassword = 'capstone'"
+
+.PP
+Definition at line 6 of file PHPGetUserTransactions\&.php\&.
+.SS "$databaseusername ='kd268'"
+
+.PP
+Definition at line 5 of file PHPGetUserTransactions\&.php\&.
+.SS "$json = file_get_contents('php://input')"
+
+.PP
+Definition at line 13 of file PHPGetUserTransactions\&.php\&.
+.SS "$obj = json_decode($json)"
+
+.PP
+Definition at line 14 of file PHPGetUserTransactions\&.php\&.
+.SS "$query"
+\fBInitial value:\fP
+.PP
+.nf
+= 'SELECT merchant, productIndex, purchaseTime, ' \&.
+        'customer, cost, paid FROM kd268\&.customerTransactions ' \&. 
+        ' WHERE customer = ''\&. $obj->{'userName'} \&.'''
+.fi
+.PP
+Definition at line 17 of file PHPGetUserTransactions\&.php\&.
+.SS "$res = mysql_query($query)"
+
+.PP
+Definition at line 22 of file PHPGetUserTransactions\&.php\&.
+.SS "\fBif\fP (mysql_errno()) else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+    $rows = array()
+.fi
+.PP
+Definition at line 30 of file PHPGetUserTransactions\&.php\&.
+.SS "while($r=mysql_fetch_assoc($res))"
+
+.PP
+Definition at line 32 of file PHPGetUserTransactions\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MCMProject from the source code\&.

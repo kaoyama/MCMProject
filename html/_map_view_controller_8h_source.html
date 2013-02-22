@@ -23,9 +23,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCMProject
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">01</span>
    </div>
-   <div id="projectbrief">Capstone project for MCM System</div>
+   <div id="projectbrief">Capstone Project</div>
   </td>
  </tr>
  </tbody>
@@ -63,7 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -71,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">MapViewController.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_map_view_controller_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">     File: MapViewController.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> Abstract: Controls the map view and manages the reverse geocoder to get the current address.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Version: 1.2</span></div>
@@ -142,16 +141,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html">   51</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_map_view_controller.html">MapViewController</a> : UIViewController &lt;MKMapViewDelegate, MKReverseGeocoderDelegate&gt;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    MKMapView *<a class="code" href="interface_map_view_controller.html#aeca56f93083ef15cb818d6627fc0afda">mapView</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html#aeca56f93083ef15cb818d6627fc0afda">   54</a></span>&#160;    MKReverseGeocoder *<a class="code" href="interface_map_view_controller.html#a773225e6535bdafdcde9dbc38e648d90">reverseGeocoder</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html#a773225e6535bdafdcde9dbc38e648d90">   55</a></span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    UIBarButtonItem *<a class="code" href="interface_map_view_controller.html#a05820496aedc25682d9ea8f016872903">getAddressButton</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html#a05820496aedc25682d9ea8f016872903">   57</a></span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    MKMapView *mapView;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    MKReverseGeocoder *reverseGeocoder;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    UIBarButtonItem *getAddressButton;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) IBOutlet MKMapView *mapView;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html#a250ca1eb6ca5dbeef2c758cfb6c54352">   60</a></span>&#160;<span class="keyword">@property</span> (nonatomic, retain) MKReverseGeocoder *reverseGeocoder;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) MKReverseGeocoder *reverseGeocoder;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) IBOutlet UIBarButtonItem *getAddressButton;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="interface_map_view_controller.html#ad82a4da45ee7fedf7ccf752d8f227de0">   62</a></span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;- (IBAction)reverseGeocodeCurrentLocation;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">@end</span></div>
@@ -159,7 +158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 19 2013 14:30:24 for MCMProject by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 15:04:06 for MCMProject by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>
