@@ -128,13 +128,17 @@ public class MakePayments extends Activity {
 
 										       			jsonArray = RestClient.connectToDatabase(
 										       					CommonUtilities.UPDATEPAYMENT_URL, json);
+										       			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
+										       			cd3.showNotificationDialog("You have successfully paid " + merchant + " for" + productIndex + "." );
+										       			
 										       		} catch (Exception e) {
 										       			CustomDialog cd3 = new CustomDialog(MakePayments.this); 
 										       			cd3.showNotificationDialog("Failed here");
 										       		}
 										       		// Starting a new intent
 													Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
-													startActivity(paymentScreen); 
+													startActivity(paymentScreen);
+			
 										           }
 										       });
 										builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
