@@ -74,7 +74,7 @@ public class PaymentHistory extends Activity {
 			CustomDialog cd = new CustomDialog(PaymentHistory.this); 
 			cd.showNotificationDialog("Could not get username.");
 		}
-		
+		  
 		JSONArray jsonArray = null;
 		try {
 			JSONObject json = new JSONObject();
