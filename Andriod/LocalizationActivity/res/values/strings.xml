@@ -12,6 +12,8 @@
     <string name="merchantButtonLabel">Merchants</string>
     <string name="couponsButtonLabel">Coupons</string>
     <string name="logoutButtonLabel">Log Out</string>
+    <string name="makePaymentsButtonLabel">Make Payments</string>
+    <string name="settingsButtonLabel">Settings</string>
     <string name="mcmLogo">MCM Logo</string>
 
     <!-- main.xml -->
@@ -27,7 +29,6 @@
     <string name="merchantMapButtonLabel">Merchant Map</string>
     <string name="forgotAccount">Forgot Username or Password?</string>
     <string name="createAccountLabel">Create New Account</string>
-    <string name="makePaymentsButtonLabel">Make Payments</string>
     <string name="viewHistoryButtonLabel">View History</string>
 
     <!-- GCM Strings -->
@@ -48,5 +49,10 @@
     <string name="options_unregister">Unregister</string>
     <string name="options_clear">Clear</string>
     <string name="options_exit">Exit</string>
+    <string name="localizationSettingsLabel">LOCALIZATION</string>
+    
+    <!-- Preferences -->
+    <string name="pref_sync">Syncing Preferences</string>
+	<string name="pref_sync_summ">Summary here</string>
     
 </resources>

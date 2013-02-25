@@ -1,18 +1,30 @@
 <?php
  
+/**
+ * This class contains functions related to estabilishing connection with 
+ * the database.
+ */
 class DB_Connect {
- 
-    // constructor
+    
+    /**
+     * Constructor for databse connection 
+     */
     function __construct() {
  
     }
  
-    // destructor
+    /**
+     * Called when class instance is destructed 
+     */
     function __destruct() {
         // $this->close();
     }
- 
-    // Connecting to database
+    
+    /**
+     * Connect to the database using information specified in config.php.  
+     * Requres config.php to be initialized with speficic database information. 
+     * @return type database handler 
+     */
     public function connect() {
         require_once 'config.php';
         // connecting to mysql
@@ -24,7 +36,9 @@ class DB_Connect {
         return $con;
     }
  
-    // Closing database connection
+    /**
+     * Close the current database conenction  
+     */
     public function close() {
         mysql_close();
     }

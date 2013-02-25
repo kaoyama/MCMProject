@@ -51,6 +51,18 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		Button settingsButton = (Button) findViewById(R.id.settingsButton);
+		settingsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				// Starting a new intent
+				Intent settingsScreen = new Intent(getApplicationContext(), Settings.class);
+				startActivity(settingsScreen); 	      
+			}
+		});
+		
 		Button notificationButton = (Button) findViewById(R.id.notificationsButton);
 		notificationButton.setOnClickListener(new View.OnClickListener() {
 			

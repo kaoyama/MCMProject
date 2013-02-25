@@ -73,4 +73,12 @@
         android:layout_below="@+id/logoutButton"
         android:text="Registration" />
 
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registrationButton"
+        android:layout_below="@+id/registrationButton"
+        android:text="@string/settingsButtonLabel" />
+
 </RelativeLayout>

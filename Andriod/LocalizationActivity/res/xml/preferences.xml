@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="localization_category"
+        android:title="LOCALIZATION" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="perform_updates"
+            android:summary="Enable or disable localization settings"
+            android:title="Enable localization" />
+
+        <PreferenceScreen
+            android:key="button_voicemail_setting_key"
+            android:persistent="false"
+            android:title="Localization Settings" >
+            <ListPreference
+                android:defaultValue="1000"
+                android:dependency="perform_updates"
+                android:entries="@array/locationUpdateInterval"
+                android:entryValues="@array/locationUpdateIntervalValues"
+                android:key="updates_interval"
+                android:summary="Define how often location updates will be performed"
+                android:title="Location updates interval" >
+            </ListPreference>
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="ads_category"
+        android:title="ADS/COUPONS" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="opt_out_all"
+            android:summary="Opt out of all targeted deals"
+            android:title="Opt out of all targeted deals" />
+
+        <ListPreference
+            android:defaultValue="1000"
+            android:dependency="perform_updates"
+            android:entries="@array/locationUpdateInterval"
+            android:entryValues="@array/locationUpdateIntervalValues"
+            android:key="specific_merchants"
+            android:summary="Specify particular merchants to receive deals from"
+            android:title="Specify Merchants" >
+        </ListPreference>
+        <ListPreference
+            android:defaultValue="1000"
+            android:dependency="perform_updates"
+            android:entries="@array/locationUpdateInterval"
+            android:entryValues="@array/locationUpdateIntervalValues"
+            android:key="specific_product_type"
+            android:summary="Specify product type to receive deals from"
+            android:title="Specify Product Type" >
+        </ListPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
