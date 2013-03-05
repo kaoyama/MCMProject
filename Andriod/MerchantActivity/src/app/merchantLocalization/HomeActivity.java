@@ -60,6 +60,17 @@ public class HomeActivity extends Activity {
 				startActivity(customerScreen); 
 			}
 		});
+		
+		Button manageAdsButton = (Button) findViewById(R.id.manageAds); 
+		
+		manageAdsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent manageAdsScreen = new Intent(getApplicationContext(), ManageDeals.class); 
+				startActivity(manageAdsScreen); 
+			}
+		});
 
 	}
 }

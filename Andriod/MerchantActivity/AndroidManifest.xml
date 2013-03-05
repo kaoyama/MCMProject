@@ -29,6 +29,8 @@
         </activity>
         <activity android:name="app.merchantLocalization.Customers">
         </activity>
+        <activity android:name="app.merchantLocalization.ManageDeals">
+        </activity>
     </application>
 
 </manifest>
