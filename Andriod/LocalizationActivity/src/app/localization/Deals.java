@@ -14,8 +14,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -24,8 +25,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
-
-import app.utilities.CommonUtilities;
 
 public class Deals extends Activity {
 	
@@ -90,8 +89,15 @@ public class Deals extends Activity {
 						@Override
 						public void onItemClick(AdapterView<?> a, View v,
 								int position, long id) {
-							
-							
+							Intent dealDetailIntent = new Intent(Deals.this, DealDetail.class); 
+							try {
+								dealDetailIntent.putExtra("title", json.getJSONObject(position).getString("title"));
+								dealDetailIntent.putExtra("content", json.getJSONObject(position).getString("content"));
+								startActivity(dealDetailIntent); 
+							} catch (JSONException e) {
+								Log.d("Deals.java", "JSON EXCEPTION"); 
+								e.printStackTrace();
+							}
 						}
 					});
 				}

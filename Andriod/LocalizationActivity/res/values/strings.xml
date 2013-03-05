@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
-    
+<resources>
+
     <!-- Application name -->
     <string name="app_name">MCM Localization</string>
-    
+
     <!-- home.xml -->
     <string name="localizationSettingsButtonLabel">Localization Settings</string>
     <string name="newNotificationsButtonLabel">New Notifications</string>
@@ -20,10 +20,10 @@
     <string name="usernameLabel">Username: </string>
     <string name="passwordLabel">Password: </string>
     <string name="loginLabel">Login</string>
-    
+
     <!-- coupons.xml -->
     <string name="dealsListLabel">List of Deals</string>
-    
+
     <!-- merchant.xml -->
     <string name="listOfMerchantsLabel">List of Merchants</string>
     <string name="merchantMapButtonLabel">Merchant Map</string>
@@ -43,16 +43,21 @@
     <string name="server_unregistered">From Demo Server: successfully removed device!</string>
     <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
     <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
-    
+
     <!-- Options Strings -->
     <string name="options_register">Register</string>
     <string name="options_unregister">Unregister</string>
     <string name="options_clear">Clear</string>
     <string name="options_exit">Exit</string>
     <string name="localizationSettingsLabel">LOCALIZATION</string>
-    
+
     <!-- Preferences -->
     <string name="pref_sync">Syncing Preferences</string>
-	<string name="pref_sync_summ">Summary here</string>
-    
+    <string name="pref_sync_summ">Summary here</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_deal_detail">DealDetail</string>
+    <string name="dealTitle">Title</string>
+    <string name="dealContent">Deal Content</string>
+
 </resources>

@@ -17,7 +17,7 @@ mysql_select_db($databasename) or die(mysql_error());
         
 // Set paid and cancelled columns in userTransactions table 
 
-$query = "Select title from kd268.deals " .
+$query = "Select * from kd268.deals " .
         "WHERE merchant = '$merchantName' " ;
  
 //echo $query;

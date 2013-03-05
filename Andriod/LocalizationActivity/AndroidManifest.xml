@@ -71,6 +71,8 @@
         </activity>
         <activity android:name="app.localization.Settings" >
         </activity>
+        <activity android:name="app.localization.DealDetail" >
+        </activity>
 
         <!-- GCM Receiver -->
         <receiver
