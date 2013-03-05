@@ -59,7 +59,7 @@
                     !$_SESSION['user'])
                 header("Location: index.php");
             include 'menuFunction.php';
-            displayMenu();
+            displayMerchantMenu();
             ?>
 
             <hr>

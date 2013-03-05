@@ -50,26 +50,19 @@
         </div>
 
         <div id="container">
+
             <h2>MoneyClip Mobile Home Page</h2>
 
             <?php
             session_start();
-            //$user = $_SESSION['user'];
-            //echo "$user";
-            if (!$_SESSION['user'])
-            {
-                echo "<ul>
-                        <li><a href='MCMcreateNewAccount.php'>Create Account -_-</a></li>
-                        <li><a href='customerLogin.php'>Customer Log in</a></li>
-                        <li><a href='merchantLogin.php'>Merchant Log in</a></li>
-                      </ul>";
-            }
-            else
-            {
-                include 'menuFunction.php';
-                displayCustomerMenu();            
-            }
+            if($_SESSION['user'] === "guestOfKimi" ||
+                    !$_SESSION['user'] ||
+                    $_SESSION['userTyep'] === "merchant")
+                header("Location: index.php");
+            include 'menuFunction.php';
+            displayCustomerMenu();
             ?>
+
             <hr>
             <footer>
                 <p>MoneyClip Mobile 2012</p>
