@@ -7,10 +7,10 @@
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/couponsListLabel" />
+        android:text="@string/dealsListLabel" />
     
     <ListView 
-        android:id="@+id/couponsList"
+        android:id="@+id/dealsList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 

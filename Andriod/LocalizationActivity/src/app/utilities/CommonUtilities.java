@@ -16,6 +16,7 @@ public final class CommonUtilities {
     public static final String NOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php";
     public static final String PAYMENTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetUserTransactions.php";
     public static final String UPDATEPAYMENT_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdatePayment.php";
+    public static final String GETDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsCustomers.php";
     
     // Google project id
     public static final String SENDER_ID = "901660126123"; 

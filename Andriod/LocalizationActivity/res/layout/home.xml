@@ -3,47 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-        
-
-    <Button
-        android:id="@+id/gpsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/merchantButton"
-        android:layout_below="@+id/searchButton"
-        android:text="@string/locationButtonLabel" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gpsButton"
-        android:layout_below="@+id/notificationsButton"
-        android:text="@string/viewHistoryButtonLabel" />
-
-    <Button
-        android:id="@+id/merchantButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/couponsButton"
-        android:layout_below="@+id/gpsButton"
-        android:text="@string/merchantButtonLabel" />
-
-    <Button
-        android:id="@+id/couponsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/logoutButton"
-        android:layout_below="@+id/merchantButton"
-        android:text="@string/couponsButtonLabel" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/couponsButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/logoutButtonLabel" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -61,8 +20,16 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/searchButton"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="26dp"
         android:text="@string/makePaymentsButtonLabel" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registrationButton"
+        android:layout_below="@+id/notificationsButton"
+        android:text="@string/viewHistoryButtonLabel" />
 
     <Button
         android:id="@+id/registrationButton"
@@ -70,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/logoutButton"
         android:layout_alignRight="@+id/logoutButton"
-        android:layout_below="@+id/logoutButton"
+        android:layout_below="@+id/searchButton"
         android:text="Registration" />
 
     <Button
@@ -80,5 +47,37 @@
         android:layout_alignLeft="@+id/registrationButton"
         android:layout_below="@+id/registrationButton"
         android:text="@string/settingsButtonLabel" />
+
+    <Button
+        android:id="@+id/gpsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/settingsButton"
+        android:layout_below="@+id/settingsButton"
+        android:text="@string/locationButtonLabel" />
+
+    <Button
+        android:id="@+id/merchantButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gpsButton"
+        android:layout_below="@+id/gpsButton"
+        android:text="@string/merchantButtonLabel" />
+
+    <Button
+        android:id="@+id/dealsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/merchantButton"
+        android:layout_below="@+id/merchantButton"
+        android:text="@string/dealsButtonLabel" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dealsButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/logoutButtonLabel" />
 
 </RelativeLayout>

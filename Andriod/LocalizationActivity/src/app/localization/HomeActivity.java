@@ -159,14 +159,14 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
-		Button couponsButton = (Button) findViewById(R.id.couponsButton); 
-		couponsButton.setOnClickListener(new View.OnClickListener() {
+		Button dealsButton = (Button) findViewById(R.id.dealsButton); 
+		dealsButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// Starting a new intent
-				Intent couponsScreen = new Intent(getApplicationContext(), Coupons.class);
-				startActivity(couponsScreen); 
+				Intent dealsScreen = new Intent(getApplicationContext(), Deals.class);
+				startActivity(dealsScreen); 
 			}
 		});
 

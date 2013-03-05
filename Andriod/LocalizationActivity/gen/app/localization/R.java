@@ -51,25 +51,25 @@ containing a value of this type.
     }
     public static final class id {
         public static final int btnRegister=0x7f09001a;
-        public static final int couponsButton=0x7f090007;
-        public static final int couponsList=0x7f090000;
-        public static final int gpsButton=0x7f090003;
+        public static final int dealsButton=0x7f09000b;
+        public static final int dealsList=0x7f090000;
+        public static final int gpsButton=0x7f090009;
         public static final int historyLayout=0x7f090001;
         public static final int historyList=0x7f090002;
-        public static final int imageView1=0x7f090009;
+        public static final int imageView1=0x7f090003;
         public static final int loginButton=0x7f09000f;
-        public static final int logoutButton=0x7f090008;
+        public static final int logoutButton=0x7f090007;
         public static final int mapButton=0x7f090014;
         public static final int mapview=0x7f090013;
-        public static final int merchantButton=0x7f090004;
+        public static final int merchantButton=0x7f09000a;
         public static final int merchantList=0x7f090015;
         public static final int notificationList=0x7f090017;
-        public static final int notificationsButton=0x7f090006;
+        public static final int notificationsButton=0x7f090004;
         public static final int password=0x7f09000e;
         public static final int paymentLayout=0x7f090016;
-        public static final int registrationButton=0x7f09000a;
+        public static final int registrationButton=0x7f090006;
         public static final int searchButton=0x7f090005;
-        public static final int settingsButton=0x7f09000b;
+        public static final int settingsButton=0x7f090008;
         public static final int settings_text_view=0x7f09001b;
         public static final int textView1=0x7f090011;
         public static final int textView2=0x7f090012;
@@ -80,7 +80,7 @@ containing a value of this type.
         public static final int username=0x7f09000d;
     }
     public static final class layout {
-        public static final int coupons=0x7f030000;
+        public static final int deals=0x7f030000;
         public static final int history=0x7f030001;
         public static final int home=0x7f030002;
         public static final int main=0x7f030003;
@@ -95,11 +95,11 @@ containing a value of this type.
         /**  Application name 
          */
         public static final int app_name=0x7f070000;
-        public static final int couponsButtonLabel=0x7f070006;
+        public static final int createAccountLabel=0x7f070012;
+        public static final int dealsButtonLabel=0x7f070006;
         /**  coupons.xml 
          */
-        public static final int couponsListLabel=0x7f07000e;
-        public static final int createAccountLabel=0x7f070012;
+        public static final int dealsListLabel=0x7f07000e;
         public static final int forgotAccount=0x7f070011;
         public static final int gcm_deleted=0x7f070019;
         public static final int gcm_error=0x7f070017;

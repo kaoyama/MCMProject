@@ -63,7 +63,7 @@
         </activity>
         <activity android:name="app.localization.RegisterActivity" >
         </activity>
-        <activity android:name="app.localization.Coupons" >
+        <activity android:name="app.localization.Deals" >
         </activity>
         <activity android:name="app.localization.MakePayments" >
         </activity>

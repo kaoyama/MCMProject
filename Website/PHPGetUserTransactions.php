@@ -15,7 +15,7 @@ $obj = json_decode($json);
         
 // Get boolean value from customers table 
 
-$query = "SELECT merchant, productIndex, purchaseTime, " .
+$query = "SELECT merchant, transactionIndex, purchaseTime, " .
         "customer, cost, paid FROM kd268.customerTransactions " . 
         " WHERE customer = '" . $obj->{'userName'} . "'";
  
