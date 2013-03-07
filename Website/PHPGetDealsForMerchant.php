@@ -15,7 +15,7 @@ $con = mysql_connect($databasehost,$databaseusername,$databasepassword)
         or die(mysql_error());
 mysql_select_db($databasename) or die(mysql_error());
         
-// Set paid and cancelled columns in userTransactions table 
+// Get Merchant their deals that they have created
 
 $query = "Select * from kd268.deals " .
         "WHERE merchant = '$merchantName' " ;

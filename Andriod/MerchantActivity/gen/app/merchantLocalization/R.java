@@ -16,7 +16,6 @@ public final class R {
     public static final class id {
         public static final int ScrollView=0x7f070000;
         public static final int accountSettingsButton=0x7f07000e;
-        public static final int adList=0x7f070014;
         public static final int customerLayout=0x7f07000a;
         public static final int customerList=0x7f07000b;
         public static final int customersButton=0x7f07000d;
@@ -29,7 +28,7 @@ public final class R {
         public static final int loginButton=0x7f070012;
         public static final int logoutButton=0x7f07000f;
         public static final int manageAds=0x7f07000c;
-        public static final int menu_settings=0x7f070015;
+        public static final int menu_settings=0x7f070014;
         public static final int password=0x7f070011;
         public static final int tableRow1=0x7f070001;
         public static final int tableRow2=0x7f070003;
