@@ -17,7 +17,7 @@ mysql_select_db($databasename) or die(mysql_error());
 
 // SQL query 
 mysql_query("UPDATE kd268.deals SET enabled = '" . $obj->{'enabled'} .  
-        "WHERE dealIndex = '" . $obj->{'dealIndex'} . "'");
+        "' WHERE dealIndex = '" . $obj->{'dealIndex'} . "'");
     
 // close connection 
 mysql_close($con);
