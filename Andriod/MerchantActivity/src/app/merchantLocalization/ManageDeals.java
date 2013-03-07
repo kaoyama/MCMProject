@@ -127,18 +127,19 @@ public class ManageDeals extends Activity {
 			       			if(tempEnabled.equals("0")) {
 			       				json.put("enabled","1");
 			       				tempEnabled = "1";
+			       				jsonArray2 = RestClient.connectToDatabase(
+			       						CommonUtilities.TOGGLEDEALSTATUS_URL, json);
 			       				tempButton.setText("Disable");
+			       				
 			       			}
 			       			else{
 			       				json.put("enabled", "0");
 			       				tempEnabled = "0";
+			       				jsonArray2 = RestClient.connectToDatabase(
+			       						CommonUtilities.TOGGLEDEALSTATUS_URL, json);
 			       				tempButton.setText("Enable");
 			       			}
-
-			       			
-
-			       			jsonArray2 = RestClient.connectToDatabase(
-			       					CommonUtilities.UPDATEDEALS_URL, json);
+			    
 			       			
 			       		} catch (Exception e) {
 			       			CustomDialog cd3 = new CustomDialog(ManageDeals.this); 
