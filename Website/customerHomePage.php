@@ -55,11 +55,8 @@
 
             <?php
             session_start();
-            if($_SESSION['user'] === "guestOfKimi" ||
-                    !$_SESSION['user'] ||
-                    $_SESSION['userTyep'] === "merchant")
-                header("Location: index.php");
-            include 'menuFunction.php';
+            include 'functions.php';
+            checkUserSatus($_SESSION['user'], $_SESSION['userType']);
             displayCustomerMenu();
             ?>
 

@@ -53,12 +53,70 @@
 
             <h2>Your Recent Activities</h2>
             <?php
+            $host = "localhost";
+            $user = "kd268";                
+            $password = "capstone";    
+            $dbase = "test";    
+            
             session_start();
-            if($_SESSION['user'] === "guestOfKimi" ||
-                    !$_SESSION['user'])
-                header("Location: index.php");
-            ?>
+            include 'functions.php';
+            checkUserSatus($_SESSION['user'], $_SESSION['userType']);
+            
+            $cxn = mysql_connect($host) or die ("No connection possible");
+            
+            // This code should select your database.  I've given it two chances to report
+            // the error.  If it fails, check the database name or call ITS for help.
+            $dbr = mysql_select_db($dbase,$cxn)or die(mysql_error());
 
+            if ($dbr == FALSE) 
+                echo "<h6>DB Error: ".mysql_error($cxn)."</h6>";
+
+            $sqlQuery = 'SHOW TABLES';
+            $result = mysql_query($sqlQuery,$cxn);
+            if($result == FALSE) {
+                echo "<h4>Query Error: ".mysql_error($cxn)."</h4>
+                <a href='index.php'>Try Again?</a>";
+             }
+             else {
+                 //echo "username: $logInName <br/> pwd: $logInPwd";
+
+                 // Check the database for this username/pwd combo
+                 $sqlQuery = "SELECT merchant, purchaseTime, cost FROM customerTransactions 
+                             WHERE customer = '" . $_SESSION['user'] . "' 
+                             AND paid = TRUE OR cancelled = TRUE";
+
+                 $result = mysql_query($sqlQuery,$cxn);
+
+                 // no users with that login info
+                 if(mysql_num_rows($result) < 1)
+                 {
+                     echo "You have no prior transactions.";
+                 }
+                 // otherwise let them into the site
+                 else
+                 {
+                     echo "<table>
+                     <tr>
+                     <td width='300'>
+                     Merchant
+                     </td>
+                     <td width='300'>
+                     Amount
+                     </td>
+                     <td width='300'>
+                     Time
+                     </td>
+                     </tr>";
+                     while($allTransactions = mysql_fetch_row($result))
+                     {
+                         echo "<tr><td> $allTransactions[0] </td>
+                             <td> $allTransactions[1] </td>
+                                 <td> $allTransactions[2] </td></tr>";
+                     }
+                     echo "</table>";
+                 }
+             }
+            ?>
 
         <hr>
         <footer>

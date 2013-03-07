@@ -21,7 +21,14 @@ echo "<ul>
             <li><a href='merchantCreateCoupon.php'>Create a Coupon</a></li>
             <li><a href='merchantRecentTransactions.php'>Recent Activities</a></li>
             <li><a href='merchantViewNearbyCustomers.php'>View Nearby Customers</a></li>
-            <li><a href='MCMlogOUt.php'>Log out</a></li>
+            <li><a href='MCMlogOut.php'>Log out</a></li>
         </ul>";
+}
+
+function checkUserSatus($user, $userType) {
+    if($user === "guestOfKimi" ||
+            !$user ||
+            $userType === "merchant")
+        header("Location: index.php");
 }
 ?>

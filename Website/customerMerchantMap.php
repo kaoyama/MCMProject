@@ -211,9 +211,8 @@
         </div>
 <?php
 session_start();
-if($_SESSION['user'] === "guestOfKimi" ||
-        !$_SESSION['user'])
-    header("Location: index.php");
+include 'functions.php';
+checkUserSatus($_SESSION['user'], $_SESSION['userType']);
 ?>
         <div id="content">
             <div id="leftSidebar">

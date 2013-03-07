@@ -55,7 +55,7 @@
             <h2>Log In</h2>
 
             <h3>Please enter your User Name and Password.</h3>
-            <form action="MCMloginValidator.php" method="POST">
+            <form action="customerLoginValidator.php" method="POST">
                 <?php
                 session_start();
                 
@@ -88,7 +88,7 @@
                 ?>
             </form>
 
-            <a href='MCMcreateNewAccount.php'>Create New Account</a>
+            <a href='customerCreateNewAccount.php'>Create New Account</a>
         </div>
         
         <hr>

@@ -48,7 +48,7 @@
        <a href='index.php'>Try Again?</a>";
     }
     else {
-        echo "username: $logInName <br/> pwd: $logInPwd";
+        //echo "username: $logInName <br/> pwd: $logInPwd";
         
         // Check the database for this username/pwd combo
         $sqlQuery = "SELECT * FROM customers 
@@ -135,9 +135,10 @@
             $_SESSION['currentLon'] = $row[6];
             $_SESSION['bday'] = $row[7];
             $_SESSION['email'] = $row[10];
+            $_SESSION['userType'] = "customer";
             
             //Redirect to the homepage
-            header("Location: MCMhomePage.php");
+            header("Location: customerHomePage.php");
         }
     }
 ?> 

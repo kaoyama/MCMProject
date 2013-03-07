@@ -66,7 +66,7 @@
             }
             else
             {
-                include 'menuFunction.php';
+                include 'functions.php';
                 displayCustomerMenu();            
             }
             ?>
