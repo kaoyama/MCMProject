@@ -1,7 +1,11 @@
 package app.utilities;
 
+import java.io.FileInputStream;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import app.localization.MakePayments;
 
 public final class CommonUtilities {
 	
@@ -16,7 +20,7 @@ public final class CommonUtilities {
     public static final String NOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php";
     public static final String PAYMENTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetUserTransactions.php";
     public static final String UPDATEPAYMENT_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdatePayment.php";
-    public static final String GETDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsCustomers.php";
+    public static final String GETDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsForCustomers.php";
     
     // Google project id
     public static final String SENDER_ID = "901660126123"; 
@@ -47,4 +51,24 @@ public final class CommonUtilities {
         intent.putExtra(EXTRA_MESSAGE, message);
         context.sendBroadcast(intent);
     }*/
+    
+    public static String getUsername(Context context) {
+    	String tempUserName = "";
+    	
+    	try {
+    		FileInputStream fis = context.openFileInput("username_file");
+    		StringBuffer sb = new StringBuffer("");
+    		int ch;
+    		while((ch = fis.read())!= -1){
+    			sb.append((char)ch);
+    		}
+    		fis.close();
+    		tempUserName = sb.toString();
+    	} catch (Exception e) {
+    		CustomDialog cd = new CustomDialog((Activity)context); 
+    		cd.showNotificationDialog("Could not get username.");
+    	}
+    	return tempUserName;
+    }
+    
 }
