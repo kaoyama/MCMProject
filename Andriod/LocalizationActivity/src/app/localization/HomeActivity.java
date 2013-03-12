@@ -105,7 +105,7 @@ public class HomeActivity extends Activity {
 			public void onClick(View arg0) {
 				LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-				LocationListener myLocationListener=new LocationListener() {
+				LocationListener myLocationListener = new LocationListener() {
 					public void onLocationChanged(Location loc) {
 						//sets and displays the lat/long when a location is provided
 						String latlong = "Lat: " + loc.getLatitude() + " Long: " + loc.getLongitude();   
@@ -133,7 +133,9 @@ public class HomeActivity extends Activity {
 
 				mlocProvider = locationManager.getBestProvider(hdCrit, true);
 
-				locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener);
+				// When switching between network and GPS, change AndroidManifest.xml ACCESS_COARSE_LOCATION (network) and ACCESS_FINE_LOCATION (gps)
+				//locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener);
+				locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
 				Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
 				locationManager.removeUpdates(myLocationListener);
 
