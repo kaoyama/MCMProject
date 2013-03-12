@@ -79,99 +79,61 @@ if($_SESSION['user'] === "guestOfKimi" ||
     header("Location: index.php");
             
 $user = $_SESSION['user'];
-$dbase = "test";
-$host = "localhost";
-    $cxn = mysql_connect($host) or die ("No connection possible");
+
+$host = "acadgpl.ucc.nau.edu";
+$dbuser = "kd268";                
+$password = "capstone";    
+$dbase = "kd268"; 
+
+$cxn = mysql_connect($host, $dbuser, $password) or die ("No connection possible");
     $dbr = mysql_select_db($dbase,$cxn)or die(mysql_error());
 
    if ($dbr == FALSE) 
        echo "<h6>DB Error: ".mysql_error($cxn)."</h6>";
    
 //get all merchants that have ads
-   $getAllAdMerchants = "SELECT merchant FROM advertisements";
-   $allAdMerchants = mysql_query($getAllAdMerchants, $cxn);
-   $allAdsMerchantList = '';
+   $getAllMerchants = "SELECT merchant FROM deals";
+   $allMerchants = mysql_query($getAllMerchants, $cxn);
+   $allMerchantList = '';
    //if there are none, no one has ads
-   if (mysql_num_rows($allAdMerchants) < 1){
-       $noAdMerchant = "No merchants have ads.";
+   if (mysql_num_rows($allMerchants) < 1){
+       $noMerchant = "No merchants have deals.";
    }
    else {
        //loop through to get array of  merchants
-       while($allAdRow = mysql_fetch_row($allAdMerchants))
+       while($allDealRow = mysql_fetch_row($allMerchants))
        {
-           $adMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$allAdRow[0]';", $cxn);
-           $currentAdMerchantName = mysql_fetch_row($adMerchantName);
-           $allAdsMerchantList = $allAdsMerchantList.$currentAdMerchantName[0]."#";
+           $merchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$allDealRow[0]';", $cxn);
+           $currentMerchantName = mysql_fetch_row($merchantName);
+           $allMerchantList = $allMerchantList.$currentMerchantName[0]."#";
        }
-   }
-   
-   //get all merchants that have coupons
-   $getAllCouponMerchants = "SELECT merchant FROM coupons;";
-   $allCouponMerchants = mysql_query($getAllCouponMerchants, $cxn);
-   $allCouponMerchantList = '';
-   //if there are none, no one has ads
-   if (mysql_num_rows($allCouponMerchants) < 1){
-       $noCouponMerchant = "No merchants have coupons.";
-   }
-   else {
-       //loop through to get array of  merchants
-       while($allCouponRow = mysql_fetch_row($allCouponMerchants))
-       {
-           $couponMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$allCouponRow[0]';", $cxn);
-           $currentCouponMerchantName = mysql_fetch_row($couponMerchantName);
-           $allCouponMerchantList = $allCouponMerchantList.$currentCouponMerchantName[0]."#";
-       }
-   }
-   
-   //get merchants that this user is subscribed to
-   $getAdMerchants = "SELECT * FROM subscribedForAds WHERE userName = '$user'";
-   $adMerchants = mysql_query($getAdMerchants, $cxn);
-   $adMerchantList = "";
-   $noAdMerchant="";
-   
-   //if there are none, no one has ads
-   if (mysql_num_rows($adMerchants) < 1){
-       $noAdMerchant = "You are not subscribed to get any ads from any merchants.";
-   }
-   else {
-       //loop through to get array of merchants
-       $adRow = mysql_fetch_row($adMerchants);
-       $i=0;
-       for ($i=1;$i < sizeof($adRow);$i++)
-       {
-           if ($adRow[$i] != "" && $adRow[$i] != null)
-           {
-               $getAdMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$adRow[$i]';", $cxn);
-               $currentAdMerchantName = mysql_fetch_row($getAdMerchantName);
-               $adMerchantList = $adMerchantList.$currentAdMerchantName[0]."#";
-           }
-       }
-   }
-   $getCouponMerchants = "SELECT * FROM subscribedForCoupons WHERE userName = '$user'";
-   $couponMerchants = mysql_query($getCouponMerchants, $cxn);
-   $couponMerchantList = "";
-   if (mysql_num_rows($couponMerchants) < 1)
-   {
-       $noCouponMerchant = "You are not subscribed to get any coupons from any merchants.";
-   }
-   else
-   {
-       //loop through to get array of merchants
-       $couponRow = mysql_fetch_row($couponMerchants);
-       $i=0;
-       for ($i=1;$i < sizeof($couponRow);$i++)
-       {
-           if ($couponRow[$i] != "" && $couponRow[$i] != null)
-           {
-               $getCouponMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$couponRow[$i]';", $cxn);
-               $currentCouponMerchantName = mysql_fetch_row($getCouponMerchantName);
-               $couponMerchantList = $couponMerchantList.$currentCouponMerchantName[0]."#";
-           }
-           
-       }
-      
    }
   
+   //get merchants that this user is subscribed to
+   $getMerchants = "SELECT * FROM subscribedForDeals WHERE userName = '$user'";
+   $dealMerchants = mysql_query($getMerchants, $cxn);
+   $dealMerchantList = "";
+   $nodealMerchant = "";
+   
+   //if there are none, no one has ads
+   if (mysql_num_rows($dealMerchants) < 1){
+       $nodealMerchant = "You are not subscribed to get any ads from any merchants.";
+   }
+   else {
+       //loop through to get array of merchants
+       $dealRow = mysql_fetch_row($dealMerchants);
+       $i=0;
+       for ($i=1;$i < sizeof($dealRow);$i++)
+       {
+           if ($dealRow[$i] != "" && $dealRow[$i] != null)
+           {
+               $getDealMerchantName = mysql_query("SELECT merchantName FROM merchants WHERE userName = '$dealRow[$i]';", $cxn);
+               $currentDealMerchantName = mysql_fetch_row($getDealMerchantName);
+               $dealMerchantList = $dealMerchantList.$currentDealMerchantName[0]."#";
+           }
+       }
+   }
+
 if (isset($_GET['run'])){
     //use post stuff
     //build sql query
@@ -266,7 +228,7 @@ if (isset($_GET['run'])){
 
 <?php
 //the save button will store information in session variables or array.
-//then it will trigger a refrest
+//then it will trigger a refresh
 //when the page is refreshed or left a php function will be called to store 
 //the info from the variables in the database.
 echo "
