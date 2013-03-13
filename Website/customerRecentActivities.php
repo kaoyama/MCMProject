@@ -53,16 +53,16 @@
 
             <h2>Your Recent Activities</h2>
             <?php
-            $host = "localhost";
+            $host = "acadgpl.ucc.nau.edu";
             $user = "kd268";                
             $password = "capstone";    
-            $dbase = "test";    
+            $dbase = "kd268";   
             
             session_start();
             include 'functions.php';
             checkUserSatus($_SESSION['user'], $_SESSION['userType']);
             
-            $cxn = mysql_connect($host) or die ("No connection possible");
+            $cxn = mysql_connect($host, $user, $password) or die ("No connection possible");
             
             // This code should select your database.  I've given it two chances to report
             // the error.  If it fails, check the database name or call ITS for help.
@@ -78,47 +78,77 @@
                 <a href='index.php'>Try Again?</a>";
              }
              else {
-                 //echo "username: $logInName <br/> pwd: $logInPwd";
-
-                 // Check the database for this username/pwd combo
-                 $sqlQuery = "SELECT merchant, purchaseTime, cost FROM customerTransactions 
-                             WHERE customer = '" . $_SESSION['user'] . "' 
-                             AND paid = TRUE OR cancelled = TRUE";
-
-                 $result = mysql_query($sqlQuery,$cxn);
-
-                 // no users with that login info
-                 if(mysql_num_rows($result) < 1)
+                 $getRecentActivities = "SELECT merchant, purchaseTime, cost, 
+                             paid, cancelled FROM customerTransactions 
+                             WHERE customer = '" . $_SESSION['user'] . "'";
+                 
+                 $recentActivities = mysql_query($getRecentActivities, $cxn);
+                 
+                 if(mysql_num_rows($recentActivities) < 1)
                  {
                      echo "You have no prior transactions.";
                  }
                  // otherwise let them into the site
                  else
                  {
-                     echo "<table>
-                     <tr>
-                     <td width='300'>
-                     Merchant
-                     </td>
-                     <td width='300'>
-                     Amount
-                     </td>
-                     <td width='300'>
-                     Time
-                     </td>
-                     </tr>";
-                     while($allTransactions = mysql_fetch_row($result))
+                     echo "<h3>Pending Transactions</h3>
+                         <table>
+                         <tr>
+                         <td width='300'>
+                         <b>Merchant</b>
+                         </td>
+                         <td width='300'>
+                         <b>Amount</b>
+                         </td>
+                         <td width='300'>
+                         <b>Time</b>
+                         </td>
+                         </tr>";
+                     $others = array();
+                     $i = 0;
+                     while($transaction = mysql_fetch_row($recentActivities))
                      {
-                         echo "<tr><td> $allTransactions[0] </td>
-                             <td> $allTransactions[1] </td>
-                                 <td> $allTransactions[2] </td></tr>";
+                         if(!$transaction[4] && !$transaction[3]) {
+                            echo "<tr><td> $transaction[0] </td>
+                                <td> $transaction[2] </td>
+                                    <td> $transaction[1] </td></tr>";
+                         }
+                         //echo mysql_num_rows($recentActivities);
+                         else {
+                             $others[$i] = array();
+                             $others[$i][0] = $transaction[0];
+                             $others[$i][2] = $transaction[2];
+                             $others[$i][1] = $transaction[1];
+                             $i++;
+                         }
                      }
+                     
                      echo "</table>";
+
+                    echo "<br/> 
+                        <h3>Completed Transactions</h3>
+                        <table>
+                        <tr>
+                        <td width='300'>
+                        <b>Merchant</b>
+                        </td>
+                        <td width='300'>
+                        <b>Amount</b>
+                        </td>
+                        <td width='300'>
+                        <b>Time</b>
+                        </td>
+                        </tr>";
+                    for($i = 0; $i < mysql_num_rows($recentActivities); $i++) {
+                        echo "<tr>
+                            <td> " . $others[$i][0] . "</td>
+                                <td>" .  $others[$i][2] . "</td>
+                                    <td>" . $others[$i][1] . "</td></tr>";
+                    }
+                    echo "</table>";
                  }
              }
             ?>
-
-        <hr>
         <footer>
             <p>MoneyClip Mobile 2012</p>
         </footer>

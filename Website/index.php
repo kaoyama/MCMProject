@@ -56,7 +56,7 @@
             session_start();
             //$user = $_SESSION['user'];
             //echo "$user";
-            if (!$_SESSION['user'])
+            if (!$_SESSION['user'] || $_SESSION['user'] === "GuestOfKimi")
             {
                 echo "<ul>
                         <li><a href='MCMcreateNewAccount.php'>Create Account -_-</a></li>
@@ -67,7 +67,10 @@
             else
             {
                 include 'functions.php';
-                displayCustomerMenu();            
+                if ($_SESSION['userType'] === "customer")
+                    displayCustomerMenu();            
+                if ($_SESSION['userType'] === "merchant")
+                    displayMerchantMenu();           
             }
             ?>
             <hr>

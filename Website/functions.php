@@ -8,7 +8,7 @@ echo "<ul>
             <li><a href='customerMerchantSettings.php'>Modify Merchant Settings</a></li>
             <li><a href='customerRecentActivities.php'>Recent Activities</a></li>
             <li><a href='customerCurrentLocation.php'>Input Current Location</a></li>
-            <li><a href='MCMlogOUt.php'>Log out</a></li>
+            <li><a href='MCMlogOut.php'>Log out</a></li>
         </ul>";
 }
 
