@@ -11,8 +11,8 @@
 
     <!-- Internet Services -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- GCM requires a Google account -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -74,7 +74,7 @@
         </activity>
         <activity android:name="app.localization.DealDetail" >
         </activity>
-
+        
         <!-- GCM Receiver -->
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
@@ -95,6 +95,10 @@
         <activity
             android:name="app.localization.SettingsLocalization"
             android:label="@string/title_activity_settings_localization" >
+        </activity>
+        <activity
+            android:name="app.localization.Location"
+            android:label="@string/title_activity_location" >
         </activity>
     </application>
 

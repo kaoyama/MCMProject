@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Location" >
+
+    <Button
+        android:id="@+id/updateLocationNetworkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/updateLocationNetworkButtonLabel" />
+    
+     <TextView
+        android:id="@+id/updateLocationNetworkLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NETWORK LABEL" />
+
+    <Button
+        android:id="@+id/updateLocationGPSButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/updateLocationGPSButtonLabel" />
+
+    <TextView
+        android:id="@+id/updateLocationGPSLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS LABEL" />
+
+</LinearLayout>

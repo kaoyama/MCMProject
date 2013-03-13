@@ -59,5 +59,10 @@
     <string name="title_activity_deal_detail">DealDetail</string>
     <string name="dealTitle">Title</string>
     <string name="dealContent">Deal Content</string>
+    <string name="title_activity_location">Location</string>
+    
+    <!-- Location -->
+    <string name="updateLocationNetworkButtonLabel">Update Location using Network Provider</string>
+    <string name="updateLocationGPSButtonLabel">Update location using GPS</string>
 
 </resources>
