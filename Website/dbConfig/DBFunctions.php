@@ -1,6 +1,6 @@
 <?php
  
-class DB_Connect {
+class DBFunctions {
  
     // constructor
     function __construct() {
@@ -27,6 +27,29 @@ class DB_Connect {
     // Closing database connection
     public function close() {
         mysql_close();
+    }
+    
+    // with error messages
+    public function query($queryStr) {
+        $result = mysql_query($queryStr);
+        
+        if (mysql_errno()) { 
+            header("HTTP/1.1 500 Internal Server Error");
+            echo $query.'<br>';
+            echo mysql_error(); 
+        }
+        else
+        {
+            return $result;
+        }
+    }
+    
+    public function resultToJson($res) {
+        $rows = array();
+        while($r = mysql_fetch_assoc($res)) {
+            $rows[] = $r;
+        }
+        return json_encode($rows);
     }
  
 } 

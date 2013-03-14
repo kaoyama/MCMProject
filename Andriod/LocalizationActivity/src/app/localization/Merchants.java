@@ -6,11 +6,13 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -79,7 +81,17 @@ public class Merchants extends Activity {
 	}
 
 	public void getMerchants() {
-		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.NEARBYMERCHANTS_URL, null);
+		
+		String username = CommonUtilities.getUsername(Merchants.this); 
+		JSONObject jsonIn = new JSONObject();
+		
+		try {
+			jsonIn.put("userName", username);
+		} catch (Exception e) {
+			Log.v("Merchants", "JSON Exception");
+		}
+		
+		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.NEARBYMERCHANTS_URL, jsonIn);
 		
 		if (jsonArray != null) {
 			

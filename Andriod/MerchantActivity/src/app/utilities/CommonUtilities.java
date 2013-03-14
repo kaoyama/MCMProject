@@ -1,5 +1,8 @@
 package app.utilities;
 
+import java.io.FileInputStream;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -12,6 +15,7 @@ public final class CommonUtilities {
     public static final String USERNOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
     public static final String UPDATEUSERLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
     public static final String NEARBYMERCHANTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php";
+    public static final String NEARBYCUSTOMERS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNearbyCustomers.php";
     public static final String LOGIN_URL = "http://dana.ucc.nau.edu/~cs854/PHPValidateLogin.php";
     public static final String NOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNotifications.php";
     public static final String PAYMENTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetUserTransactions.php";
@@ -51,4 +55,23 @@ public final class CommonUtilities {
         intent.putExtra(EXTRA_MESSAGE, message);
         context.sendBroadcast(intent);
     }*/
+    
+    public static String getUsername(Context context) {
+    	String tempUserName = "";
+    	
+    	try {
+    		FileInputStream fis = context.openFileInput("username_file");
+    		StringBuffer sb = new StringBuffer("");
+    		int ch;
+    		while((ch = fis.read())!= -1){
+    			sb.append((char)ch);
+    		}
+    		fis.close();
+    		tempUserName = sb.toString();
+    	} catch (Exception e) {
+    		CustomDialog cd = new CustomDialog((Activity)context); 
+    		cd.showNotificationDialog("Could not get username.");
+    	}
+    	return tempUserName;
+    }
 }

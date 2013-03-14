@@ -80,10 +80,10 @@ containing a value of this type.
         public static final int textView4=0x7f0a0012;
         public static final int txtEmail=0x7f0a001f;
         public static final int txtName=0x7f0a001e;
-        public static final int updateLocationGPSButton=0x7f0a000f;
+        public static final int updateLocationGPSButton=0x7f0a0010;
         public static final int updateLocationGPSLabel=0x7f0a0011;
         public static final int updateLocationNetworkButton=0x7f0a000e;
-        public static final int updateLocationNetworkLabel=0x7f0a0010;
+        public static final int updateLocationNetworkLabel=0x7f0a000f;
         public static final int username=0x7f0a0013;
     }
     public static final class layout {

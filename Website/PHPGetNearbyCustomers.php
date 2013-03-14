@@ -1,40 +1,32 @@
 <?php
 
-$databasehost = "acadgpl.ucc.nau.edu";
-$databasename = "kd268";
-$databaseusername ="kd268";
-$databasepassword = "capstone";
-$lat = 35170000;
-$lon = -111600000;
+include_once './dbConfig/DBFunctions.php';
+$db = new DBFunctions();     
+$db->connect();
+    
+$json = file_get_contents('php://input');
+$obj = json_decode($json);
 
-// Connect to the database
-$con = mysql_connect($databasehost,$databaseusername,$databasepassword) 
-        or die(mysql_error());
-mysql_select_db($databasename) or die(mysql_error());
+$merchantName = $obj->{'userName'};
+$mil = 1000000.0;
+$R = 6371;          // radius of Earth (km)
+$maxDist = 1; //0.01;    // 10 m 
 
-// Set 'charged' variable to false for everyone in the table 
-$query = "UPDATE kd268.customers SET charged = FALSE";
-$res = mysql_query($query); 
-        
-// Get all users
-// TODO: Get all users within a certain radius 
-$query = "SELECT `userName` FROM `kd268`.`customers` WHERE `currentLat` BETWEEN '" . 
-        ($lat - 10000) . "' AND '" . ($lat + 10000) ."' AND `currentLon` BETWEEN '" . 
-        ($lon - 100000) . "' AND '" . ($lon + 100000) . "'";
-//echo $query;
-$sth = mysql_query($query); 
+// retrieve location of merchant from database
+$query = "SELECT latitude, longitude FROM kd268.merchantLocations WHERE ".
+        "merchantUserName = '$merchantName'";
+$res = $db->query($query); 
+$merchantLat = mysql_result($res, 0, 'latitude')/$mil; 
+$merchantLon = mysql_result($res, 0, 'longitude')/$mil;  
 
-if (mysql_errno()) { 
-    header("HTTP/1.1 500 Internal Server Error");
-    echo $query.'<br>';
-    echo mysql_error(); 
-}
-else
-{
-    $rows = array();
-    while($r = mysql_fetch_assoc($sth)) {
-        $rows[] = $r;
-    }
-    print json_encode($rows);
-}
+// retrieve merchants within 10 m
+$query = "SELECT * ," . 
+        "($R * ACOS(COS(RADIANS($merchantLat)) * COS(RADIANS(currentLat/$mil)) * " . 
+        "COS(RADIANS(currentLon/$mil) - RADIANS($merchantLon)) + " . 
+        "SIN(RADIANS($merchantLat)) * SIN(RADIANS(currentLat/$mil)))) " . 
+        "AS distance FROM kd268.customers HAVING distance < $maxDist " . 
+        "ORDER BY distance";
+
+$result = $db->query($query); 
+print $db->resultToJson($result); 
 ?>

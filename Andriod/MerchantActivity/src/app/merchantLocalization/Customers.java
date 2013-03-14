@@ -45,8 +45,10 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
+import app.merchantLocalization.R;
+import app.utilities.CommonUtilities;
+import app.utilities.CustomDialog;
+import app.utilities.RestClient;
 
 
 /**
@@ -75,14 +77,21 @@ public class Customers extends Activity {
 	
 	LinearLayout customerLayout;
 	
+	List<String> listContents; 
+	ListView myListView; 
+	ArrayAdapter<String> adapter;
+	
 	Customers currentThis = this; 
 	
 	static int TIMEOUT_MILLISEC = 3000; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.customers);
+		
+		// initialize list view
+		listContents = new ArrayList<String>();
+		myListView = (ListView)findViewById(R.id.customerList);
 		
 		customerLayout = (LinearLayout)findViewById(R.id.customerLayout);
 		
@@ -93,9 +102,56 @@ public class Customers extends Activity {
 	 * Connect to webservice (database) 
 	 */
 	public void getData() {
-		new LongRunningGetIO().execute(); 
+		getCustomers(); 
 	}
+	
+	public void getCustomers() {
+		
+		String username = CommonUtilities.getUsername(Customers.this); 
+		JSONObject jsonIn = new JSONObject();
+		
+		try {
+			jsonIn.put("userName", username);
+		} catch (Exception e) {
+			Log.v("Merchants", "JSON Exception");
+		}
+		
+		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.NEARBYCUSTOMERS_URL, jsonIn);
+		
+		if (jsonArray != null) {
+			
+			runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+											
+					try {							
+					    listContents = new ArrayList<String>(jsonArray.length());
 
+						for (int i = 0; i < jsonArray.length(); i++) {
+							listContents.add(jsonArray.getJSONObject(i).getString("userName")); 								
+						}	
+						
+					} catch (JSONException e) {
+						CustomDialog cd = new CustomDialog(Customers.this); 
+						cd.showNotificationDialog(e.getMessage()); 
+					}
+					
+					adapter = new ArrayAdapter<String>(currentThis, 
+							android.R.layout.simple_list_item_1, listContents); 
+					adapter.setNotifyOnChange(true); 
+					myListView.setAdapter(adapter); 
+				}
+			});
+			
+		} else {
+			CustomDialog cd = new CustomDialog(Customers.this); 
+			cd.showNotificationDialog("Customer list is empty.");
+		}
+		
+	}
+	
+	/*
 	private class LongRunningGetIO extends AsyncTask <Void, Void, String> {
 
 		protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
@@ -146,10 +202,10 @@ public class Customers extends Activity {
 					public void run() {
 						// EditText et = (EditText)findViewById(R.id.databaseText);
 						// et.setText("Database connection worked!: " + results);
-						/**
-						 * Gets customers names from JSON and creates buttons that charge the users if 
-						 * pressed.
-						 */
+						
+						//Gets customers names from JSON and creates buttons that charge the users if 
+						// pressed.
+						 
 						try {							
 							JSONArray jsonArray = new JSONArray(results);
 
@@ -233,4 +289,5 @@ public class Customers extends Activity {
 			}
 		}
 	}
+	*/
 }

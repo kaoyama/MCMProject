@@ -98,68 +98,16 @@ public class HomeActivity extends Activity {
 		
 
 		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
-
-		//Listening to button event
-		gpsButton.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View arg0) {
-				LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-				LocationListener myLocationListener = new LocationListener() {
-					public void onLocationChanged(Location loc) {
-						//sets and displays the lat/long when a location is provided
-						String latlong = "Lat: " + loc.getLatitude() + " Long: " + loc.getLongitude();   
-						gpsButton.setText(latlong);
-					}
-
-					public void onProviderDisabled(String provider) {
-						// required for interface, not used
-					}
-
-					public void onProviderEnabled(String provider) {
-						// required for interface, not used
-					}
-
-					public void onStatusChanged(String provider, int status,
-							Bundle extras) {
-						// required for interface, not used
-					}
-				};
-
-				String mlocProvider;
-				Criteria hdCrit = new Criteria();
-
-				hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
-
-				mlocProvider = locationManager.getBestProvider(hdCrit, true);
-
-				// When switching between network and GPS, change AndroidManifest.xml ACCESS_COARSE_LOCATION (network) and ACCESS_FINE_LOCATION (gps)
-				//locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 1000, myLocationListener);
-				locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 1000, myLocationListener);
-				Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
-				locationManager.removeUpdates(myLocationListener);
-
-				double currentLat = currentLocation.getLatitude();
-				double currentLon = currentLocation.getLongitude();
-
-				gpsButton.setText(currentLat + ", " + currentLon);
-				
-				// Send latitude and longitude to database 
-				JSONObject json = new JSONObject();
-				try {
-					json.put("latitude", (int)(currentLat*MILLION)); 
-					json.put("longitude", (int)(currentLon*MILLION));
-					
-					RestClient.connectToDatabase(
-							CommonUtilities.UPDATEUSERLOCATION_URL, json);
-					
-				} catch (Exception e) {
-					CustomDialog dialog = new CustomDialog(HomeActivity.this);
-					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
-				}
-				
+		gpsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Starting a new intent
+				Intent locationScreen = new Intent(getApplicationContext(), app.localization.Location.class); 
+				startActivity(locationScreen); 				
 			}
 		});
+		
 		
 		Button dealsButton = (Button) findViewById(R.id.dealsButton); 
 		dealsButton.setOnClickListener(new View.OnClickListener() {

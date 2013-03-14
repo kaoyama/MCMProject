@@ -62,7 +62,7 @@
     <string name="title_activity_location">Location</string>
     
     <!-- Location -->
-    <string name="updateLocationNetworkButtonLabel">Update Location using Network Provider</string>
-    <string name="updateLocationGPSButtonLabel">Update location using GPS</string>
+    <string name="updateLocationNetworkButtonLabel">Update Location using Network (Cell Tower/Wi-Fi)</string>
+    <string name="updateLocationGPSButtonLabel">Update Location using GPS</string>
 
 </resources>
