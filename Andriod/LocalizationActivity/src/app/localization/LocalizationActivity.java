@@ -55,6 +55,7 @@ public class LocalizationActivity extends Activity {
 			json.put("userName", userName);
 			json.put("pwd", password);
 			json.put("customer", 1);
+			json.put("android", 1); 
 
 			jsonArray = RestClient.connectToDatabase(
 					CommonUtilities.LOGIN_URL, json);

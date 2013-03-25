@@ -1,16 +1,11 @@
 <?php
 
-
-$databasehost = "acadgpl.ucc.nau.edu";
-$databasename = "kd268";
-$databaseusername ="kd268";
-$databasepassword = "capstone";
-$currentUser = "chihi";
-
-// Connect to the database
-$con = mysql_connect($databasehost,$databaseusername,$databasepassword) 
-        or die(mysql_error());
-mysql_select_db($databasename) or die(mysql_error());
+include_once './dbConfig/DBFunctions.php';
+$db = new DBFunctions();     
+$db->connect();
+    
+$json = file_get_contents('php://input');
+$obj = json_decode($json);
     
 // response json
 $json = file_get_contents('php://input'); 

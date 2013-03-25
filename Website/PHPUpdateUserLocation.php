@@ -1,25 +1,18 @@
 <?php
 
-$userName = 'chihi';
-
-$databasehost = "acadgpl.ucc.nau.edu";
-$databasename = "kd268";
-$databaseusername ="kd268";
-$databasepassword = "capstone";
-
+include_once './dbConfig/DBFunctions.php';
+$db = new DBFunctions();     
+$db->connect();
+    
 $json = file_get_contents('php://input');
-
-
 $obj = json_decode($json);
-
-// connect to database 
-$con = mysql_connect($databasehost,$databaseusername,$databasepassword) 
-        or die(mysql_error());
-mysql_select_db($databasename) or die(mysql_error());
+$userName = $obj->{'userName'};
+$latitude = $obj->{'latitude'};
+$longitude = $obj->{'longitude'};
 
 // SQL query 
-mysql_query("UPDATE `kd268`.`customers` SET currentLat = '" . $obj->{'latitude'} . "' ," .
-    "currentLon = '" . $obj->{'longitude'} . "timestamp = now() ' WHERE userName = '" . $userName . "'");
+mysql_query("UPDATE kd268.customers SET currentLat = '$latitude' ," .
+    "currentLon = '$longitude' timestamp = now() ' WHERE userName = '$userName'");
     
 // close connection 
 mysql_close($con);

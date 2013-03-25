@@ -99,12 +99,14 @@ public class Location extends Activity {
 
 		double currentLat = currentLocation.getLatitude();
 		double currentLon = currentLocation.getLongitude();
-
+		String userName = CommonUtilities.getUsername(Location.this); 
+				
 		// Send latitude and longitude to database 
 		JSONObject json = new JSONObject();
 		try {
 			json.put("latitude", (int)(currentLat*MILLION)); 
 			json.put("longitude", (int)(currentLon*MILLION));
+			json.put("userName", userName); 
 
 			RestClient.connectToDatabase(
 					CommonUtilities.UPDATEUSERLOCATION_URL, json);
