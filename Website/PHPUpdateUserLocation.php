@@ -13,7 +13,7 @@ $longitude = $obj->{'longitude'};
 // SQL query 
 mysql_query("UPDATE kd268.customers SET currentLat = '$latitude' ," .
     "currentLon = '$longitude' timestamp = now() ' WHERE userName = '$userName'");
-    
+
 // close connection 
 mysql_close($con);
 
