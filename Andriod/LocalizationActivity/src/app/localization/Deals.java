@@ -194,6 +194,8 @@ public class Deals extends Activity {
 						Boolean.getBoolean(jsonObj.getString("accepted")),
 						Boolean.getBoolean(jsonObj.getString("enabled")));								
 			}
+			
+			db.close(); 
 		} catch (Exception e) {
 			Log.v(Deals.class.getName(), "Exception while saving to database:\n" +
 					e.getMessage()); 
