@@ -138,8 +138,8 @@ if (isset($_GET['run'])){
     //use post stuff
     //build sql query
     echo "Got here?";
-    if ($_GET['run'] === "saveCouponData")
-    $saveQuery = "INSERT INTO subscribedForCoupon";
+    if ($_GET['run'] === "saveDealData")
+    $saveQuery = "INSERT INTO subscribedForDeals";
     foreach ($_POST as $field => $value) {
         echo "$field";
     }
