@@ -18,8 +18,8 @@ $con = mysql_connect($databasehost,$databaseusername,$databasepassword)
 mysql_select_db($databasename) or die(mysql_error());
 
 // SQL query 
-mysql_query("UPDATE `kd268`.`customers` SET currentLat = '" . $obj->{'latitude'} . "' ," .
-    "currentLon = '" . $obj->{'longitude'} . "timestamp = now() ' WHERE userName = '" . $obj->{'userName'} . "'");
+mysql_query("UPDATE `kd268`.`merchantLocations` SET latitude = '" . $obj->{'latitude'} . "' ," .
+    "longitude = '" . $obj->{'longitude'} . "' WHERE merchantUserName = '" . $obj->{'userName'} . "'");
     
 // close connection 
 mysql_close($con);
