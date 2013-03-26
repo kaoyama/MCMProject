@@ -10,9 +10,15 @@ $userName = $obj->{'userName'};
 $latitude = $obj->{'latitude'};
 $longitude = $obj->{'longitude'};
 
+//$userName = 'kimi';
+//$latitude = "35000";
+//$longitude = "111111";
 // SQL query 
-mysql_query("UPDATE kd268.customers SET currentLat = '$latitude' ," .
-    "currentLon = '$longitude' timestamp = now() ' WHERE userName = '$userName'");
+$query = "UPDATE kd268.customers SET currentLat = '$latitude' ," .
+    "currentLon = '$longitude', timestamp = now() WHERE userName = '$userName'";
+
+$result = $db->query($query); 
+print $db->resultToJson($result); 
 
 // close connection 
 mysql_close($con);
