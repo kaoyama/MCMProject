@@ -74,7 +74,7 @@
         </activity>
         <activity android:name="app.localization.DealDetail" >
         </activity>
-        <activity android:name="app.localization.Location">
+        <activity android:name="app.localization.LocationActivity">
         </activity>
         
         <!-- GCM Receiver -->

@@ -122,7 +122,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// Starting a new intent
-				Intent locationScreen = new Intent(getApplicationContext(), app.localization.Location.class); 
+				Intent locationScreen = new Intent(getApplicationContext(), app.localization.LocationActivity.class); 
 				startActivity(locationScreen); 				
 			}
 		});
