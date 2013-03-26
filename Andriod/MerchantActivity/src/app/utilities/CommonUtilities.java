@@ -23,6 +23,7 @@ public final class CommonUtilities {
     public static final String ADS_URL = "http://dana.ucc.nau.edu/~cs854/PHPManageAds.php";
     public static final String MERCHANTDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsForMerchant.php";
     public static final String TOGGLEDEALSTATUS_URL = "http://dana.ucc.nau.edu/~cs854/PHPtoggleDealStatus.php";
+    public static final String CHARGECUSTOMER_URL = "http://dana.ucc.nau.edu/~cs854/PHPAddUserTransaction.php";
     
     // Google project id
     public static final String SENDER_ID = "901660126123"; 
@@ -36,7 +37,6 @@ public final class CommonUtilities {
             "app.localization.DISPLAY_MESSAGE";
 
     public static final String EXTRA_MESSAGE = "message";
-
 
 
 

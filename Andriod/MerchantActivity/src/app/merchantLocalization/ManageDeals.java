@@ -103,7 +103,7 @@ public class ManageDeals extends Activity {
 				tempEnabled = enabled;
 				
 				TextView showDeal = new TextView(currentThis);
-				showDeal.setText("Deal Title: " + title + "\n\n");
+				showDeal.setText(title + "\n\n");
 				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				TableRow tempTableRow=new TableRow(getBaseContext());
 				final Button tempButton= new Button(this);

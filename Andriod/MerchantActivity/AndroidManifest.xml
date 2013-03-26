@@ -31,6 +31,8 @@
         </activity>
         <activity android:name="app.merchantLocalization.ManageDeals">
         </activity>
+        <activity android:name="app.merchantLocalization.ChargeCustomer">
+        </activity>
     </application>
 
 </manifest>

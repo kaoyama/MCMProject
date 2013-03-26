@@ -1,6 +1,7 @@
 package app.utilities;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import app.merchantLocalization.R;
@@ -36,4 +37,5 @@ public class AlertDialogManager {
 		// Showing Alert Message
 		alertDialog.show();
 	}
+	
 }

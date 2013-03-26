@@ -41,11 +41,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import app.merchantLocalization.R;
+import app.utilities.AlertDialogManager;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
@@ -77,8 +79,6 @@ public class Customers extends Activity {
 	
 	LinearLayout customerLayout;
 	
-	List<String> listContents; 
-	ListView myListView; 
 	ArrayAdapter<String> adapter;
 	
 	Customers currentThis = this; 
@@ -90,25 +90,33 @@ public class Customers extends Activity {
 		setContentView(R.layout.customers);
 		
 		// initialize list view
-		listContents = new ArrayList<String>();
-		myListView = (ListView)findViewById(R.id.customerList);
+		//listContents = new ArrayList<String>();
 		
 		customerLayout = (LinearLayout)findViewById(R.id.customerLayout);
 		
-		getData(); 
-	}
-
-	/**
-	 * Connect to webservice (database) 
-	 */
-	public void getData() {
+		//Sets up a title for each column
+				TableRow tempTableRow=new TableRow(getBaseContext());
+				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+				tempTableRow.setLayoutParams(lp);
+				//Create the titles for the columns	
+				TextView titleView = new TextView(this);
+				titleView.setText("Customer: ");
+				TextView optionsView = new TextView(this);
+				optionsView.setText("Options:");
+				//Adds TextViews to columns
+				tempTableRow.addView(titleView);
+				tempTableRow.addView(optionsView);
+				
+				customerLayout.addView(tempTableRow);
+		
 		getCustomers(); 
 	}
-	
+
 	public void getCustomers() {
 		
 		String username = CommonUtilities.getUsername(Customers.this); 
 		JSONObject jsonIn = new JSONObject();
+		
 		
 		try {
 			jsonIn.put("userName", username);
@@ -126,10 +134,26 @@ public class Customers extends Activity {
 				public void run() {
 											
 					try {							
-					    listContents = new ArrayList<String>(jsonArray.length());
 
 						for (int i = 0; i < jsonArray.length(); i++) {
-							listContents.add(jsonArray.getJSONObject(i).getString("userName")); 								
+							final String customerName = jsonArray.getJSONObject(i).getString("userName");
+							TextView showCustomer = new TextView(currentThis);
+							showCustomer.setText(customerName + "\n\n");
+							LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+							TableRow tempTableRow=new TableRow(getBaseContext());
+							final Button tempButton= new Button(Customers.this);
+							tempButton.setText("Charge");
+							tempButton.setOnClickListener(new View.OnClickListener(){
+								public void onClick(View arg0) {
+									Intent chargeScreen = new Intent(getApplicationContext(), ChargeCustomer.class);
+									chargeScreen.putExtra("customerName", customerName);
+									startActivity(chargeScreen);
+								}
+							});
+							tempTableRow.setLayoutParams(lp);
+							tempTableRow.addView(showCustomer);
+							tempTableRow.addView(tempButton);
+							customerLayout.addView(tempTableRow,lp);
 						}	
 						
 					} catch (JSONException e) {
@@ -137,10 +161,6 @@ public class Customers extends Activity {
 						cd.showNotificationDialog(e.getMessage()); 
 					}
 					
-					adapter = new ArrayAdapter<String>(currentThis, 
-							android.R.layout.simple_list_item_1, listContents); 
-					adapter.setNotifyOnChange(true); 
-					myListView.setAdapter(adapter); 
 				}
 			});
 			
