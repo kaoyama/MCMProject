@@ -39,5 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
         android:text="@string/stopUpdatingLocationButtonlabel" />
+    
+    <Button
+        android:id="@+id/goingAwayButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="@string/goingAwayButtonLabel" />
 
 </LinearLayout>

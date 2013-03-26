@@ -81,6 +81,7 @@ public class HomeActivity extends Activity {
 				
 				//TODO: COMMENT OUT LATER
 				//*************
+				/*
 				JSONObject jsonIn = new JSONObject();
 				
 				try {
@@ -94,7 +95,7 @@ public class HomeActivity extends Activity {
 				
 				final JSONArray jsonArray = RestClient.connectToDatabase(
 						"http://dana.ucc.nau.edu/~cs854/PHPAddUserTransaction.php", jsonIn);
-				
+				*/
 				//***************
 				
 				// Starting a new intent

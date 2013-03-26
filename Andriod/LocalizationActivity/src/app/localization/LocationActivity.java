@@ -99,6 +99,34 @@ public class LocationActivity extends Activity {
 				locationManager.removeUpdates(myLocationListener);
 			}
 		});
+		
+		// Go away -- for testing purposes.  Take out for final.
+		Button goAwayButton = (Button) findViewById(R.id.goingAwayButton);
+		goAwayButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// stop updating location
+				
+				Toast t = Toast.makeText(LocationActivity.this, "Going away...and away...", Toast.LENGTH_LONG); 
+				t.show(); 
+				
+				// Update database with zero values
+				JSONObject json = new JSONObject();
+				try {
+					json.put("latitude", 0); 
+					json.put("longitude", 0);
+					json.put("userName", CommonUtilities.getUsername(LocationActivity.this)); 
+
+					RestClient.connectToDatabase(
+							CommonUtilities.UPDATEUSERLOCATION_URL, json);
+
+				} catch (Exception e) {
+					CustomDialog dialog = new CustomDialog(LocationActivity.this);
+					dialog.showNotificationDialog("Error updating user latitude and longitude in database");
+				}
+			}
+		});
 	}
 
 	/**

@@ -65,5 +65,6 @@
     <string name="updateLocationNetworkButtonLabel">Update Location using Network (Cell Tower/Wi-Fi)</string>
     <string name="updateLocationGPSButtonLabel">Update Location using GPS</string>
     <string name="stopUpdatingLocationButtonlabel">Stop Updating Location</string>
+    <string name="goingAwayButtonLabel">Go away</string>
 
 </resources>
