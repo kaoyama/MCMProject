@@ -78,6 +78,25 @@ public class HomeActivity extends Activity {
 		Button merchantButton = (Button) findViewById(R.id.merchantButton);
 		merchantButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
+				
+				//TODO: COMMENT OUT LATER
+				//*************
+				JSONObject jsonIn = new JSONObject();
+				
+				try {
+					jsonIn.put("customer", CommonUtilities.getUsername(HomeActivity.this));
+					jsonIn.put("merchant", "bar");
+					jsonIn.put("cost", "20");
+					jsonIn.put("productIndex", "stuff"); 
+				} catch (Exception e) {
+					Log.v("Merchants", "JSON Exception");
+				}
+				
+				final JSONArray jsonArray = RestClient.connectToDatabase(
+						"http://dana.ucc.nau.edu/~cs854/PHPAddUserTransaction.php", jsonIn);
+				
+				//***************
+				
 				// Starting a new intent
 				Intent merchantScreen = new Intent(getApplicationContext(), Merchants.class);
 				startActivity(merchantScreen); 

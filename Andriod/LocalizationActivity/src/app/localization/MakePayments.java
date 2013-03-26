@@ -88,7 +88,7 @@ public class MakePayments extends Activity {
 				if(paid.equals("0") && cancelled.equals("0")){
 					count++; // increment count to keep track of number of buttons
 					Button tempButton = new Button(currentThis);
-					tempButton.setText(merchant + " requests payment for: " + productIndex);
+					tempButton.setText(merchant + " requests payment for $" + cost);
 					tempButton.setOnClickListener(new View.OnClickListener(){
 
 						public void onClick(View arg0) {
@@ -110,7 +110,7 @@ public class MakePayments extends Activity {
 										
 										// show notification that payment has been made
 										Toast toast = Toast.makeText(MakePayments.this, 
-												"You have successfully paid " + merchant + " for " + productIndex + ".",
+												"You have successfully paid " + merchant + " $" + cost + ".",
 												Toast.LENGTH_LONG); 
 										toast.show(); 
 

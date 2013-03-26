@@ -84,7 +84,7 @@ public class ManageDeals extends Activity {
 			json.put("merchant", userName);
 
 			jsonArray = RestClient.connectToDatabase(
-					CommonUtilities.MerchantDeals_URL, json);
+					CommonUtilities.MERCHANTDEALS_URL, json);
 			
 		} catch (Exception e) {
 			CustomDialog cd3 = new CustomDialog(ManageDeals.this); 
