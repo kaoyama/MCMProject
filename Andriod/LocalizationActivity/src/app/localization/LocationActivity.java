@@ -43,8 +43,8 @@ public class LocationActivity extends Activity {
 			public void onProviderEnabled(String provider) {}
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
-				Toast t = Toast.makeText(LocationActivity.this, "Status changed", Toast.LENGTH_LONG); 
-				t.show(); 
+				//Toast t = Toast.makeText(LocationActivity.this, "Status changed", Toast.LENGTH_SHORT); 
+				//t.show(); 
 			}
 
 			@Override
@@ -53,7 +53,7 @@ public class LocationActivity extends Activity {
 				//sets and displays the lat/long when a location is provided
 				//String latlong = "Lat: " + loc.getLatitude() + " Long: " + loc.getLongitude();   
 				//gpsButton.setText(latlong);
-				Toast t = Toast.makeText(LocationActivity.this, "Updating location", Toast.LENGTH_LONG); 
+				Toast t = Toast.makeText(LocationActivity.this, "Updating location", Toast.LENGTH_SHORT); 
 				t.show(); 
 				Log.d("Location", "Updating location: " + arg0.getLatitude() + ", " + arg0.getLongitude()); 
 				
@@ -94,9 +94,9 @@ public class LocationActivity extends Activity {
 			public void onClick(View v) {
 				// stop updating location
 				
-				Toast t = Toast.makeText(LocationActivity.this, "Stop location updates", Toast.LENGTH_LONG); 
-				t.show(); 
 				locationManager.removeUpdates(myLocationListener);
+				Toast t = Toast.makeText(LocationActivity.this, "Stop location updates", Toast.LENGTH_SHORT); 
+				t.show(); 
 			}
 		});
 		
@@ -158,13 +158,13 @@ public class LocationActivity extends Activity {
 					myLocationListener);
 		}
 		
-		/*
+		
+		// TODO: Remove for update automatically 
 		Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
 		locationManager.removeUpdates(myLocationListener);
-
-		double currentLat = currentLocation.getLatitude();
-		double currentLon = currentLocation.getLongitude();
-		*/
+		
+		useNewLocation(currentLocation); 
+		
 	}
 
 

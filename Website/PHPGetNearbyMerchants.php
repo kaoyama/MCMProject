@@ -10,7 +10,7 @@ $obj = json_decode($json);
 $currentUser = $obj->{'userName'};
 $mil = 1000000.0; 
 $R = 6371;      // radius of Earth (km)
-$maxDist = 1;  // 1 km
+$maxDist = 0.5;  // 1 km
 
 // retrieve current location of user from database
 $query = "SELECT currentLat, currentLon FROM kd268.customers WHERE ".
