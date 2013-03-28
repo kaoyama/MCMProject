@@ -10,7 +10,7 @@ $obj = json_decode($json);
 $merchantName = $obj->{'userName'};
 $mil = 1000000.0;
 $R = 6371;          // radius of Earth (km)
-$maxDist = 0.01; //0.01;    // 10 m 
+$maxDist = 0.025; //0.01;    // 10 m 
 
 // retrieve location of merchant from database
 $query = "SELECT latitude, longitude FROM kd268.merchantLocations WHERE ".
