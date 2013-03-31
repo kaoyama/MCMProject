@@ -9,8 +9,6 @@ $json = file_get_contents('php://input');
 $obj = json_decode($json);
 $userName = $obj->{'userName'};
 
-$userName="kimi";
-
 $mil = 1000000.0;
 $R = 6371;          // radius of Earth (km)
 $maxDist = 0.025; //0.01;    // 10 m 

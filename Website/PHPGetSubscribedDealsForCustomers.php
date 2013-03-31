@@ -7,7 +7,6 @@ $db->connect();
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
 $currentUser = $obj->{'userName'};
-$currentUser = 'chihi';
 
 // subscribed merchants
 $query = "SELECT * FROM kd268.subscribeForDeals WHERE customer = '$currentUser'";
