@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".Location" >
 
     <Button
-        android:id="@+id/manageAds"
+        android:id="@+id/updateLocationNetworkButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Manage Advertisements" /> 
+        android:text="Update Location using Network" />
     
-    <Button 
-        android:id="@+id/customersButton"
+     <TextView
+        android:id="@+id/updateLocationNetworkLabel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="List Customers" />
+        android:text="NETWORK LABEL" />
+
+    <Button
+        android:id="@+id/updateLocationGPSButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="Update Using GPS" />
+
+    <TextView
+        android:id="@+id/updateLocationGPSLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="GPS LABEL" />
     
     <Button
-        android:id="@+id/accountSettingsButton"
+        android:id="@+id/stopUpdatingLocationButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:text="Account Settings" />
-    
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Log Out" />
-    
-    <Button
-        android:id="@+id/gpsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/settingsButton"
-        android:layout_below="@+id/settingsButton"
-        android:text="Location Button" />
+        android:text="Stop Updating" />
 
 </LinearLayout>

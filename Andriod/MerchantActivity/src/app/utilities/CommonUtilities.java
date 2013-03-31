@@ -13,7 +13,7 @@ public final class CommonUtilities {
     
     public static final String REGISTRATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRegisterNewUser.php"; 
     public static final String USERNOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
-    public static final String UPDATEUSERLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
+    public static final String UPDATEMERCHANTLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateMerchantLocation.php";
     public static final String NEARBYMERCHANTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNearbyMerchants.php";
     public static final String NEARBYCUSTOMERS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetNearbyCustomers.php";
     public static final String LOGIN_URL = "http://dana.ucc.nau.edu/~cs854/PHPValidateLogin.php";
@@ -37,7 +37,6 @@ public final class CommonUtilities {
             "app.localization.DISPLAY_MESSAGE";
 
     public static final String EXTRA_MESSAGE = "message";
-
 
 
     /**

@@ -22,6 +22,17 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
+		gpsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Starting a new intent
+				Intent locationScreen = new Intent(getApplicationContext(), app.merchantLocalization.LocationActivity.class); 
+				startActivity(locationScreen); 				
+			}
+		});
+		
 		Button logoutButton = (Button) findViewById(R.id.logoutButton);
 
 		//Listening to button event
