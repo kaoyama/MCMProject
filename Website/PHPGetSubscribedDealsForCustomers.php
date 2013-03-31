@@ -7,6 +7,7 @@ $db->connect();
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
 $currentUser = $obj->{'userName'};
+$currentUser = 'chihi';
 
 // subscribed merchants
 $query = "SELECT * FROM kd268.subscribeForDeals WHERE customer = '$currentUser'";
@@ -17,42 +18,18 @@ while($r = mysql_fetch_assoc($res)) {
     $merchant = $r['merchant'];
 
     // query all ads/coupons from subscribed merchants 
-    $query = "SELECT dealIndex FROM kd268.deals WHERE merchant = '$merchant' AND enabled = TRUE";
+    $query = "SELECT dealIndex FROM kd268.deals WHERE merchant = '$merchant' AND enabled = TRUE";    
     $dealsRes = mysql_query($query); 
+    
+    // for all deals that is from the specific merchant, add to table
     while ($deal = mysql_fetch_assoc($dealsRes)) {
+        $dealIndex = $deal['dealIndex'];
         // add the deals from each subscribed merchants to the database
         $query = "INSERT INTO kd268.customerDeals (userName, dealIndex) VALUES ".
             "('$currentUser', '$dealIndex')";
                 
-                $allDeals = mysql_query($query); 
-    
         $allDeals = mysql_query($query); 
     }
-    
-    
-    while($deal = mysql_fetch_assoc($allDeals)) {
-        $rows[] = $deal;
-    }
-    
 }
-
-
- 
-
-$rows = array(); 
-while($r = mysql_fetch_assoc($res)) {
-    $merchant = $r['merchant'];
-    
-    // of these merchants, pull ones that are nearby based on customer location
-    
-    // query all ads/coupons from subscribed merchants 
-    $query = "SELECT * FROM kd268.deals WHERE merchant = '$merchant' AND enabled = TRUE";
-    $allDeals = mysql_query($query); 
-    while($deal = mysql_fetch_assoc($allDeals)) {
-        $rows[] = $deal;
-    }
-}
-
-print json_encode($rows); 
-
+// does not return anything
 ?>
