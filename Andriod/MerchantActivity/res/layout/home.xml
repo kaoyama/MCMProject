@@ -26,6 +26,13 @@
         android:text="Account Settings" />
     
     <Button
+        android:id="@+id/transactionsButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="Transactions" />
+    
+    <Button
         android:id="@+id/logoutButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -34,10 +41,9 @@
     
     <Button
         android:id="@+id/gpsButton"
-        android:layout_width="300dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/settingsButton"
-        android:layout_below="@+id/settingsButton"
+        android:layout_marginTop = "15dip"
         android:text="Location Button" />
 
 </LinearLayout>

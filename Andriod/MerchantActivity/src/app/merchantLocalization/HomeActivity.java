@@ -82,6 +82,16 @@ public class HomeActivity extends Activity {
 				startActivity(manageAdsScreen); 
 			}
 		});
-
+		
+		Button transactionsButton = (Button) findViewById(R.id.transactionsButton); 
+		
+		transactionsButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent transactionsScreen = new Intent(getApplicationContext(), Transactions.class); 
+				startActivity(transactionsScreen); 
+			}
+		});
 	}
 }

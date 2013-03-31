@@ -25,19 +25,20 @@ public final class R {
         public static final int editName=0x7f070002;
         public static final int editPassword=0x7f070006;
         public static final int editUsername=0x7f070004;
-        public static final int gpsButton=0x7f070011;
+        public static final int gpsButton=0x7f070012;
         public static final int homeButton=0x7f070009;
         public static final int loginButton=0x7f07001a;
-        public static final int logoutButton=0x7f070010;
+        public static final int logoutButton=0x7f070011;
         public static final int manageAds=0x7f07000d;
-        public static final int menu_settings=0x7f07001c;
+        public static final int menu_settings=0x7f07001d;
         public static final int password=0x7f070019;
-        public static final int settingsButton=0x7f070012;
         public static final int stopUpdatingLocationButton=0x7f070017;
         public static final int tableRow1=0x7f070001;
         public static final int tableRow2=0x7f070003;
         public static final int tableRow3=0x7f070005;
         public static final int tableRow4=0x7f070007;
+        public static final int transactionsButton=0x7f070010;
+        public static final int transactionsList=0x7f07001c;
         public static final int updateLocationGPSButton=0x7f070015;
         public static final int updateLocationGPSLabel=0x7f070016;
         public static final int updateLocationNetworkButton=0x7f070013;
@@ -52,14 +53,17 @@ public final class R {
         public static final int location=0x7f030004;
         public static final int main=0x7f030005;
         public static final int managedeals=0x7f030006;
+        public static final int transactions=0x7f030007;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
+        public static final int transactions=0x7f060001;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040002;
+        public static final int title_activity_transactions=0x7f040003;
     }
     public static final class style {
         /** 
