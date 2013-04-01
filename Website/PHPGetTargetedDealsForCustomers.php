@@ -43,7 +43,7 @@ $query = "SELECT dealIndex ," .
         "COS(RADIANS(targetLon/$mil) - RADIANS($userLon)) + " . 
         "SIN(RADIANS($userLat)) * SIN(RADIANS(targetLat/$mil)))) " . 
         "AS distance FROM kd268.deals WHERE targetGender='" . 
-        $gender . "' AND student=" . $studentStatus . " AND minAge<=" . 
+        $gender . "' OR 'B' AND student=" . $studentStatus . " AND minAge<=" . 
         $age . " AND maxAge>=" . $age . " AND accepted=TRUE AND enabled=TRUE" .
         " HAVING distance < $maxDist " . "ORDER BY distance";
 
@@ -57,5 +57,7 @@ while($r = mysql_fetch_row($result)) {
         VALUES('$dealIndex','$userName')";    
     $dealsRes = mysql_query($query); 
 }
+
+print $db->resultToJson($dealsRes); 
 //does not return anything
 ?>
