@@ -9,7 +9,7 @@ $obj = json_decode($json);
 $userName = $obj->{'userName'};
 
 // subscribed merchants
-$query = "SELECT dealIndex FROM kd268.customerDeals WHERE userName = '$userName' AND redeemed='0'";
+$query = "SELECT dealIndex FROM kd268.customerDeals WHERE userName = '$userName' AND redeemed='0' AND sent='0'";
 $result = mysql_query($query);
 
 $row = array();
