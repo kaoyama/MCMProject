@@ -9,21 +9,23 @@ $obj = json_decode($json);
 $currentUser = $obj->{'userName'};
 
 // subscribed merchants
-$query = "SELECT * FROM kd268.subscribeForDeals WHERE customer = '$currentUser'";
-$res = mysql_query($query); 
+$query = "SELECT dealIndex FROM kd268.customerDeals WHERE userName = '$userName' AND redeemed='0'";
+$result = $db->query($query); 
+$row = array();
 
-$rows = array(); 
-while($r = mysql_fetch_assoc($res)) {
-    $merchant = $r['merchant'];
-    
+// add deals from each subscribed merchants to the list
+while($r = mysql_fetch_assoc($result)) {
+    $dealIndex = $r['dealIndex'];
+
     // query all ads/coupons from subscribed merchants 
-    $query = "SELECT * FROM kd268.deals WHERE merchant = '$merchant' AND enabled = TRUE";
-    $allDeals = mysql_query($query); 
-    while($deal = mysql_fetch_assoc($allDeals)) {
-        $rows[] = $deal;
+    $query = "SELECT title, content, merchant FROM kd268.deals 
+        WHERE dealIndex = '$dealIndex' AND enabled = TRUE AND approved = TRUE";    
+    $dealsRes = mysql_query($query); 
+    while($d = mysql_fetch_assoc($dealsRes)) {
+        $row[] = $d;
     }
 }
 
-print json_encode($rows); 
+print print json_encode($rows); 
 
 ?>
