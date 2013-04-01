@@ -34,7 +34,7 @@ import app.localization.R;
  */
 public class ListPreferenceMultiSelect extends ListPreference {
 	private String separator;
-	private static final String DEFAULT_SEPARATOR = "OV=I=XseparatorX=I=VO"; 
+	private static final String DEFAULT_SEPARATOR = ", "; 
 	private static final String LOG_TAG = "ListPreferenceMultiSelect";
 	private String checkAllKey = null;
 	private boolean[] mClickedDialogEntryIndices;

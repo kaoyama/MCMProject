@@ -67,13 +67,60 @@ public class Deals extends Activity {
 		myListView = (ListView)findViewById(R.id.dealsList);
 						
 		// get list of coupons from database and save to SQLite 
-		db.onUpgrade(db.getReadableDatabase(), 1, 2); // wipe SQLite data
-		saveDealsToSQLite(); 
+		//db.onUpgrade(db.getReadableDatabase(), 1, 2); // wipe SQLite data
+		//saveDealsToSQLite(); 
+		//Log.d(Deals.class.toString(), "Updating database from Deals page"); 
 		
 		// show list of deals as ListView on Deals page
-		showSavedDeals(); 
+		//showSavedDeals(); 
 		
-		Log.d(Deals.class.toString(), "Updating database from Deals page"); 
+		showDeals(); 		
+	}
+	
+	public void showDeals() {
+		String username = CommonUtilities.getUsername(Deals.this); 
+		JSONObject jsonIn = new JSONObject();
+		
+		try {
+			jsonIn.put("userName", username);
+		} catch (Exception e) {
+			Log.v("Deals", "JSON Exception");
+		}
+		
+		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.GETDEALS_URL, jsonIn);
+		
+		if (jsonArray != null) {
+			
+			runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+											
+					try {							
+					    listContents = new ArrayList<String>(jsonArray.length());
+
+						for (int i = 0; i < jsonArray.length(); i++) {
+							listContents.add(jsonArray.getJSONObject(i).getString("title")); 								
+						}
+						
+					} catch (JSONException e) {
+						CustomDialog cd = new CustomDialog(Deals.this); 
+						cd.showNotificationDialog(e.getMessage()); 
+					}
+					
+					adapter = new ArrayAdapter<String>(Deals.this, 
+							android.R.layout.simple_list_item_1, listContents); 
+					adapter.setNotifyOnChange(true); 
+					myListView.setAdapter(adapter); 
+					
+					
+				}
+			});
+			
+		} else {
+			CustomDialog cd = new CustomDialog(Deals.this); 
+			cd.showNotificationDialog("Merchant list is empty.");
+		}
 	}
 	
 	/**
@@ -178,7 +225,7 @@ public class Deals extends Activity {
 			for (int i = 0; i < json.length(); i++) {
 				JSONObject jsonObj = json.getJSONObject(i);
 				
-				//TODO: Change to match what script returns
+				//TODO: Change to match web service
 				db.insert(
 						(int)Integer.valueOf(jsonObj.getString("dealIndex")),
 						jsonObj.getString("merchant"),
