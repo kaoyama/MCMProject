@@ -178,6 +178,7 @@ public class Deals extends Activity {
 			for (int i = 0; i < json.length(); i++) {
 				JSONObject jsonObj = json.getJSONObject(i);
 				
+				//TODO: Change to match what script returns
 				db.insert(
 						(int)Integer.valueOf(jsonObj.getString("dealIndex")),
 						jsonObj.getString("merchant"),

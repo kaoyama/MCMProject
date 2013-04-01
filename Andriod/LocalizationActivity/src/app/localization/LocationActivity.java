@@ -129,6 +129,23 @@ public class LocationActivity extends Activity {
 		});
 	}
 
+	public void updateTargetedDeals() {
+		String userName = CommonUtilities.getUsername(LocationActivity.this); 
+		
+		// Send latitude and longitude to database 
+		JSONObject json = new JSONObject();
+		try {
+			json.put("userName", userName); 
+
+			RestClient.connectToDatabase(
+					CommonUtilities.TARGETEDDEALS_URL, json);
+
+		} catch (Exception e) {
+			CustomDialog dialog = new CustomDialog(LocationActivity.this);
+			dialog.showNotificationDialog("Error updating user latitude and longitude in database");
+		}
+	}
+	
 	/**
 	 * 
 	 * @param type Method to retrieve location.  Can be network or GPS.

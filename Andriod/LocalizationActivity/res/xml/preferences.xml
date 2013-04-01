@@ -12,7 +12,7 @@
             android:title="Enable localization" />
 
         <PreferenceScreen
-            android:key="button_voicemail_setting_key"
+            android:key="localization_settings"
             android:persistent="false"
             android:dependency ="perform_localization"
             android:title="Localization Settings" >

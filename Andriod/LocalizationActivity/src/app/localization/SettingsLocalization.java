@@ -18,9 +18,9 @@ public class SettingsLocalization extends Activity {
 
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("\n" + sharedPrefs.getBoolean("perform_updates", false));
-		builder.append("\n" + sharedPrefs.getString("updates_interval", "-1"));
-		builder.append("\n" + sharedPrefs.getString("welcome_message", "NULL"));
+		builder.append("\nEnable localization: " + sharedPrefs.getBoolean("perform_localization", false));
+		builder.append("\nOpt out of all targeted deals: " + sharedPrefs.getBoolean("opt_out_all", false));
+		builder.append("\nSpecific merchants: " + sharedPrefs.getString("specific_merchants", "NULL"));
 
 		TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
 		settingsTextView.setText(builder.toString());

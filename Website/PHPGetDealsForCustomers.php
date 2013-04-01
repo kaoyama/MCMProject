@@ -6,12 +6,24 @@ $db->connect();
     
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
-$userName = $obj->{'userName'};
+$currentUser = $obj->{'userName'};
 
 // subscribed merchants
-$query = "SELECT dealIndex, redeemed FROM kd268.customerDeals WHERE userName = '$userName'";
-$result = $db->query($query); 
+$query = "SELECT * FROM kd268.subscribeForDeals WHERE customer = '$currentUser'";
+$res = mysql_query($query); 
 
-print $db->resultToJson($result); 
+$rows = array(); 
+while($r = mysql_fetch_assoc($res)) {
+    $merchant = $r['merchant'];
+    
+    // query all ads/coupons from subscribed merchants 
+    $query = "SELECT * FROM kd268.deals WHERE merchant = '$merchant' AND enabled = TRUE";
+    $allDeals = mysql_query($query); 
+    while($deal = mysql_fetch_assoc($allDeals)) {
+        $rows[] = $deal;
+    }
+}
+
+print json_encode($rows); 
 
 ?>
