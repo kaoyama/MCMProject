@@ -113,7 +113,30 @@ public class Deals extends Activity {
 					adapter.setNotifyOnChange(true); 
 					myListView.setAdapter(adapter); 
 					
-					
+					// Each deal item can be clicked on and taken to another page 
+					myListView.setOnItemClickListener(new OnItemClickListener() {
+						
+						@Override
+						public void onItemClick(AdapterView<?> a, View v,
+								int position, long id) {
+							Intent dealDetailIntent = new Intent(Deals.this, DealDetail.class); 
+							
+							try {
+								
+								Log.d(Deals.class.toString(), "Requesting deals for position: " + position); 
+								Log.d(Deals.class.toString(), "IndexMap at position is: " + indexMap.get(position)); 
+								
+								// get title and content and put in Android list
+								dealDetailIntent.putExtra("title", jsonArray.getJSONObject(position).getString("title"));
+								dealDetailIntent.putExtra("content", jsonArray.getJSONObject(position).getString("content"));
+								startActivity(dealDetailIntent); 
+								
+							} catch (Exception e) {
+								Log.e(Deals.class.toString(), "Exception showing specific deals\n" + e.getMessage());
+							}
+							
+						}
+					});
 				}
 			});
 			
