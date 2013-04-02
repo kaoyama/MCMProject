@@ -117,12 +117,12 @@ public class PendingTransactions extends Activity {
 
 	public void getCharges() {
 		
-		String username = CommonUtilities.getUsername(PendingTransactions.this); 
+		String username = CommonUtilities.getUsername(PendingTransactions.this);
 		JSONObject jsonIn = new JSONObject();
 		
 		
 		try {
-			jsonIn.put("userName", username);
+			jsonIn.put("merchant", username);
 		} catch (Exception e) {
 			Log.v("Merchants", "JSON Exception");
 		}
@@ -137,29 +137,44 @@ public class PendingTransactions extends Activity {
 				public void run() {
 											
 					try {							
-
 						for (int i = 0; i < jsonArray.length(); i++) {
-							final String customerName = jsonArray.getJSONObject(i).getString("customer");
-							TextView showCustomer = new TextView(currentThis);
-							showCustomer.setText(customerName + "\n\n");
-							final String amount = jsonArray.getJSONObject(i).getString("cost");
-							TextView showAmount = new TextView(currentThis);
-							showCustomer.setText(amount + "\n\n");
-							LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-							TableRow tempTableRow=new TableRow(getBaseContext());
-							final Button tempButton= new Button(PendingTransactions.this);
-							tempButton.setText("Cancel");
-							tempButton.setOnClickListener(new View.OnClickListener(){
-								public void onClick(View arg0) {
-									
-								}
-							});
-							tempTableRow.setLayoutParams(lp);
-							tempTableRow.addView(showCustomer);
-							tempTableRow.addView(showAmount);
-							tempTableRow.addView(tempButton);
-							chargeLayout.addView(tempTableRow,lp);
-						}	
+							final String cancelled = jsonArray.getJSONObject(i).getString("cancelled");
+							final String paid = jsonArray.getJSONObject(i).getString("paid");
+							if(cancelled.equals("0") && paid.equals("0")){
+								final String transactionIndex = jsonArray.getJSONObject(i).getString("transactionIndex");
+								final String customerName = jsonArray.getJSONObject(i).getString("customer");
+								TextView showCustomer = new TextView(currentThis); 
+								showCustomer.setText(customerName);
+								final String amount = jsonArray.getJSONObject(i).getString("cost");
+								TextView showAmount = new TextView(currentThis);
+								showAmount.setText(amount);
+								LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+								TableRow tempTableRow=new TableRow(getBaseContext());
+								final Button tempButton= new Button(PendingTransactions.this);
+								tempButton.setText("Cancel");
+								tempButton.setOnClickListener(new View.OnClickListener(){
+									public void onClick(View arg0) {
+										JSONObject jsonIn2 = new JSONObject();
+										try {
+											jsonIn2.put("userName", customerName);
+											jsonIn2.put("transactionIndex", transactionIndex);
+											jsonIn2.put("cancelled", "1"); 
+										} catch (Exception e) {
+											Log.v("Merchants", "JSON Exception");
+										}
+										RestClient.connectToDatabase(CommonUtilities.UPDATEPAYMENT_URL, jsonIn2);
+										//Starting a new Intent
+										Intent chargeScreen = new Intent(getApplicationContext(), PendingTransactions.class);
+										startActivity(chargeScreen);
+									}
+								});
+								//tempTableRow.setLayoutParams(lp);
+								tempTableRow.addView(showCustomer);
+								tempTableRow.addView(showAmount);
+								tempTableRow.addView(tempButton);
+								chargeLayout.addView(tempTableRow,lp);
+							}
+						}
 						
 					} catch (JSONException e) {
 						CustomDialog cd = new CustomDialog(PendingTransactions.this); 

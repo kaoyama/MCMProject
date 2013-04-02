@@ -25,7 +25,7 @@ public final class CommonUtilities {
     public static final String MERCHANTDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsForMerchant.php";
     public static final String TOGGLEDEALSTATUS_URL = "http://dana.ucc.nau.edu/~cs854/PHPtoggleDealStatus.php";
     public static final String CHARGECUSTOMER_URL = "http://dana.ucc.nau.edu/~cs854/PHPAddUserTransaction.php";
-    public static final String PENDINGCHARGES_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetPendingCharges.php";
+    public static final String PENDINGCHARGES_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetMerchantTransactions.php";
     
     // Google project id
     public static final String SENDER_ID = "901660126123"; 
