@@ -50,9 +50,7 @@ public class Deals extends Activity {
 	public static int MERCHANT = 0; 
 	public static int TITLE = 1;
 	public static int CONTENT = 2; 
-	public static int LATITUDE = 3; 
-	public static int LONGITUDE = 4; 
-	public static int DEALINDEX = 5; 
+	public static int DEALINDEX = 3; 
 	
 	SparseIntArray indexMap = new SparseIntArray();
 	int index = 0; 
@@ -67,14 +65,14 @@ public class Deals extends Activity {
 		myListView = (ListView)findViewById(R.id.dealsList);
 						
 		// get list of coupons from database and save to SQLite 
-		//db.onUpgrade(db.getReadableDatabase(), 1, 2); // wipe SQLite data
-		//saveDealsToSQLite(); 
-		//Log.d(Deals.class.toString(), "Updating database from Deals page"); 
+		db.onUpgrade(db.getReadableDatabase(), 1, 2); // wipe SQLite data
+		saveDealsToSQLite(); 
+		Log.d(Deals.class.toString(), "Updating database from Deals page"); 
 		
 		// show list of deals as ListView on Deals page
-		//showSavedDeals(); 
+		showSavedDeals(); 
 		
-		showDeals(); 		
+		//showDeals(); 		
 	}
 	
 	public void showDeals() {
@@ -253,17 +251,7 @@ public class Deals extends Activity {
 						(int)Integer.valueOf(jsonObj.getString("dealIndex")),
 						jsonObj.getString("merchant"),
 						jsonObj.getString("title"),
-						jsonObj.getString("content"), 
-						(int)Integer.valueOf(jsonObj.getString("minAge")), 
-						(int)Integer.valueOf(jsonObj.getString("maxAge")), 
-						jsonObj.getString("sendTime"),
-						jsonObj.getString("targetGender"), 
-						Boolean.getBoolean(jsonObj.getString("student")),
-						(int)Integer.valueOf(jsonObj.getString("targetLat")),
-						(int)Integer.valueOf(jsonObj.getString("targetLon")),
-						jsonObj.getString("expDate"),
-						Boolean.getBoolean(jsonObj.getString("accepted")),
-						Boolean.getBoolean(jsonObj.getString("enabled")));								
+						jsonObj.getString("content"));								
 			}
 			
 			db.close(); 

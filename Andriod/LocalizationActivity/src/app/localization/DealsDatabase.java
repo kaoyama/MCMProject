@@ -40,17 +40,7 @@ public class DealsDatabase extends Activity {
 						(int)Integer.valueOf(jsonObj.getString("dealIndex")),
 						jsonObj.getString("merchant"),
 						jsonObj.getString("title"),
-						jsonObj.getString("content"), 
-						(int)Integer.valueOf(jsonObj.getString("minAge")), 
-						(int)Integer.valueOf(jsonObj.getString("maxAge")), 
-						jsonObj.getString("sendTime"),
-						jsonObj.getString("targetGender"), 
-						Boolean.getBoolean(jsonObj.getString("student")),
-						(int)Integer.valueOf(jsonObj.getString("targetLat")),
-						(int)Integer.valueOf(jsonObj.getString("targetLon")),
-						jsonObj.getString("expDate"),
-						Boolean.getBoolean(jsonObj.getString("accepted")),
-						Boolean.getBoolean(jsonObj.getString("enabled")));								
+						jsonObj.getString("content"));								
 			}
 		} catch (Exception e) {
 			Log.v(Deals.class.getName(), "Exception while saving to database:\n" +
