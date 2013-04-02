@@ -47,6 +47,20 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+		Button chargeButton = (Button) findViewById(R.id.chargeButton);
+
+		//Listening to button event
+		chargeButton.setOnClickListener(new View.OnClickListener(){
+
+			public void onClick(View arg0) {
+				//Starting a new Intent
+				Intent chargeScreen = new Intent(getApplicationContext(), PendingTransactions.class);
+
+				startActivity(chargeScreen);
+
+			}
+		});
+		
 		Button accountSettingsButton = (Button) findViewById(R.id.accountSettingsButton);
 
 		//Listening to button event

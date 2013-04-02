@@ -35,6 +35,8 @@
         </activity>
         <activity android:name="app.merchantLocalization.LocationActivity" >
         </activity>
+        <activity android:name="app.merchantLocalization.PendingTransactions" >
+        </activity>
         <activity
             android:name="app.merchantLocalization.Transactions"
             android:label="@string/title_activity_transactions" >

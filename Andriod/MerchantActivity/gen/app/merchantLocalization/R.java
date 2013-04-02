@@ -18,6 +18,7 @@ public final class R {
         public static final int accountSettingsButton=0x7f07000f;
         public static final int chargeAmount=0x7f07000a;
         public static final int chargeButton=0x7f07000b;
+        public static final int chargeLayout=0x7f07001c;
         public static final int customerLayout=0x7f07000c;
         public static final int customersButton=0x7f07000e;
         public static final int dealsLayout=0x7f07001b;
@@ -30,7 +31,7 @@ public final class R {
         public static final int loginButton=0x7f07001a;
         public static final int logoutButton=0x7f070011;
         public static final int manageAds=0x7f07000d;
-        public static final int menu_settings=0x7f07001d;
+        public static final int menu_settings=0x7f07001e;
         public static final int password=0x7f070019;
         public static final int stopUpdatingLocationButton=0x7f070017;
         public static final int tableRow1=0x7f070001;
@@ -38,7 +39,7 @@ public final class R {
         public static final int tableRow3=0x7f070005;
         public static final int tableRow4=0x7f070007;
         public static final int transactionsButton=0x7f070010;
-        public static final int transactionsList=0x7f07001c;
+        public static final int transactionsList=0x7f07001d;
         public static final int updateLocationGPSButton=0x7f070015;
         public static final int updateLocationGPSLabel=0x7f070016;
         public static final int updateLocationNetworkButton=0x7f070013;
@@ -53,7 +54,8 @@ public final class R {
         public static final int location=0x7f030004;
         public static final int main=0x7f030005;
         public static final int managedeals=0x7f030006;
-        public static final int transactions=0x7f030007;
+        public static final int pendingcharges=0x7f030007;
+        public static final int transactions=0x7f030008;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;

@@ -18,6 +18,13 @@
         android:layout_marginTop="15dip"
         android:text="List Customers" />
     
+    <Button 
+        android:id="@+id/chargeButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="Pending Charges" />
+    
     <Button
         android:id="@+id/accountSettingsButton"
         android:layout_width="fill_parent"
