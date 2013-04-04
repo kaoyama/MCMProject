@@ -80,7 +80,7 @@
             $_SESSION['userType'] = "customer";
             
             //Redirect to the homepage
-            header("Location: customerHomePage.php");
+            header("Location: merchantHomePage.php");
         }
     }
 ?> 

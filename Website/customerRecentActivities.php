@@ -79,8 +79,8 @@
              }
              else {
                  $getRecentActivities = "SELECT merchant, purchaseTime, cost, 
-                             paid, cancelled FROM customerTransactions 
-                             WHERE customer = '" . $_SESSION['user'] . "'";
+                             paid, cancelled FROM kd268.customerTransactions 
+                             WHERE customer='" . $_SESSION['user'] . "'";
                  
                  $recentActivities = mysql_query($getRecentActivities, $cxn);
                  

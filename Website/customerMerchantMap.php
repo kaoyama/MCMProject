@@ -135,7 +135,7 @@
                 var bounds = new google.maps.LatLngBounds();
 
                 for (var i = 0, place; place = places[i]; i++) {                  
-                   
+                   alert(place.name);
                     // Make the list links to the merchants
                     var infowindow = new google.maps.InfoWindow(); 
                     var request = {
@@ -157,6 +157,7 @@
                                 title: place.name,
                                 position: place.geometry.location
                             });
+                            //Display merchant information when a pin on the map is clicked
                             google.maps.event.addListener(marker, 'click', function() {
                                 infowindow.setContent(place.name);
                                 infowindow.open(map, this);

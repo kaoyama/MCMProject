@@ -36,7 +36,11 @@ if ($month < 0) {
 if ($month == 0 && $day < 0) {
     $age = $age - 1;
 }
-
+//find product types of merchants they have purchased from before
+//query customer transactions for merchants
+//query product type table for 
+//cross reference with the deal
+//if the deal doesn't have a produce type use the product type of the merchant
 // retrieve merchants within 10 m
 $query = "SELECT dealIndex ," . 
         "($R * ACOS(COS(RADIANS($userLat)) * COS(RADIANS(targetLat/$mil)) * " . 
