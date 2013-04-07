@@ -59,7 +59,7 @@ public class Merchants extends Activity {
 		b = new Bundle(); 
 				
 		// Get list of merchants from database
-		getData(); 
+		getMerchants(); 
 		
 		// Display map button 
 		Button mapButton = (Button) findViewById(R.id.mapButton);
@@ -71,13 +71,6 @@ public class Merchants extends Activity {
 				startActivity(intent); 
 			}
 		});
-	}
-
-	/**
-	 * Connect to web service (database) 
-	 */
-	public void getData() {
-		getMerchants(); 
 	}
 
 	public void getMerchants() {

@@ -72,5 +72,9 @@
     <string name="optInAllRadioLabel">Opt in to all deals</string>
     <string name="optInSomeRadioLabel">Subscribe to specific merchants</string>
     <string name="optOutAllRadioLabel">Out out of all deals</string>
+    <string name="localizationSettingsLabelText">Localization Settings</string>
+    <string name="targetedDealSettingsLabelText">Targeted Deal Settings</string>
+    <string name="checkAllButtonText">Check All</string>
+    <string name="clearAllButtonText">Clear All</string>
 
 </resources>

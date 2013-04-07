@@ -24,6 +24,13 @@ public final class CommonUtilities {
     public static final String UPDATEPAYMENT_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdatePayment.php";
     public static final String GETDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetDealsForCustomers.php";
     
+    public static final String OPTINALL_URL = "http://dana.ucc.nau.edu/~cs854/PHPOptInAllDeals.php";
+    public static final String OPTOUTALL_URL = "http://dana.ucc.nau.edu/~cs854/PHPOptOutAllDeals.php";
+    public static final String OPTINSOME_URL = "http://dana.ucc.nau.edu/~cs854/PHPOptInMerchant.php";
+    
+    public static final String ALLMERCHANTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetAllMerchants.php";
+    public static final String ALLSUBSCRIBEDMERCHANTS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetAllSubscribedMerchants.php";
+    
     // Google project id
     public static final String SENDER_ID = "901660126123"; 
 

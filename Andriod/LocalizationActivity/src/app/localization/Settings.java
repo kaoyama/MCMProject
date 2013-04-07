@@ -3,9 +3,13 @@ package app.localization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -14,6 +18,9 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import app.utilities.CommonUtilities;
+import app.utilities.CustomDialog;
+import app.utilities.RestClient;
 
 public class Settings extends Activity {
 	TextView username;
@@ -59,21 +66,40 @@ public class Settings extends Activity {
 	    // Check which radio button was clicked
 	    switch(view.getId()) {
 	        case R.id.radio_optInAll:
-	            if (checked)
-	            	// TODO
+	            if (checked) {
+	            	optInOut(Settings.this, CommonUtilities.OPTINALL_URL); 
+	            }
 	            break;
 	        case R.id.radio_optOutAll:
-	            if (checked)
-	            	// TODO
+	            if (checked) {
+	            	optInOut(Settings.this, CommonUtilities.OPTOUTALL_URL);
+	            }
 	            break;
 	        case R.id.radio_optInSome:
 	        	if (checked) {
 	        		// Starting a new intent
-					Intent settingsScreen = new Intent(getApplicationContext(), Settings.class);
+					Intent settingsScreen = new Intent(getApplicationContext(), SettingsLocalization.class);
 					startActivity(settingsScreen); 	      
 	        	}
         		break;
 	    }
+	}
+
+	/**
+	 * Opt in or out, depending on URL
+	 * @param url
+	 */
+	public static void optInOut(Activity context, String url) {
+		String userName = CommonUtilities.getUsername(context); 
+		JSONObject json = new JSONObject();
+		try {
+			json.put("userName", CommonUtilities.getUsername(context)); 
+	
+			RestClient.connectToDatabase(url, json);
+	
+		} catch (Exception e) {
+			Log.v("Opt in/out all deals", "Exception while opting in/out all deals");
+		}
 	}
 }
 
