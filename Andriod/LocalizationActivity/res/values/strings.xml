@@ -66,5 +66,11 @@
     <string name="updateLocationGPSButtonLabel">Update Location using GPS</string>
     <string name="stopUpdatingLocationButtonlabel">Stop Updating Location</string>
     <string name="goingAwayButtonLabel">Go away</string>
+    
+    <!-- Settings -->
+    <string name="localizationCheckboxLabel">Enable localization</string>
+    <string name="optInAllRadioLabel">Opt in to all deals</string>
+    <string name="optInSomeRadioLabel">Subscribe to specific merchants</string>
+    <string name="optOutAllRadioLabel">Out out of all deals</string>
 
 </resources>

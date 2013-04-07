@@ -38,6 +38,8 @@ import app.utilities.RestClient;
 public class HomeActivity extends Activity {
 	protected static final int TIMEOUT_MILLISEC = 3000;
 	static long MILLION = 1000000; 
+	static int NETWORK = 0; 
+	static int GPS = 1; 
 	
 	// Asyntask
 	AsyncTask<Void, Void, Void> mRegisterTask;
@@ -45,12 +47,24 @@ public class HomeActivity extends Activity {
 	TextView username;
 	String notificationMessage; 
 	
-	
+	// location update variables
+	LocationManager locationManager;
+	LocationListener myLocationListener;
+	int CURRENT_TYPE = NETWORK; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		// send flag to login page to clear all activity stacks 
+		// so back button does not work upon logout
+		boolean finish = getIntent().getBooleanExtra("finish", false);
+		if (finish) {
+			startActivity(new Intent(getApplicationContext(), LocalizationActivity.class));
+			finish(); 
+			return ;
+		}
+		
 		Button settingsButton = (Button) findViewById(R.id.settingsButton);
 		settingsButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -78,25 +92,6 @@ public class HomeActivity extends Activity {
 		Button merchantButton = (Button) findViewById(R.id.merchantButton);
 		merchantButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
-				
-				//TODO: COMMENT OUT LATER
-				//*************
-				/*
-				JSONObject jsonIn = new JSONObject();
-				
-				try {
-					jsonIn.put("customer", CommonUtilities.getUsername(HomeActivity.this));
-					jsonIn.put("merchant", "bar");
-					jsonIn.put("cost", "20");
-					jsonIn.put("productIndex", "stuff"); 
-				} catch (Exception e) {
-					Log.v("Merchants", "JSON Exception");
-				}
-				
-				final JSONArray jsonArray = RestClient.connectToDatabase(
-						"http://dana.ucc.nau.edu/~cs854/PHPAddUserTransaction.php", jsonIn);
-				*/
-				//***************
 				
 				// Starting a new intent
 				Intent merchantScreen = new Intent(getApplicationContext(), Merchants.class);
@@ -146,9 +141,12 @@ public class HomeActivity extends Activity {
 		logoutButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View arg0) {
-				//Starting a new Intent
-				Intent homeScreen = new Intent(getApplicationContext(), LocalizationActivity.class);
-				startActivity(homeScreen);
+				// clear activity stack so back button doesn't work 
+				Intent intent = new Intent(getApplicationContext(), HomeActivity.class); 
+				intent.putExtra("finish", true);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent); 
+				finish(); 
 			}
 		});
 		
@@ -207,4 +205,106 @@ public class HomeActivity extends Activity {
 		}
 		super.onDestroy();
 	}
+	
+	/**
+	 * Take care of instant polling 
+	 */
+	@Override
+	protected void onStart() {
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		
+		myLocationListener = new LocationListener() {
+			
+			public void onProviderDisabled(String provider) {}
+			public void onProviderEnabled(String provider) {}
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+				//Toast t = Toast.makeText(LocationActivity.this, "Status changed", Toast.LENGTH_SHORT); 
+				//t.show(); 
+			}
+
+			@Override
+			public void onLocationChanged(Location arg0) {
+				
+				useNewLocation(arg0); 
+			}
+		};
+		
+	    // set up so location updates are performed
+		getLocation(NETWORK); 
+		super.onStart();
+	}
+	
+	/**
+	 * 
+	 * @param type Method to retrieve location.  Can be network or GPS.
+	 */
+	public void getLocation(int type) {
+
+		String mlocProvider;
+		Criteria hdCrit = new Criteria();
+
+		hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
+
+		mlocProvider = locationManager.getBestProvider(hdCrit, true);
+
+		// When switching between network and GPS, change AndroidManifest.xml 
+		// ACCESS_COARSE_LOCATION (network) and ACCESS_FINE_LOCATION (gps)
+		if (type == NETWORK) {
+			locationManager.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER, // provider
+					3000, // minimum time interval between location updates (ms)
+					0,    // minimum distance between location updates (m)
+					myLocationListener);
+		} else if (type == GPS) {
+			locationManager.requestLocationUpdates(
+					LocationManager.GPS_PROVIDER, 
+					3000, // minimum time interval between location updates (ms)
+					0, 	  // minimum distance between location updates (m)
+					myLocationListener);
+		}
+		
+		
+		// TODO: Remove for update automatically 
+		Location currentLocation = locationManager.getLastKnownLocation(mlocProvider);
+		locationManager.removeUpdates(myLocationListener);
+		
+		useNewLocation(currentLocation); 
+		
+	}
+	
+	public void useNewLocation(Location location) {
+		
+		double currentLat = location.getLatitude();
+		double currentLon = location.getLongitude();
+		String userName = CommonUtilities.getUsername(HomeActivity.this); 
+				
+		// Send latitude and longitude to database 
+		JSONObject json = new JSONObject();
+		try {
+			json.put("latitude", (int)(currentLat*MILLION)); 
+			json.put("longitude", (int)(currentLon*MILLION));
+			json.put("userName", userName); 
+
+			RestClient.connectToDatabase(
+					CommonUtilities.UPDATEUSERLOCATION_URL, json);
+
+		} catch (Exception e) {
+			CustomDialog dialog = new CustomDialog(HomeActivity.this);
+			dialog.showNotificationDialog("Error updating user latitude and longitude in database");
+		}
+		
+		Toast t = Toast.makeText(HomeActivity.this, "Updating location", Toast.LENGTH_SHORT); 
+		t.show(); 
+		Log.d("Location", "Updating location: " + currentLat + ", " + currentLon); 
+		
+	}
+	
+	@Override
+	protected void onStop() {
+		// remove location updates -- eats up battery power
+		locationManager.removeUpdates(myLocationListener);
+		super.onStop();
+	}
+	
 }

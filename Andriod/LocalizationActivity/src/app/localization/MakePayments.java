@@ -97,41 +97,24 @@ public class MakePayments extends Activity {
 							.setTitle("Make Payment");
 							builder.setPositiveButton("Purchase", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
-									JSONArray jsonArray = null;
-									try {
-										JSONObject json = new JSONObject();
-										json.put("paid", 1);
-										json.put("cancelled", 0);
-										json.put("userName", userName);
-										json.put("transactionIndex", transactionIndex);
-
-										jsonArray = RestClient.connectToDatabase(
-												CommonUtilities.UPDATEPAYMENT_URL, json);
-										
-										// show notification that payment has been made
-										Toast toast = Toast.makeText(MakePayments.this, 
-												"You have successfully paid " + merchant + " $" + cost + ".",
-												Toast.LENGTH_LONG); 
-										toast.show(); 
-
-									} catch (Exception e) {
-										Log.e("Make Payments", "Failed here: " + e.getMessage());
-									}
-									// Starting a new intent
-									//Intent paymentScreen = new Intent(getApplicationContext(), MakePayments.class);
-									//startActivity(paymentScreen);
-									
-									// clear screen and show new set of buttons 
-									refreshLayout(); 
-									getData(); 
-
+									makePurchase(true, false, transactionIndex, 
+											"You have successfully paid " + merchant + " $" + cost + ".");
 								}
 							});
-							builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+							builder.setNeutralButton("Decline", new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int id) {
+									// User cancelled the transaction
+									makePurchase(false, true, transactionIndex, 
+											"You have cancelled the payment for " + merchant + " for $" + cost + ".");
+								}
+							});
+							
+							builder.setNegativeButton("Pay Later", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									// User cancelled the dialog
 								}
 							});
+							
 							// If the response does not enclose an entity, there is no need
 							AlertDialog dialog = builder.create();
 							dialog.show();
@@ -157,5 +140,35 @@ public class MakePayments extends Activity {
 	
 	public void refreshLayout() {
 		paymentLayout.removeAllViews();
+	}
+	
+	public void makePurchase(boolean paid, boolean cancelled, String transactionIndex, String notification) {
+		final String userName = CommonUtilities.getUsername(MakePayments.this);
+		JSONArray jsonArray = null;
+		
+		try {
+			JSONObject json = new JSONObject();
+			json.put("paid", paid);
+			json.put("cancelled", cancelled);
+			json.put("userName", userName);
+			json.put("transactionIndex", transactionIndex);
+
+			jsonArray = RestClient.connectToDatabase(
+					CommonUtilities.UPDATEPAYMENT_URL, json);
+			
+			// show notification that payment has been made
+			Toast toast = Toast.makeText(MakePayments.this, 
+					notification,
+					Toast.LENGTH_LONG); 
+			toast.show(); 
+
+		} catch (Exception e) {
+			Log.e("Make Payments", "Failed here: " + e.getMessage());
+		}
+		
+		// clear screen and show new set of buttons 
+		refreshLayout(); 
+		getData(); 
+
 	}
 }

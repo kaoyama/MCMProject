@@ -29,6 +29,7 @@ public class LocalizationActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
         setContentView(R.layout.main);
         
         inputUserName = (EditText) findViewById(R.id.username);

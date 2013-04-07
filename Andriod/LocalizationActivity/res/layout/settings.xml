@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" >-->
+    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <CheckBoxPreference
-        android:key="pref_sync"
-        android:title="@string/pref_sync"
-        android:summary="@string/pref_sync_summ"
-        android:defaultValue="true" />
-</PreferenceScreen>
+    <CheckBox android:id="@+id/checkbox_localization"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "@string/localizationCheckboxLabel"
+        android:onClick = "onCheckboxClicked" />
+    
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioGroup_opt"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    <RadioButton android:id="@+id/radio_optInAll"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/optInAllRadioLabel"
+	        android:onClick="onRadioButtonClicked"/>
+	    <RadioButton android:id="@+id/radio_optOutAll"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/optOutAllRadioLabel"
+	        android:onClick="onRadioButtonClicked"/>
+	    <RadioButton android:id="@+id/radio_optInSome"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/optInSomeRadioLabel"
+	        android:onClick="onRadioButtonClicked"/>
+	</RadioGroup>
+    
+</LinearLayout>
