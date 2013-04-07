@@ -22,6 +22,7 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
@@ -85,9 +86,11 @@ public class MerchantMap extends MapActivity {
 		}
 		
 		// Your current location 
-		itemizedOverlay.addOverlayItem((int)(latitude*MILLION), (int)(longitude*MILLION),
-				"You are here!", this.getResources().getDrawable(R.drawable.kangaroo2)); 
-		
+//		itemizedOverlay.addOverlayItem((int)(latitude*MILLION), (int)(longitude*MILLION),
+//				"You are here!", this.getResources().getDrawable(R.drawable.kangaroo2)); 
+		MyLocationOverlay mylc = new MyLocationOverlay(this, mapView); 
+		mapView.getOverlays().add(mylc); 
+		mylc.enableMyLocation(); 
 	
 		// Set default zoom
 		MapController mapController = mapView.getController();
