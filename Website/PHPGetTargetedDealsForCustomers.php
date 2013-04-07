@@ -38,8 +38,19 @@ if ($month == 0 && $day < 0) {
 }
 //find product types of merchants they have purchased from before
 //query customer transactions for merchants
-//query product type table for 
-//cross reference with the deal
+$getMerchants = "SELECT merchant FROM kd268.userTransactions WHERE customer='" . $_SESSION['user'] . "'";
+$merchants = $db->query($getMerchants); 
+$productList = "";
+while ($merchant = mysql_fetch_assoc($merchants)) {
+   // $merchant = $m;
+    //query product type table for all product types for those merchants
+    $getProductTypes = "SELECT type FROM kd268.merchantProductType WHERE merchant='" . $merchant . "'";
+    $productTypes = $db->query($getProductTypes); 
+    while($p = mysql_fetch_assoc($productTypes)) {
+        $productList += "'" . $p . "' OR ";
+    }
+}
+//cross reference with the deals product types
 //if the deal doesn't have a produce type use the product type of the merchant
 // retrieve merchants within 10 m
 $query = "SELECT dealIndex ," . 
@@ -50,7 +61,7 @@ $query = "SELECT dealIndex ," .
         "OR targetGender='B' AND student='$studentStatus' AND minAge<= '$age' " . 
         " AND maxAge>='$age' AND accepted=TRUE AND enabled=TRUE" .
         " HAVING distance < $maxDist ORDER BY distance";
-
+//no product type. compare to product type of merchants?
 $result = $db->query($query); 
 
 //send deal index and username to new table
