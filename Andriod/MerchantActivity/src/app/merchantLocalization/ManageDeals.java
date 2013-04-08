@@ -11,10 +11,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
@@ -59,7 +63,7 @@ public class ManageDeals extends Activity {
 	}
 
 	/**
-	 * Connect to webservice (database) 
+	 * Connect to web service (database) 
 	 */
 	public void getDeals() {
 		String userName = "";
@@ -106,19 +110,24 @@ public class ManageDeals extends Activity {
 				showDeal.setText(title + "\n\n");
 				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				TableRow tempTableRow=new TableRow(getBaseContext());
-				final Button tempButton= new Button(this);
+				final ToggleButton tempButton = new ToggleButton(this);
+				tempButton.setTextOn("Enabled");
+				tempButton.setTextOff("Disabled");
 				tempTableRow.setLayoutParams(lp);
 				
-				if(tempEnabled.equals("0")){
-					tempButton.setText("Enable");
+			   if(tempEnabled.equals("0")){
+					tempButton.setChecked(true);
+					tempButton.setText("Enabled");
 				}
-				else{
-					tempButton.setText("Disable");
-				}
+			   else{
+				   tempButton.setChecked(false);
+				   tempButton.setText("Disabled");
+			   }
 				
-				tempButton.setOnClickListener(new View.OnClickListener(){
-
-					public void onClick(View arg0) {
+				tempButton.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+						
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 						JSONArray jsonArray2 = null;
 						try {
 			       			JSONObject json = new JSONObject();
@@ -129,7 +138,6 @@ public class ManageDeals extends Activity {
 			       				tempEnabled = "1";
 			       				jsonArray2 = RestClient.connectToDatabase(
 			       						CommonUtilities.TOGGLEDEALSTATUS_URL, json);
-			       				tempButton.setText("Disable");
 			       				
 			       			}
 			       			else{
@@ -137,7 +145,6 @@ public class ManageDeals extends Activity {
 			       				tempEnabled = "0";
 			       				jsonArray2 = RestClient.connectToDatabase(
 			       						CommonUtilities.TOGGLEDEALSTATUS_URL, json);
-			       				tempButton.setText("Enable");
 			       			}
 			    
 			       			
@@ -146,11 +153,12 @@ public class ManageDeals extends Activity {
 			       			cd3.showNotificationDialog("Failed To Update Deal.");
 			       		}
 					}
-				});
+						
+				});	
 				tempTableRow.addView(showDeal);
 				tempTableRow.addView(tempButton);
 				dealsLayout.addView(tempTableRow,lp);						
-			}
+			}	
 		}
 
         
