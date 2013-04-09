@@ -41,6 +41,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
@@ -77,7 +78,7 @@ public class PendingTransactions extends Activity {
 	
 	String dbResult; 
 	
-	LinearLayout chargeLayout;
+	TableLayout chargeLayout;
 	
 	ArrayAdapter<String> adapter;
 	
@@ -85,39 +86,40 @@ public class PendingTransactions extends Activity {
 	
 	static int TIMEOUT_MILLISEC = 3000; 
 
-	public void onBackPressed() {
-    }
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pendingcharges);
 		
-		// initialize list view
-		//listContents = new ArrayList<String>();
-		
-		chargeLayout = (LinearLayout)findViewById(R.id.chargeLayout);
-		
-		//Sets up a title for each column
-				TableRow tempTableRow=new TableRow(getBaseContext());
-				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				tempTableRow.setLayoutParams(lp);
-				//Create the titles for the columns	
-				TextView titleView = new TextView(this);
-				titleView.setText("Customer: ");
-				TextView amountView = new TextView(this);
-				amountView.setText("Amount: ");
-				TextView optionsView = new TextView(this);
-				optionsView.setText("Options: ");
-				//Adds TextViews to columns
-				tempTableRow.addView(titleView);
-				tempTableRow.addView(amountView);
-				tempTableRow.addView(optionsView);
+		chargeLayout = (TableLayout) findViewById(R.id.chargeLayout);
 				
-				chargeLayout.addView(tempTableRow);
+		setUpLayout();
 		
-		getCharges(); 
+		
 	}
 
+	public void setUpLayout(){
+		//Sets up a title for each column
+		TableRow tempTableRow=new TableRow(getBaseContext());
+		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		tempTableRow.setLayoutParams(lp);
+		//Create the titles for the columns	
+		TextView titleView = new TextView(this);
+		titleView.setText("Customer: ");
+		TextView amountView = new TextView(this);
+		amountView.setText("Amount: ");
+		TextView optionsView = new TextView(this);
+		optionsView.setText("Options: ");
+		//Adds TextViews to columns
+		tempTableRow.addView(titleView);
+		tempTableRow.addView(amountView);
+		tempTableRow.addView(optionsView);
+		
+		chargeLayout.addView(tempTableRow);
+		
+		getCharges();
+	}
+	
 	public void getCharges() {
 		
 		String username = CommonUtilities.getUsername(PendingTransactions.this);
@@ -166,9 +168,8 @@ public class PendingTransactions extends Activity {
 											Log.v("Merchants", "JSON Exception");
 										}
 										RestClient.connectToDatabase(CommonUtilities.UPDATEPAYMENT_URL, jsonIn2);
-										//Starting a new Intent
-										Intent chargeScreen = new Intent(getApplicationContext(), PendingTransactions.class);
-										startActivity(chargeScreen);
+										chargeLayout.removeAllViews();
+										setUpLayout();
 									}
 								});
 								//tempTableRow.setLayoutParams(lp);
@@ -191,23 +192,7 @@ public class PendingTransactions extends Activity {
 			CustomDialog cd = new CustomDialog(PendingTransactions.this); 
 			cd.showNotificationDialog("Transaction list is empty.");
 		}
-		
-		Button homeButton = (Button) new Button(this);
-		homeButton.setText("Home");
-		 
-        //Listening to button event
-        homeButton.setOnClickListener(new View.OnClickListener(){
- 
-            public void onClick(View arg0) {
-                //Starting a new Intent
-                Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
- 
-                startActivity(homeScreen);
- 
-            }
-        });
         
-        chargeLayout.addView(homeButton);
 		
 	}
 	
