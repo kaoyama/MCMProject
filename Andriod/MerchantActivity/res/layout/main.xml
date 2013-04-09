@@ -6,33 +6,51 @@
     android:orientation="vertical" >
     
     <TextView
-        android:layout_width="fill_parent"
+        android:id="@+id/usernameLabel"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Username: " />
-
-    <EditText
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="@string/usernameLabel" />
+    
+ 	<EditText
         android:id="@+id/username"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip" />
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="text" />
 
-    <TextView
-        android:layout_width="fill_parent"
+	<TextView
+        android:id="@+id/passwordLabel"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Password: " />
-
+        android:layout_gravity="center"
+        android:text="@string/passwordLabel" />
+    
     <EditText
         android:id="@+id/password"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
+	    android:layout_gravity="center"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Login" />
+        android:layout_gravity="center"
+        android:layout_marginTop="18dp"
+        android:text="@string/loginLabel" />
+    
+    <!-- MCM Logo -->
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/mcmLogo"
+        android:src="@drawable/mcmlogowide" />
 
 </LinearLayout>

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MerchantActivity</string>
+    <string name="app_name">MCM Merchant Localization</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_transactions">Transactions</string>
 
+    <!-- main.xml -->
+    <string name="usernameLabel">Username: </string>
+    <string name="passwordLabel">Password: </string>
+    <string name="loginLabel">Login</string>
+    <string name="mcmLogo">MCM Logo</string>
+    
+    <!-- home.xml -->
+    <string name="dealsButtonLabel">Manage Deals</string>
+    <string name="chargeCustomersButtonLabel">Charge Customer</string>
+    <string name="pendingChargesButtonLabel">Pending Charges</string>
+    <string name="transactionsButtonLabel">View History</string>
+    <string name="logoutButtonLabel">Log Out</string>
+    <string name="settingsButtonLabel">Settings</string>
+    
 </resources>

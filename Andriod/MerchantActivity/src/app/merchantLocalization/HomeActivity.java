@@ -25,6 +25,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		/*
 		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
 		gpsButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -35,6 +36,7 @@ public class HomeActivity extends Activity {
 				startActivity(locationScreen); 				
 			}
 		});
+		*/
 		
 		Button logoutButton = (Button) findViewById(R.id.logoutButton);
 

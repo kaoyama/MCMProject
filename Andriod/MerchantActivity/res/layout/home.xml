@@ -1,56 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="fill_parent" >
+    
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/manageAds"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Manage Deals" /> 
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="20dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
     
-    <Button 
-        android:id="@+id/customersButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="List Customers" />
+        <Button
+	        android:id="@+id/manageAds"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:textColor="#C0C0C0"
+            android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/coupon"
+	        android:text="@string/dealsButtonLabel" />
+        
+        <Button
+	        android:id="@+id/customersButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="20dp"
+	        android:textColor="#C0C0C0"
+            android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/customer"
+	        android:layout_gravity="bottom"
+	        android:text="@string/chargeCustomersButtonLabel" />
     
-    <Button 
-        android:id="@+id/chargeButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Pending Charges" />
+	</LinearLayout>
+
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="30dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+        
+        <Button
+	        android:id="@+id/chargeButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:textColor="#C0C0C0"
+	        android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/payment"
+	        android:text="@string/pendingChargesButtonLabel" />
+        
+        <Button
+	        android:id="@+id/transactionsButton"
+	        android:layout_width="140dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:textColor="#C0C0C0"
+			android:background="?android:selectableItemBackground"
+			android:drawableBottom="@drawable/history"
+			android:layout_gravity="bottom"
+	        android:text="@string/transactionsButtonLabel" />
+        
+    </LinearLayout>
+    	
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="30dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+       
+        <!-- Settings Button -->
+        <Button
+	        android:id="@+id/accountSettingsButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:textColor="#C0C0C0"
+	        android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/setting"
+	        android:text="@string/settingsButtonLabel" />
+	    
+	    <!-- Logout Button -->
+	    <Button
+	        android:id="@+id/logoutButton"
+	        android:layout_width="140dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:textColor="#C0C0C0"
+			android:background="?android:selectableItemBackground"
+			android:drawableBottom="@drawable/logout"
+			android:layout_gravity="bottom"
+	        android:text="@string/logoutButtonLabel" />
     
-    <Button
-        android:id="@+id/accountSettingsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Account Settings" />
-    
-    <Button
-        android:id="@+id/transactionsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Transactions" />
-    
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:text="Log Out" />
-    
+    <!-- Update location button - for debug -->
+   	<!-- 
     <Button
         android:id="@+id/gpsButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop = "15dip"
-        android:text="Location Button" />
+        android:text="Location Button" />-->
+        
+        </LinearLayout>
+        
+    <!-- MCM Logo -->
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/mcmLogo"
+        android:src="@drawable/mcmlogowide" />
 
 </LinearLayout>
+</ScrollView>
