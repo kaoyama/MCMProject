@@ -50,7 +50,7 @@ public class ManageDeals extends Activity {
 		tempTableRow.setLayoutParams(lp);
 		//Create the titles forthe columns	
 		TextView titleView = new TextView(this);
-		titleView.setText("Title:");
+		titleView.setText("Deal:");
 		TextView optionsView = new TextView(this);
 		optionsView.setText("Options:");
 		//Adds TextViews to columns
@@ -102,12 +102,14 @@ public class ManageDeals extends Activity {
 						"dealIndex");
 				final String title = jsonArray.getJSONObject(i).getString(
 						"title");
+				final String content = jsonArray.getJSONObject(i).getString(
+						"content");
 				final String enabled = jsonArray.getJSONObject(i).getString(
 						"enabled");
 				tempEnabled = enabled;
 				
 				TextView showDeal = new TextView(currentThis);
-				showDeal.setText(title + "\n\n");
+				showDeal.setText((i+1) + ") " + title + ":\n" + content+ "\n_____________");
 				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				TableRow tempTableRow=new TableRow(getBaseContext());
 				final ToggleButton tempButton = new ToggleButton(this);
