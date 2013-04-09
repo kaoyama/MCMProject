@@ -1,24 +1,20 @@
 package app.localization;
 
-import java.io.FileInputStream;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
 import app.utilities.CommonUtilities;
-import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 /**
  * Notifications list.  Pulls subscribed or nearby merchant information from the database. 
@@ -71,7 +67,7 @@ public class MakePayments extends Activity {
 			
 			if (jsonArray == null || jsonArray.length() == 0) {
 				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				paymentLayout.addView(noChargesText,lp);
+				paymentLayout.addView(noChargesText, lp);
 			}
 			
 			for(int i = 0; i < jsonArray.length(); i++){

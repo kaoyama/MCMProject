@@ -13,15 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/localizationSettingsLabelText"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="22sp" />
     
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:background="#ffffff" />
+        android:background="#A0A0A0" />
 
     <CheckBox android:id="@+id/checkbox_localization"
         android:layout_width = "wrap_content"
@@ -40,13 +39,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/targetedDealSettingsLabelText"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="22sp" />
 
         <View
             android:id="@+id/View01"
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:background="#ffffff" />
+            android:background="#A0A0A0" />
 
 	    <RadioButton android:id="@+id/radio_optInAll"
 	        android:layout_width="wrap_content"
@@ -64,5 +64,25 @@
 	        android:text="@string/optInSomeRadioLabel"
 	        android:onClick="onRadioButtonClicked"/>
 	</RadioGroup>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deviceRegistrationTextLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="22sp" />
+
+    <View
+        android:id="@+id/View02"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#A0A0A0" />
+
+    <Button
+        android:id="@+id/registerDeviceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registerDeviceButtonLabel" />
     
 </LinearLayout>

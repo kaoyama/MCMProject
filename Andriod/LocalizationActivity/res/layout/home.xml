@@ -1,83 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="fill_parent" >
 
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="20dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+	    
+	    <!-- Merchant Button -->
+
+        <Button
+            android:id="@+id/merchantButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:textColor="#C0C0C0"
+            android:background="?android:selectableItemBackground"
+            android:drawableBottom="@drawable/store"
+            android:text="@string/merchantButtonLabel" />
+	    
+	    <!-- Deals Button -->
+
+	    <Button
+	        android:id="@+id/dealsButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="20dp"
+	        android:textColor="#C0C0C0"
+            android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/coupon"
+	        android:layout_gravity="bottom"
+	        android:text="@string/dealsButtonLabel" />
+	    
+	</LinearLayout>
+
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="30dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+	    
+	    <!-- Make Payments Button -->
+	    <Button
+	        android:id="@+id/notificationsButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:textColor="#C0C0C0"
+	        android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/payment"
+	        android:text="@string/makePaymentsButtonLabel" />
+	
+	    <!-- View History Button -->
+	    <Button
+	        android:id="@+id/searchButton"
+	        android:layout_width="140dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:textColor="#C0C0C0"
+			android:background="?android:selectableItemBackground"
+			android:drawableBottom="@drawable/history"
+			android:layout_gravity="bottom"
+	        android:text="@string/viewHistoryButtonLabel" />
+    
+    </LinearLayout>
+
+    <!-- Update Location Button - Debug -->
+    <!-- 
+    <Button
+        android:id="@+id/gpsButton"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/locationButtonLabel" />
+        -->
+
+	<!-- Device Registration Button -->
+	<!-- 
+    <Button
+         android:id="@+id/registrationButton"
+         android:layout_width="300dp"
+         android:layout_gravity="center"
+         android:layout_height="wrap_content"
+         android:text="@string/registrationButtonText" />
+         -->
+    
+    <LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="30dp"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+    
+	    <!-- Settings Button -->
+	    <Button
+	        android:id="@+id/settingsButton"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:textColor="#C0C0C0"
+	        android:background="?android:selectableItemBackground"
+	        android:drawableBottom="@drawable/setting"
+	        android:text="@string/settingsButtonLabel" />
+	    
+	    <!-- Logout Button -->
+	    <Button
+	        android:id="@+id/logoutButton"
+	        android:layout_width="140dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:textColor="#C0C0C0"
+			android:background="?android:selectableItemBackground"
+			android:drawableBottom="@drawable/logout"
+			android:layout_gravity="bottom"
+	        android:text="@string/logoutButtonLabel" />
+    
+    </LinearLayout>
+    
+    <!-- MCM Logo -->
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="19dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:contentDescription="@string/mcmLogo"
         android:src="@drawable/mcmlogowide" />
-
-    <Button
-        android:id="@+id/notificationsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchButton"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="26dp"
-        android:text="@string/makePaymentsButtonLabel" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/registrationButton"
-        android:layout_below="@+id/notificationsButton"
-        android:text="@string/viewHistoryButtonLabel" />
-
-    <Button
-        android:id="@+id/registrationButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/logoutButton"
-        android:layout_alignRight="@+id/logoutButton"
-        android:layout_below="@+id/searchButton"
-        android:text="Registration" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/registrationButton"
-        android:layout_below="@+id/registrationButton"
-        android:text="@string/settingsButtonLabel" />
-
-    <Button
-        android:id="@+id/gpsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/settingsButton"
-        android:layout_below="@+id/settingsButton"
-        android:text="@string/locationButtonLabel" />
-
-    <Button
-        android:id="@+id/merchantButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gpsButton"
-        android:layout_below="@+id/gpsButton"
-        android:text="@string/merchantButtonLabel" />
-
-    <Button
-        android:id="@+id/dealsButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/merchantButton"
-        android:layout_below="@+id/merchantButton"
-        android:text="@string/dealsButtonLabel" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dealsButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/logoutButtonLabel" />
-
-</RelativeLayout>
+	
+</LinearLayout>
+</ScrollView>

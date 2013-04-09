@@ -3,13 +3,7 @@ package app.localization;
 
 import static app.utilities.CommonUtilities.EXTRA_MESSAGE;
 
-import java.io.FileInputStream;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
-
-import app.utilities.WakeLocker;
-import com.google.android.gcm.GCMRegistrar;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -29,6 +23,9 @@ import android.widget.Toast;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
+import app.utilities.WakeLocker;
+
+import com.google.android.gcm.GCMRegistrar;
 
 /**
  * Description of class here
@@ -94,7 +91,7 @@ public class HomeActivity extends Activity {
 			public void onClick(View arg0) {
 				
 				// Starting a new intent
-				Intent merchantScreen = new Intent(getApplicationContext(), Merchants.class);
+				Intent merchantScreen = new Intent(getApplicationContext(), MerchantMap.class);
 				startActivity(merchantScreen); 
 			}
 		});
@@ -112,6 +109,8 @@ public class HomeActivity extends Activity {
 		});
 		
 
+		// GPS Button - For debug
+		/*
 		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
 		gpsButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -122,6 +121,7 @@ public class HomeActivity extends Activity {
 				startActivity(locationScreen); 				
 			}
 		});
+		*/
 		
 		
 		Button dealsButton = (Button) findViewById(R.id.dealsButton); 
@@ -150,15 +150,6 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
-		Button registerButton = (Button) findViewById(R.id.registrationButton);
-		registerButton.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View arg0) {
-				//Starting a new Intent
-				Intent registerScreen = new Intent(getApplicationContext(), RegisterActivity.class);
-				startActivity(registerScreen);
-			}
-		});		
 	}
 	
 	/**
@@ -178,10 +169,7 @@ public class HomeActivity extends Activity {
 			 * For now i am just displaying it on the screen
 			 * */
 			
-			// Showing received message
-			// TODO: DO WHAT WILL BE DONE WITH RECEIVED MESSAGE
-		//	lblMessage.append(newMessage + "\n");			
-			
+			// Showing received message	
 			Toast.makeText(getApplicationContext(), "New Message: " + newMessage, Toast.LENGTH_LONG).show();
 			
 			// Releasing wake lock
@@ -219,13 +207,10 @@ public class HomeActivity extends Activity {
 			public void onProviderEnabled(String provider) {}
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
-				//Toast t = Toast.makeText(LocationActivity.this, "Status changed", Toast.LENGTH_SHORT); 
-				//t.show(); 
 			}
 
 			@Override
 			public void onLocationChanged(Location arg0) {
-				
 				useNewLocation(arg0); 
 			}
 		};
@@ -294,8 +279,6 @@ public class HomeActivity extends Activity {
 			dialog.showNotificationDialog("Error updating user latitude and longitude in database");
 		}
 		
-		Toast t = Toast.makeText(HomeActivity.this, "Updating location", Toast.LENGTH_SHORT); 
-		t.show(); 
 		Log.d("Location", "Updating location: " + currentLat + ", " + currentLon); 
 		
 	}

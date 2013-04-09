@@ -1,23 +1,26 @@
 package app.localization;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.LinearLayout.LayoutParams;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
@@ -42,16 +45,23 @@ public class PaymentHistory extends Activity {
 	List<String> listContents; 
 	ListView myListView; 
 	ArrayAdapter<String> adapter; 
-	PaymentHistory currentThis = this; 
+	
+	LinearLayout historyLayout;
+	TextView noHistoryText;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.history);
+		historyLayout = (LinearLayout)findViewById(R.id.historyLayout);
 
+		// initialize variables for list view
 		listContents = new ArrayList<String>();
-
 		myListView = (ListView)findViewById(R.id.historyList);
-
+		
+		// initialize variables for empty list
+		noHistoryText = new TextView(PaymentHistory.this); 
+		noHistoryText.setText("There are no recent transactions at this time.");
+		
 		// Get list of merchants from database
 		getData(); 
 
@@ -79,8 +89,8 @@ public class PaymentHistory extends Activity {
 
 		// if there are no transactions, notify the user 
 		if (jsonArray == null || jsonArray.length() == 0) {
-			CustomDialog cd = new CustomDialog(PaymentHistory.this); 
-			cd.showNotificationDialog("There are no recent transactions at this time.");
+			LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			historyLayout.addView(noHistoryText,lp);
 		}
 
 		// if there are transactions
@@ -114,8 +124,17 @@ public class PaymentHistory extends Activity {
 								str = "Cancelled transaction from ";
 							}
 							str += merchant  + "\n" + 
-									"$" + cost + " for " + productIndex + "\n" + 
-									purchaseTime;
+									"$" + cost;
+							
+							if (productIndex != null && !productIndex.equals("")) {
+								str += " for " + productIndex;
+							}
+							
+							// convert purchase time to non-military time 
+							Timestamp ts = Timestamp.valueOf(purchaseTime); 
+							String time = DateFormat.getDateTimeInstance().format(ts.getTime());
+							
+							str += "\n" + time;
 							
 							listContents.add(str); 
 						}
@@ -126,7 +145,7 @@ public class PaymentHistory extends Activity {
 						cd.showNotificationDialog(e.getMessage()); 
 					}
 
-					adapter = new ArrayAdapter<String>(currentThis, 
+					adapter = new ArrayAdapter<String>(PaymentHistory.this, 
 							android.R.layout.simple_list_item_1, listContents); 
 					adapter.setNotifyOnChange(true); 
 					myListView.setAdapter(adapter); 

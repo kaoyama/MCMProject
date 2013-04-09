@@ -9,7 +9,7 @@
     <string name="newNotificationsButtonLabel">New Notifications</string>
     <string name="searchButtonLabel">Search</string>
     <string name="locationButtonLabel">Get Location</string>
-    <string name="merchantButtonLabel">Merchants</string>
+    <string name="merchantButtonLabel">Merchant Map</string>
     <string name="dealsButtonLabel">Deals</string>
     <string name="logoutButtonLabel">Log Out</string>
     <string name="makePaymentsButtonLabel">Make Payments</string>
@@ -30,6 +30,7 @@
     <string name="forgotAccount">Forgot Username or Password?</string>
     <string name="createAccountLabel">Create New Account</string>
     <string name="viewHistoryButtonLabel">View History</string>
+    <string name="merchantMapLabel">Merchant Map</string>
 
     <!-- GCM Strings -->
     <string name="gcm_registered">From GCM: device successfully registered!</string>
@@ -76,5 +77,8 @@
     <string name="targetedDealSettingsLabelText">Targeted Deal Settings</string>
     <string name="checkAllButtonText">Check All</string>
     <string name="clearAllButtonText">Clear All</string>
+    <string name="registrationButtonText">Device Registration</string>
+    <string name="deviceRegistrationTextLabel">Device Registration</string>
+    <string name="registerDeviceButtonLabel">Register Device</string>
 
 </resources>
