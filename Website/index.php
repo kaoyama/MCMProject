@@ -59,8 +59,9 @@
             if (!$_SESSION['user'] || $_SESSION['user'] === "GuestOfKimi")
             {
                 echo "<ul>
-                        <li><a href='MCMcreateNewAccount.php'>Create Account -_-</a></li>
+                        <li><a href='customerCreateNewAccount.php'>Create Customer Account</a></li>
                         <li><a href='customerLogin.php'>Customer Log in</a></li>
+                        <li><a href='merchantCreateNewAccount.php'>Create Merchant Account </a></li>
                         <li><a href='merchantLogin.php'>Merchant Log in</a></li>
                       </ul>";
             }
