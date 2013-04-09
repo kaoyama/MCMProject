@@ -58,9 +58,7 @@
         </activity>
         <activity android:name="app.localization.Merchants" >
         </activity>
-        <activity
-            android:name="app.localization.MerchantMap"
-            android:theme="@android:style/Theme.NoTitleBar" >
+        <activity android:name="app.localization.MerchantMap" >
         </activity>
         <activity android:name="app.localization.RegisterActivity" >
         </activity>

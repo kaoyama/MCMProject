@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -41,6 +42,17 @@ public class Settings extends Activity {
 		//myListView = (ListView)findViewById(R.id.dealsList);
 		
 		RadioGroup opt = (RadioGroup)findViewById(R.id.radioGroup_opt);
+		
+		// Register device
+		Button registerButton = (Button) findViewById(R.id.registerDeviceButton);
+		registerButton.setOnClickListener(new View.OnClickListener(){
+
+			public void onClick(View arg0) {
+				//Starting a new Intent
+				Intent registerScreen = new Intent(getApplicationContext(), RegisterActivity.class);
+				startActivity(registerScreen);
+			}
+		});		
 	}
 	
 	public void onCheckboxClicked(View view) {
