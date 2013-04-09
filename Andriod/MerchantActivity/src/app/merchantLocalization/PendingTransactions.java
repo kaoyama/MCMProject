@@ -85,6 +85,9 @@ public class PendingTransactions extends Activity {
 	
 	static int TIMEOUT_MILLISEC = 3000; 
 
+	public void onBackPressed() {
+    }
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pendingcharges);
@@ -188,6 +191,23 @@ public class PendingTransactions extends Activity {
 			CustomDialog cd = new CustomDialog(PendingTransactions.this); 
 			cd.showNotificationDialog("Transaction list is empty.");
 		}
+		
+		Button homeButton = (Button) new Button(this);
+		homeButton.setText("Home");
+		 
+        //Listening to button event
+        homeButton.setOnClickListener(new View.OnClickListener(){
+ 
+            public void onClick(View arg0) {
+                //Starting a new Intent
+                Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
+ 
+                startActivity(homeScreen);
+ 
+            }
+        });
+        
+        chargeLayout.addView(homeButton);
 		
 	}
 	

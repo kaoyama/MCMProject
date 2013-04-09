@@ -29,7 +29,6 @@ import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 
-
 public class MerchantLocalizationActivity extends Activity {
     /** Called when the activity is first created. */
 	EditText inputUserName;
@@ -40,6 +39,9 @@ public class MerchantLocalizationActivity extends Activity {
     TextView username;
     
     MerchantLocalizationActivity currentThis = this; 
+    
+    public void onBackPressed() {
+    }
     
     public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
