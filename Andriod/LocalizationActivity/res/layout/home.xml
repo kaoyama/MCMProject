@@ -24,7 +24,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:textColor="#C0C0C0"
-            android:background="?android:selectableItemBackground"
+			style="@style/Custom.ImageButton"
             android:drawableBottom="@drawable/store"
             android:text="@string/merchantButtonLabel" />
 	    
@@ -36,7 +36,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="20dp"
 	        android:textColor="#C0C0C0"
-            android:background="?android:selectableItemBackground"
+            style="@style/Custom.ImageButton"
 	        android:drawableBottom="@drawable/coupon"
 	        android:layout_gravity="bottom"
 	        android:text="@string/dealsButtonLabel" />
@@ -57,7 +57,7 @@
 	        android:layout_width="140dp"
 	        android:layout_height="wrap_content"
 	        android:textColor="#C0C0C0"
-	        android:background="?android:selectableItemBackground"
+			style="@style/Custom.ImageButton"
 	        android:drawableBottom="@drawable/payment"
 	        android:text="@string/makePaymentsButtonLabel" />
 	
@@ -68,7 +68,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="20dp"
 			android:textColor="#C0C0C0"
-			android:background="?android:selectableItemBackground"
+			style="@style/Custom.ImageButton"
 			android:drawableBottom="@drawable/history"
 			android:layout_gravity="bottom"
 	        android:text="@string/viewHistoryButtonLabel" />
@@ -109,7 +109,7 @@
 	        android:layout_width="140dp"
 	        android:layout_height="wrap_content"
 	        android:textColor="#C0C0C0"
-	        android:background="?android:selectableItemBackground"
+			style="@style/Custom.ImageButton"
 	        android:drawableBottom="@drawable/setting"
 	        android:text="@string/settingsButtonLabel" />
 	    
@@ -120,7 +120,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="20dp"
 			android:textColor="#C0C0C0"
-			android:background="?android:selectableItemBackground"
+			style="@style/Custom.ImageButton"
 			android:drawableBottom="@drawable/logout"
 			android:layout_gravity="bottom"
 	        android:text="@string/logoutButtonLabel" />

@@ -22,8 +22,8 @@
 	        android:layout_width="140dp"
 	        android:layout_height="wrap_content"
 	        android:textColor="#C0C0C0"
-            android:background="?android:selectableItemBackground"
-	        android:drawableBottom="@drawable/coupon"
+            android:drawableBottom="@drawable/coupon"
+            style="@style/Custom.ImageButton"
 	        android:text="@string/dealsButtonLabel" />
         
         <Button
@@ -32,9 +32,9 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="20dp"
 	        android:textColor="#C0C0C0"
-            android:background="?android:selectableItemBackground"
-	        android:drawableBottom="@drawable/customer"
+           android:drawableBottom="@drawable/customer"
 	        android:layout_gravity="bottom"
+	        style="@style/Custom.ImageButton"
 	        android:text="@string/chargeCustomersButtonLabel" />
     
 	</LinearLayout>
@@ -52,8 +52,8 @@
 	        android:layout_width="140dp"
 	        android:layout_height="wrap_content"
 	        android:textColor="#C0C0C0"
-	        android:background="?android:selectableItemBackground"
 	        android:drawableBottom="@drawable/payment"
+	        style="@style/Custom.ImageButton"
 	        android:text="@string/pendingChargesButtonLabel" />
         
         <Button
@@ -62,9 +62,9 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="20dp"
 			android:textColor="#C0C0C0"
-			android:background="?android:selectableItemBackground"
 			android:drawableBottom="@drawable/history"
 			android:layout_gravity="bottom"
+			style="@style/Custom.ImageButton"
 	        android:text="@string/transactionsButtonLabel" />
         
     </LinearLayout>
@@ -83,8 +83,8 @@
 	        android:layout_width="140dp"
 	        android:layout_height="wrap_content"
 	        android:textColor="#C0C0C0"
-	        android:background="?android:selectableItemBackground"
 	        android:drawableBottom="@drawable/setting"
+	        style="@style/Custom.ImageButton"
 	        android:text="@string/settingsButtonLabel" />
 	    
 	    <!-- Logout Button -->
@@ -94,9 +94,9 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="20dp"
 			android:textColor="#C0C0C0"
-			android:background="?android:selectableItemBackground"
 			android:drawableBottom="@drawable/logout"
 			android:layout_gravity="bottom"
+			style="@style/Custom.ImageButton"
 	        android:text="@string/logoutButtonLabel" />
     
     <!-- Update location button - for debug -->
