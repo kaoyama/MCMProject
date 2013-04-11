@@ -33,7 +33,8 @@
         </activity>
         <activity android:name="app.merchantLocalization.ManageDeals" >
         </activity>
-        <activity android:name="app.merchantLocalization.ChargeCustomer" >
+        <activity 
+            android:name="app.merchantLocalization.ChargeCustomer">
         </activity>
         <activity android:name="app.merchantLocalization.LocationActivity" >
         </activity>

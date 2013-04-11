@@ -91,13 +91,13 @@ public class MakePayments extends Activity {
 							AlertDialog.Builder builder = new AlertDialog.Builder(currentThis);
 							builder.setMessage("Would you like to purchase " + productIndex + " for $" + cost + "?")
 							.setTitle("Make Payment");
-							builder.setPositiveButton("Purchase", new DialogInterface.OnClickListener() {
+							builder.setNegativeButton("Pay Now", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									makePurchase(true, false, transactionIndex, 
 											"You have successfully paid " + merchant + " $" + cost + ".");
 								}
 							});
-							builder.setNeutralButton("Decline", new DialogInterface.OnClickListener() {
+							builder.setPositiveButton("Cancel Payment", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									// User cancelled the transaction
 									makePurchase(false, true, transactionIndex, 
@@ -105,7 +105,7 @@ public class MakePayments extends Activity {
 								}
 							});
 							
-							builder.setNegativeButton("Pay Later", new DialogInterface.OnClickListener() {
+							builder.setNeutralButton("Pay Later", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									// User cancelled the dialog
 								}

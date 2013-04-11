@@ -1,7 +1,6 @@
 package app.merchantLocalization;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.json.JSONArray;
@@ -10,7 +9,6 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,7 +51,17 @@ public class Transactions extends Activity {
 
 		// Get list of merchants from database
 		getData(); 
-
+		
+		// home button
+		Button settingsButton = (Button) findViewById(R.id.homeButton);
+		settingsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Starting a new intent
+				Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
+				startActivity(homeScreen); 	      
+			}
+		});
 	}
 
 	/**

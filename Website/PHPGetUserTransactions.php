@@ -11,7 +11,7 @@ $userName = $obj->{'userName'};
 // Get boolean value from customers table 
 
 $query = "SELECT * FROM kd268.customerTransactions " . 
-        " WHERE customer = '$userName'";
+        " WHERE customer = '$userName' ORDER BY PurchaseTime DESC";
  
 $result = $db->query($query); 
 print $db->resultToJson($result); 

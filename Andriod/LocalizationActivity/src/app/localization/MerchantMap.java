@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -229,8 +230,11 @@ public class MerchantMap extends MapActivity {
 		}
 	
 		protected boolean onTap(int index) {
-			Toast.makeText(MerchantMap.this, getItem(index).getTitle(), 
-					Toast.LENGTH_SHORT).show();
+			//Toast.makeText(MerchantMap.this, getItem(index).getTitle(), 
+			//		Toast.LENGTH_SHORT).show();
+			
+			Intent dealsScreen = new Intent(getApplicationContext(), Deals.class);
+			startActivity(dealsScreen); 	     
 			return true; 
 		}
 		

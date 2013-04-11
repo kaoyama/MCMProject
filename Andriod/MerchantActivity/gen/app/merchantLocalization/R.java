@@ -73,12 +73,15 @@ public final class R {
         public static final int transactions=0x7f060001;
     }
     public static final class string {
+        public static final int amountString=0x7f04000e;
         public static final int app_name=0x7f040000;
         public static final int chargeCustomersButtonLabel=0x7f040009;
         /**  home.xml 
          */
         public static final int dealsButtonLabel=0x7f040008;
+        public static final int dollarText=0x7f04000f;
         public static final int hello_world=0x7f040001;
+        public static final int homeButtonText=0x7f040010;
         public static final int loginLabel=0x7f040006;
         public static final int logoutButtonLabel=0x7f04000c;
         public static final int mcmLogo=0x7f040007;

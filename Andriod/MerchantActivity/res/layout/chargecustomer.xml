@@ -3,36 +3,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
     
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="Amount: " />
-    
-    <LinearLayout 
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center"
-	    android:orientation="horizontal" >
-	    
-	    <TextView
-	        android:layout_width="10dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:text="$" />
-	    
-	    <EditText
-	        android:id="@+id/chargeAmount"
-	        android:layout_width="100dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:layout_marginBottom="10dip"
-	        android:inputType="numberDecimal" />
-	    
+        android:layout_marginTop="20dp"
+        android:text="@string/amountString" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/dollarText"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/chargeAmount"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dip"
+            android:inputType="numberDecimal" >
+
+            <requestFocus />
+        </EditText>
     </LinearLayout>
 
     <Button
@@ -41,5 +46,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dip" />
+    
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dip"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="" />
+    
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:text="@string/homeButtonText" />
 
 </LinearLayout>

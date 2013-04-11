@@ -56,55 +56,56 @@ containing a value of this type.
         public static final int success=0x7f02000d;
     }
     public static final class id {
-        public static final int TextView01=0x7f0a002a;
-        public static final int View01=0x7f0a0026;
-        public static final int View02=0x7f0a002b;
-        public static final int allMerchantList=0x7f0a002f;
-        public static final int btnCheckAll=0x7f0a002d;
-        public static final int btnClearAll=0x7f0a002e;
-        public static final int btnRegister=0x7f0a0020;
-        public static final int checkbox_localization=0x7f0a0023;
-        public static final int createAccountLabel=0x7f0a0018;
+        public static final int TextView01=0x7f0a002b;
+        public static final int View01=0x7f0a0027;
+        public static final int View02=0x7f0a002c;
+        public static final int allMerchantList=0x7f0a0030;
+        public static final int btnCheckAll=0x7f0a002e;
+        public static final int btnClearAll=0x7f0a002f;
+        public static final int btnRegister=0x7f0a0021;
+        public static final int checkbox_localization=0x7f0a0024;
+        public static final int createAccountLabel=0x7f0a0019;
         public static final int dealContent=0x7f0a0001;
         public static final int dealTitle=0x7f0a0000;
-        public static final int dealsButton=0x7f0a0006;
-        public static final int dealsList=0x7f0a0002;
-        public static final int forgotAccountLabel=0x7f0a0017;
-        public static final int goingAwayButton=0x7f0a0011;
-        public static final int historyLayout=0x7f0a0003;
-        public static final int historyList=0x7f0a0004;
-        public static final int imageView1=0x7f0a000b;
-        public static final int loginButton=0x7f0a0016;
-        public static final int logoutButton=0x7f0a000a;
-        public static final int mapButton=0x7f0a001a;
-        public static final int mapview=0x7f0a0019;
-        public static final int menu_settings=0x7f0a0030;
-        public static final int merchantButton=0x7f0a0005;
-        public static final int merchantList=0x7f0a001b;
-        public static final int notificationList=0x7f0a001d;
-        public static final int notificationsButton=0x7f0a0007;
-        public static final int password=0x7f0a0015;
-        public static final int passwordLabel=0x7f0a0014;
-        public static final int paymentLayout=0x7f0a001c;
-        public static final int radioGroup_opt=0x7f0a0024;
-        public static final int radio_optInAll=0x7f0a0027;
-        public static final int radio_optInSome=0x7f0a0029;
-        public static final int radio_optOutAll=0x7f0a0028;
-        public static final int registerDeviceButton=0x7f0a002c;
-        public static final int searchButton=0x7f0a0008;
-        public static final int separator=0x7f0a0022;
-        public static final int settingsButton=0x7f0a0009;
-        public static final int stopUpdatingLocationButton=0x7f0a0010;
-        public static final int textView1=0x7f0a0021;
-        public static final int textView2=0x7f0a0025;
-        public static final int txtEmail=0x7f0a001f;
-        public static final int txtName=0x7f0a001e;
-        public static final int updateLocationGPSButton=0x7f0a000e;
-        public static final int updateLocationGPSLabel=0x7f0a000f;
-        public static final int updateLocationNetworkButton=0x7f0a000c;
-        public static final int updateLocationNetworkLabel=0x7f0a000d;
-        public static final int username=0x7f0a0013;
-        public static final int usernameLabel=0x7f0a0012;
+        public static final int dealsButton=0x7f0a0007;
+        public static final int dealsList=0x7f0a0003;
+        public static final int forgotAccountLabel=0x7f0a0018;
+        public static final int goingAwayButton=0x7f0a0012;
+        public static final int historyLayout=0x7f0a0004;
+        public static final int historyList=0x7f0a0005;
+        public static final int homeButton=0x7f0a0002;
+        public static final int imageView1=0x7f0a000c;
+        public static final int loginButton=0x7f0a0017;
+        public static final int logoutButton=0x7f0a000b;
+        public static final int mapButton=0x7f0a001b;
+        public static final int mapview=0x7f0a001a;
+        public static final int menu_settings=0x7f0a0031;
+        public static final int merchantButton=0x7f0a0006;
+        public static final int merchantList=0x7f0a001c;
+        public static final int notificationList=0x7f0a001e;
+        public static final int notificationsButton=0x7f0a0008;
+        public static final int password=0x7f0a0016;
+        public static final int passwordLabel=0x7f0a0015;
+        public static final int paymentLayout=0x7f0a001d;
+        public static final int radioGroup_opt=0x7f0a0025;
+        public static final int radio_optInAll=0x7f0a0028;
+        public static final int radio_optInSome=0x7f0a002a;
+        public static final int radio_optOutAll=0x7f0a0029;
+        public static final int registerDeviceButton=0x7f0a002d;
+        public static final int searchButton=0x7f0a0009;
+        public static final int separator=0x7f0a0023;
+        public static final int settingsButton=0x7f0a000a;
+        public static final int stopUpdatingLocationButton=0x7f0a0011;
+        public static final int textView1=0x7f0a0022;
+        public static final int textView2=0x7f0a0026;
+        public static final int txtEmail=0x7f0a0020;
+        public static final int txtName=0x7f0a001f;
+        public static final int updateLocationGPSButton=0x7f0a000f;
+        public static final int updateLocationGPSLabel=0x7f0a0010;
+        public static final int updateLocationNetworkButton=0x7f0a000d;
+        public static final int updateLocationNetworkLabel=0x7f0a000e;
+        public static final int username=0x7f0a0014;
+        public static final int usernameLabel=0x7f0a0013;
     }
     public static final class layout {
         public static final int deal_details=0x7f030000;
@@ -128,105 +129,106 @@ containing a value of this type.
         /**  Application name 
          */
         public static final int app_name=0x7f070000;
-        public static final int checkAllButtonText=0x7f070037;
-        public static final int clearAllButtonText=0x7f070038;
-        public static final int createAccountLabel=0x7f070012;
-        public static final int dealContent=0x7f07002b;
-        public static final int dealTitle=0x7f07002a;
+        public static final int checkAllButtonText=0x7f070038;
+        public static final int clearAllButtonText=0x7f070039;
+        public static final int createAccountLabel=0x7f070013;
+        public static final int dealContent=0x7f07002c;
+        public static final int dealTitle=0x7f07002b;
         public static final int dealsButtonLabel=0x7f070006;
         /**  coupons.xml 
          */
-        public static final int dealsListLabel=0x7f07000e;
-        public static final int deviceRegistrationTextLabel=0x7f07003a;
-        public static final int forgotAccount=0x7f070011;
-        public static final int gcm_deleted=0x7f07001a;
-        public static final int gcm_error=0x7f070018;
-        public static final int gcm_message=0x7f070017;
-        public static final int gcm_recoverable_error=0x7f070019;
+        public static final int dealsListLabel=0x7f07000f;
+        public static final int deviceRegistrationTextLabel=0x7f07003b;
+        public static final int forgotAccount=0x7f070012;
+        public static final int gcm_deleted=0x7f07001b;
+        public static final int gcm_error=0x7f070019;
+        public static final int gcm_message=0x7f070018;
+        public static final int gcm_recoverable_error=0x7f07001a;
         /**  GCM Strings 
          */
-        public static final int gcm_registered=0x7f070015;
-        public static final int gcm_unregistered=0x7f070016;
-        public static final int goingAwayButtonLabel=0x7f070030;
-        public static final int hello_world=0x7f070027;
+        public static final int gcm_registered=0x7f070016;
+        public static final int gcm_unregistered=0x7f070017;
+        public static final int goingAwayButtonLabel=0x7f070031;
+        public static final int hello_world=0x7f070028;
+        public static final int homeButtonText=0x7f07000b;
         /**  merchant.xml 
          */
-        public static final int listOfMerchantsLabel=0x7f07000f;
+        public static final int listOfMerchantsLabel=0x7f070010;
         /**  Settings 
          */
-        public static final int localizationCheckboxLabel=0x7f070031;
+        public static final int localizationCheckboxLabel=0x7f070032;
         /**  home.xml 
          */
         public static final int localizationSettingsButtonLabel=0x7f070001;
-        public static final int localizationSettingsLabel=0x7f070024;
-        public static final int localizationSettingsLabelText=0x7f070035;
+        public static final int localizationSettingsLabel=0x7f070025;
+        public static final int localizationSettingsLabelText=0x7f070036;
         public static final int locationButtonLabel=0x7f070004;
-        public static final int loginLabel=0x7f07000d;
+        public static final int loginLabel=0x7f07000e;
         public static final int logoutButtonLabel=0x7f070007;
         public static final int makePaymentsButtonLabel=0x7f070008;
         public static final int mcmLogo=0x7f07000a;
-        public static final int menu_settings=0x7f070028;
+        public static final int menu_settings=0x7f070029;
         public static final int merchantButtonLabel=0x7f070005;
-        public static final int merchantMapButtonLabel=0x7f070010;
-        public static final int merchantMapLabel=0x7f070014;
+        public static final int merchantMapButtonLabel=0x7f070011;
+        public static final int merchantMapLabel=0x7f070015;
         public static final int newNotificationsButtonLabel=0x7f070002;
-        public static final int optInAllRadioLabel=0x7f070032;
-        public static final int optInSomeRadioLabel=0x7f070033;
-        public static final int optOutAllRadioLabel=0x7f070034;
-        public static final int options_clear=0x7f070022;
-        public static final int options_exit=0x7f070023;
+        public static final int optInAllRadioLabel=0x7f070033;
+        public static final int optInSomeRadioLabel=0x7f070034;
+        public static final int optOutAllRadioLabel=0x7f070035;
+        public static final int options_clear=0x7f070023;
+        public static final int options_exit=0x7f070024;
         /**  Options Strings 
          */
-        public static final int options_register=0x7f070020;
-        public static final int options_unregister=0x7f070021;
-        public static final int passwordLabel=0x7f07000c;
-        public static final int pref_default_display_name=0x7f070041;
-        public static final int pref_description_social_recommendations=0x7f07003f;
+        public static final int options_register=0x7f070021;
+        public static final int options_unregister=0x7f070022;
+        public static final int passwordLabel=0x7f07000d;
+        public static final int pref_default_display_name=0x7f070042;
+        public static final int pref_description_social_recommendations=0x7f070040;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070043;
+        public static final int pref_header_data_sync=0x7f070044;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07003d;
+        public static final int pref_header_general=0x7f07003e;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070046;
-        public static final int pref_ringtone_silent=0x7f070049;
+        public static final int pref_header_notifications=0x7f070047;
+        public static final int pref_ringtone_silent=0x7f07004a;
         /**  Preferences 
          */
-        public static final int pref_sync=0x7f070025;
-        public static final int pref_sync_summ=0x7f070026;
-        public static final int pref_title_add_friends_to_messages=0x7f070042;
-        public static final int pref_title_display_name=0x7f070040;
-        public static final int pref_title_new_message_notifications=0x7f070047;
-        public static final int pref_title_ringtone=0x7f070048;
-        public static final int pref_title_social_recommendations=0x7f07003e;
-        public static final int pref_title_sync_frequency=0x7f070044;
-        public static final int pref_title_system_sync_settings=0x7f070045;
-        public static final int pref_title_vibrate=0x7f07004a;
-        public static final int registerDeviceButtonLabel=0x7f07003b;
-        public static final int registrationButtonText=0x7f070039;
+        public static final int pref_sync=0x7f070026;
+        public static final int pref_sync_summ=0x7f070027;
+        public static final int pref_title_add_friends_to_messages=0x7f070043;
+        public static final int pref_title_display_name=0x7f070041;
+        public static final int pref_title_new_message_notifications=0x7f070048;
+        public static final int pref_title_ringtone=0x7f070049;
+        public static final int pref_title_social_recommendations=0x7f07003f;
+        public static final int pref_title_sync_frequency=0x7f070045;
+        public static final int pref_title_system_sync_settings=0x7f070046;
+        public static final int pref_title_vibrate=0x7f07004b;
+        public static final int registerDeviceButtonLabel=0x7f07003c;
+        public static final int registrationButtonText=0x7f07003a;
         public static final int searchButtonLabel=0x7f070003;
-        public static final int server_register_error=0x7f07001e;
-        public static final int server_registered=0x7f07001c;
-        public static final int server_registering=0x7f07001b;
-        public static final int server_unregister_error=0x7f07001f;
-        public static final int server_unregistered=0x7f07001d;
+        public static final int server_register_error=0x7f07001f;
+        public static final int server_registered=0x7f07001d;
+        public static final int server_registering=0x7f07001c;
+        public static final int server_unregister_error=0x7f070020;
+        public static final int server_unregistered=0x7f07001e;
         public static final int settingsButtonLabel=0x7f070009;
-        public static final int stopUpdatingLocationButtonlabel=0x7f07002f;
-        public static final int targetedDealSettingsLabelText=0x7f070036;
-        public static final int title_activity_deal_detail=0x7f070029;
-        public static final int title_activity_location=0x7f07002c;
-        public static final int title_activity_settings_localization=0x7f07003c;
-        public static final int updateLocationGPSButtonLabel=0x7f07002e;
+        public static final int stopUpdatingLocationButtonlabel=0x7f070030;
+        public static final int targetedDealSettingsLabelText=0x7f070037;
+        public static final int title_activity_deal_detail=0x7f07002a;
+        public static final int title_activity_location=0x7f07002d;
+        public static final int title_activity_settings_localization=0x7f07003d;
+        public static final int updateLocationGPSButtonLabel=0x7f07002f;
         /**  Location 
          */
-        public static final int updateLocationNetworkButtonLabel=0x7f07002d;
+        public static final int updateLocationNetworkButtonLabel=0x7f07002e;
         /**  main.xml 
          */
-        public static final int usernameLabel=0x7f07000b;
-        public static final int viewHistoryButtonLabel=0x7f070013;
+        public static final int usernameLabel=0x7f07000c;
+        public static final int viewHistoryButtonLabel=0x7f070014;
     }
     public static final class style {
         /** 

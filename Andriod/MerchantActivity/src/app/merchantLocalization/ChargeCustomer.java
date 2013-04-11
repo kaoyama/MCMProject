@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +12,6 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.graphics.Color;
-import android.location.*;
-import app.merchantLocalization.R;
 import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
@@ -81,6 +76,20 @@ public class ChargeCustomer extends Activity {
 				dialog.show();
 			}
 		});
+		
+		
+		// home button
+		Button settingsButton = (Button) findViewById(R.id.homeButton);
+		settingsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Starting a new intent
+				Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
+				startActivity(homeScreen); 	      
+			}
+		});
+				
+		chargeAmount.requestFocus();
 		
 	}
 }
