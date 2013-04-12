@@ -12,6 +12,15 @@
     <ListView 
         android:id="@+id/dealsList"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <Button 
+        android:id="@+id/homeButton"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight="0" 
+        android:text="@string/homeButtonText"/>
 
 </LinearLayout>

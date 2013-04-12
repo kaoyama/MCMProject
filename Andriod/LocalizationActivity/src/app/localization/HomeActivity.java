@@ -38,6 +38,9 @@ public class HomeActivity extends Activity {
 	static int NETWORK = 0; 
 	static int GPS = 1; 
 	
+	public void onBackPressed() {
+	}
+	
 	// Asyntask
 	AsyncTask<Void, Void, Void> mRegisterTask;
 	

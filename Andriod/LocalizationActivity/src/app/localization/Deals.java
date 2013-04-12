@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import app.utilities.CommonUtilities;
@@ -73,6 +74,17 @@ public class Deals extends Activity {
 		showSavedDeals(); 
 		
 		//showDeals(); 		
+		
+		// home button
+		Button settingsButton = (Button) findViewById(R.id.homeButton);
+		settingsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Starting a new intent
+				Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
+				startActivity(homeScreen); 	      
+			}
+		});
 	}
 	
 	public void showDeals() {
@@ -96,9 +108,11 @@ public class Deals extends Activity {
 											
 					try {							
 					    listContents = new ArrayList<String>(jsonArray.length());
-
+					    
 						for (int i = 0; i < jsonArray.length(); i++) {
-							listContents.add(jsonArray.getJSONObject(i).getString("title")); 								
+							String title = jsonArray.getJSONObject(i).getString("title");
+						    String merchant = jsonArray.getJSONObject(i).getString("merchant");
+							listContents.add(title + " from " + merchant); 								
 						}
 						
 					} catch (JSONException e) {
@@ -127,6 +141,7 @@ public class Deals extends Activity {
 								// get title and content and put in Android list
 								dealDetailIntent.putExtra("title", jsonArray.getJSONObject(position).getString("title"));
 								dealDetailIntent.putExtra("content", jsonArray.getJSONObject(position).getString("content"));
+								dealDetailIntent.putExtra("merchant", jsonArray.getJSONObject(position).getString("merchant"));
 								startActivity(dealDetailIntent); 
 								
 							} catch (Exception e) {
@@ -157,6 +172,7 @@ public class Deals extends Activity {
 				listContents = new ArrayList<String>();
 				
 				Cursor cursor = db.all(Deals.this); 
+				String merchant; 
 				String title;
 				int dealIndex; 
 				
@@ -171,12 +187,13 @@ public class Deals extends Activity {
 					while(cursor != null && cursor.isAfterLast() == false) {
 						
 						// warning: type (getString, getInt) must match column type 
+						merchant = cursor.getString(0);
 						title = cursor.getString(1); 
 						dealIndex = cursor.getInt(2); 
 						
 						Log.d(Deals.class.toString(), "title: " + title + " where dealIndex: " + dealIndex); 
 						
-						listContents.add(title); 
+						listContents.add(title + " from " + merchant); 
 								
 						// save listContents index to hashmap 
 						indexMap.put(index,  dealIndex); 
@@ -212,6 +229,7 @@ public class Deals extends Activity {
 							cursor.moveToFirst(); 
 							dealDetailIntent.putExtra("title", cursor.getString(TITLE));
 							dealDetailIntent.putExtra("content", cursor.getString(CONTENT));
+							dealDetailIntent.putExtra("merchant", cursor.getString(MERCHANT));
 							startActivity(dealDetailIntent); 
 							
 						} catch (Exception e) {

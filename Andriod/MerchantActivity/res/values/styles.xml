@@ -16,5 +16,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    
+    
+	<style name="Custom.ImageButton" parent="@android:style/Widget.Button">
+	    <item name="android:background">#0000</item>
+	</style>
+    
+	
 </resources>

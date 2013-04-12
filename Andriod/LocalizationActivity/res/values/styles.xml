@@ -1,5 +1,9 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Light" />
+    
+    <style name="Custom.ImageButton" parent="@android:style/Widget.Button">
+	    <item name="android:background">#0000</item>
+	</style>
 
 </resources>
