@@ -6,7 +6,7 @@ $db->connect();
     
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
-$userName = $obj->{'userName'};
+$merchantName = $obj->{'userName'};
         
 // Get boolean value from customers table 
 
