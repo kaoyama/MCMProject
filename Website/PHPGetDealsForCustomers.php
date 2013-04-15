@@ -19,7 +19,7 @@ while($r = mysql_fetch_assoc($result)) {
 
     // query all ads/coupons from subscribed merchants 
     $query = "SELECT * FROM kd268.deals 
-        WHERE dealIndex = '$dealIndex' AND enabled = TRUE AND accepted = TRUE";    
+        WHERE dealIndex = '$dealIndex' AND enabled = TRUE AND accepted = TRUE ORDER BY merchant DESC";    
     $dealsRes = mysql_query($query); 
     while($d = mysql_fetch_assoc($dealsRes)) {
         $row[] = $d;

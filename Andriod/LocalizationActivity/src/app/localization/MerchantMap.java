@@ -109,17 +109,25 @@ public class MerchantMap extends MapActivity {
 				"You are here!", this.getResources().getDrawable(R.drawable.kangaroo2)); 
 		*/
 		
+		/*
+		int lat = 35198132;
+		int lon = -111649032;
+		itemizedOverlay.addOverlayItem(lat, lon,
+				"You are here!", this.getResources().getDrawable(R.drawable.kangaroo2)); 
+		*/
+		
 		// Your current location - changes
 		
 		MyLocationOverlay mylc = new MyLocationOverlay(this, mapView); 
 		mapView.getOverlays().add(mylc);
 		mylc.enableMyLocation();
-	
+		
+		
 		// Set default zoom
 		MapController mapController = mapView.getController();
 		GeoPoint point = new GeoPoint((int)(latitude*MILLION), (int)(longitude*MILLION));
 		mapController.setCenter(point); 
-		mapController.setZoom(18); 
+		mapController.setZoom(19); 
 
 		// Add OverlayItem to the collection in MerchantMapItemOverlay instance
 		//itemizedOverlay.addOverlay(overlayitem); 
