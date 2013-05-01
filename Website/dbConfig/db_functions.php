@@ -4,8 +4,9 @@ class DB_Functions {
 
     private $db;
 
-    //put your code here
-    // constructor
+    /**
+     * Constructor for database functions  
+     */
     function __construct() {
         include_once './db_connect.php';
         // connecting to database
@@ -13,14 +14,20 @@ class DB_Functions {
         $this->db->connect();
     }
 
-    // destructor
+    /**
+     * Desctructor  
+     */
     function __destruct() {
         
     }
 
     /**
-     * Storing new user
-     * returns user details
+     * Store the new user in the database
+     * @param type $name Name of the new user
+     * @param type $email Email of the new user
+     * @param type $gcm_regid Registration ID of the device
+     * @return boolean Returns the new user result if successful.  Returns false 
+     * otherwise. 
      */
     public function storeUser($name, $email, $gcm_regid) {
         // insert user into database
@@ -42,7 +49,9 @@ class DB_Functions {
     }
 
     /**
-     * Get user by email and password
+     * Get user by email 
+     * @param type $email Email of the person to retrieve 
+     * @return type Result of the query 
      */
     public function getUserByEmail($email) {
         $result = mysql_query("SELECT * FROM gcm_users WHERE email = '$email' LIMIT 1");
@@ -50,7 +59,7 @@ class DB_Functions {
     }
 
     /**
-     * Getting all users
+     * Retrieve all users from the database
      */
     public function getAllUsers() {
         $result = mysql_query("select * FROM gcm_users");
@@ -58,7 +67,9 @@ class DB_Functions {
     }
 
     /**
-     * Check user is existed or not
+     * Check if the user exists in the database 
+     * @param type $email Email of the user 
+     * @return boolean Returns true if the user exists 
      */
     public function isUserExisted($email) {
         $result = mysql_query("SELECT email from gcm_users WHERE email = '$email'");

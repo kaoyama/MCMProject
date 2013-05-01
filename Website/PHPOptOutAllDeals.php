@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Unsubscribe from all merchants. Queries "subscribeForDeals" table. 
+ */
 include_once './dbConfig/DBFunctions.php';
 $db = new DBFunctions();     
 $db->connect();

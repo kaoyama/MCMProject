@@ -1,5 +1,9 @@
 <?php
 
+/** 
+ * User subscribes to all merchants.  Queries 'merchant" table and 
+ * "subscribeForDeals" table. 
+ */
 include_once './dbConfig/DBFunctions.php';
 $db = new DBFunctions();     
 $db->connect();

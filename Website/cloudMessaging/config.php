@@ -1,13 +1,12 @@
 <?php
 
 /**
- * Database config variables  
+ * Database configuration variables  
  */
-
 define("DB_HOST", "acadgpl.ucc.nau.edu");
-define("DB_USER", "kd268"); 
+define("DB_USER", "kd268");
 define("DB_PASSWORD", "capstone");
-define("DB_DATABASE", "kd268"); 
+define("DB_DATABASE", "kd268");
 
 /*
  * Google API Key

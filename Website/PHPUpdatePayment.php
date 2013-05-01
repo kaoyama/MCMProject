@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Update the specific transaction to paid or cancelled.  Queries the 
+ * table "customerTransactions." 
+ */
 include_once './dbConfig/DBFunctions.php';
 $db = new DBFunctions();     
 $db->connect();
@@ -13,7 +17,6 @@ $cancelled = $obj->{'cancelled'};
 $transactionIndex = $obj->{'transactionIndex'};
         
 // Set paid and cancelled columns in userTransactions table 
-
 $query = "UPDATE kd268.customerTransactions " .
         "SET paid = '$paid' , cancelled = '$cancelled' " . 
         "WHERE customer = '$userName' AND transactionIndex = '$transactionIndex'";

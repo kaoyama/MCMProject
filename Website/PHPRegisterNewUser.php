@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Register a new user in the table "gcm_users." 
+ */
 include_once './dbConfig/DBFunctions.php';
 $db = new DBFunctions();     
 $db->connect();

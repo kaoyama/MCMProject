@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Retrieve charged variable from the "customers" table. 
+ */
 include_once './dbConfig/DBFunctions.php';
 $db = new DBFunctions();     
 $db->connect();

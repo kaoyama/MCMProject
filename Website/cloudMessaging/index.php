@@ -1,17 +1,18 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+        </script>
         <script type="text/javascript">
             $(document).ready(function(){
                
             });
+            
+            /**
+             * Send Google Cloud Messaging push notification 
+             */
             function sendPushNotification(id){
                 var data = $('form#'+id).serialize();
                 $('form#'+id).unbind('submit');                

@@ -7,11 +7,11 @@ include_once './GCM.php';
 
 $gcm = new GCM();
 
-$registatoin_ids = array($regId);
+$registration_ids = array($regId);
 $message = array("price" => $message);
 
-$result = $gcm->send_notification($registatoin_ids, $message);
+// send push notification to phone 
+$result = $gcm->send_notification($registration_ids, $message);
 
 echo $result;
-
 ?>

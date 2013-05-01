@@ -1,31 +1,28 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of GCM
- *
- * @author Ravi Tamada
+ * Google Cloud Messaging 
+ * Credits: Ravi Tamada 
  */
 class GCM {
 
-    //put your code here
-    // constructor
+    /**
+     * Constructor for GCM 
+     */
     function __construct() {
-        
+        // empty
     }
 
     /**
-     * Sending Push Notification
+     * Send push notification 
+     * @param type $registrationIds ID of specific device 
+     * @param type $message Message to be sent to the phone 
      */
     public function send_notification($registrationIds, $message) {
         // include config
         include_once './config.php';
 
-        // Set POST variables
+        // Set POST variables - GCM is sent through Google 
         $url = 'https://android.googleapis.com/gcm/send';
 
         $fields = array(
@@ -37,6 +34,7 @@ class GCM {
             'Authorization: key=' . GOOGLE_API_KEY,
             'Content-Type: application/json'
         );
+
         // Open connection
         $ch = curl_init();
 
@@ -49,7 +47,6 @@ class GCM {
 
         // Disabling SSL Certificate support temporarly
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 
         // Execute post
@@ -60,7 +57,6 @@ class GCM {
 
         // Close connection
         curl_close($ch);
-       // echo $result;
     }
 
 }

@@ -1,56 +1,75 @@
 <?php
- 
+
 class DBFunctions {
- 
-    // constructor
+
+    /**
+     * Constructor for database functions 
+     */
     function __construct() {
- 
+        
     }
- 
-    // destructor
+
+    /**
+     * Destructor for class 
+     */
     function __destruct() {
         // $this->close();
     }
- 
-    // Connecting to database
+
+    /**
+     * Connect to the database
+     * @return type database handler 
+     */
     public function connect() {
         require_once './dbConfig/config.php';
+
         // connecting to mysql
         $con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+
         // selecting database
         mysql_select_db(DB_DATABASE);
- 
+
         // return database handler
         return $con;
     }
- 
-    // Closing database connection
+
+    /**
+     * Close the database connection  
+     */
     public function close() {
         mysql_close();
     }
-    
-    // with error messages
+
+    /**
+     * Make a SQL query to the database 
+     * @param type $queryStr SQL query 
+     * @return type Result of the query 
+     */
     public function query($queryStr) {
         $result = mysql_query($queryStr);
-        
-        if (mysql_errno()) { 
+
+        if (mysql_errno()) {
             header("HTTP/1.1 500 Internal Server Error");
-            echo $query.'<br>';
-            echo mysql_error(); 
+            echo $query . '<br>';
+            echo mysql_error();
         }
         else
-        {
             return $result;
-        }
     }
-    
+
+    /**
+     * Convert result from the database to a JSON array 
+     * @param type $res Result of SQL query 
+     * @return type JSON string of the result 
+     */
     public function resultToJson($res) {
         $rows = array();
-        while($r = mysql_fetch_assoc($res)) {
+        while ($r = mysql_fetch_assoc($res)) {
             $rows[] = $r;
         }
         return json_encode($rows);
     }
- 
-} 
+
+}
+
 ?>

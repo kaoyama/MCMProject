@@ -1,7 +1,3 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <form name="" method="post" action="register.php">
-			<input type="text" name="name"/>
-			<input type="text" name="email"/>
-			<input type="text" name="regId"/>
-			<input type="submit"/>
-		</form>
+            <input type="text" name="name"/>
+            <input type="text" name="email"/>
+            <input type="text" name="regId"/>
+            <input type="submit"/>
+        </form>
     </body>
 </html>
