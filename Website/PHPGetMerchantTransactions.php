@@ -10,9 +10,10 @@ $db->connect();
     
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
+$merchant = $obj->{'merchant'};
         
 $query = "SELECT * FROM kd268.customerTransactions " . 
-        " WHERE merchant = '$obj->{'merchant'}' ORDER BY PurchaseTime DESC"; 
+        " WHERE merchant = '$merchant' ORDER BY PurchaseTime DESC"; 
 $result = $db->query($query); 
 
 print $db->resultToJson($result); 

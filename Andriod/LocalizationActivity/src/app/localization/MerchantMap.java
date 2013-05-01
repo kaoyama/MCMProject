@@ -33,7 +33,7 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 /**
- * Displays a map view of nearby merchants within a certain diameter determined
+ * Displays a map view of nearby merchants within a certain radius determined
  * by the web service.
  * 
  * @author Chihiro

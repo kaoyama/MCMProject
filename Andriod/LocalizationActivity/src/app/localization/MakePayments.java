@@ -33,7 +33,7 @@ public class MakePayments extends Activity {
 	TextView noChargesText;
 
 	/**
-	 * Called when teh activity is first created.
+	 * Called when the activity is first created.
 	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

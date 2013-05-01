@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Retrive nearby merchants within a distance of 50 m. This query uses 
+ * Retrieve nearby merchants within a distance of 50 m. This query uses 
  * customer location from "customers" table and "merchantLocations" table.
  */
 include_once './dbConfig/DBFunctions.php';

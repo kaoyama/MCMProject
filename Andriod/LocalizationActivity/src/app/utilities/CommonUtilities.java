@@ -12,7 +12,6 @@ public final class CommonUtilities {
 	 */
 	public static final String SERVER_URL = "http://dana.ucc.nau.edu/~cs854/cloudMessaging/register.php";
 	public static final String REGISTRATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRegisterNewUser.php";
-	public static final String USERNOTIFICATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPRetrieveUserNotification.php";
 	public static final String UPDATEUSERLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateUserLocation.php";
 	public static final String TARGETEDDEALS_URL = "http://dana.ucc.nau.edu/~cs854/PHPGetTargetedDealsForCustomers.php";
 	public static final String UPDATEMERCHANTLOCATION_URL = "http://dana.ucc.nau.edu/~cs854/PHPUpdateMerchantLocation.php";
