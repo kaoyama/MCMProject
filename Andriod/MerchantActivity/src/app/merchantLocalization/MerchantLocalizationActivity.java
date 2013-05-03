@@ -29,6 +29,13 @@ import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 
+
+/**
+ * Login Page for app
+ * 
+ * 
+ * 
+ */
 public class MerchantLocalizationActivity extends Activity {
     /** Called when the activity is first created. */
 	EditText inputUserName;
@@ -40,6 +47,8 @@ public class MerchantLocalizationActivity extends Activity {
     
     MerchantLocalizationActivity currentThis = this; 
     
+    //Overrides back button on Android so that there is no functionality
+    //This was to prevent people from logging out then simply pressing the back button
     public void onBackPressed() {
     }
     
@@ -60,6 +69,7 @@ public class MerchantLocalizationActivity extends Activity {
 		});
 	}
 
+    //Checkslogin info with the database   
 	public void login() {
 		
 		String userName = inputUserName.getText().toString();

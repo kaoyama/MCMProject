@@ -55,32 +55,17 @@ import app.utilities.RestClient;
 
 
 /**
- * Customerlist.  Pulls subscribed or nearby customer names from the database. 
- * Need service-oriented architecture and needs three elements: 
- * external database, web-service, mobile web-service client. 
- * @author Chihiro
+ * Displays Pending Transactions
  * 
  * 
- * Notes:
- * For connection to work, Apache server must be handled to start PHP. 
- * Also, make sure NAU Wi-Fi is connected on the device. 
  * 
- * IP address changes for each Wi-Fi access! 
- *
  */
 
 @SuppressLint("NewApi")
 public class PendingTransactions extends Activity {
 	/** Called when the activity is first created. */
-
-	TextView username;
-	TextView result; 
-	
-	String dbResult; 
 	
 	TableLayout chargeLayout;
-	
-	ArrayAdapter<String> adapter;
 	
 	PendingTransactions currentThis = this; 
 	
@@ -122,6 +107,7 @@ public class PendingTransactions extends Activity {
 	
 	public void getCharges() {
 		
+		//Gets merchant name
 		String username = CommonUtilities.getUsername(PendingTransactions.this);
 		JSONObject jsonIn = new JSONObject();
 		
@@ -132,6 +118,7 @@ public class PendingTransactions extends Activity {
 			Log.v("Merchants", "JSON Exception");
 		}
 		
+		//Pulls pending transactions from database
 		final JSONArray jsonArray = RestClient.connectToDatabase(CommonUtilities.PENDINGCHARGES_URL, jsonIn);
 		
 		if (jsonArray != null) {
@@ -140,7 +127,8 @@ public class PendingTransactions extends Activity {
 				
 				@Override
 				public void run() {
-											
+						
+					//Puts allpendings transactions in to a table, each with a cancel button
 					try {							
 						for (int i = 0; i < jsonArray.length(); i++) {
 							final String cancelled = jsonArray.getJSONObject(i).getString("cancelled");
@@ -155,9 +143,12 @@ public class PendingTransactions extends Activity {
 								showAmount.setText(amount);
 								LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 								TableRow tempTableRow=new TableRow(getBaseContext());
+								
+								//Cancel button - allows merchant to cancel a pending transaction
 								final Button tempButton= new Button(PendingTransactions.this);
 								tempButton.setText("Cancel");
 								tempButton.setOnClickListener(new View.OnClickListener(){
+									//Cancels transaction in database
 									public void onClick(View arg0) {
 										JSONObject jsonIn2 = new JSONObject();
 										try {
@@ -172,7 +163,6 @@ public class PendingTransactions extends Activity {
 										setUpLayout();
 									}
 								});
-								//tempTableRow.setLayoutParams(lp);
 								tempTableRow.addView(showCustomer);
 								tempTableRow.addView(showAmount);
 								tempTableRow.addView(tempButton);

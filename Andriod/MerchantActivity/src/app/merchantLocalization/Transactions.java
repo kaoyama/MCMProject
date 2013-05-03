@@ -21,9 +21,9 @@ import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 
 /**
- * Payment history list.  Pulls subscribed or nearby merchant information from the database. 
- * Need service-oriented architecture and needs three elements: 
- * external database, web-service, mobile web-service client. 
+ * Payment history list. 
+ * 
+ * 
  * @author Chihiro
  */
 
@@ -50,11 +50,11 @@ public class Transactions extends Activity {
 		myListView = (ListView)findViewById(R.id.transactionsList);
 
 		// Get list of merchants from database
-		getData(); 
+		getTransactionHistory(); 
 		
 		// home button
-		Button settingsButton = (Button) findViewById(R.id.homeButton);
-		settingsButton.setOnClickListener(new View.OnClickListener() {
+		Button homeButton = (Button) findViewById(R.id.homeButton);
+		homeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// Starting a new intent
@@ -67,11 +67,8 @@ public class Transactions extends Activity {
 	/**
 	 * Connect to web service (database) 
 	 */
-	public void getData() {
-		getMerchants(); 
-	}
 
-	public void getMerchants() {
+	public void getTransactionHistory() {
 
 		String username = CommonUtilities.getUsername(Transactions.this); 
 		JSONObject jsonIn = new JSONObject();

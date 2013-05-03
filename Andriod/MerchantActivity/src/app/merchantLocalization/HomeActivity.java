@@ -11,7 +11,12 @@ import android.graphics.Color;
 import android.location.*;
 import app.merchantLocalization.R;
 
-
+/**
+ * View to display the buttons for different screens
+ * 
+ * 
+ * 
+ */
 public class HomeActivity extends Activity {
 	/** Called when the activity is first created. */
 
@@ -24,23 +29,10 @@ public class HomeActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
-
-		/*
-		final Button gpsButton = (Button) findViewById(R.id.gpsButton);
-		gpsButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// Starting a new intent
-				Intent locationScreen = new Intent(getApplicationContext(), app.merchantLocalization.LocationActivity.class); 
-				startActivity(locationScreen); 				
-			}
-		});
-		*/
 		
 		Button logoutButton = (Button) findViewById(R.id.logoutButton);
 
-		//Listening to button event
+		//Logout button
 		logoutButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View arg0) {
@@ -52,10 +44,10 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
-		Button chargeButton = (Button) findViewById(R.id.chargeButton);
+		Button pendingTransactionsButton = (Button) findViewById(R.id.chargeButton);
 
-		//Listening to button event
-		chargeButton.setOnClickListener(new View.OnClickListener(){
+		//Pending Transactions Button
+		pendingTransactionsButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View arg0) {
 				//Starting a new Intent
@@ -68,7 +60,7 @@ public class HomeActivity extends Activity {
 		
 		Button accountSettingsButton = (Button) findViewById(R.id.accountSettingsButton);
 
-		//Listening to button event
+		//Account settings button
 		accountSettingsButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View arg0) {
@@ -82,6 +74,7 @@ public class HomeActivity extends Activity {
 		
 		Button customersButton = (Button) findViewById(R.id.customersButton); 
 		
+		//Customer list button
 		customersButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -91,9 +84,10 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
-		Button manageAdsButton = (Button) findViewById(R.id.manageAds); 
+		Button manageDealsButton = (Button) findViewById(R.id.manageAds); 
 		
-		manageAdsButton.setOnClickListener(new View.OnClickListener() {
+		//Manage deals button
+		manageDealsButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -103,7 +97,7 @@ public class HomeActivity extends Activity {
 		});
 		
 		Button transactionsButton = (Button) findViewById(R.id.transactionsButton); 
-		
+		//Transaction history button
 		transactionsButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

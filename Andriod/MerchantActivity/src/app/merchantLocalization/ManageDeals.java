@@ -26,6 +26,12 @@ import app.utilities.RestClient;
 
 
 @SuppressLint("NewApi")
+/**
+ * Displays all ofthe Merchants deals.
+ * Merchant can enable/disable any deal
+ * 
+ * 
+ */
 public class ManageDeals extends Activity {
 	/** Called when the activity is first created. */
 
@@ -81,23 +87,26 @@ public class ManageDeals extends Activity {
 			CustomDialog cd = new CustomDialog(ManageDeals.this); 
 			cd.showNotificationDialog("Could not get username.");
 		}
-		  
+		
+		
 		JSONArray jsonArray = null;
 		try {
 			JSONObject json = new JSONObject();
 			json.put("merchant", userName);
-
+            
+			//Gets all deal infofor merchant
 			jsonArray = RestClient.connectToDatabase(
 					CommonUtilities.MERCHANTDEALS_URL, json);
 			
 		} catch (Exception e) {
 			CustomDialog cd3 = new CustomDialog(ManageDeals.this); 
-			cd3.showNotificationDialog("Failed here");
+			cd3.showNotificationDialog("Query Failed");
 		}
 		
 		
 		try {
 			for(int i = 0; i < jsonArray.length(); i++){
+				//Puts all data from query in to Strings
 				final String dealIndex = jsonArray.getJSONObject(i).getString(
 						"dealIndex");
 				final String title = jsonArray.getJSONObject(i).getString(
@@ -108,10 +117,13 @@ public class ManageDeals extends Activity {
 						"enabled");
 				tempEnabled = enabled;
 				
+				
 				TextView showDeal = new TextView(currentThis);
 				showDeal.setText((i+1) + ") " + title + ":\n" + content+ "\n_____________");
 				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				TableRow tempTableRow=new TableRow(getBaseContext());
+				
+				// 'Enabled/Disabled' button
 				final ToggleButton tempButton = new ToggleButton(this);
 				tempButton.setTextOn("Enabled");
 				tempButton.setTextOff("Disabled");
@@ -126,9 +138,11 @@ public class ManageDeals extends Activity {
 				   tempButton.setText("Disabled");
 			   }
 				
+			   //Called everytime togglebutton is clicked
 				tempButton.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 						
 					@Override
+					//Changes the deal that was clicked from enabled to disabled in the DB or vice versa
 					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 						JSONArray jsonArray2 = null;
 						try {

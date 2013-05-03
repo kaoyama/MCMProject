@@ -16,7 +16,12 @@ import app.utilities.CommonUtilities;
 import app.utilities.CustomDialog;
 import app.utilities.RestClient;
 
-
+/**
+ * Allows Merchant to Input a charge amount for a certain user.
+ * The User was already chosen from the customer list by the time this class is called.
+ * 
+ * 
+ */
 public class ChargeCustomer extends Activity {
 	/** Called when the activity is first created. */
 
@@ -27,22 +32,30 @@ public class ChargeCustomer extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.chargecustomer);
 		
+		//Gets the username that was saved to a text file
 		final String username = CommonUtilities.getUsername(ChargeCustomer.this); 
 		
 		Intent myIntent= getIntent(); // gets the previously created intent
 		customerName = myIntent.getStringExtra("customerName");
 		
+		//Gets the button that charges a customer
 		Button chargeButton = (Button) findViewById(R.id.chargeButton);
 		chargeButton.setText("Charge " + customerName);
 		
 		final EditText chargeAmount = (EditText) findViewById(R.id.chargeAmount);
 		
+		//Sets functionality for charge button
 		chargeButton.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View arg0) {
+				//Gets charge amount
 				final Editable price = chargeAmount.getText();
+				
+				//Confirms the charge for specified amount
 				AlertDialog.Builder builder = new AlertDialog.Builder(ChargeCustomer.this);
 				builder.setMessage("You are about to charge " + customerName + " for $" + price + "?")
 				.setTitle("Make Payment");
+				
+				//If charge is confirmed, it is sent to the database
 				builder.setPositiveButton("Charge", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						JSONArray jsonArray = null;
@@ -60,11 +73,13 @@ public class ChargeCustomer extends Activity {
 			       			cd3.showNotificationDialog("Failed To charge customer.");
 			       		}
 						
+						//Confirmation of successful charge
 						CustomDialog confirmation = new CustomDialog(ChargeCustomer.this); 
 		       			confirmation.showNotificationDialog("You have successfully charged " + customerName + " for " + price + ".");
 		       			chargeAmount.setText("");
 					}
-				});				
+				});
+				//If charge not confirmed, it is cancelled. Nothing is sent to database
 				builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						// User cancelled the dialog

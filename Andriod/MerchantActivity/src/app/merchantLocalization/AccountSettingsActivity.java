@@ -13,9 +13,14 @@ import android.graphics.Color;
 import android.location.*;
 import app.merchantLocalization.R;
 
-
+/**
+ * View Merchant Account Settings
+ * Currently just dummy data
+ * 
+ * 
+ */
 public class AccountSettingsActivity extends Activity {
-	/** Called when the activity is first created. */
+	
 
 
 	TextView username;
@@ -26,11 +31,10 @@ public class AccountSettingsActivity extends Activity {
 
 		Button homeButton = (Button) findViewById(R.id.homeButton);
 		 
-        //Listening to button event
         homeButton.setOnClickListener(new View.OnClickListener(){
  
             public void onClick(View arg0) {
-                //Starting a new Intent
+                //Sends user back to Home Page
                 Intent homeScreen = new Intent(getApplicationContext(), HomeActivity.class);
  
                 startActivity(homeScreen);
